@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FileText } from 'react-feather';
+import {Link} from 'react-router-dom'
  
 const Experience = () => {
     const [hasCopied, setHasCopied] = useState(false);
@@ -59,12 +60,14 @@ const Experience = () => {
                       </div>
                       <div className="flex justify-between items-center">
                         <div className="flex items-center gap-2">
-                          <span className="text-sm text-gray-400">Published: March 2024</span>
+                          <span className="text-sm text-gray-400">To Published: March 2025</span>
                           <span className="text-sm text-gray-400">•</span>
                           <span className="text-sm text-gray-400">15 min read</span>
                         </div>
-                        <a 
-                          href ="#"
+                        <Link
+                          to="/research"
+                          target= '_blank'
+                          rel="noopener noreferrer"
                           className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-black-300 text-white hover:bg-black-500 transition-colors"
                         >
                           View Paper
@@ -81,7 +84,7 @@ const Experience = () => {
                               d="M9 5l7 7-7 7" 
                             />
                           </svg>
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>
