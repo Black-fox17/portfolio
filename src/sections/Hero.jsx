@@ -1,7 +1,6 @@
 import React from 'react';
 import { Suspense } from 'react';
 import {Canvas} from '@react-three/fiber';
-import { Leva, useControls} from 'leva';
 import { PerspectiveCamera } from '@react-three/drei';
 import CanvasLoader from '../components/CanvasLoader';
 import { useMediaQuery } from 'react-responsive';
@@ -24,7 +23,6 @@ const Hero = () => {
                 <p className="hero_tag text-gray_gradient">Building Products & Brands</p>
             </div>
             <div className="w-full h-full absolute inset-0">
-              <Leva hidden/>
                 <Canvas className="w-full h-full">
                   <Suspense fallback={<CanvasLoader />}>
                     <PerspectiveCamera makeDefault position={[0, 0, 20]} />
