@@ -1,8 +1,37 @@
-# React + Vite
+# My Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my portfolio! Here you will find information about my projects, skills, and experience.
 
-Currently, two official plugins are available:
+## About Me
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+I am a passionate software developer with experience in various programming languages and technologies. I enjoy solving complex problems and building innovative solutions.
+
+## Skills
+
+- **Programming Languages:** Python, JavaScript, Java, C++
+- **Web Development:** HTML, CSS, React, Node.js
+- **Databases:** MySQL, MongoDB
+- **Tools & Technologies:** Git, Docker, Kubernetes, AWS
+<!-- 
+## Projects
+
+### Project 1: [Project Name]
+- **Description:** Brief description of the project.
+- **Technologies Used:** List of technologies used.
+- **Link:** [GitHub Repository](#)
+
+### Project 2: [Project Name]
+- **Description:** Brief description of the project.
+- **Technologies Used:** List of technologies used.
+- **Link:** [GitHub Repository](#)
+
+### Project 3: [Project Name]
+- **Description:** Brief description of the project.
+- **Technologies Used:** List of technologies used.
+- **Link:** [GitHub Repository](#) -->
+
+## Contact
+
+Feel free to reach out to me via [ayeleru1234@gmail.com](mailto:ayeleru1234@gmail.com)
+
+Thank you for visiting my portfolio!
