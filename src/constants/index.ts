@@ -107,6 +107,49 @@ export const navLinks = [
   
   export const myProjects = [
     {
+      title: 'SalamGym',
+      desc: 'AI Gym Analyzer is an innovative web platform designed to provide real-time feedback on workout postures. Users can upload videos of their exercise routines, which are analyzed using advanced pose detection and AI technologies to improve their fitness and reduce the risk of injuries.',
+      subdesc: 
+        'Built with React, TypeScript, and Vite on the frontend, and powered by FastAPI on the backend, AI Gym Analyzer processes user-uploaded workout videos with MediaPipe pose detection. The backend leverages an advanced LLM model to analyze user posture, delivering tailored text feedback highlighting key areas for improvement. The platform also includes a comprehensive user management system, based on a PostgreSQL database, which tracks session accuracy streaks and provides personalized insights for each user.',
+      href: 'https://aigymanalyzer-frontend.vercel.app/',
+      texture: '/textures/project/salamgym.mp4',
+      logo: "assets/logo/gym.svg",
+      github: "https://github.com/Black-fox17/AiCoach.git",
+      logoStyle: {
+        backgroundColor: '#101820',
+        border: '0.2px solid #1D3557',
+        boxShadow: '0px 0px 60px 0px #457B9D4D',
+      },
+      spotlight: '/assets/spotlight4.png',
+      tags: [
+        {
+          id: 1,
+          name: 'React.js',
+          path: '/assets/react.svg',
+        },
+        {
+          id: 2,
+          name: 'Tailwind',
+          path: '/assets/tailwindcss.png',
+        },
+        {
+          id: 4,
+          name: 'FastAPI',
+          path: '/assets/logo/fastapi.svg',
+        },
+        {
+          id: 5,
+          name: 'MediaPipe',
+          path: '/assets/logo/vision.svg',
+        },
+        {
+          id: 6,
+          name: 'PostgreSQL',
+          path: '/assets/postgresql.svg',
+        },
+      ],
+    },    
+    {
       title: 'SalamStocks - Stock Analysis Platform',
       desc: 'SalamStock is a comprehensive stock analysis and prediction platform designed to empower users with informed investment decisions. It provides an intuitive interface for analyzing historical stock performance and predicting future price trends for various stocks.',
       subdesc: 
@@ -114,6 +157,7 @@ export const navLinks = [
       ,href: 'https://stockanalysis-frontend.vercel.app/',
       texture: '/textures/project/stockanalysis.mp4',
       logo: "assets/logo/salamstock.svg",
+      github: "https://github.com/Black-fox17/Stockanalysis.git",
       logoStyle: {
         backgroundColor: '#0E1F38',
         border: '0.2px solid #0E2D58',
@@ -150,6 +194,7 @@ export const navLinks = [
       "href": "https://www.youtube.com/watch?v=example_demo",
       "texture": "/textures/project/salampick.mp4",
       "logo": "/assets/logo/loropiana.svg",
+      "github": "https://github.com/Black-fox17/Salampick",
       "logoStyle": {
         "backgroundColor": "#1A202C",
         "border": "0.2px solid #2D3748",
