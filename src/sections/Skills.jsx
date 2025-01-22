@@ -26,7 +26,7 @@ const Skills = () => {
         const resumeUrl = '/assets/resume.pdf';
         const link = document.createElement('a');
         link.href = resumeUrl;
-        link.download = 'resume.pdf';
+        link.download = 'ayeleru1234@gmail.com_cv.pdf';
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
