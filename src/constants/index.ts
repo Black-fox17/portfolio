@@ -108,7 +108,7 @@ export const navLinks = [
   export const myProjects = [
     {
       title: 'SalamGym',
-      desc: 'AI Gym Analyzer is an innovative web platform designed to provide real-time feedback on workout postures. Users can upload videos of their exercise routines, which are analyzed using advanced pose detection and AI technologies to improve their fitness and reduce the risk of injuries.',
+      desc: 'SalamGym is an innovative web platform designed to provide real-time feedback on workout postures. Users can upload videos of their exercise routines, which are analyzed using advanced pose detection and AI technologies to improve their fitness and reduce the risk of injuries.',
       subdesc: 
         'Built with React, TypeScript, and Vite on the frontend, and powered by FastAPI on the backend, AI Gym Analyzer processes user-uploaded workout videos with MediaPipe pose detection. The backend leverages an advanced LLM model to analyze user posture, delivering tailored text feedback highlighting key areas for improvement. The platform also includes a comprehensive user management system, based on a PostgreSQL database, which tracks session accuracy streaks and provides personalized insights for each user.',
       href: 'https://aigymanalyzer-frontend.vercel.app/',
@@ -145,7 +145,7 @@ export const navLinks = [
         {
           id: 6,
           name: 'PostgreSQL',
-          path: '/assets/postgresql.svg',
+          path: '/assets/logo/postgresql.svg',
         },
       ],
     },    
