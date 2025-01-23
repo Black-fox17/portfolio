@@ -23,7 +23,7 @@ const SkillCard = ({ skill }) => (
 const Skills = () => {
     const handleDownload = () => {
         // Replace with your actual resume PDF URL
-        const resumeUrl = '/assets/resume.pdf';
+        const resumeUrl = '/assets/ayeleru_cv.pdf';
         const link = document.createElement('a');
         link.href = resumeUrl;
         link.download = 'ayeleru1234@gmail.com_cv.pdf';
