@@ -145,7 +145,7 @@ export const navLinks = [
         {
           id: 5,
           name: 'TypeScript',
-          path: '/assets/typescript.svg',
+          path: '/assets/typescript.png',
         },
       ],
     },    
@@ -159,7 +159,7 @@ export const navLinks = [
       logo: "assets/logo/gym.svg",
       github: "https://github.com/Black-fox17/AiCoach.git",
       logoStyle: {
-        backgroundColor: '#101820',
+        backgroundColor: '#F3F4F6',
         border: '0.2px solid #1D3557',
         boxShadow: '0px 0px 60px 0px #457B9D4D',
       },
