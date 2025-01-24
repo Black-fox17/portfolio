@@ -114,7 +114,7 @@ export const navLinks = [
       href: 'https://salam-study.vercel.app/',
       texture: '/textures/project/SalamStudy.mp4',
       logo: "assets/logo/student.svg",
-      github: "https://github.com/Black-fox17/SalamStudy.git",
+      github: "https://github.com/Black-fox17/SalamStudy",
       logoStyle: {
         backgroundColor: '#F3F4F6',
         border: '0.2px solid #4B5563',
@@ -140,12 +140,12 @@ export const navLinks = [
         {
           id: 4,
           name: 'Gemini AI',
-          path: '/assets/logo/gemini.svg',
+          path: '/assets/logo/langchain.svg',
         },
         {
           id: 5,
           name: 'TypeScript',
-          path: '/assets/logo/typescript.svg',
+          path: '/assets/typescript.svg',
         },
       ],
     },    
@@ -163,7 +163,7 @@ export const navLinks = [
         border: '0.2px solid #1D3557',
         boxShadow: '0px 0px 60px 0px #457B9D4D',
       },
-      spotlight: '/assets/spotlight4.png',
+      spotlight: '/assets/spotlight2.png',
       tags: [
         {
           id: 1,
