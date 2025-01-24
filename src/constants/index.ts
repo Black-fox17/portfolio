@@ -107,6 +107,49 @@ export const navLinks = [
   
   export const myProjects = [
     {
+      title: 'SalamStudy',
+      desc: 'SalamStudy is an intelligent web application designed to transform educational slides into quiz questions, aiding students in efficient learning and preparation. Users can upload PDF slides, specify the discipline (course), and select the desired number of questions through a sleek, user-friendly interface.',
+      subdesc: 
+        'Built with React.js and TypeScript on the frontend, SalamStudy features a responsive and intuitive UI. The backend, powered by FastAPI, leverages Gemini AI to analyze slide content and generate high-quality quiz questions based on the selected course and the number of questions specified. At the end of each session, users receive detailed results and corrections for their attempted quizzes, making it a powerful tool for self-assessment and learning.',
+      href: 'https://salam-study.vercel.app/',
+      texture: '/textures/project/SalamStudy.mp4',
+      logo: "assets/logo/student.svg",
+      github: "https://github.com/Black-fox17/SalamStudy.git",
+      logoStyle: {
+        backgroundColor: '#F3F4F6',
+        border: '0.2px solid #4B5563',
+        boxShadow: '0px 0px 60px 0px #6B728E4D',
+      },
+      spotlight: '/assets/spotlight2.png',
+      tags: [
+        {
+          id: 1,
+          name: 'React.js',
+          path: '/assets/react.svg',
+        },
+        {
+          id: 2,
+          name: 'Tailwind',
+          path: '/assets/tailwindcss.png',
+        },
+        {
+          id: 3,
+          name: 'FastAPI',
+          path: '/assets/logo/fastapi.svg',
+        },
+        {
+          id: 4,
+          name: 'Gemini AI',
+          path: '/assets/logo/gemini.svg',
+        },
+        {
+          id: 5,
+          name: 'TypeScript',
+          path: '/assets/logo/typescript.svg',
+        },
+      ],
+    },    
+    {
       title: 'SalamGym',
       desc: 'SalamGym is an innovative web platform designed to provide real-time feedback on workout postures. Users can upload videos of their exercise routines, which are analyzed using advanced pose detection and AI technologies to improve their fitness and reduce the risk of injuries.',
       subdesc: 
