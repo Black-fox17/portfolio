@@ -234,7 +234,7 @@ export const navLinks = [
       "title": "SalamPick",
       "desc": "Salampick is a modern e-commerce platform that provides a seamless shopping experience for users and comprehensive admin tools for managing products, orders, and payments.",
       "subdesc": "Built with Laravel, PostgreSQL, and Tailwind Blade, ShopSphere offers powerful features including user authentication, product management, a dynamic cart, and Google payment integration, all wrapped in a beautifully styled interface.",
-      "href": "https://www.youtube.com/watch?v=example_demo",
+      "href": "https://salam-pick.onrender.com",
       "texture": "/textures/project/salampick.mp4",
       "logo": "/assets/logo/loropiana.svg",
       "github": "https://github.com/Black-fox17/Salampick",
