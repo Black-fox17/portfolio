@@ -107,6 +107,39 @@ export const navLinks = [
   
   export const myProjects = [
     {
+      title: 'SalamSignal',
+      desc: 'SalamSignal is an interactive web application designed to act as a frequency generator and tester. Users can select different waveforms such as sine, square, triangle, or sawtooth, adjust the frequency, and control the volume in real time. The application serves as a versatile tool for audio testing and signal simulation.',
+      subdesc: 
+        'Built entirely with React.js, SalamSignal offers a responsive and dynamic UI for waveform visualization and control. The app is simulated in C for precise testing, ensuring high accuracy in frequency generation and performance. It features a clean and intuitive interface, making it an excellent choice for hobbyists, engineers, and educators exploring signal processing concepts.',
+      href: 'https://salam-signal.vercel.app/',
+      texture: '/textures/project/salamsignal.mp4',
+      logo: "assets/logo/sound.svg",
+      github: "https://github.com/Black-fox17/SalamSignal",
+      logoStyle: {
+        backgroundColor: '#F3F4F6',
+        border: '0.2px solid #4B5563',
+        boxShadow: '0px 0px 60px 0px #6B728E4D',
+      },
+      spotlight: '/assets/spotlight2.png',
+      tags: [
+        {
+          id: 1,
+          name: 'React.js',
+          path: '/assets/react.svg',
+        },
+        {
+          id: 2,
+          name: 'Tailwind',
+          path: '/assets/tailwindcss.png',
+        },
+        {
+          id: 3,
+          name: 'C Simulation',
+          path: '/assets/logo/c.svg',
+        },
+      ],
+    },
+    {
       title: 'SalamStudy',
       desc: 'SalamStudy is an intelligent web application designed to transform educational slides into quiz questions, aiding students in efficient learning and preparation. Users can upload PDF slides, specify the discipline (course), and select the desired number of questions through a sleek, user-friendly interface.',
       subdesc: 
@@ -227,39 +260,6 @@ export const navLinks = [
           id: 4,
           name: 'Fastapi',
           path: '/assets/logo/fastapi.svg',
-        },
-      ],
-    },
-    {
-      title: 'SalamSignal',
-      desc: 'SalamSignal is an interactive web application designed to act as a frequency generator and tester. Users can select different waveforms such as sine, square, triangle, or sawtooth, adjust the frequency, and control the volume in real time. The application serves as a versatile tool for audio testing and signal simulation.',
-      subdesc: 
-        'Built entirely with React.js, SalamSignal offers a responsive and dynamic UI for waveform visualization and control. The app is simulated in C for precise testing, ensuring high accuracy in frequency generation and performance. It features a clean and intuitive interface, making it an excellent choice for hobbyists, engineers, and educators exploring signal processing concepts.',
-      href: 'https://salam-signal.vercel.app/',
-      texture: '/textures/project/salamsignal.mp4',
-      logo: "assets/logo/sound.svg",
-      github: "https://github.com/Black-fox17/SalamSignal",
-      logoStyle: {
-        backgroundColor: '#F3F4F6',
-        border: '0.2px solid #4B5563',
-        boxShadow: '0px 0px 60px 0px #6B728E4D',
-      },
-      spotlight: '/assets/spotlight2.png',
-      tags: [
-        {
-          id: 1,
-          name: 'React.js',
-          path: '/assets/react.svg',
-        },
-        {
-          id: 2,
-          name: 'Tailwind',
-          path: '/assets/tailwindcss.png',
-        },
-        {
-          id: 3,
-          name: 'C Simulation',
-          path: '/assets/logo/c.svg',
         },
       ],
     },
