@@ -2,7 +2,7 @@ import React from 'react';
 import Main from './sections/main.jsx'
 import Research from './sections/Research.jsx'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Analytics } from "@vercel/analytics/react"
+
 
 function App (){
   return(
