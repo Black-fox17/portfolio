@@ -113,7 +113,7 @@ export const navLinks = [
       "href": "https://salam-summary-two.vercel.app/",
       "texture": "/textures/project/salamanalayzer.mp4",
       "logo": "assets/logo/brain.svg",
-      "github": "https://github.com/Black-fox17/SalamAnalyzer",
+      "github": "https://github.com/Black-fox17/SalamSummary",
       "logoStyle": {
         "backgroundColor": "#F3F4F6",
         "border": "0.2px solid #4B5563",
