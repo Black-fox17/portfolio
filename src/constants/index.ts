@@ -107,6 +107,43 @@ export const navLinks = [
   
   export const myProjects = [
     {
+      "title": "SalamAnalyzer",
+      "desc": "SalamAnalyzer is an advanced web application that processes audio recordings and PDF slide documents to generate concise summaries. Additionally, users can engage in interactive conversations with the document, making it a powerful tool for understanding and analyzing content efficiently.",
+      "subdesc": "Built with React.js and TypeScript on the frontend, SalamAnalyzer features an intuitive UI designed for seamless user experience. The backend, powered by FastAPI, integrates Gemini AI for accurate text extraction and summarization. Users can upload audio or PDF files and receive structured summaries along with a chat interface to further explore the document’s content.",
+      "href": "https://salam-summary-two.vercel.app/",
+      "texture": "/textures/project/salamanalayzer.mp4",
+      "logo": "assets/logo/brain.svg",
+      "github": "https://github.com/Black-fox17/SalamAnalyzer",
+      "logoStyle": {
+        "backgroundColor": "#F3F4F6",
+        "border": "0.2px solid #4B5563",
+        "boxShadow": "0px 0px 60px 0px #6B728E4D"
+      },
+      "spotlight": "/assets/spotlight2.png",
+      "tags": [
+        {
+          "id": 1,
+          "name": "React.js",
+          "path": "/assets/react.svg"
+        },
+        {
+          "id": 2,
+          "name": "Tailwind",
+          "path": "/assets/tailwindcss.png"
+        },
+        {
+          "id": 3,
+          "name": "FastAPI",
+          "path": "/assets/logo/fastapi.svg"
+        },
+        {
+          "id": 4,
+          "name": "Gemini AI",
+          "path": "/assets/logo/langchain.svg"
+        }
+      ]
+    },
+    {
       title: 'SalamSignal',
       desc: 'SalamSignal is an interactive web application designed to act as a frequency generator and tester. Users can select different waveforms such as sine, square, triangle, or sawtooth, adjust the frequency, and control the volume in real time. The application serves as a versatile tool for audio testing and signal simulation.',
       subdesc: 
