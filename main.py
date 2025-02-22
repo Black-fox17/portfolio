@@ -40,7 +40,7 @@ def get_visitor_hash(request: Request) -> str:
     visitor_id = f"{ip}-{user_agent}"
     return hashlib.md5(visitor_id.encode()).hexdigest()
 
-@app.post("/api/track-visit")
+@app.post("/")
 async def track_visit(request: Request):
     visitor_hash = get_visitor_hash(request)
     page_path = request.headers.get('referer', '/')
