@@ -1,7 +1,7 @@
 // analytics.js
 export const trackPageView = async () => {
     try {
-      await fetch('https://portfolio-wahz.onrender.com/api/track-visit', {
+      await fetch('https://portfolio-wahz.onrender.com/', {
         method: 'POST',
         credentials: 'include',
         headers: {
