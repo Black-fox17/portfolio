@@ -60,7 +60,7 @@ const Experience = () => {
                       </div>
                       <div className="flex justify-between items-center">
                         <div className="flex items-center gap-2">
-                          <span className="text-sm text-gray-400">To Published: March 2025</span>
+                          <span className="text-sm text-gray-400">To Published: June 2025</span>
                           <span className="text-sm text-gray-400">•</span>
                           <span className="text-sm text-gray-400">15 min read</span>
                         </div>

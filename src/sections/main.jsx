@@ -7,13 +7,14 @@ import Contact from './Contact.jsx'
 import Footer from './Footer.jsx'
 import Skills from './Skills.jsx'
 import Experience from './Experience.jsx';
-
+import ProjectCarousel from '../components/ProjectCarousel.tsx';
 function Main (){
   return(
     <main className="max-w-7xl mx-auto text-center">
       <Navbar />
       <Hero />
       <About />
+      <ProjectCarousel />
       <Project />
       <Experience/>
       <Skills />
