@@ -1,6 +1,8 @@
 /* Import KaTeX CSS for LaTeX rendering */
 @import url('https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css');
-
+.markdown > * {
+  all: revert;
+}
 /* Blog Container */
 .blog-container {
   min-height: 100vh;
@@ -206,6 +208,17 @@
   font-size: 18px;
   line-height: 1.8;
   color: #333;
+}
+
+.blog-post-content a {
+  color: #2563eb;      /* blue */
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.blog-post-content a:hover {
+  color: #1e40af;
+  text-decoration: underline;
 }
 
 .blog-post-content h1 {

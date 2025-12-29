@@ -17,12 +17,12 @@ const BlogList = () => {
 
             <div className="blog-content">
                 <header className="blog-header">
-                    <h1 className="blog-title">Blog</h1>
+                    <h1 className="blog-title">The Deep End</h1>
                     <p className="blog-subtitle">
                         Thoughts on mathematics, deep learning, computer vision, large language models, and backend architecture
                     </p>
                     <div className="blog-author-info">
-                        <p className="author-name">by Ayeleru Abdulsalam Oluwaseun</p>
+                        <p className="author-name">by <a href = "mailto:ayeleru1234@gmail.com">Ayeleru Abdulsalam Oluwaseun</a></p>
                     </div>
                 </header>
 

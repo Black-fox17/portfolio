@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
@@ -11,9 +11,15 @@ import './BlogStyles.css';
 
 const BlogPost = () => {
     const { id } = useParams<{ id: string }>();
+    const [content, setContent] = useState('');
     const navigate = useNavigate();
 
     const post = blogPosts.find((p) => p.id === id);
+
+    useEffect(() => {
+        post?.file().then((res) => setContent(res.default));
+    }, [post]);
+
 
     if (!post) {
         return (
@@ -62,6 +68,7 @@ const BlogPost = () => {
 
                     <div className="blog-post-content">
                         <ReactMarkdown
+                        
                             remarkPlugins={[remarkMath, remarkGfm]}
                             rehypePlugins={[rehypeKatex, rehypeRaw]}
                             components={{
@@ -78,7 +85,7 @@ const BlogPost = () => {
                                 },
                             }}
                         >
-                            {post.content}
+                            {content}
                         </ReactMarkdown>
                     </div>
 

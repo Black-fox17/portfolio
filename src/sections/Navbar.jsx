@@ -1,18 +1,55 @@
 import React from 'react';
 import { useState } from 'react';
 import { navLinks } from '../constants/index.ts';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-const NavItems = ({ onClick = () => {} }) => (
+const NavItems = ({ onClick = () => {} }) => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNav = (href) => (e) => {
+    e.preventDefault();
+    onClick();
+
+    // If href is a full path
+    if (href.startsWith('/')) {
+      navigate(href);
+      return;
+    }
+
+    // Hash navigation (#about, #work, etc.)
+    if (location.pathname !== '/') {
+      // Go home first, then scroll
+      navigate('/');
+      setTimeout(() => {
+        const el = document.querySelector(href);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 50);
+    } else {
+      // Already on home → scroll immediately
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  return (
     <ul className="nav-ul">
       {navLinks.map((item) => (
         <li key={item.id} className="nav-li">
-          <a href={item.href} className="nav-li_a" onClick={onClick} target = {item.target ? item.target : ''}>
+          <a
+            href={item.href}
+            className="nav-li_a"
+            onClick={handleNav(item.href)}
+          >
             {item.name}
           </a>
         </li>
       ))}
     </ul>
   );
+};
+
+
 
 function Navbar(){
     const [isOpen, setIsOpen] = useState(false);
