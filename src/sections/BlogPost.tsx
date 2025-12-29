@@ -20,7 +20,6 @@ const BlogPost = () => {
         post?.file().then((res) => setContent(res.default));
     }, [post]);
 
-
     if (!post) {
         return (
             <div className="blog-container">
@@ -68,7 +67,6 @@ const BlogPost = () => {
 
                     <div className="blog-post-content">
                         <ReactMarkdown
-                        
                             remarkPlugins={[remarkMath, remarkGfm]}
                             rehypePlugins={[rehypeKatex, rehypeRaw]}
                             components={{

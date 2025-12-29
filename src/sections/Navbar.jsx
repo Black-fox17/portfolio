@@ -11,15 +11,14 @@ const NavItems = ({ onClick = () => {} }) => {
     e.preventDefault();
     onClick();
 
-    // If href is a full path
     if (href.startsWith('/')) {
       navigate(href);
       return;
     }
 
-    // Hash navigation (#about, #work, etc.)
+  
     if (location.pathname !== '/') {
-      // Go home first, then scroll
+    
       navigate('/');
       setTimeout(() => {
         const el = document.querySelector(href);
@@ -68,7 +67,7 @@ function Navbar(){
                         onClick={toggleMenu}
                         className="text-neutral-400 hover:text-white focus:outline-none sm:hidden flex"
                         aria-label="Toggle menu">
-                        <img src={isOpen ? 'assets/close.svg' : 'assets/menu.svg'} alt="toggle" className="w-6 h-6" />
+                        <img src={isOpen ? '/assets/close.svg' : '/assets/menu.svg'} alt="toggle" className="w-6 h-6" />
                     </button>
 
                     <nav className="sm:flex hidden">
