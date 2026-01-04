@@ -18,4 +18,13 @@ export const blogPosts: BlogPost[] = [
         excerpt: "A practical walkthrough of byte pair encoding (BPE), showing how raw text is transformed into tokens and why tokenization not characters is what language models actually see.",
         file: () => import('./posts/bpe.md?raw')
   },
+  {
+    id: "2",
+    title: "From Distributional Hypothesis to Code: Implementing Skip-Gram",
+    date: "2026-01-04",
+    readTime: "6 min read",
+    category: "Natural Language Processing",
+    excerpt: "A practical walkthrough of implementing Skip-Gram, a key component of Word2Vec, using PyTorch.",
+    file: () => import('./posts/learned_embedding.md?raw')
+  },
 ];
