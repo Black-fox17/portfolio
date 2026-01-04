@@ -25,7 +25,7 @@ There are two main flavors of Word2Vec:
 2.  **Skip-Gram:** The model sees the center word and tries to predict the surrounding context words.
     - *Example:* Input "brown", Predict ["The", "quick", "fox"].
 
-In this implementation and [Trainer](https://github.com/Black-fox17/llm_scratch/blob/main/embedding/skip-gram/trainer.py), we focus on **Skip-Gram**, which often performs better for rare words and smaller datasets.
+In this implementation and [Trainer](https://github.com/Black-fox17/llm_scratch/blob/main/embeddings/skip_gram/trainer.py), we focus on **Skip-Gram**, which often performs better for rare words and smaller datasets.
 
 ### A. Distributional Objective (The Math)
 
@@ -49,7 +49,7 @@ $$
 
 ## 3. Training Methods
 
-We implemented two ways to train this in [Trainer](https://github.com/Black-fox17/llm_scratch/blob/main/embedding/skip-gram/trainer.py).
+We implemented two ways to train this in [Trainer](https://github.com/Black-fox17/llm_scratch/blob/main/embeddings/skip_gram/trainer.py).
 
 ### Method 1: Full Softmax (The "Correct" but Slow Way)
 
@@ -125,7 +125,7 @@ $$
 L_{CBOW} = \log \sigma(u_{w_c}^\top v_{C}) + \sum_{k=1}^{K} \log \sigma(-u_{w_k}^\top v_{C})
 $$
 
-## 4. Implementation Details [Trainer](https://github.com/Black-fox17/llm_scratch/blob/main/embedding/skip-gram/trainer.py)
+## 4. Implementation Details [Trainer](https://github.com/Black-fox17/llm_scratch/blob/main/embeddings/skip_gram/trainer.py)
 
 In our `SkipGramTrainer` class:
 1.  **`initialize_weights`**: Creates `W_in` and `W_out` as random matrices.
@@ -153,10 +153,10 @@ Modern LLMs (like BERT, GPT, and modern Gemini) use the **Transformer** architec
 ## Appendix: Visualizations
 
 ### Appendix A: Word Clustering Before Training
-![Word Clustering Before Training](../../../public/blog/without.png)
+![Word Clustering Before Training](/blog/without.png)
 
 ### Appendix B: Word Clustering After Training
-![Word Clustering After Training](../../../public/blog/with.png)
+![Word Clustering After Training](/blog/with.png)
 
 **Thanks for reading!**
 
