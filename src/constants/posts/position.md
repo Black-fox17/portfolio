@@ -1,8 +1,8 @@
 # Visualizing Positional Encodings: What Actually Changes Inside a Transformer
 
-Transformers are a type of neural network used for natural language processing (NLP). They came as a huge advancement to the field of NLP and became the goto model for NLP tasks like machine translation, text summarization, question answering, and more—replacing the previous state of the art(SOTA) models like Recurrent Neural Networks and Long Short Term Memory networks.
+Transformers are a type of neural network used for natural language processing (NLP). They came as a huge advancement to the field of NLP and became the goto model for NLP tasks like machine translation, text summarization, question answering, and more, replacing the previous state of the art(SOTA) models like Recurrent Neural Networks and Long Short Term Memory networks.
 
-In previous models, they were sequential models which means they processed words one by one and memorized the order of the sequence. Transformers do this differently: they process words in parallel and compute attention for each word. This makes them permutation invariant—to the model, the sequence is just a cloud of data points.
+In previous models, they were sequential models which means they processed words one by one and memorized the order of the sequence. Transformers do this differently: they process words in parallel and compute attention for each word. This makes them permutation invariant to the model, the sequence is just a cloud of data points.
 
 If we don't tell the transformer model where each word is located, sentences like "The cat sat on the chair" will be the same as "The chair on sat the cat," or "The man bit the dog" and "The dog bit the man." We can notice the incoherent manner of these sentences and how much position matters.
 
@@ -12,7 +12,7 @@ Transformers fix this order problem by introducing **Positional Encoding** to th
 
 In the transformer architecture released by Vaswani et al. in 2017 in a paper titled "Attention is All You Need," they made use of **Sinusoidal Positional Encoding**, which we'll get to in a second.
 
-Over the years, researchers in the field have found faults in each approach, particularly with the problem of **extrapolation**—how it performs on unseen data from its training and how it could scale in sequence length. This has led to many techniques for doing positional encoding.
+Over the years, researchers in the field have found faults in each approach, particularly with the problem of **extrapolation**— how it performs on unseen data from its training and how it could scale in sequence length. This has led to many techniques for doing positional encoding.
 
 In this post, I'll be discussing four of these with visualization:
 
@@ -50,7 +50,7 @@ By varying the frequency of the wavelengths across dimensions, we can create a r
 
 You can see this in the visualization below:
 
-![Sinusoidal Visualization 3D](/blog/with_sinuisoidal_position.gif)
+![Sinusoidal Visualization 3D](/blog/with_sinuisodal_position.gif)
 
 The values computed from the formula are added to our word token embeddings, contributing to its absolute nature. This leads to an additional task for the model to unmix the position from the semantic meaning.
 
@@ -62,7 +62,7 @@ Research has shown relative encoding works best at positional encoding compared 
 
 Learned embeddings was an alternative to the sinusoidal PE. It was an approach released alongside sinusoidal in the hope to **LEARN** position. This makes it a stochastic model, different from how our sinusoidal model works.
 
-The idea sounds pretty decent. As we know, a trained model will definitely perform better than a computed function in learning complex relationships. This was proven true—not only were positions in sequences learned during training, but it also gives the model more flexibility to memorize positional patterns during training. For example, a word that appears at the beginning of a sequence has a relationship to the word that appears at the end. 
+The idea sounds pretty decent. As we know, a trained model will definitely perform better than a computed function in learning complex relationships. This was proven true, not only were positions in sequences learned during training, but it also gives the model more flexibility to memorize positional patterns during training. For example, a word that appears at the beginning of a sequence has a relationship to the word that appears at the end. 
 
 Well, this does sound really great and will contribute to the performance of the model. You might ask: why is this not the goto approach to PE since it performs better than sinusoidal in capturing relationships and was invented by the same Vaswani et al. team?
 
@@ -204,7 +204,7 @@ So the model naturally learns:
 
 Without learning positional parameters.
 
-It extrapolates well for longer sequences too. No tables to overflow. No frequencies to alias—just a simple nudge in the attention computation.
+It extrapolates well for longer sequences too. No tables to overflow. No frequencies to alias, just a simple nudge in the attention computation.
 
 The idea works well. It allows us to introduce a simple bias to the attention score to nudge the model's performance towards position and could extrapolate well.
 
