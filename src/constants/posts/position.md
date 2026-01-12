@@ -1,6 +1,6 @@
 # Visualizing Positional Encodings: What Actually Changes Inside a Transformer
 
-Transformers are a type of neural network used for natural language processing (NLP). They came as a huge advancement to the field of NLP and became the go-to model for NLP tasks like machine translation, text summarization, question answering, and more—replacing the previous state of the art(SOTA) models like Recurrent Neural Networks and Long Short-Term Memory networks.
+Transformers are a type of neural network used for natural language processing (NLP). They came as a huge advancement to the field of NLP and became the goto model for NLP tasks like machine translation, text summarization, question answering, and more—replacing the previous state of the art(SOTA) models like Recurrent Neural Networks and Long Short Term Memory networks.
 
 In previous models, they were sequential models which means they processed words one by one and memorized the order of the sequence. Transformers do this differently: they process words in parallel and compute attention for each word. This makes them permutation invariant—to the model, the sequence is just a cloud of data points.
 
@@ -25,7 +25,7 @@ In this post, I'll be discussing four of these with visualization:
 
 ## 1. Sinusoidal Positional Encoding
 
-Sinusoidal, like I said, was introduced in 2017 in the original transformer paper as the go-to way for positional encoding, and there was a major reason behind choosing it. It was intended to support extrapolation, but later work showed that absolute encodings degrade in attention quality at longer contexts compared to relative methods.
+Sinusoidal, like I said, was introduced in 2017 in the original transformer paper as the goto way for positional encoding, and there was a major reason behind choosing it. It was intended to support extrapolation, but later work showed that absolute encodings degrade in attention quality at longer contexts compared to relative methods.
 
 The idea behind it was pretty simple. It follows a basic deterministic computation, i.e., for a given `seq_length` and `d_model`, compute the position embeddings using the formula:
 
@@ -41,7 +41,7 @@ Where:
 - **pos**: The position of the word in the sentence (for example, 0 for the first word, 1 for the second, and so on)
 - **i**: The dimension index of the embedding vector, maps to column index. `2i` will indicate an even position and `2i+1` will indicate an odd position
 - **d_model**: The predefined dimensionality of the token embeddings (for example, 512)
-- **10000**: A user-defined scalar value
+- **10000**: A user defined scalar value
 - **PE**: Position function for mapping position `pos` in the input sequence to get the positional mapping
 
 The reason behind this approach is because sin and cosine are periodic functions. They are smooth and continuous: small changes in input result in small changes in output, which gives us a way to represent positions in a differentiable space and prevents explosion of signals, constraining the values between [-1, 1].
@@ -50,7 +50,7 @@ By varying the frequency of the wavelengths across dimensions, we can create a r
 
 You can see this in the visualization below:
 
-![Sinusoidal Visualization 3D](/blog/with_sinusoidal_position.gif)
+![Sinusoidal Visualization 3D](/blog/with_sinuisoidal_position.gif)
 
 The values computed from the formula are added to our word token embeddings, contributing to its absolute nature. This leads to an additional task for the model to unmix the position from the semantic meaning.
 
@@ -64,7 +64,7 @@ Learned embeddings was an alternative to the sinusoidal PE. It was an approach r
 
 The idea sounds pretty decent. As we know, a trained model will definitely perform better than a computed function in learning complex relationships. This was proven true—not only were positions in sequences learned during training, but it also gives the model more flexibility to memorize positional patterns during training. For example, a word that appears at the beginning of a sequence has a relationship to the word that appears at the end. 
 
-Well, this does sound really great and will contribute to the performance of the model. You might ask: why is this not the go to approach to PE since it performs better than sinusoidal in capturing relationships and was invented by the same Vaswani et al. team?
+Well, this does sound really great and will contribute to the performance of the model. You might ask: why is this not the goto approach to PE since it performs better than sinusoidal in capturing relationships and was invented by the same Vaswani et al. team?
 
 The simple answer here is **it couldn't extrapolate to a longer input sequence at all**.
 
@@ -143,7 +143,7 @@ $$x' = (x'_{2i}, x'_{2i+1}, x'_{2i+2}, x'_{2i+3}, ..., x'_{d-2}, x'_{d-1})$$
 
 That's just the math. We use the rotary matrix to rotate each pair of elements.
 
-In the self-attention mechanism, we rotate the Q and K to be Q' and K', and attention mechanism is computed as usual:
+In the selfattention mechanism, we rotate the Q and K to be Q' and K', and attention mechanism is computed as usual:
 
 $$A = \frac{Q'K'^T}{\sqrt{d}}$$
 
@@ -170,14 +170,14 @@ That's it.
 Where:
 - **i** = query position
 - **j** = key position
-- **m_h** = head-specific slope
+- **m_h** = head specific slope
 In practice, slopes are deterministically assigned so earlier heads attend locally while later heads attend globally
 **Far tokens → lower score**  
 **Near tokens → higher score**
 
 No embeddings. No rotations.
 
-Self-attention already computes similarity. ALiBi just says:
+Selfattention already computes similarity. ALiBi just says:
 
 > "Closer tokens should be preferred, linearly."
 
@@ -186,7 +186,7 @@ Self-attention already computes similarity. ALiBi just says:
 The bias:
 - Is **relative** (depends only on distance)
 - Each attention head gets a different slope:
-  - **Small slope** → long-range attention
+  - **Small slope** → long range attention
   - **Large slope** → local attention
 
 **Typical construction (conceptual):**
@@ -214,7 +214,7 @@ The idea works well. It allows us to introduce a simple bias to the attention sc
 
 Currently in the industry, **RoPE and ALiBi dominate modern large language models but Rope is more preffered in the industry** because of its approach with geometry. ALiBi, though it works well on large contextual lengths, introduces a bias to the attention strength, whereas in RoPE we are rotating the vector in the dimension space and showing rotational and complex relationships better than any technique.
 
-And we can also achieve the same extrapolation found in ALiBi with **NTK-aware scaled RoPE**.
+And we can also achieve the same extrapolation found in ALiBi with **NTK aware scaled RoPE**.
 
 Other techniques also exist, like **NoPE** (No Positional Encoding) you might want to check it out!
 
