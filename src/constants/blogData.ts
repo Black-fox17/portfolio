@@ -31,7 +31,7 @@ export const blogPosts: BlogPost[] = [
     id: "3",
     title: "Visualizing Positional Encodings: What Actually Changes Inside a Transformer",
     date: "2026-01-12",
-    readTime: "6 min read",
+    readTime: "7 min read",
     category: "Natural Language Processing",
     excerpt: "A deep dive into the inner workings of positional encodings in transformers, exploring the impact of different encoding strategies on model performance.",
     file: () => import('./posts/position.md?raw')
