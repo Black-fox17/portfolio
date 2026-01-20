@@ -7,6 +7,7 @@ import rehypeKatex from 'rehype-katex';
 import rehypeRaw from 'rehype-raw';
 import { blogPosts } from '../constants/blogData';
 import Navbar from './Navbar';
+import { Helmet } from 'react-helmet-async';
 import './BlogStyles.css';
 
 const BlogPost = () => {
@@ -41,6 +42,24 @@ const BlogPost = () => {
             <Navbar />
 
             <div className="blog-content">
+                <Helmet>
+                    <title>{post.title} | Ayeleru Abdulsalam</title>
+                    <meta name="description" content={post.excerpt} />
+                    <link rel="canonical" href={`https://salam-portfolio-three.vercel.app/blog/${post.id}`} />
+
+                    {/* Open Graph / Facebook */}
+                    <meta property="og:type" content="article" />
+                    <meta property="og:url" content={`https://salam-portfolio-three.vercel.app/blog/${post.id}`} />
+                    <meta property="og:title" content={post.title} />
+                    <meta property="og:description" content={post.excerpt} />
+                    <meta property="og:site_name" content="Ayeleru Abdulsalam Portfolio" />
+
+                    {/* Twitter */}
+                    <meta name="twitter:card" content="summary_large_image" />
+                    <meta name="twitter:url" content={`https://salam-portfolio-three.vercel.app/blog/${post.id}`} />
+                    <meta name="twitter:title" content={post.title} />
+                    <meta name="twitter:description" content={post.excerpt} />
+                </Helmet>
                 <article className="blog-post">
                     <button onClick={() => navigate('/blog')} className="back-button">
                         ← Back to Blog

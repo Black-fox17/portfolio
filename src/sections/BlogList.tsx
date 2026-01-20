@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { blogPosts } from '../constants/blogData';
 import Navbar from './Navbar';
+import { Helmet } from 'react-helmet-async';
 import './BlogStyles.css';
 
 const BlogList = () => {
@@ -16,13 +17,23 @@ const BlogList = () => {
             <Navbar />
 
             <div className="blog-content">
+                <Helmet>
+                    <title>The Deep End - Blog | Ayeleru Abdulsalam</title>
+                    <meta name="description" content="Thoughts on mathematics, deep learning, computer vision, large language models, and backend architecture by Ayeleru Abdulsalam." />
+                    <link rel="canonical" href="https://salam-portfolio-three.vercel.app/blog" />
+
+                    <meta property="og:type" content="website" />
+                    <meta property="og:url" content="https://salam-portfolio-three.vercel.app/blog" />
+                    <meta property="og:title" content="The Deep End - Blog | Ayeleru Abdulsalam" />
+                    <meta property="og:description" content="Thoughts on mathematics, deep learning, computer vision, large language models, and backend architecture." />
+                </Helmet>
                 <header className="blog-header">
                     <h1 className="blog-title">The Deep End</h1>
                     <p className="blog-subtitle">
                         Thoughts on mathematics, deep learning, computer vision, large language models, and backend architecture
                     </p>
                     <div className="blog-author-info">
-                        <p className="author-name">by <a href = "mailto:ayeleru1234@gmail.com">Ayeleru Abdulsalam Oluwaseun</a></p>
+                        <p className="author-name">by <a href="mailto:ayeleru1234@gmail.com">Ayeleru Abdulsalam Oluwaseun</a></p>
                     </div>
                 </header>
 
