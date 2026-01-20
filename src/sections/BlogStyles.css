@@ -4,14 +4,15 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden;
   width: 100%;
   margin: 0;
   padding: 0;
 }
 
-.markdown > * {
+.markdown>* {
   all: revert;
 }
 
@@ -222,6 +223,7 @@ html, body {
   font-size: 18px;
   line-height: 1.8;
   color: #333;
+  text-align: justify;
   max-width: 100%;
   overflow-x: hidden;
   word-wrap: break-word;
@@ -315,7 +317,7 @@ html, body {
   white-space: pre;
 }
 
-.blog-post-content :not(pre) > code {
+.blog-post-content :not(pre)>code {
   background: #f8f8f8;
   padding: 3px 6px;
   border-radius: 3px;
