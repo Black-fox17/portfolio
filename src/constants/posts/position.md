@@ -218,6 +218,11 @@ And we can also achieve the same extrapolation found in ALiBi with **NTK aware s
 
 Other techniques also exist, like **NoPE** (No Positional Encoding) you might want to check it out!
 
+
+Updates
+
+DRoPE just dropped by team at Sakana Ai 
+
 You can find a the code used for demonstration here [Position](https://github.com/Black-fox17/llm_scratch/blob/main/embeddings/positional_embedding/position.py)
 **Thanks for reading!**
 

@@ -36,4 +36,13 @@ export const blogPosts: BlogPost[] = [
     excerpt: "A deep dive into the inner workings of positional encodings in transformers, exploring the impact of different encoding strategies on model performance.",
     file: () => import('./posts/position.md?raw')
   },
+  {
+    id: "4",
+    title: "Attention is All You Need: Understanding the Transformer Architecture",
+    date: "2026-01-20",
+    readTime: "10 min read",
+    category: "Natural Language Processing",
+    excerpt: "A deep dive into the inner workings of transformers",
+    file: () => import('./posts/transformer.md?raw')
+  },
 ];
