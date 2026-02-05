@@ -45,4 +45,13 @@ export const blogPosts: BlogPost[] = [
     excerpt: "A deep dive into the inner workings of transformers",
     file: () => import('./posts/transformer.md?raw')
   },
+  {
+    id: "5",
+    title: "Modern Inference Optimizations: KV Cache and Sliding Window Attention",
+    date: "2026-02-05",
+    readTime: "7 min read",
+    category: "Natural Language Processing",
+    excerpt: "Exploring the latest optimizations in LLM inference, including KV Cache and Sliding Window Attention.",
+    file: () => import('./posts/kv_cache.md?raw')
+  },
 ];
