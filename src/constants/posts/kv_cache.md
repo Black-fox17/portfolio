@@ -23,7 +23,7 @@ The Key Value Cache (KV Cache) aims to fix the $O(T^2)$ computational bottleneck
 Below is a visualization from huggingface showing the KV Cache data structure.
 
 Here is a comparison of the two methods. The first video shows the without KV Cache, and the second shows with KV Cache.
-![KV Cache](/blog/cache/without.mp4)
+![KV Cache](/blog/without.mp4)
 
 ![KV Cache](/blog/cache/with.mp4)
 
@@ -121,6 +121,8 @@ This efficiency allows systems like vLLM to serve **10–100x** more concurrent 
 Optimizing inference is not just about raw compute; it is about smart resource management. Techniques like KV Cache, Sliding Window Attention, and Paged Attention (vLLM) shift the focus from brute-force calculation to efficient memory scheduling and data retrieval. As heavy inference engines evolve, understanding these low level mechanics becomes crucial for deploying scalable LLM applications.
 
 You can find a the code used for demonstration here [here](https://github.com/Black-fox17/llm_scratch)
+
+
 **Thanks for reading!**
 
 If you have any questions or suggestions, you can reach out to me via email at  
