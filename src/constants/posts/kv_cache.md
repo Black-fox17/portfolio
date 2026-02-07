@@ -23,9 +23,9 @@ The Key Value Cache (KV Cache) aims to fix the $O(T^2)$ computational bottleneck
 Below is a visualization from huggingface showing the KV Cache data structure.
 
 Here is a comparison of the two methods. The first video shows the without KV Cache, and the second shows with KV Cache.
-![KV Cache](/blog/without.mp4)
+![without KV Cache](/blog/cache/without.mp4)
 
-![KV Cache](/blog/cache/with.mp4)
+![With KV Cache](/blog/cache/with.mp4)
 
 Caching the key-value pairs does not degrade the semantics of the generation if done correctly. We are not modifying the training process, but rather optimizing the inference stage.
 

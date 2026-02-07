@@ -89,12 +89,38 @@ const BlogPost = () => {
                             remarkPlugins={[remarkMath, remarkGfm]}
                             rehypePlugins={[rehypeKatex, rehypeRaw]}
                             components={{
-                                code({ node, inline, className, children, ...props }) {
-                                    return inline ? (
-                                        <code className={className} {...props}>
-                                            {children}
-                                        </code>
-                                    ) : (
+                                img({ src, alt }) {
+                                    if (!src) return null;
+
+                                    const isVideo = src.endsWith('.mp4') || src.endsWith('.webm') || src.endsWith('.ogg');
+
+                                    if (isVideo) {
+                                        return (
+                                            <video
+                                                src={src}
+                                                controls
+                                                autoPlay
+                                                loop
+                                                muted
+                                                playsInline
+                                                style={{ maxWidth: '100%', borderRadius: '8px' }}
+                                            >
+                                                Sorry, your browser does not support embedded videos.
+                                            </video>
+                                        );
+                                    }
+
+                                    return (
+                                        <img
+                                            src={src}
+                                            alt={alt ?? ''}
+                                            style={{ maxWidth: '100%' }}
+                                        />
+                                    );
+                                },
+
+                                code({ inline, className, children, ...props }) {
+                                    return (
                                         <code className={className} {...props}>
                                             {children}
                                         </code>
@@ -104,6 +130,7 @@ const BlogPost = () => {
                         >
                             {content}
                         </ReactMarkdown>
+
                     </div>
 
                     <footer className="blog-post-footer">

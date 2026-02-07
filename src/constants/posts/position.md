@@ -48,7 +48,7 @@ The reason behind this approach is because sin and cosine are periodic functions
 
 By varying the frequency of the wavelengths across dimensions, we can create a rich, multiscale representation of position. Adding these computed deterministic values to our tokens removes the noise in our visualization as seen above.
 
-You can see this in the visualization below:
+You can see this in the visualization below:  
 
 ![Sinusoidal Visualization 3D](/blog/with_sinuisodal_position.gif)
 
