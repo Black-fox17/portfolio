@@ -30,7 +30,7 @@ export const AboutSection: React.FC = () => {
               My journey began in first-principles machine learning and medical computer vision—training deep convolutional networks and decomposing transformer architectures. As I built, I realized that the true frontier of AI lies not merely in fine-tuning models, but in the <strong className="text-ink font-semibold">systems engineering around them</strong>: configurable ingestion pipelines, distributed asynchronous queues, sub-second vector retrieval, and resilient payment and ledger infrastructures.
             </p>
             <p>
-              At <strong className="text-ink font-semibold">GoodTenants</strong>, I turned this perspective into reality by architecting and operating the <strong className="text-ink font-semibold">Upward Ecosystem</strong>—shipping two production Android apps on Google Play, engineering 30+ NestJS REST APIs, and designing automated multi-gateway payment failover that ensures continuous operations.
+              At <strong className="text-ink font-semibold">GoodTenants</strong>, I turned this perspective into reality by architecting and operating the <strong className="text-ink font-semibold">Upward Ecosystem</strong>—shipping two production Android apps on Google Play, engineering 200+ production REST endpoints across 6 domain planes, and designing automated multi-gateway payment failover that ensures continuous operations.
             </p>
             <p>
               I operate across the entire product lifecycle: from data structures and database schema design, to cloud infrastructure and CI/CD automation, down to the micro-interactions and accessibility of cross-platform client interfaces.

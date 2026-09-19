@@ -80,10 +80,10 @@ export const SelectedWork: React.FC = () => {
                 <Database className="w-5 h-5 text-ink shrink-0 mt-0.5" />
                 <div>
                   <h4 className="text-xs font-mono font-semibold uppercase text-ink">
-                    30+ REST APIs Engineered
+                    200+ Production Endpoints
                   </h4>
                   <p className="text-xs text-ink-muted mt-0.5">
-                    Full NestJS, TypeScript & PostgreSQL micro-monolith with role-based auth and ACID ledgers.
+                    Full NestJS, TypeScript & PostgreSQL multi-domain architecture with granular RBAC and ACID ledgers.
                   </p>
                 </div>
               </div>

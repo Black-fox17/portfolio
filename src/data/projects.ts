@@ -13,10 +13,10 @@ export const projects: Project[] = [
     priority: 1,
     period: 'March 2026 – Present',
     summary:
-      'Architected and shipped a unified PropTech & FinTech ecosystem linking tenants, landlords, property managers, insurance providers, and payment processors. Operates two live production Android applications on Google Play Store backed by 30+ production REST APIs.',
+      'Architected and shipped a unified PropTech & FinTech ecosystem linking tenants, landlords, property managers, insurance providers, and payment processors. Operates two live production Android applications on Google Play Store backed by a high-throughput NestJS backend with 200+ production REST endpoints.',
     metrics: [
       '2 Production Android Apps Shipped (Upward Pay & Upward PM)',
-      '30+ NestJS REST APIs Engineered & Deployed',
+      '200+ Production Endpoints & Multi-Domain Ledger Services',
       'Paystack Primary + Automatic Flutterwave Failover Architecture',
       'Unified Web, Mobile & Cloud Delivery'
     ],
@@ -62,7 +62,7 @@ export const projects: Project[] = [
       ],
       engineeringHighlights: [
         'Shipped and maintained both Upward Pay and Upward PM on the Google Play Store, managing release tracks, Play Console testing cycles, crash analytics, and seamless over-the-air asset updates.',
-        'Engineered 30+ secure REST endpoints with JWT authorization, granular role-based access control (RBAC), DTO input validation with class-validator, and rate limiting.',
+        'Engineered 200+ secure REST endpoints across 6 domain planes (Tenants, Landlords, Property Managers, Banking & Webhooks, Public, Admin) with JWT authorization, granular RBAC, DTO validation, and rate limiting.',
         'Engineered payment webhook idempotency using Redis-backed locking and transaction state verification to eliminate double-crediting during network retries.',
         'Architected end-to-end CI/CD workflows using GitHub Actions to automate linting, unit/e2e testing, Docker container builds, and deployment verification.'
       ],
@@ -91,7 +91,7 @@ export const projects: Project[] = [
         },
         {
           name: 'API Gateway & Services',
-          items: ['NestJS REST API (30+ Endpoints)', 'RBAC & Auth Guard', 'DTO Validation & Serialization', 'Rate Limiting']
+          items: ['NestJS REST API (200+ Endpoints)', 'RBAC & Auth Guard', 'DTO Validation & Serialization', 'Rate Limiting']
         },
         {
           name: 'Payment & Third-Party Integration',
@@ -216,9 +216,9 @@ export const projects: Project[] = [
         'Stateful conversational memory preserving student progress and weakness vectors across sessions.'
       ],
       engineeringHighlights: [
-        'Designed iterative prompt orchestration with schema validation loops to guarantee syllabus consistency and hallucination-free quiz generation.',
-        'Implemented low-latency streaming responses for real-time conversational tutoring.',
-        'Built full Next.js UI with responsive study session views and instant active recall grading.'
+        'Designed multi-agent state machines with deterministic Pydantic schema validation loops to guarantee syllabus consistency and hallucination-free quiz generation.',
+        'Implemented low-latency token streaming for real-time conversational tutoring and instant quiz grading.',
+        'Built full Next.js UI with responsive study session views and interactive active recall evaluation.'
       ],
       complexityAndFailures:
         'Preventing agent drift across long multi-step generation tasks required strict schema enforcement with Pydantic and checkpointed intermediate state.',

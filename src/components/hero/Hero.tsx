@@ -69,7 +69,7 @@ export const Hero: React.FC = () => {
                 <Server className="w-4 h-4 text-ink-muted" />
               </div>
               <p className="text-xs text-ink-muted">
-                NestJS & FastAPI services, 30+ REST APIs, PostgreSQL, SQS queues, and payment gateways.
+                NestJS & FastAPI microservices, 200+ REST endpoints, PostgreSQL, SQS queues, and payment gateways.
               </p>
             </div>
 

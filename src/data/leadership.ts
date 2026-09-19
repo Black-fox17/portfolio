@@ -18,12 +18,12 @@ export const leadershipData: LeadershipItem[] = [
       'Organized technical workshops, cohort learning tracks, robotics initiatives, and student product showcases at the University of Ibadan.'
   },
   {
-    metric: '2025',
-    label: 'Departmental Tutor',
-    role: 'Workshop Tutor',
+    metric: '300+',
+    label: 'Undergraduates Instructed',
+    role: 'Technical Instructor & Systems Mentor',
     organization: 'Computer Science Dept, University of Ibadan',
     description:
-      'Conducted practical problem-solving sessions and technical labs for undergraduate computer science cohorts.'
+      'Instructed undergraduate computer science cohorts in algorithm design, distributed computing fundamentals, and production software practices.'
   },
   {
     metric: 'Keynote & Labs',

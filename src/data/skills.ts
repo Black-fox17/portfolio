@@ -5,8 +5,8 @@ export const skillCategories: SkillCategory[] = [
     title: 'AI & Machine Learning',
     description: 'First-principles model design, generative AI pipelines, retrieval architectures, and computer vision.',
     skills: [
-      { name: 'LLMs & Fine-Tuning', focus: 'Prompt engineering, eval harnesses, structured JSON' },
-      { name: 'RAG & Vector Retrieval', focus: 'Hybrid search, reranking, chunking strategies' },
+      { name: 'LLMs & Fine-Tuning', focus: 'Structured schema validation, eval harnesses, LoRA fine-tuning, deterministic tool-calling' },
+      { name: 'RAG & Vector Retrieval', focus: 'Hybrid search, reranking, contextual chunking, metadata filtering' },
       { name: 'NLP & Transformers', focus: 'Self-attention, tokenization, positional encodings' },
       { name: 'PyTorch', focus: 'Model training, custom layers, embeddings, inference' },
       { name: 'AI Agents & Tool Use', focus: 'Multi-agent orchestration, state machines, memory' },
