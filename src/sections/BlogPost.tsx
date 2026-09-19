@@ -13,12 +13,12 @@ import { ArrowLeft, Clock, Calendar, Share2, Check, BookOpen } from 'lucide-reac
 import './BlogStyles.css';
 
 export const BlogPost: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const { slug } = useParams<{ slug: string }>();
   const [content, setContent] = useState('');
   const [copied, setCopied] = useState(false);
   const navigate = useNavigate();
 
-  const post = blogPosts.find((p) => p.id === id);
+  const post = blogPosts.find((p) => p.slug === slug || p.id === slug);
 
   useEffect(() => {
     if (post) {
@@ -60,7 +60,7 @@ export const BlogPost: React.FC = () => {
       <Helmet>
         <title>{post.title} — The Deep End | Abdulsalam Ayeleru</title>
         <meta name="description" content={post.excerpt} />
-        <link rel="canonical" href={`https://salam-portfolio-three.vercel.app/blog/${post.id}`} />
+        <link rel="canonical" href={`https://ayeleru.space/blog/${post.slug}`} />
         <meta property="og:type" content="article" />
         <meta property="og:title" content={`${post.title} | Abdulsalam Ayeleru`} />
         <meta property="og:description" content={post.excerpt} />

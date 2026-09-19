@@ -37,7 +37,7 @@ export const App: React.FC = () => {
           <Route path="/" element={<Main />} />
           <Route path="/research" element={<Research />} />
           <Route path="/blog" element={<BlogList />} />
-          <Route path="/blog/:id" element={<BlogPost />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           {/* Catch-all fallback */}
           <Route path="*" element={<Main />} />
         </Routes>

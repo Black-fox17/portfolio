@@ -108,7 +108,7 @@ export const BlogList: React.FC = () => {
               {filteredPosts.map((post) => (
                 <article
                   key={post.id}
-                  onClick={() => navigate(`/blog/${post.id}`)}
+                  onClick={() => navigate(`/blog/${post.slug}`)}
                   className="p-6 sm:p-8 block hover:bg-paper-50 transition-colors cursor-pointer group"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">

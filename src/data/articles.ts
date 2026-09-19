@@ -3,7 +3,7 @@ import { ArticleItem, OpenSourceReproduction } from '../types/portfolio';
 export const publishedArticles: ArticleItem[] = [
   {
     id: '1',
-    slug: '1',
+    slug: 'tokenization-and-encoding-bpe',
     title: 'Tokenization and Encoding with BytePairEncoder (BPE)',
     date: '2025-12-28',
     readTime: '8 min read',
@@ -13,7 +13,7 @@ export const publishedArticles: ArticleItem[] = [
   },
   {
     id: '2',
-    slug: '2',
+    slug: 'implementing-skip-gram',
     title: 'From Distributional Hypothesis to Code: Implementing Skip-Gram',
     date: '2026-01-04',
     readTime: '6 min read',
@@ -23,7 +23,7 @@ export const publishedArticles: ArticleItem[] = [
   },
   {
     id: '3',
-    slug: '3',
+    slug: 'visualizing-positional-encodings',
     title: 'Visualizing Positional Encodings: What Actually Changes Inside a Transformer',
     date: '2026-01-12',
     readTime: '7 min read',
@@ -33,7 +33,7 @@ export const publishedArticles: ArticleItem[] = [
   },
   {
     id: '4',
-    slug: '4',
+    slug: 'understanding-transformer-architecture',
     title: 'Attention is All You Need: Understanding the Transformer Architecture',
     date: '2026-01-20',
     readTime: '10 min read',
@@ -43,7 +43,7 @@ export const publishedArticles: ArticleItem[] = [
   },
   {
     id: '5',
-    slug: '5',
+    slug: 'kv-cache-sliding-window-attention',
     title: 'Modern Inference Optimizations: KV Cache and Sliding Window Attention',
     date: '2026-02-05',
     readTime: '7 min read',
