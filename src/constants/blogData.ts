@@ -60,4 +60,14 @@ export const blogPosts: BlogPost[] = [
     excerpt: "Exploring the latest optimizations in LLM inference, including KV Cache and Sliding Window Attention.",
     file: () => import('./posts/kv_cache.md?raw')
   },
+  {
+    id: "6",
+    slug: "the-illusion-of-replacement-product-engineers-ai-era",
+    title: "The Illusion of Replacement: Why the AI Era Demands Product Engineers, Not Just Code Generators",
+    date: "2026-09-19",
+    readTime: "7 min read",
+    category: "Engineering & AI",
+    excerpt: "Why syntax was never the real bottleneck of software engineering, the crucial difference between code generation and product design, and how to thrive as a T-shaped specialist in the AI era.",
+    file: () => import('./posts/impact_ai.md?raw')
+  },
 ];

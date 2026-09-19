@@ -184,7 +184,7 @@ export const BlogPost: React.FC = () => {
               rel="noopener noreferrer"
               className="text-xs font-mono text-ink-muted hover:text-ink transition-colors"
             >
-              First-principles code on GitHub →
+              Find me on GitHub →
             </a>
           </div>
         </article>
