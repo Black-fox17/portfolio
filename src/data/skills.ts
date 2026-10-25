@@ -44,8 +44,8 @@ export const skillCategories: SkillCategory[] = [
     description: 'End-to-end full-stack execution, mobile app stores, cross-platform apps, and accessible UX.',
     skills: [
       { name: 'Next.js & React', focus: 'App Router, SSR, performant client state, responsive design' },
-      { name: 'Capacitor', focus: 'Native web-to-mobile bridge, Android runtime integration' },
-      { name: 'Google Play Console', focus: 'App store releases, test tracks, rollout management' },
+      { name: 'Capacitor', focus: 'Native web-to-mobile bridge, iOS & Android runtime integration' },
+      { name: 'Apple App Store & Play Console', focus: 'iOS App Store submission, TestFlight, Play Store tracks, release lifecycle' },
       { name: 'SaaS Architecture', focus: 'Multi-tenancy, billing, RBAC, analytics integration' },
       { name: 'UI / UX Design Systems', focus: 'Minimalist editorial UI, accessibility (WCAG), Tailwind' }
     ]

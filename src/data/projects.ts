@@ -13,14 +13,16 @@ export const projects: Project[] = [
     priority: 1,
     period: 'March 2026 – Present',
     summary:
-      'Architected and shipped a unified PropTech & FinTech ecosystem linking tenants, landlords, property managers, insurance providers, and payment processors. Operates two live production Android applications on Google Play Store backed by a high-throughput NestJS backend with 200+ production REST endpoints.',
+      'Architected and shipped a unified PropTech & FinTech ecosystem linking tenants, landlords, property managers, insurance providers, and payment processors. Operates 3 live production applications across Apple App Store (UpwardPay iOS), Google Play Store (Upward Pay & Upward PM Android), and web, backed by a high-throughput NestJS backend with 200+ production REST endpoints.',
     metrics: [
-      '2 Production Android Apps Shipped (Upward Pay & Upward PM)',
+      '3 Production Apps Shipped (Apple App Store & Google Play)',
       '200+ Production Endpoints & Multi-Domain Ledger Services',
-      'Paystack Primary + Automatic Flutterwave Failover Architecture',
-      'Unified Web, Mobile & Cloud Delivery'
+      'Paystack + Flutterwave Automated Multi-Gateway Failover',
+      'Unified iOS, Android, Web & Cloud Delivery'
     ],
     tags: [
+      'iOS (App Store)',
+      'Android (Play Store)',
       'NestJS',
       'TypeScript',
       'PostgreSQL',
@@ -33,6 +35,11 @@ export const projects: Project[] = [
       'GitHub Actions'
     ],
     links: [
+      {
+        label: 'UpwardPay (iOS App Store)',
+        url: 'https://apps.apple.com/us/app/upwardpay/id6807898152',
+        type: 'appstore'
+      },
       {
         label: 'Upward Pay (Play Store)',
         url: 'https://play.google.com/store/apps/details?id=com.goodtenants.upward',
@@ -51,16 +58,17 @@ export const projects: Project[] = [
     ],
     caseStudy: {
       overview:
-        'The Upward Ecosystem addresses critical friction in the rental housing and property operations sector. It replaces fragmented manual rent collection, unverified tenancy records, and delayed maintenance with an interconnected ecosystem of two client applications (Upward Pay for tenants, Upward PM for property managers and landlords) and a high-availability backend cluster.',
+        'The Upward Ecosystem addresses critical friction in the rental housing and property operations sector. It replaces fragmented manual rent collection, unverified tenancy records, and delayed maintenance with an interconnected ecosystem of production mobile applications (UpwardPay on Apple App Store, Upward Pay & Upward PM on Google Play Store) and a high-availability backend cluster.',
       problem:
         'Rental transactions in emerging markets suffer from high payment failure rates, lack of verifiable credit profiling for tenants, and disconnected communication between landlords and property managers. A single payment gateway outage could halt cash flows and dispute resolution.',
       architecture: [
         'Modular NestJS micro-monolith running with TypeScript, organized into domain modules for Identity & KYC, Lease Lifecycle, Rent Collection, Financial Ledger, and Maintenance Tickets.',
         'PostgreSQL with strict relational constraints, indexed foreign keys for sub-10ms query execution, and ACID transaction boundaries for all ledger postings.',
-        'Cross-platform delivery using Next.js for high-performance responsive web and Capacitor for native Android compilation, maintaining 90%+ code sharing across platforms.',
+        'Cross-platform delivery using Next.js for high-performance responsive web and Capacitor for native iOS and Android compilation, maintaining 90%+ code sharing across platforms.',
         'Payment Orchestration Engine with intelligent routing: Paystack handles primary direct debit/virtual accounts with instant webhook reconciliation, and automated fallback to Flutterwave when latency exceeds thresholds or error rates rise.'
       ],
       engineeringHighlights: [
+        'Took complete ownership of taking UpwardPay live to the Apple App Store, orchestrating the entire submission process, App Store guidelines compliance, TestFlight review cycles, and release management.',
         'Shipped and maintained both Upward Pay and Upward PM on the Google Play Store, managing release tracks, Play Console testing cycles, crash analytics, and seamless over-the-air asset updates.',
         'Engineered 200+ secure REST endpoints across 6 domain planes (Tenants, Landlords, Property Managers, Banking & Webhooks, Public, Admin) with JWT authorization, granular RBAC, DTO validation, and rate limiting.',
         'Engineered payment webhook idempotency using Redis-backed locking and transaction state verification to eliminate double-crediting during network retries.',
@@ -71,6 +79,7 @@ export const projects: Project[] = [
       productExperience:
         'Tenants effortlessly manage lease visibility, automate scheduled rent payments, build verified tenancy credit scores, and request instant repairs. Property managers access real-time occupancy heatmaps, automated arrears alerts, lease document signing, and instant financial reporting.',
       shippedArtifacts: [
+        'UpwardPay iOS Application (Apple App Store)',
         'Upward Pay Android Application (Google Play Store)',
         'Upward PM Android Application (Google Play Store)',
         'Upward Web Administration & Landlord Portal (upward.goodtenants.io)',
@@ -78,16 +87,16 @@ export const projects: Project[] = [
         'Automated GitHub Actions Deployment Pipeline'
       ],
       outcomes: [
-        'Achieved 99.9% payment success continuity via dual-gateway failover orchestration.',
+        'Zero payment drops via automated Paystack + Flutterwave circuit-breaker failover.',
         'Reduced manual property onboarding and tenant verification turnaround from days to minutes.',
-        'Zero downtime multi-platform releases across web and Android.'
+        'Zero downtime multi-platform releases across iOS, Android, and web.'
       ]
     },
     architectureDiagram: {
       layers: [
         {
-          name: 'Clients (Web & Mobile)',
-          items: ['Upward Pay (Android / Web)', 'Upward PM (Android / Web)', 'Capacitor Native Bridge', 'Next.js App Router']
+          name: 'Clients (iOS, Android & Web)',
+          items: ['UpwardPay (Apple App Store)', 'Upward Pay (Google Play)', 'Upward PM (Google Play)', 'Capacitor Native Bridge', 'Next.js App Router']
         },
         {
           name: 'API Gateway & Services',
@@ -294,6 +303,100 @@ export const projects: Project[] = [
       ],
       outcomes: [
         'High-accuracy SKU localization and instant stockout identification across complex retail displays.'
+      ]
+    }
+  },
+  {
+    id: 'asl-fingerspelling',
+    slug: 'asl-fingerspelling',
+    title: 'Continuous ASL Fingerspelling Translation',
+    subtitle: 'Edge Vision Kinematics & Seq2Seq Transformer Engine',
+    category: 'Computer Vision & Deep Learning',
+    role: 'ML & Computer Vision Engineer',
+    status: 'Open Source',
+    featured: false,
+    priority: 3,
+    period: 'November 2024',
+    summary:
+      'Engineered an end-to-end deep learning system translating continuous American Sign Language fingerspelling gestures from video into text in real time. Slices 543 MediaPipe holistic coordinates down to 48 keypoints, standardizes orientation, compresses temporal dimensions via strided 1D convolutions, and decodes character sequences with a sub-30ms mobile TFLite model.',
+    metrics: [
+      'Sub-30ms Real-Time On-Device TFLite Edge Inference',
+      '64x Attention Compute Reduction via Strided 1D Conv Downsampling',
+      'Dominant-Hand Automatic Detection & 1-x Reflection Normalization',
+      'Normalized Total Levenshtein Distance Evaluation'
+    ],
+    tags: [
+      'TensorFlow',
+      'MediaPipe',
+      'Transformers',
+      'TFLite',
+      'Python',
+      'OpenCV',
+      'Sequence-to-Sequence'
+    ],
+    links: [
+      {
+        label: 'GitHub Code',
+        url: 'https://github.com/Black-fox17/ASL.git',
+        type: 'github'
+      },
+      {
+        label: 'The Deep End Article',
+        url: '/blog/continuous-asl-fingerspelling-mediapipe-transformer',
+        type: 'article'
+      }
+    ],
+    caseStudy: {
+      overview:
+        'Continuous fingerspelling involves rapid joint articulators, subtle finger transitions, and high occlusion across signers. This system decouples perception from sequence modeling by extracting 543 3D keypoints via MediaPipe Holistic, isolating 48 essential joints (144 features), and translating character sequences using an autoregressive Transformer decoder.',
+      problem:
+        'Traditional 3D convolutional networks require massive parameter counts, compute gigabytes of memory, and fail to run in real time on mobile devices. Furthermore, signer handedness (left vs. right) and spatial drift inflate model variance.',
+      architecture: [
+        'Kinematic Feature Filtering: Drops face and lower-body landmarks, isolating hands (42 keypoints) and upper-body pose anchors (6 keypoints) into a compact 144-dimensional vector per frame.',
+        'Dominant Hand & Invariance Preprocessing: Dynamically identifies the signing hand via missing coordinate counts, reflects left-handed signers (1.0 - x) into canonical right-hand coordinates, and applies zero-mean unit-variance scaling.',
+        'Temporal Conv1D Downsampling: Three cascaded 1D convolutions with stride 2 compress 128 frames down to 16 temporal tokens, cutting self-attention compute by 64x.',
+        'Sequence-to-Sequence Transformer: 4-layer multi-head self-attention encoder and causal cross-attention decoder with label-smoothed categorical cross-entropy and Levenshtein distance optimization.',
+        'On-Device TFLite Graph: Wraps preprocessing, dominant hand reflection, and greedy generation loop into a self-contained 39 MB .tflite binary executing in under 30ms.'
+      ],
+      engineeringHighlights: [
+        'Built full modular Python package separating data extraction, TFRecord serialization, model training, and TFLite export.',
+        'Engineered vectorized dominant-hand orientation normalization to eliminate the need for training separate left- and right-handed model representations.',
+        'Packaged the complete autoregressive decoding loop into a self-contained TFLite serving graph for mobile runtime.'
+      ],
+      complexityAndFailures:
+        'High frame rates (30+ FPS) created extreme temporal redundancy and attention bottlenecks. Resolved by tailoring Conv1D kernel sizes (k=11) to match the physical duration of a fingerspelled phoneme (~1/3 second), reducing attention complexity from 16,384 to 256 computations per head.',
+      productExperience:
+        'Signers point a standard smartphone camera at continuous fingerspelled phrases and receive real-time, streaming text output locally without cloud latency or video transmission costs.',
+      shippedArtifacts: [
+        'Standalone model.tflite Edge Inference Binary (~39 MB)',
+        'Modular TFRecord Pipeline & MediaPipe Extractor',
+        'End-to-End Seq2Seq Transformer Model Architecture',
+        'Offline & Video Parquet Inference CLI Tooling'
+      ],
+      outcomes: [
+        'Sub-30ms latency on edge hardware with zero external preprocessing libraries.',
+        '64x reduction in attention computational complexity.',
+        'Full open-source codebase published on GitHub.'
+      ]
+    },
+    architectureDiagram: {
+      layers: [
+        {
+          name: 'Perception & Slicing',
+          items: ['MediaPipe Holistic (543 3D Keypoints)', 'Feature Filtering (48 Keypoints / 144 Features)', 'NaN Dominant Hand Detection']
+        },
+        {
+          name: 'Normalization & Downsampling',
+          items: ['1.0 - x Left-Hand Reflection', 'Zero-Mean / Unit-Variance Scaling', '3x Conv1D Strided Embeddings (128 -> 16 steps)']
+        },
+        {
+          name: 'Transformer Seq2Seq Engine',
+          items: ['4-Layer Transformer Encoder (num_heads=2)', 'Causal Masked Cross-Attention Decoder', 'Greedy Autoregressive Generator']
+        },
+        {
+          name: 'Edge Deployment',
+          items: ['Self-Contained model.tflite (~39 MB)', 'Sub-30ms Mobile Latency', 'Levenshtein Metric Evaluation']
+        }
       ]
     }
   }

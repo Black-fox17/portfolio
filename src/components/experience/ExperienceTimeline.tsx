@@ -1,93 +1,126 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { experiences } from '../../data/experience';
-import { Briefcase, MapPin, CheckCircle2 } from 'lucide-react';
+import { leadershipData } from '../../data/leadership';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 export const ExperienceTimeline: React.FC = () => {
-  return (
-    <section id="experience" className="border-b border-border/60 bg-paper-50">
-      <div className="section-container">
-        {/* Section Header */}
-        <div className="mb-12">
-          <div className="section-heading">
-            <span className="w-2 h-2 rounded-full bg-ink" />
-            <span>Chapter 03 — Engineering Experience & Track Record</span>
-          </div>
-          <h2 className="section-title">
-            Professional Experience & Career Progression
-          </h2>
-          <p className="section-desc">
-            A progression from deep learning research and computer vision foundations into distributed RAG architectures, cloud infrastructure, and full-lifecycle production systems.
-          </p>
-        </div>
+  const [expandedIds, setExpandedIds] = useState<Record<string, boolean>>({
+    'goodtenants-upward': true
+  });
 
-        {/* Editorial Timeline Container */}
-        <div className="relative border-l border-border-strong ml-3 sm:ml-4 pl-6 sm:pl-8 space-y-12">
-          {experiences.map((exp, index) => (
+  const toggleExpand = (id: string) => {
+    setExpandedIds((prev) => ({ ...prev, [id]: !prev[id] }));
+  };
+
+  return (
+    <section id="experience" className="scroll-mt-24">
+      {/* Section Header */}
+      <div className="space-y-3 mb-10">
+        <div className="section-kicker">
+          <span className="w-2 h-2 rounded-full bg-accent-cobalt" />
+          <span>03 / Career Progression & Leadership</span>
+        </div>
+        <h2 className="text-2xl sm:text-4xl font-bold tracking-[-0.025em] text-ink font-editorial leading-[1.15]">
+          Professional Track Record & Community Impact
+        </h2>
+        <p className="text-[15.5px] sm:text-base text-ink-muted leading-relaxed max-w-2xl">
+          From clinical computer vision research at University College Hospital to enterprise RAG pipelines and full-lifecycle PropTech/FinTech systems.
+        </p>
+      </div>
+
+      {/* Clean Editorial Experience Feed */}
+      <div className="relative border-l border-border-strong ml-2.5 sm:ml-3.5 pl-6 sm:pl-8 space-y-8">
+        {experiences.map((exp) => {
+          const isExpanded = !!expandedIds[exp.id];
+          const visibleHighlights = isExpanded ? exp.highlights : exp.highlights.slice(0, 2);
+          const hasMore = exp.highlights.length > 2;
+
+          return (
             <div key={exp.id} className="relative group">
-              {/* Timeline Dot Indicator */}
+              {/* Timeline Indicator Dot */}
               <div
-                className={`absolute -left-[31px] sm:-left-[39px] top-1.5 w-3.5 h-3.5 rounded-full border-2 bg-white transition-colors ${
+                className={`absolute -left-[31px] sm:-left-[39px] top-2 w-3.5 h-3.5 rounded-full border-2 transition-colors ${
                   exp.current
-                    ? 'border-ink bg-ink ring-4 ring-ink/10'
-                    : 'border-ink-muted bg-white group-hover:border-ink'
+                    ? 'border-accent-cobalt bg-accent-cobalt ring-4 ring-accent-cobalt/15'
+                    : 'border-ink bg-paper group-hover:bg-ink'
                 }`}
               />
 
-              {/* Experience Card */}
               <div
-                className={`p-6 sm:p-8 rounded-xl border transition-all duration-200 ${
+                className={`p-6 sm:p-7 rounded-xl border transition-all ${
                   exp.current
-                    ? 'bg-white border-border shadow-elevated'
-                    : 'bg-white/80 border-border hover:bg-white hover:border-ink-muted/30'
+                    ? 'bg-white border-ink shadow-card'
+                    : 'bg-white border-border hover:border-border-strong'
                 }`}
               >
-                {/* Header: Company, Role & Meta */}
-                <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 pb-4 border-b border-border-subtle">
-                  <div className="space-y-1">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="text-xs font-mono px-2 py-0.5 rounded bg-paper-100 text-ink-muted font-medium border border-border-subtle">
-                        {exp.domain}
+                {/* Top Meta Row */}
+                <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-xs font-mono font-semibold text-ink">
+                      {exp.period}
+                    </span>
+                    {exp.current && (
+                      <span className="text-[10.5px] font-mono font-semibold px-2 py-0.5 rounded bg-paper-100 text-ink inline-flex items-center gap-1.5 border border-border">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent-emerald" />
+                        <span>CURRENT ROLE</span>
                       </span>
-                      {exp.current && (
-                        <span className="text-[11px] font-mono font-semibold px-2 py-0.5 rounded bg-emerald-100 text-emerald-800">
-                          CURRENT ROLE
-                        </span>
-                      )}
-                    </div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-ink font-editorial">
-                      {exp.company}
-                    </h3>
-                    <p className="text-sm font-semibold text-ink-light">
-                      {exp.role}
-                    </p>
+                    )}
                   </div>
-
-                  <div className="text-xs font-mono text-ink-faint space-y-1 sm:text-right shrink-0">
-                    <div className="font-medium text-ink-muted">{exp.period}</div>
-                    <div className="flex items-center sm:justify-end gap-1">
-                      <MapPin className="w-3 h-3 text-ink-faint" />
-                      <span>{exp.location} ({exp.type})</span>
-                    </div>
+                  <div className="text-xs font-mono text-ink-faint">
+                    {exp.location} · {exp.type}
                   </div>
                 </div>
 
-                {/* Summary */}
-                <p className="text-xs sm:text-sm text-ink-muted leading-relaxed mt-4">
+                {/* Role & Company */}
+                <div className="space-y-0.5">
+                  <h3 className="text-xl sm:text-2xl font-bold tracking-[-0.02em] text-ink font-editorial">
+                    {exp.role}{' '}
+                    <span className="text-ink-faint font-normal">·</span>{' '}
+                    <span className="text-accent-cobalt">{exp.company}</span>
+                  </h3>
+                  <p className="text-xs font-mono text-ink-muted">{exp.domain}</p>
+                </div>
+
+                {/* Narrative Summary */}
+                <p className="text-[15px] text-ink-light leading-relaxed mt-3.5 font-medium">
                   {exp.summary}
                 </p>
 
-                {/* Highlights List */}
-                <div className="mt-5 space-y-2.5">
-                  {exp.highlights.map((hl, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-ink-light leading-relaxed">
-                      <span className="w-1.5 h-1.5 rounded-full bg-ink-muted mt-2 shrink-0" />
+                {/* Key Engineering Highlights (Geometric Dots) */}
+                <ul className="mt-4 space-y-2.5">
+                  {visibleHighlights.map((hl, idx) => (
+                    <li
+                      key={idx}
+                      className="flex items-start gap-3 text-[14px] sm:text-[14.5px] text-ink-light leading-[1.7]"
+                    >
+                      <span className="w-1.5 h-1.5 rounded-full bg-ink mt-2.5 shrink-0" />
                       <span>{hl}</span>
-                    </div>
+                    </li>
                   ))}
-                </div>
+                </ul>
 
-                {/* Tech Chips */}
-                <div className="mt-6 pt-4 border-t border-border-subtle flex flex-wrap gap-1.5">
+                {hasMore && (
+                  <button
+                    type="button"
+                    onClick={() => toggleExpand(exp.id)}
+                    className="mt-3.5 inline-flex items-center gap-1 text-xs font-mono font-semibold text-accent-cobalt hover:text-ink transition-colors cursor-pointer"
+                  >
+                    {isExpanded ? (
+                      <>
+                        <span>Show fewer details</span>
+                        <ChevronUp className="w-3.5 h-3.5" />
+                      </>
+                    ) : (
+                      <>
+                        <span>Read {exp.highlights.length - 2} more engineering contributions</span>
+                        <ChevronDown className="w-3.5 h-3.5" />
+                      </>
+                    )}
+                  </button>
+                )}
+
+                {/* Technologies */}
+                <div className="mt-5 pt-4 border-t border-border-subtle flex flex-wrap gap-1.5">
                   {exp.technologies.map((tech) => (
                     <span
                       key={tech}
@@ -99,10 +132,69 @@ export const ExperienceTimeline: React.FC = () => {
                 </div>
               </div>
             </div>
+          );
+        })}
+      </div>
+
+      {/* Integrated Technical Leadership & Mentorship Block (Dark Spec Header + Hairline Grid, Zero Icons) */}
+      <div className="mt-14 pt-10 border-t border-border">
+        <div className="mb-6">
+          <span className="text-xs font-mono uppercase tracking-widest text-ink-muted font-semibold flex items-center gap-2 mb-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-ink" />
+            <span>Multiplying Engineering Talent</span>
+          </span>
+          <h3 className="text-2xl font-bold tracking-[-0.02em] text-ink font-editorial">
+            Mentorship, Teaching & Community Leadership
+          </h3>
+          <p className="text-sm text-ink-muted mt-1">
+            Great engineers elevate the people around them. Alongside shipping production software, I actively teach and mentor emerging engineers.
+          </p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 bg-paper-100/80 border border-border rounded-xl divide-y sm:divide-y-0 sm:divide-x divide-border overflow-hidden">
+          {leadershipData.slice(0, 2).map((item) => (
+            <div key={item.organization} className="p-5 sm:p-6 space-y-2">
+              <div className="flex items-baseline gap-2.5">
+                <span className="text-2xl sm:text-3xl font-bold font-editorial tracking-tight text-ink">
+                  {item.metric}
+                </span>
+                <span className="text-xs font-mono uppercase tracking-wider text-accent-cobalt font-semibold">
+                  {item.label}
+                </span>
+              </div>
+              <div className="text-sm font-bold text-ink font-editorial">
+                {item.role} · <span className="font-normal text-ink-muted">{item.organization}</span>
+              </div>
+              <p className="text-[13.5px] text-ink-light leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-3 grid sm:grid-cols-2 bg-paper-100/80 border border-border rounded-xl divide-y sm:divide-y-0 sm:divide-x divide-border overflow-hidden">
+          {leadershipData.slice(2, 4).map((item) => (
+            <div key={item.organization} className="p-5 sm:p-6 space-y-2">
+              <div className="flex items-baseline gap-2.5">
+                <span className="text-2xl sm:text-3xl font-bold font-editorial tracking-tight text-ink">
+                  {item.metric}
+                </span>
+                <span className="text-xs font-mono uppercase tracking-wider text-accent-cobalt font-semibold">
+                  {item.label}
+                </span>
+              </div>
+              <div className="text-sm font-bold text-ink font-editorial">
+                {item.role} · <span className="font-normal text-ink-muted">{item.organization}</span>
+              </div>
+              <p className="text-[13.5px] text-ink-light leading-relaxed">
+                {item.description}
+              </p>
+            </div>
           ))}
         </div>
       </div>
     </section>
   );
 };
+
 export default ExperienceTimeline;

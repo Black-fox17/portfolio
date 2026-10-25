@@ -1,24 +1,24 @@
 export interface BlogPost {
-    id: string;
-    slug: string;
-    title: string;
-    date: string;
-    readTime: string;
-    category: string;
-    excerpt: string;
-    file: () => Promise<{ default: string }>;
+  id: string;
+  slug: string;
+  title: string;
+  date: string;
+  readTime: string;
+  category: string;
+  excerpt: string;
+  file: () => Promise<{ default: string }>;
 }
 
 export const blogPosts: BlogPost[] = [
-    {
-        id: "1",
-        slug: "tokenization-and-encoding-bpe",
-        title: "Tokenization and Encoding with BytePairEncoder(BPE)",
-        date: "2025-12-28",
-        readTime: "8 min read",
-        category: "Natural Language Processing",
-        excerpt: "A practical walkthrough of byte pair encoding (BPE), showing how raw text is transformed into tokens and why tokenization not characters is what language models actually see.",
-        file: () => import('./posts/bpe.md?raw')
+  {
+    id: "1",
+    slug: "tokenization-and-encoding-bpe",
+    title: "Tokenization and Encoding with BytePairEncoder(BPE)",
+    date: "2025-12-28",
+    readTime: "8 min read",
+    category: "Natural Language Processing",
+    excerpt: "A practical walkthrough of byte pair encoding (BPE), showing how raw text is transformed into tokens and why tokenization not characters is what language models actually see.",
+    file: () => import('./posts/bpe.md?raw')
   },
   {
     id: "2",
@@ -69,5 +69,15 @@ export const blogPosts: BlogPost[] = [
     category: "Engineering & AI",
     excerpt: "Why syntax was never the real bottleneck of software engineering, the crucial difference between code generation and product design, and how to thrive as a T-shaped specialist in the AI era.",
     file: () => import('./posts/impact_ai.md?raw')
+  },
+  {
+    id: "7",
+    slug: "continuous-asl-fingerspelling-mediapipe-transformer",
+    title: "Continuous Sign Language Translation: From MediaPipe Kinematics to Edge Transformers",
+    date: "2024-11-29",
+    readTime: "9 min read",
+    category: "Computer Vision & Deep Learning",
+    excerpt: "A first-principles deep dive into translating continuous ASL fingerspelling from raw video to text: landmark spatial normalization, temporal downsampling convolutions, transformer encoder-decoder attention, and TFLite quantization for sub-30ms edge inference.",
+    file: () => import('./posts/asl_fingerspelling.md?raw')
   },
 ];

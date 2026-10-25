@@ -2,6 +2,16 @@ import { ArticleItem, OpenSourceReproduction } from '../types/portfolio';
 
 export const publishedArticles: ArticleItem[] = [
   {
+    id: '7',
+    slug: 'continuous-asl-fingerspelling-mediapipe-transformer',
+    title: 'Continuous Sign Language Translation: From MediaPipe Kinematics to Edge Transformers',
+    date: '2024-11-29',
+    readTime: '9 min read',
+    category: 'Computer Vision & Deep Learning',
+    excerpt:
+      'A first-principles deep dive into translating continuous ASL fingerspelling from raw video to text: landmark spatial normalization, temporal downsampling convolutions, transformer encoder-decoder attention, and TFLite quantization for sub-30ms edge inference.'
+  },
+  {
     id: '1',
     slug: 'tokenization-and-encoding-bpe',
     title: 'Tokenization and Encoding with BytePairEncoder (BPE)',
@@ -55,6 +65,14 @@ export const publishedArticles: ArticleItem[] = [
 
 export const openSourceReproductions: OpenSourceReproduction[] = [
   {
+    id: 'asl-fingerspelling-recognition',
+    title: 'Continuous ASL Fingerspelling Engine',
+    description: 'Real-time gesture-to-text translation: 543 MediaPipe holistic keypoint filtering, 1D conv temporal downsampling, seq2seq transformer, and sub-30ms TFLite model.',
+    category: 'Vision & Multimodal',
+    technologies: ['TensorFlow', 'MediaPipe', 'Transformers', 'TFLite', 'Python'],
+    githubUrl: 'https://github.com/Black-fox17/ASL.git'
+  },
+  {
     id: 'gpt-transformer',
     title: 'GPT-Style Autoregressive Transformer',
     description: 'PyTorch implementation of a decoder-only generative transformer with causal masking and multi-head attention.',
@@ -84,14 +102,6 @@ export const openSourceReproductions: OpenSourceReproduction[] = [
     description: 'Profiling memory allocations and cache hit rates in autoregressive text generation.',
     category: 'Optimization',
     technologies: ['PyTorch', 'Performance Benchmarking'],
-    githubUrl: 'https://github.com/Black-fox17'
-  },
-  {
-    id: 'mediapipe-sign-language',
-    title: 'MediaPipe + Transformer Sign Language Recognition',
-    description: 'Real-time hand and body pose landmark sequence extraction mapped through transformer attention for sign classification.',
-    category: 'Vision & Multimodal',
-    technologies: ['MediaPipe', 'PyTorch', 'OpenCV', 'Transformers'],
     githubUrl: 'https://github.com/Black-fox17'
   },
   {

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, ChevronRight, Smartphone, Database, Zap, ShieldCheck, ExternalLink, BookOpen } from 'lucide-react';
+import { ArrowUpRight, ChevronRight } from 'lucide-react';
 import { projects } from '../../data/projects';
 import { Project } from '../../types/portfolio';
 import { CaseStudyModal } from './CaseStudyModal';
@@ -11,243 +11,233 @@ export const SelectedWork: React.FC = () => {
   const secondaryProjects = projects.slice(1);
 
   return (
-    <section id="work" className="border-b border-border/60 bg-paper">
-      <div className="section-container">
-        {/* Section Header */}
-        <div className="mb-10 sm:mb-12">
-          <div className="section-heading">
-            <span className="w-2 h-2 rounded-full bg-ink" />
-            <span>Chapter 02 — Shipped Production Systems</span>
-          </div>
-          <h2 className="section-title">
-            Selected Work & Production Case Studies
-          </h2>
-          <p className="section-desc">
-            Production ecosystems, document intelligence platforms, and edge machine learning systems shipped and operated across web, mobile, and cloud environments.
-          </p>
+    <section id="work" className="scroll-mt-24">
+      {/* Section Header */}
+      <div className="space-y-3 mb-10">
+        <div className="section-kicker">
+          <span className="w-2 h-2 rounded-full bg-accent-cobalt" />
+          <span>02 / Systems in Production</span>
         </div>
+        <h2 className="text-2xl sm:text-4xl font-bold tracking-[-0.025em] text-ink font-editorial leading-[1.15]">
+          Selected Work & Architectural Case Studies
+        </h2>
+        <p className="text-[15.5px] sm:text-base text-ink-muted leading-relaxed max-w-2xl">
+          Every project below solves a concrete operational problem—from multi-gateway financial ledgers and mobile app rollouts to asynchronous scholarly NLP pipelines. Click any system to inspect its full architecture.
+        </p>
+      </div>
 
-        {/* Dominant Flagship: Upward Ecosystem */}
-        <div className="mb-12 sm:mb-14">
-          <div className="bg-white border-2 border-ink/80 rounded-2xl p-5 sm:p-8 md:p-10 shadow-elevated relative overflow-hidden">
-            {/* Top Status Header - Responsive and Clean on Mobile */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-5 sm:pb-6 border-b border-border">
-              <div className="flex flex-wrap items-center gap-2">
-                <span className="px-2.5 py-1 rounded-full bg-ink text-paper text-[10px] sm:text-xs font-mono font-semibold tracking-wide">
-                  FLAGSHIP PRODUCTION SYSTEM
-                </span>
-                <span className="text-[11px] sm:text-xs font-mono text-emerald-800 font-medium flex items-center gap-1.5 bg-emerald-50 border border-emerald-200/80 px-2.5 py-0.5 rounded-full">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse-subtle" />
-                  Live on Google Play & Web
-                </span>
-              </div>
-              <span className="text-[11px] sm:text-xs font-mono text-ink-faint">
-                March 2026 – Present
+      {/* Dominant Flagship Monograph: Upward Ecosystem */}
+      <div className="mb-10">
+        <div className="bg-white border-2 border-ink rounded-2xl p-6 sm:p-8 shadow-elevated relative overflow-hidden transition-all">
+          {/* Status Bar */}
+          <div className="flex flex-wrap items-center justify-between gap-3 pb-5 border-b border-border">
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="px-2.5 py-1 rounded bg-ink text-paper-50 text-[11px] font-mono font-semibold tracking-wider uppercase">
+                Flagship Production System
+              </span>
+              <span className="text-xs font-mono text-ink font-medium inline-flex items-center gap-2 bg-paper-100 border border-border px-2.5 py-1 rounded">
+                <span className="w-2 h-2 rounded-full bg-accent-emerald animate-pulse-subtle" />
+                <span>3 Live Apps on App Store & Google Play</span>
               </span>
             </div>
+            <span className="text-xs font-mono text-ink-faint">
+              {flagshipProject.period}
+            </span>
+          </div>
 
-            {/* Main Project Identity */}
-            <div className="mt-6 sm:mt-8 space-y-3 sm:space-y-4">
-              <div className="space-y-1">
-                <h3 className="text-2xl sm:text-4xl font-bold tracking-tight text-ink font-editorial">
-                  {flagshipProject.title}
-                </h3>
-                <p className="text-sm sm:text-lg font-medium text-ink-muted">
-                  {flagshipProject.subtitle}
-                </p>
-              </div>
-
-              <p className="text-xs sm:text-base text-ink-light leading-relaxed max-w-3xl">
-                {flagshipProject.summary}
+          {/* Identity & Narrative */}
+          <div className="mt-6 space-y-4">
+            <div>
+              <h3 className="text-2xl sm:text-3xl font-bold tracking-[-0.02em] text-ink font-editorial">
+                {flagshipProject.title}
+              </h3>
+              <p className="text-sm sm:text-base font-semibold text-accent-cobalt mt-1">
+                {flagshipProject.subtitle}
               </p>
             </div>
 
-            {/* Key Engineering Metrics Grid */}
-            <div className="mt-6 sm:mt-8 grid sm:grid-cols-2 gap-3 sm:gap-3.5">
-              <div className="bg-paper-100 border border-border-subtle p-3.5 sm:p-4 rounded-xl flex items-start gap-3">
-                <Smartphone className="w-5 h-5 text-ink shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="text-xs font-mono font-semibold uppercase text-ink">
-                    2 Production Android Apps
-                  </h4>
-                  <p className="text-xs text-ink-muted mt-0.5">
-                    Shipped Upward Pay & Upward PM on Google Play Store via Next.js + Capacitor.
-                  </p>
-                </div>
-              </div>
+            <p className="text-[15px] sm:text-[16px] text-ink-light leading-[1.75]">
+              {flagshipProject.summary}
+            </p>
 
-              <div className="bg-paper-100 border border-border-subtle p-3.5 sm:p-4 rounded-xl flex items-start gap-3">
-                <Database className="w-5 h-5 text-ink shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="text-xs font-mono font-semibold uppercase text-ink">
-                    200+ Production Endpoints
-                  </h4>
-                  <p className="text-xs text-ink-muted mt-0.5">
-                    Full NestJS, TypeScript & PostgreSQL multi-domain architecture with granular RBAC and ACID ledgers.
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-paper-100 border border-border-subtle p-3.5 sm:p-4 rounded-xl flex items-start gap-3">
-                <Zap className="w-5 h-5 text-ink shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="text-xs font-mono font-semibold uppercase text-ink">
-                    Dual Gateway Failover
-                  </h4>
-                  <p className="text-xs text-ink-muted mt-0.5">
-                    Paystack primary processing with automated Flutterwave fallback for zero transaction downtime.
-                  </p>
-                </div>
-              </div>
-
-              <div className="bg-paper-100 border border-border-subtle p-3.5 sm:p-4 rounded-xl flex items-start gap-3">
-                <ShieldCheck className="w-5 h-5 text-ink shrink-0 mt-0.5" />
-                <div>
-                  <h4 className="text-xs font-mono font-semibold uppercase text-ink">
-                    CI/CD & Cloud Infrastructure
-                  </h4>
-                  <p className="text-xs text-ink-muted mt-0.5">
-                    Automated GitHub Actions pipelines, Docker deployment, and environment branch controls.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Live Play Store & Web Links */}
-            <div className="mt-6 pt-5 border-t border-border-subtle flex flex-wrap items-center gap-2.5">
-              <span className="text-[11px] font-mono text-ink-faint uppercase tracking-wider block mr-1">
-                Live Releases:
-              </span>
-              <a
-                href="https://play.google.com/store/apps/details?id=com.goodtenants.upward"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="editorial-btn-secondary !py-1.5 !px-3 !text-xs !gap-1.5"
-              >
-                <span>Upward Pay (Play Store)</span>
-                <ExternalLink className="w-3 h-3 text-ink-faint" />
-              </a>
-              <a
-                href="https://play.google.com/store/apps/details?id=com.goodtenants.upward.pm"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="editorial-btn-secondary !py-1.5 !px-3 !text-xs !gap-1.5"
-              >
-                <span>Upward PM (Play Store)</span>
-                <ExternalLink className="w-3 h-3 text-ink-faint" />
-              </a>
-              <a
-                href="https://upward.goodtenants.io"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="editorial-btn-secondary !py-1.5 !px-3 !text-xs !gap-1.5"
-              >
-                <span>Upward Web Portal</span>
-                <ExternalLink className="w-3 h-3 text-ink-faint" />
-              </a>
-            </div>
-
-            {/* Tech Stack Chips & Case Study Button */}
-            <div className="mt-5 pt-5 border-t border-border-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div className="flex flex-wrap gap-1.5 max-w-xl">
-                {flagshipProject.tags.map((tag) => (
-                  <span key={tag} className="editorial-tag text-xs">
-                    {tag}
+            {/* The Story Behind the Build: Why & How */}
+            <div className="grid sm:grid-cols-2 gap-4 pt-2">
+              <div className="p-4 rounded-xl bg-paper-100/70 border border-border space-y-1.5">
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-ink-muted" />
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-ink-muted font-semibold">
+                    The Engineering Challenge
                   </span>
-                ))}
+                </div>
+                <p className="text-[13.5px] text-ink-light leading-relaxed">
+                  Single payment gateway outages and network retries in emerging markets frequently stall rent collection and cause double-crediting across property ledgers.
+                </p>
               </div>
-
-              {/* Deep Dive Action Button */}
-              <button
-                type="button"
-                onClick={() => setSelectedProject(flagshipProject)}
-                className="editorial-btn-primary !py-2.5 !px-5 w-full sm:w-auto shrink-0 justify-center cursor-pointer shadow-md hover:shadow-lg"
-              >
-                <BookOpen className="w-4 h-4 text-paper-200" />
-                <span>Open Full Architecture Case Study</span>
-                <ChevronRight className="w-4 h-4" />
-              </button>
+              <div className="p-4 rounded-xl bg-paper-100/70 border border-border space-y-1.5">
+                <div className="flex items-center gap-2">
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent-cobalt" />
+                  <span className="text-[11px] font-mono uppercase tracking-wider text-accent-cobalt font-semibold">
+                    How I Solved It
+                  </span>
+                </div>
+                <p className="text-[13.5px] text-ink-light leading-relaxed">
+                  Engineered an active circuit breaker routing primary traffic to Paystack with automated failover to Flutterwave, backed by Redis idempotency locks and ACID PostgreSQL ledgers.
+                </p>
+              </div>
             </div>
+          </div>
+
+          {/* Unified Dark Carbon Telemetry Strip (High contrast, zero AI icons) */}
+          <div className="mt-6 bg-ink text-paper-50 rounded-xl grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/15 overflow-hidden">
+            <div className="p-4">
+              <div className="text-lg font-bold font-editorial text-white">3 Mobile Apps</div>
+              <div className="text-[11px] font-mono text-white/65 mt-1">iOS App Store & Google Play</div>
+            </div>
+            <div className="p-4">
+              <div className="text-lg font-bold font-editorial text-white">200+ Endpoints</div>
+              <div className="text-[11px] font-mono text-white/65 mt-1">NestJS & PostgreSQL ACID</div>
+            </div>
+            <div className="p-4">
+              <div className="text-lg font-bold font-editorial text-white">Auto-Failover</div>
+              <div className="text-[11px] font-mono text-white/65 mt-1">Paystack + Flutterwave Engine</div>
+            </div>
+            <div className="p-4">
+              <div className="text-lg font-bold font-editorial text-white">Zero-Downtime</div>
+              <div className="text-[11px] font-mono text-white/65 mt-1">Docker & GitHub Actions CI/CD</div>
+            </div>
+          </div>
+
+          {/* Live Releases & Case Study Trigger */}
+          <div className="mt-6 pt-5 border-t border-border-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="flex flex-wrap items-center gap-2">
+              {flagshipProject.links.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-paper-100 hover:bg-paper-200 text-ink text-xs font-mono font-medium border border-border transition-colors"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent-emerald" />
+                  <span>{link.label}</span>
+                  <ArrowUpRight className="w-3 h-3 text-ink-faint" />
+                </a>
+              ))}
+            </div>
+
+            <button
+              type="button"
+              onClick={() => setSelectedProject(flagshipProject)}
+              className="editorial-btn-primary !py-2.5 !px-4 shrink-0 cursor-pointer"
+            >
+              <span>Inspect Architecture Case Study</span>
+              <ChevronRight className="w-3.5 h-3.5" />
+            </button>
           </div>
         </div>
+      </div>
 
-        {/* Secondary Projects Grid */}
+      {/* Secondary Production & Research Systems */}
+      <div className="space-y-5">
+        <div className="flex items-center justify-between">
+          <span className="text-xs font-mono uppercase tracking-widest text-ink-muted font-semibold flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-ink" />
+            <span>AI Platforms & Computer Vision Systems</span>
+          </span>
+          <span className="text-xs font-mono text-ink-faint">Click any card for deep dive</span>
+        </div>
+
         <div className="space-y-4">
-          <div className="text-xs font-mono uppercase tracking-widest text-ink-faint font-semibold">
-            Other Production & Research Systems
-          </div>
+          {secondaryProjects.map((project, index) => (
+            <div
+              key={project.id}
+              onClick={() => setSelectedProject(project)}
+              className="editorial-card p-6 sm:p-7 cursor-pointer group"
+            >
+              <div className="flex flex-wrap items-center justify-between gap-2 mb-3">
+                <div className="flex items-center gap-2.5">
+                  <span className="text-xs font-mono font-bold text-ink-muted">
+                    0{index + 2}
+                  </span>
+                  <span className="editorial-tag">
+                    {project.category}
+                  </span>
+                  <span className="text-xs font-mono text-ink-light font-medium inline-flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent-emerald" />
+                    <span>{project.status}</span>
+                  </span>
+                </div>
+                <span className="text-xs font-mono text-ink-faint">
+                  {project.period}
+                </span>
+              </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {secondaryProjects.map((project) => (
-              <div
-                key={project.id}
-                className="editorial-card p-6 flex flex-col justify-between space-y-6 bg-white cursor-pointer group hover:border-ink/60"
-                onClick={() => setSelectedProject(project)}
-              >
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="editorial-tag text-[11px]">
-                      {project.category}
-                    </span>
-                    <span className="text-[11px] font-mono text-emerald-700 font-medium">
-                      {project.status}
-                    </span>
+              <div className="space-y-2">
+                <div className="flex items-start justify-between gap-4">
+                  <div>
+                    <h3 className="text-xl sm:text-2xl font-bold tracking-[-0.02em] text-ink font-editorial group-hover:text-accent-cobalt transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-xs sm:text-sm font-medium text-ink-muted mt-0.5">
+                      {project.subtitle}
+                    </p>
                   </div>
-
-                  <h3 className="text-lg font-bold text-ink font-editorial group-hover:text-accent-blue transition-colors">
-                    {project.title}
-                  </h3>
-
-                  <p className="text-xs text-ink-muted leading-relaxed line-clamp-3">
-                    {project.summary}
-                  </p>
+                  <span className="p-2 rounded-lg bg-paper-100 text-ink-muted group-hover:bg-ink group-hover:text-paper-50 transition-colors shrink-0">
+                    <ArrowUpRight className="w-4 h-4" />
+                  </span>
                 </div>
 
-                <div className="space-y-4 pt-2 border-t border-border-subtle">
-                  <div className="flex flex-wrap gap-1">
-                    {project.tags.slice(0, 4).map((tag) => (
-                      <span key={tag} className="text-[10px] font-mono px-2 py-0.5 rounded bg-paper-100 text-ink-faint border border-border-subtle">
-                        {tag}
-                      </span>
-                    ))}
-                    {project.tags.length > 4 && (
-                      <span className="text-[10px] font-mono px-1.5 py-0.5 text-ink-faint">
-                        +{project.tags.length - 4}
-                      </span>
-                    )}
-                  </div>
+                <p className="text-[14.5px] sm:text-[15.5px] text-ink-light leading-[1.75] pt-1">
+                  {project.summary}
+                </p>
 
-                  {/* Actions row: Case study button + direct external link if present */}
-                  <div className="flex items-center justify-between pt-1 text-xs">
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setSelectedProject(project);
-                      }}
-                      className="font-medium text-ink group-hover:text-accent-blue flex items-center gap-1 hover:underline underline-offset-4"
-                    >
-                      <BookOpen className="w-3.5 h-3.5" />
-                      <span>View Case Study</span>
-                    </button>
-
-                    {project.links && project.links.length > 0 && (
-                      <a
-                        href={project.links[0].url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={(e) => e.stopPropagation()}
-                        className="text-xs font-mono text-ink-faint hover:text-ink flex items-center gap-1"
-                      >
-                        <span>{project.links[0].label}</span>
-                        <ArrowUpRight className="w-3.5 h-3.5" />
-                      </a>
-                    )}
+                {/* Highlighted Engineering Takeaway */}
+                <div className="pt-2">
+                  <div className="p-3.5 rounded-lg bg-paper-100/70 border border-border text-xs sm:text-[13px] text-ink-light leading-relaxed flex items-start gap-2.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent-cobalt mt-2 shrink-0" />
+                    <div>
+                      <span className="font-mono text-[11px] uppercase tracking-wider text-ink font-bold block mb-0.5">
+                        Key Engineering Highlight
+                      </span>
+                      {project.caseStudy.engineeringHighlights[0]}
+                    </div>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
+
+              {/* Footer: Stack & Actions */}
+              <div className="mt-5 pt-4 border-t border-border-subtle flex flex-wrap items-center justify-between gap-3">
+                <div className="flex flex-wrap gap-1.5">
+                  {project.tags.slice(0, 6).map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-[11px] font-mono px-2 py-0.5 rounded bg-paper-100 text-ink-muted border border-border-subtle"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="flex items-center gap-4 text-xs font-mono">
+                  {project.links && project.links.length > 0 && (
+                    <a
+                      href={project.links[0].url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-ink-muted hover:text-ink inline-flex items-center gap-1 underline decoration-border-strong underline-offset-4"
+                    >
+                      <span>{project.links[0].label}</span>
+                      <ArrowUpRight className="w-3 h-3" />
+                    </a>
+                  )}
+                  <span className="font-semibold text-ink group-hover:text-accent-cobalt inline-flex items-center gap-1">
+                    <span>Case Study →</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
@@ -259,4 +249,5 @@ export const SelectedWork: React.FC = () => {
     </section>
   );
 };
+
 export default SelectedWork;

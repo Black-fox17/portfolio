@@ -9,23 +9,24 @@ export const experiences: ExperienceItem[] = [
     type: 'Hybrid',
     period: 'March 2026 – Present',
     current: true,
-    domain: 'PropTech / FinTech & Mobile Systems',
+    domain: 'PropTech / FinTech & Mobile Systems (iOS & Android)',
     summary:
-      'Leading engineering, deployment, and operational architecture for the Upward Ecosystem across web and mobile platforms.',
+      'Leading engineering, deployment, and operational architecture for the Upward Ecosystem across iOS, Android, and web platforms.',
     highlights: [
-      'Shipped and operated two production Android applications, Upward Pay and Upward PM, on the Google Play Store; supervised release preparation, Play Console operations, rollout strategies, crash monitoring, and maintenance.',
-      'Architected a secure, resilient PropTech ecosystem linking tenants, landlords, property managers, payment providers, insurance services, and external property management platforms.',
+      'Took complete ownership of launching UpwardPay on the Apple App Store, managing the full submission lifecycle, App Store guidelines review, TestFlight builds, and production release.',
+      'Shipped and operated two production Android applications, Upward Pay and Upward PM, on the Google Play Store; supervised release tracks, Play Console rollouts, and crash monitoring.',
       'Architected and maintained 200+ production REST endpoints across 6 domain planes for rent collection, automated lease agreements, document workflows, tenant verification, and property operations using NestJS, TypeScript, and PostgreSQL.',
-      'Built payment orchestration for rent, verification, property transactions, and financial workflows: Paystack primary processing with automatic Flutterwave failover for continuity during gateway degradation or outages.',
-      'Owned architecture, UI/UX, frontend, backend, cloud infrastructure, and deployment strategy with Next.js, Capacitor, and GitHub Actions; directed branding, interface systems, SEO, and technical optimization across web and mobile.'
+      'Built payment orchestration with automated Paystack primary routing and Flutterwave circuit-breaker failover, eliminating dropped transactions during gateway degradation or outages.',
+      'Owned architecture, UI/UX, frontend, backend, cloud infrastructure, and deployment strategy with Next.js, Capacitor, and GitHub Actions; directed interface systems and cross-platform optimization across iOS, Android, and web.'
     ],
     technologies: [
+      'iOS (App Store)',
+      'Android (Google Play)',
       'NestJS',
       'TypeScript',
       'PostgreSQL',
       'Next.js',
       'Capacitor',
-      'Android',
       'Paystack',
       'Flutterwave',
       'GitHub Actions',
