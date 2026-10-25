@@ -11,11 +11,11 @@ Since I said computers understand numbers far better than humans can, a question
 Okay, easy there, genius! Well, this in simple terms is what **encoding** in NLP means: representing tokens (or as you might refer to them, "words" well, it's not just words, we'll get there in a moment) as numbers. Let's say `a = 1`, `b = 2`, and so on. We can represent "hello" in numbers as `[8, 5, 12, 12, 15]`. 
 **This is character-level tokenization**, **It is not what modern llms use**
 
-The computer will surely understand this, but for every solution we come up with, there's always room for an efficiency problem. This means the number of digits we use to represent a word is the same length as our word itself—"hello" is 5 characters long, same with `[8, 5, 12, 12, 15]`. This is not efficient and leads to wastage of space and computational resources because, my friend, for your LLM or any language-based model to be trained on a neural network, it passes through operations and representations.
+The computer will surely understand this, but for every solution we come up with, there's always room for an efficiency problem. This means the number of digits we use to represent a word is the same length as our word itself: "hello" is 5 characters long, same with `[8, 5, 12, 12, 15]`. This is not efficient and leads to wastage of space and computational resources because, my friend, for your LLM or any language-based model to be trained on a neural network, it passes through operations and representations.
 
 So, our genius, you came up with another idea: **representing each word by a single number**. Now this does seem efficient! At least now we can represent a word like "hello" as `1` and "world" as `3`, so our encoding representation will be `[1, 3]` for "helloworld". Don't see this as a typo yes, "helloworld" is different from "hello world". The space `" "` in terms of NLP is also a token, so we have to assign a number for it too. "hello world" might be something like `[1, 2, 3]`.
 
-This does seem practical—we just have to assign an ID to every word in the dictionary. Wait... there are over **500,000 English words** alone! Well, we also have to consider morphology: "run" can be "running", "runner", etc. What about other languages? Oh, there are emojis, symbols too, slang too! This will make our representation balloon into millions of tokens. Well, oh genius, this doesn't seem effective to me.
+This does seem practical: we just have to assign an ID to every word in the dictionary. Wait... there are over **500,000 English words** alone! Well, we also have to consider morphology: "run" can be "running", "runner", etc. What about other languages? Oh, there are emojis, symbols too, slang too! This will make our representation balloon into millions of tokens. Well, oh genius, this doesn't seem effective to me.
 
 This is what gave birth to some of the current tokenization and encoding techniques today. Most of them started out as **compression techniques** to fully represent language.
 
@@ -63,7 +63,7 @@ $$\text{BPE}(s, k) \leq \text{OPT}_m(s, k) \leq \text{OPT}(s, k)$$
 
 ![](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTtg0NF_l2rJLYgnL0zYPty2xilCf-M2QA-2g&s)
 
-Although we won't dive too much into optimization problems here, rather how it relates to LLMs, BPE solves the OOV problem and also handles emojis, accents, and rare scripts which was a major issue concerning tokenization—simply by borrowing the concept that **"every string is representable as bytes"**. This simple line changes everything. How? you might ask. A Chinese character can be represented as bytes!
+Although we won't dive too much into optimization problems here, rather how it relates to LLMs, BPE solves the OOV problem and also handles emojis, accents, and rare scripts which was a major issue concerning tokenization, simply by borrowing the concept that **"every string is representable as bytes"**. This simple line changes everything. How? you might ask. A Chinese character can be represented as bytes!
 
 Before byte-level encoding, tokenizers worked on characters. This sounds fine for English, but the world has:
 
@@ -102,7 +102,7 @@ This ensures handling of contractions, punctuation, and spaces. A simple "Hello 
 
 ### Step 2: Byte-to-Unicode Mapping
 
-As we mentioned about the Unicode byte representation with 256 base bytes, we can now represent any characters in our words—symbols or Chinese characters can be represented by two or more bytes. This allows the conversion into characters constrained by the 256 base bytes, and with UTF-8 we can easily reverse the character back to its original symbol. This is such an important task in our BPE algorithm.
+As we mentioned about the Unicode byte representation with 256 base bytes, we can now represent any characters in our words; symbols or Chinese characters can be represented by two or more bytes. This allows the conversion into characters constrained by the 256 base bytes, and with UTF-8 we can easily reverse the character back to its original symbol. This is such an important task in our BPE algorithm.
 
 Here is code that shows the byte-to-unicode representation:
 
@@ -135,7 +135,7 @@ The base alphabet consists of **256** byte-derived Unicode symbols, not raw byte
 
 ### Step 3: Training Loop
 
-The training loop is such a simple thing to grasp—it is a **popularity contest algorithm** which favors the most frequently occurring pairs.
+The training loop is simple to grasp: it is a **popularity contest algorithm** which favors the most frequently occurring pairs.
 
 **During tokenization, merges are applied strictly by rank, ensuring deterministic segmentation.**
 
@@ -200,7 +200,7 @@ The tokenization process follows the same process as our training algorithm, but
 
 Encoding is just using our `byte_encoder` to encode the text with UTF-8 and decode with the 256 base bytes. This prevents OOV. Then we tokenize, and we can query the tokenized tokens in our vocab and get the encoded IDs. This is built **strictly** by ranks.
 
-Please notice the use of "strictly"—it really matters!
+Please notice the use of "strictly": it really matters!
 
 ### Step 6: Decoding
 

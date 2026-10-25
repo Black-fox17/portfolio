@@ -59,7 +59,7 @@ export const publishedArticles: ArticleItem[] = [
     readTime: '8 min read',
     category: 'Language Models & Deep Learning',
     excerpt:
-      'A practical walkthrough of byte pair encoding (BPE), showing how raw text is transformed into subword tokens and why tokenization—not raw characters—is what language models actually see.'
+      'A practical walkthrough of byte pair encoding (BPE), showing how raw text is transformed into subword tokens and why tokenization, rather than raw characters, is what language models actually process.'
   },
   {
     id: '2',
@@ -107,7 +107,7 @@ export const openSourceReproductions: OpenSourceReproduction[] = [
   {
     id: 'point-supervised-loveda-segmentation',
     title: 'Point-Supervised LoveDA Semantic Segmentation',
-    description: 'Weakly-supervised aerial remote sensing segmentation on LoveDA Urban using Partial Cross-Entropy (pCE), U-Net architecture, and non-overlapping tiled sliding-window inference.',
+    description: 'Aerial satellite image segmentation using single point clicks, PyTorch U-Net models, and tiled full-scene inference.',
     category: 'Computer Vision & Deep Learning',
     technologies: ['PyTorch', 'U-Net', 'Remote Sensing', 'LoveDA', 'pCE Loss'],
     githubUrl: 'https://github.com/Black-fox17/point-supervised-loveda-segmentation'
@@ -115,7 +115,7 @@ export const openSourceReproductions: OpenSourceReproduction[] = [
   {
     id: 'asera-core-supervisor-agent',
     title: 'Asera Core: Supervisor Agent & RLM Context Engine',
-    description: 'Modular multi-agent orchestration framework: dynamic routing schema synthesis, parallel asyncio.gather worker fleets, and unbounded RLM context reasoning via isolated Python REPLs.',
+    description: 'Lightweight multi-agent framework: routes tasks to worker agents in parallel and analyzes long documents through clean Python code execution.',
     category: 'Agentic AI & Distributed Systems',
     technologies: ['Python', 'Gemini 2.0', 'RLM', 'AsyncIO', 'PostgreSQL', 'Docker'],
     githubUrl: 'https://github.com/Black-fox17/asera-core'
@@ -123,7 +123,7 @@ export const openSourceReproductions: OpenSourceReproduction[] = [
   {
     id: 'rsna-lumbar-spine-grading',
     title: 'RSNA Lumbar Spine Degenerative Disease Classification',
-    description: 'Volumetric multi-level 25-target spine degeneration grading: DICOM VOI LUT normalization, GeM pooling backbones, and severe-weighted multi-class loss.',
+    description: 'Deep learning pipeline for 3D MRI scans: grades 3 spine conditions across 5 disc levels simultaneously using PyTorch.',
     category: 'Medical AI & Vision',
     technologies: ['PyTorch', 'DICOM', 'GeM-Pooling', 'EfficientNetV2', 'FastAI'],
     githubUrl: 'https://github.com/Black-fox17/rsna-lumbar-spine-classification-'
@@ -131,7 +131,7 @@ export const openSourceReproductions: OpenSourceReproduction[] = [
   {
     id: 'breast-cancer-histopathology-ai',
     title: 'Breast Cancer Histopathology & Diagnostic Copilot',
-    description: 'Google Path-Foundation Vision Transformer embeddings, 8-class subtype classification, and multimodal Gemini diagnostic explanation generation.',
+    description: 'Analyzes breast cancer biopsy slides with vision models and generates clear diagnostic summaries for pathologists.',
     category: 'Medical AI & Vision',
     technologies: ['Path-Foundation', 'TensorFlow', 'Gemini', 'FastAPI', 'Docker'],
     githubUrl: 'https://github.com/Black-fox17/BreastCancer.git'
@@ -139,7 +139,7 @@ export const openSourceReproductions: OpenSourceReproduction[] = [
   {
     id: 'asl-fingerspelling-recognition',
     title: 'Continuous ASL Fingerspelling Engine',
-    description: 'Real-time gesture-to-text translation: 543 MediaPipe holistic keypoint filtering, 1D conv temporal downsampling, seq2seq transformer, and sub-30ms TFLite model.',
+    description: 'Real-time sign language translation from camera video to text using MediaPipe hand tracking and a mobile Transformer model.',
     category: 'Vision & Multimodal',
     technologies: ['TensorFlow', 'MediaPipe', 'Transformers', 'TFLite', 'Python'],
     githubUrl: 'https://github.com/Black-fox17/ASL.git'

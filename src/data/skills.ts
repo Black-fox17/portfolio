@@ -3,51 +3,51 @@ import { SkillCategory } from '../types/portfolio';
 export const skillCategories: SkillCategory[] = [
   {
     title: 'AI & Advanced Computer Vision',
-    description: 'First-principles model design, semantic segmentation, deep convolutional backbones, medical vision, and agentic systems.',
+    description: 'Neural networks, computer vision models, medical imaging, and AI agent frameworks.',
     skills: [
-      { name: 'Semantic Segmentation & Weak Supervision', focus: 'PyTorch U-Net, Point Supervision, Partial Cross-Entropy (pCE), sliding tiled inference' },
-      { name: 'Deep CNNs & Modern Backbones', focus: 'ResNet, MobileNet, EfficientNetV2, ConvNeXt, Generalized Mean (GeM) pooling' },
-      { name: 'Medical Vision & Volumetric Imaging', focus: 'Google Path Foundation ViT, Whole-Slide Biopsies, DICOM 3D projection & VOI LUT windowing' },
-      { name: 'Edge Kinematics & Gesture Vision', focus: 'MediaPipe 543 holistic landmarks, 1D conv temporal downsampling, sub-30ms TFLite' },
-      { name: 'Object Detection & Spatial Intelligence', focus: 'Custom YOLO, OpenCV spatial heuristics, bounding box planogram auditing' },
-      { name: 'Agentic Systems & Recursive Context (RLM)', focus: 'Supervisor agents, dynamic routing schemas, isolated REPLs (MIT CSAIL RLM)' },
-      { name: 'Transformers & NLP From Scratch', focus: 'Self-attention, BPE tokenization, Skip-Gram, positional encodings, KV caching' }
+      { name: 'Semantic Segmentation & Weak Supervision', focus: 'PyTorch U-Net models, point labeling, partial cross-entropy, and full-image scanning' },
+      { name: 'Deep CNNs & Modern Backbones', focus: 'Image classification, feature extraction, and modern neural network backbones' },
+      { name: 'Medical Vision & Volumetric Imaging', focus: 'Biopsy image analysis, 3D MRI scans, DICOM processing, and clinical workflows' },
+      { name: 'Edge Kinematics & Gesture Vision', focus: 'Hand and body tracking with MediaPipe, real-time mobile inference with TFLite' },
+      { name: 'Object Detection & Spatial Intelligence', focus: 'Real-time object detection with YOLO and OpenCV for store inventory audits' },
+      { name: 'Agentic Systems & Recursive Context (RLM)', focus: 'Coordinating multi-agent teams, tool calling, and long-document reasoning' },
+      { name: 'Transformers & NLP From Scratch', focus: 'Building language models, tokenizers, word embeddings, and attention from scratch' }
     ]
   },
   {
     title: 'Backend & Data Engineering',
-    description: 'Resilient API architectures, relational ledgers, asynchronous queues, and database schemas.',
+    description: 'Reliable API design, structured databases, background worker queues, and payment systems.',
     skills: [
-      { name: 'TypeScript & JavaScript', focus: 'Type-safe services, modern async paradigms' },
-      { name: 'Python', focus: 'FastAPI, asynchronous event loops, data processing' },
-      { name: 'NestJS', focus: 'Modular architecture, dependency injection, guards/interceptors' },
-      { name: 'PostgreSQL', focus: 'ACID transactions, relational indexing, query optimization' },
-      { name: 'Monolithic Backends & Data Integrity', focus: 'High-throughput 500+ APIs, complex PostgreSQL relational schemas, transaction boundaries' },
-      { name: 'MongoDB', focus: 'Document stores, aggregations, schema validation' },
-      { name: 'REST & Webhook APIs', focus: 'Idempotency, contract testing, OpenAPI schemas' }
+      { name: 'TypeScript & JavaScript', focus: 'Type-safe services and modern asynchronous code' },
+      { name: 'Python', focus: 'FastAPI backends, asynchronous processing, and data workflows' },
+      { name: 'NestJS', focus: 'Clean modular architecture, dependency injection, and guards' },
+      { name: 'PostgreSQL', focus: 'Reliable database transactions, table indexing, and query optimization' },
+      { name: 'Monolithic Backends & Data Integrity', focus: 'Building large-scale NestJS backends with 500+ APIs and clean PostgreSQL databases' },
+      { name: 'MongoDB', focus: 'Document databases, flexible data models, and aggregation queries' },
+      { name: 'REST & Webhook APIs', focus: 'Idempotency, payment webhooks, and OpenAPI documentation' }
     ]
   },
   {
     title: 'Cloud, DevOps & Systems',
-    description: 'Event-driven serverless architectures, container orchestration, and automated CI/CD.',
+    description: 'Cloud deployment, background task processing, containers, and automated delivery pipelines.',
     skills: [
-      { name: 'AWS Lambda & SQS', focus: 'Asynchronous workers, distributed processing, event triggers' },
-      { name: 'DynamoDB', focus: 'Single-table design, key-value state indexing' },
-      { name: 'Docker', focus: 'Multi-stage builds, containerization, reproducible envs' },
-      { name: 'GitHub Actions', focus: 'CI/CD pipelines, automated testing, deployment controls' },
-      { name: 'Release Engineering', focus: 'Branch strategies, semantic versioning, rollback protocols' },
-      { name: 'Distributed Systems', focus: 'Message queues, idempotency, retry mechanisms' }
+      { name: 'AWS Lambda & SQS', focus: 'Background workers, asynchronous job handling, and event triggers' },
+      { name: 'DynamoDB', focus: 'Fast key-value storage and scalable database design' },
+      { name: 'Docker', focus: 'Containerizing services and creating reproducible environments' },
+      { name: 'GitHub Actions', focus: 'Automated testing, continuous integration, and cloud deployments' },
+      { name: 'Release Engineering', focus: 'Version tracking, clean release notes, and deployment rollouts' },
+      { name: 'Distributed Systems', focus: 'Message queues, safe retries, and network failure handling' }
     ]
   },
   {
     title: 'Product Engineering & Mobile',
-    description: 'End-to-end full-stack execution, mobile app stores, cross-platform apps, and accessible UX.',
+    description: 'Full-stack web apps, native mobile store releases, and clean user interfaces.',
     skills: [
-      { name: 'Next.js & React', focus: 'App Router, SSR, performant client state, responsive design' },
-      { name: 'Capacitor', focus: 'Native web-to-mobile bridge, iOS & Android runtime integration' },
-      { name: 'Apple App Store & Play Console', focus: 'iOS App Store submission, TestFlight, Play Store tracks, release lifecycle' },
-      { name: 'SaaS Architecture', focus: 'Multi-tenancy, billing, RBAC, analytics integration' },
-      { name: 'UI / UX Design Systems', focus: 'Minimalist editorial UI, accessibility (WCAG), Tailwind' }
+      { name: 'Next.js & React', focus: 'Fast server-rendered pages, modern UI state, and responsive styling' },
+      { name: 'Capacitor', focus: 'Packaging web applications into native iOS and Android apps' },
+      { name: 'Apple App Store & Play Console', focus: 'App Store review guidelines, TestFlight beta builds, and Google Play tracks' },
+      { name: 'SaaS Architecture', focus: 'User authentication, role-based access, and payment integrations' },
+      { name: 'UI / UX Design Systems', focus: 'Clean typography, responsive layouts, accessibility, and Tailwind CSS' }
     ]
   }
 ];

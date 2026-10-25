@@ -10,7 +10,7 @@ On paper, this sounds like the death of document chunking and vector databases. 
 2. **Needle-in-a-Haystack Degradation**: As token density grows, attention weights disperse. Models frequently fail on multi-hop reasoning, hallucinate citations, or miss critical clauses buried in page 142 of a contract.
 3. **Prompt Bloat in Multi-Agent Loops**: When an autonomous supervisor coordinates multiple worker agents, passing full conversation histories and bulky reference documents back and forth across every turn rapidly exhausts rate limits and exhausts model focus.
 
-When architecting **Asera Core**—the foundational multi-agent supervisor engine powering the Asera ecosystem—I decided to reject prompt stuffing entirely. 
+When architecting **Asera Core**, the supervisor engine powering the Asera ecosystem, I decided to reject prompt stuffing entirely. 
 
 Instead, we looked toward an inference-time paradigm pioneered by **Alex L. Zhang, Tim Kraska, and Omar Khattab at MIT CSAIL**: **Recursive Language Models (RLMs)** ([arXiv:2512.24601](https://arxiv.org/abs/2512.24601)).
 
@@ -189,7 +189,7 @@ In `asera-core`, I engineered the `SupervisorAgent` from the ground up without g
 ```
 
 ### 1. Zero-Config Tool Schema Inference
-Any standard Python function—sync or async—can be converted into an LLM-callable tool via the `@agent.tool` decorator. Python type hints and docstrings are inspected via `inspect.signature` to construct standard JSON Schema definitions automatically:
+Any standard Python function (synchronous or asynchronous) can be converted into an LLM-callable tool via the `@agent.tool` decorator. Python type hints and docstrings are inspected via `inspect.signature` to construct standard JSON Schema definitions automatically:
 
 ```python
 class Agent:

@@ -27,27 +27,27 @@ const principles: Principle[] = [
   {
     step: '02',
     title: 'Design for Failure & Asynchrony',
-    tagline: 'Architect around gateway degradations, network retries, and ledger integrity.',
+    tagline: 'Design systems that handle network retries, timeouts, and data accuracy gracefully.',
     description:
-      'I treat network latency and external third-party outages as inevitable. Systems are designed with idempotency keys, circuit-breaker failovers, and transactional consistency to protect financial ledgers and state machines.',
+      'I treat network delays and external service hiccups as normal. Systems are built with safe database transactions, duplicate-prevention checks, and reliable retries to keep data accurate.',
     icon: Compass,
     points: [
-      'ACID transaction boundaries & relational indexing',
-      'Dual-gateway fallback & circuit breakers',
-      'Asynchronous worker queues for long-running AI tasks'
+      'Reliable database transactions and clear indexing',
+      'Safe payment integration and error handling',
+      'Asynchronous background queues for heavy tasks'
     ]
   },
   {
     step: '03',
     title: 'Bridge AI & Usable Product Engineering',
-    tagline: 'Turn raw embeddings and APIs into intuitive, low-latency interfaces.',
+    tagline: 'Turn complex models and backend APIs into fast, easy-to-use apps.',
     description:
-      'An algorithm is only valuable if users can operate it without friction. I bridge backend services with cross-platform web and mobile frontends, optimizing perceived latency through streaming responses and optimistic updates.',
+      'Software is only useful when people enjoy using it. I connect backend systems with web and mobile interfaces, keeping apps fast and responsive through real-time updates and clean design.',
     icon: Cpu,
     points: [
-      'Next.js SSR & Capacitor mobile integration',
-      'Streaming LLM token generation & progressive loading',
-      'Sub-50ms optimistic UI states'
+      'Next.js web apps and Capacitor mobile builds',
+      'Real-time streaming responses and smooth loading',
+      'Fast and intuitive user interface updates'
     ]
   },
   {
@@ -55,12 +55,12 @@ const principles: Principle[] = [
     title: 'Ship with Rigorous Release Controls',
     tagline: 'Automate build artifacts, branch controls, and store deployment.',
     description:
-      'I own production environments across web and Android. Automated CI/CD pipelines validate types, run test suites, containerize microservices, and manage Google Play Console internal and production rollout tracks.',
+      'I manage production releases across iOS, Android, and web. Automated CI/CD pipelines run test suites, build Docker containers, and handle releases to the Apple App Store and Google Play Console.',
     icon: Rocket,
     points: [
-      'GitHub Actions CI/CD with Docker multi-stage builds',
-      'Google Play Console staged rollouts & release notes',
-      'Zero-downtime database migrations'
+      'GitHub Actions CI/CD with Docker builds',
+      'Apple App Store and Google Play release management',
+      'Zero-downtime database updates'
     ]
   },
   {
@@ -71,8 +71,8 @@ const principles: Principle[] = [
       'Deployment is the start of observation. I inspect query performance, cache hit ratios, token generation costs, and user analytics to eliminate bottlenecks and continuously improve the system.',
     icon: LineChart,
     points: [
-      'Sub-second query tuning and index optimization',
-      'KV cache memory profiling for LLM inference',
+      'Database query tuning and speed optimization',
+      'Memory and performance monitoring for AI models',
       'Continuous user feedback loops'
     ]
   }
@@ -86,7 +86,7 @@ export const HowIBuild: React.FC = () => {
         <div className="mb-12">
           <div className="section-heading">
             <span className="w-2 h-2 rounded-full bg-ink" />
-            <span>Chapter 04 — Engineering Philosophy</span>
+            <span>Chapter 04: Engineering Philosophy</span>
           </div>
           <h2 className="section-title">
             How I Build: Systems Thinking & Execution

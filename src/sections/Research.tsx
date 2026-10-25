@@ -14,7 +14,7 @@ export const Research: React.FC = () => {
   return (
     <div className="min-h-screen bg-paper text-ink flex flex-col selection:bg-ink selection:text-paper">
       <Helmet>
-        <title>Research & First Principles — Abdulsalam Ayeleru</title>
+        <title>Research & First Principles | Abdulsalam Ayeleru</title>
         <meta
           name="description"
           content="Academic and first-principles machine learning research by Abdulsalam Oluwaseun Ayeleru: medical computer vision, transformer mechanics, and open-source paper implementations."
@@ -61,7 +61,7 @@ export const Research: React.FC = () => {
                 </span>
               </div>
               <span className="text-xs font-mono text-ink-faint">
-                Dec 2024 – March 2025
+                Dec 2024 - March 2025
               </span>
             </div>
 

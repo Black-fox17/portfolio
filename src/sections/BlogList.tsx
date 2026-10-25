@@ -24,13 +24,13 @@ export const BlogList: React.FC = () => {
   return (
     <div className="min-h-screen bg-paper text-ink flex flex-col selection:bg-ink selection:text-paper">
       <Helmet>
-        <title>The Deep End — Technical Writing & AI Systems | Abdulsalam Ayeleru</title>
+        <title>The Deep End | Technical Writing & AI Systems | Abdulsalam Ayeleru</title>
         <meta
           name="description"
           content="In-depth technical notes on byte-pair encoding, transformers, skip-gram, positional encodings, and inference optimizations by Abdulsalam Oluwaseun Ayeleru."
         />
         <link rel="canonical" href="https://salam-portfolio-three.vercel.app/blog" />
-        <meta property="og:title" content="The Deep End — Technical Writing | Abdulsalam Ayeleru" />
+        <meta property="og:title" content="The Deep End | Technical Writing | Abdulsalam Ayeleru" />
         <meta
           property="og:description"
           content="In-depth technical notes on AI systems, transformers, tokenization, and deep learning architectures."

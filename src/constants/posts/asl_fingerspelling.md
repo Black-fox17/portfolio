@@ -18,7 +18,7 @@ In this article, I will break down the mathematical formulations, architecture, 
 
 ## The Raw Data & Feature Slicing
 
-A standard video is composed of millions of raw pixels per second: $T \times H \times W \times 3$. Passing raw video pixels into a sequence model forces the neural network to spend the majority of its parameter capacity learning invariant representations of lighting, background clutter, clothing textures, and skin tones—factors completely orthogonal to the linguistic content of the gesture.
+A standard video is composed of millions of raw pixels per second: $T \times H \times W \times 3$. Passing raw video pixels into a sequence model forces the neural network to spend the majority of its parameter capacity learning invariant representations of lighting, background clutter, clothing textures, and skin tones, factors completely unrelated to the linguistic content of the gesture.
 
 Using **MediaPipe Holistic**, we isolate the kinematic topology of the signer into 543 spatial coordinates in 3D:
 - Face mesh: $468$ landmarks
@@ -37,7 +37,7 @@ Total Landmarks = 468 + 33 + 21 + 21 = 543 3D Keypoints
 Fingerspelling does not require face mesh deformations or lower-body pose tracking. To minimize input dimensionality while preserving necessary context, we slice the landmark tensor down to **48 essential landmarks**:
 - **Right Hand** ($21$ keypoints: wrist, thumb, index, middle, ring, pinky joints)
 - **Left Hand** ($21$ keypoints)
-- **Upper Pose** ($6$ keypoints: left/right shoulders, elbows, and wrists — indices `[11, 12, 13, 14, 15, 16]`)
+- **Upper Pose** ($6$ keypoints: left/right shoulders, elbows, and wrists; indices `[11, 12, 13, 14, 15, 16]`)
 
 Tracking the upper pose keypoints provides the spatial reference anchor: it informs the network of the signer's torso orientation and resting arm position.
 
@@ -105,7 +105,7 @@ This guarantees that whether a hand is in the top-left corner or center-right of
 
 Now we have a clean sequence of shape $(B, 128, 144)$. 
 
-Standard full self-attention scales quadratically with sequence length: $\mathcal{O}(T^2)$. A sequence of 128 frames means $128 \times 128 = 16,384$ attention score computations per head per layer. Furthermore, adjacent video frames at 30 FPS exhibit massive temporal redundancy—the hand barely moves between frame $t$ and frame $t+1$.
+Standard full self-attention scales quadratically with sequence length: $\mathcal{O}(T^2)$. A sequence of 128 frames means $128 \times 128 = 16,384$ attention score computations per head per layer. Furthermore, adjacent video frames at 30 FPS exhibit massive temporal redundancy: the hand barely moves between frame $t$ and frame $t+1$.
 
 To compress the temporal axis while extracting local kinematic trajectory vectors (velocity and curvature of the joints), we pass the raw features through **three cascaded 1D convolutional layers with stride 2**:
 
@@ -168,7 +168,7 @@ The encoder consists of 4 stacked layers. Each layer contains:
 - Pre-Layer Normalization and residual skip connections.
 - Feed-Forward sublayers expanding to dimension $d_{\text{ff}} = 128$ with ReLU activations.
 
-Because the encoder tokens represent compressed temporal video chunks, self-attention allows the model to capture co-articulation effects—where the formation of an upcoming letter influences the hand shape of the current letter.
+Because the encoder tokens represent compressed temporal video chunks, self-attention allows the model to capture co-articulation effects, where the formation of an upcoming letter influences the hand shape of the current letter.
 
 ### 2. Transformer Decoder with Causal Masking
 
@@ -215,7 +215,7 @@ where $\mathcal{D}(P_i, T_i)$ is the edit distance (minimum insertions, deletion
 
 A trained deep learning model in Python is tethered to heavy framework dependencies (`torch`, `tensorflow`, `cuda`). For real-world assistive tech, the model must run inside a native mobile app (iOS or Android) without network latency.
 
-We encapsulate the entire pipeline—feature slicing, orientation flip, spatial normalization, temporal convolution, and autoregressive generation—into a single standalone **TensorFlow Lite (`model.tflite`)** graph:
+We encapsulate the entire pipeline (feature slicing, orientation flip, spatial normalization, temporal convolution, and autoregressive generation) into a single standalone **TensorFlow Lite (`model.tflite`)** graph:
 
 ```python
 # From src/inference/tflite_export.py

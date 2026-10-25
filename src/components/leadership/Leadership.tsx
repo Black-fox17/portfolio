@@ -12,13 +12,13 @@ export const Leadership: React.FC = () => {
         <div className="mb-12">
           <div className="section-heading">
             <span className="w-2 h-2 rounded-full bg-ink" />
-            <span>Chapter 07 — Leadership, Mentorship & Community</span>
+            <span>Chapter 07: Leadership, Mentorship & Community</span>
           </div>
           <h2 className="section-title">
             Mentoring, Technical Leadership & Speaking
           </h2>
           <p className="section-desc">
-            Technical leadership is rooted in clear communication and multiplying engineering talent. Contributing through AI cohorts, university labs, and conference workshops.
+            Good engineering is about clear communication and helping others grow. I contribute by mentoring students in AI and web development, leading university sessions, and speaking at tech workshops.
           </p>
         </div>
 

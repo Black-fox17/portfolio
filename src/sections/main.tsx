@@ -212,7 +212,7 @@ export const Main: React.FC = () => {
 
               {/* Concise Story Hook */}
               <p className="text-[14px] sm:text-[14.5px] text-ink-muted leading-[1.6] max-w-md font-normal">
-                I engineer production AI, resilient financial backends, and multi-platform software—from mathematical first principles to the Apple App Store and Google Play.
+                I build practical AI systems, dependable backends, and mobile apps, taking products from initial design all the way to the Apple App Store and Google Play.
               </p>
 
               {/* Light Editorial Metrics Strip (Designer Recommendation: warm surface, fine borders, clean typography) */}

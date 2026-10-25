@@ -12,7 +12,7 @@ Transformers fix this order problem by introducing **Positional Encoding** to th
 
 In the transformer architecture released by Vaswani et al. in 2017 in a paper titled "Attention is All You Need," they made use of **Sinusoidal Positional Encoding**, which we'll get to in a second.
 
-Over the years, researchers in the field have found faults in each approach, particularly with the problem of **extrapolation**— how it performs on unseen data from its training and how it could scale in sequence length. This has led to many techniques for doing positional encoding.
+Over the years, researchers in the field have found faults in each approach, particularly with the problem of **extrapolation**: how it performs on unseen sequences longer than its training context. This has led to many techniques for doing positional encoding.
 
 In this post, I'll be discussing four of these with visualization:
 

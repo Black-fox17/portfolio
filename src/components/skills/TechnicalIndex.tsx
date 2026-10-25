@@ -12,13 +12,13 @@ export const TechnicalIndex: React.FC = () => {
         <div className="mb-12">
           <div className="section-heading">
             <span className="w-2 h-2 rounded-full bg-ink" />
-            <span>Chapter 05 — Technical Capabilities</span>
+            <span>Chapter 05: Technical Capabilities</span>
           </div>
           <h2 className="section-title">
             Technical Index & Systems Stack
           </h2>
           <p className="section-desc">
-            An index of technologies, frameworks, and system paradigms applied across production architectures, research papers, and deployed applications.
+            The languages, frameworks, and tools I use to build production systems, mobile apps, and machine learning models.
           </p>
         </div>
 

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowLeft, ArrowUpRight, X, ChevronRight } from 'lucide-react';
 import { Project } from '../../types/portfolio';
 import { projects } from '../../data/projects';
+import { ProjectLinkBadge } from '../common/ProjectLinkBadge';
 
 interface CaseStudyModalProps {
   project: Project | null;
@@ -150,17 +151,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
                       Releases:
                     </span>
                     {project.links.map((link) => (
-                      <a
-                        key={link.label}
-                        href={link.url}
-                        target={link.url.startsWith('http') ? '_blank' : '_self'}
-                        rel={link.url.startsWith('http') ? 'noopener noreferrer' : ''}
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-ink text-paper-50 hover:bg-ink-light text-xs font-mono font-medium transition-colors shadow-subtle"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent-emerald" />
-                        <span>{link.label}</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 text-white/70" />
-                      </a>
+                      <ProjectLinkBadge key={link.label} link={link} variant="dark" />
                     ))}
                   </div>
                 )}

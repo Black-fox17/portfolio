@@ -3,6 +3,7 @@ import { ArrowUpRight, ChevronRight } from 'lucide-react';
 import { projects } from '../../data/projects';
 import { Project } from '../../types/portfolio';
 import { CaseStudyModal } from './CaseStudyModal';
+import { ProjectLinkBadge } from '../common/ProjectLinkBadge';
 
 export const SelectedWork: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -22,7 +23,7 @@ export const SelectedWork: React.FC = () => {
           Selected Work & Architectural Case Studies
         </h2>
         <p className="text-[15.5px] sm:text-base text-ink-muted leading-relaxed max-w-2xl">
-          Every project below solves a concrete operational problem—from multi-gateway financial ledgers and mobile app rollouts to asynchronous scholarly NLP pipelines. Click any system to inspect its full architecture.
+          Every project below solves a practical engineering challenge, from mobile apps and property management systems to research pipelines. Click any system to inspect how it was built.
         </p>
       </div>
 
@@ -70,7 +71,7 @@ export const SelectedWork: React.FC = () => {
                   </span>
                 </div>
                 <p className="text-[13.5px] text-ink-light leading-relaxed">
-                  Managing a multi-platform ecosystem powered by a monolithic server handling concurrent internal requests from the PM app and Tenant app, while simultaneously mediating real-time communication with external property management platforms—backed by a complex database schema.
+                  Running a multi-platform app powered by a central server that processes simultaneous requests from our property manager app and tenant app, while also communicating with external property management platforms through a detailed database.
                 </p>
               </div>
               <div className="p-4 rounded-xl bg-paper-100/70 border border-border space-y-1.5">
@@ -81,7 +82,7 @@ export const SelectedWork: React.FC = () => {
                   </span>
                 </div>
                 <p className="text-[13.5px] text-ink-light leading-relaxed">
-                  Architected a high-throughput NestJS monolithic backend serving 500+ production REST APIs, designed a complex relational PostgreSQL database schema, and orchestrated client builds to satisfy strict Android specifications while taking full ownership of deploying UpwardPay to the Apple App Store.
+                  Built a central NestJS backend serving over 500+ production REST APIs, designed a clean PostgreSQL database, ensured both mobile apps met Google Play standards, and led the release of UpwardPay to the Apple App Store.
                 </p>
               </div>
             </div>
@@ -107,17 +108,7 @@ export const SelectedWork: React.FC = () => {
           <div className="mt-6 pt-5 border-t border-border-subtle flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div className="flex flex-wrap items-center gap-2">
               {flagshipProject.links.map((link) => (
-                <a
-                  key={link.label}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-paper-100 hover:bg-paper-200 text-ink text-xs font-mono font-medium border border-border transition-colors"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent-emerald" />
-                  <span>{link.label}</span>
-                  <ArrowUpRight className="w-3 h-3 text-ink-faint" />
-                </a>
+                <ProjectLinkBadge key={link.label} link={link} variant="light" />
               ))}
             </div>
 

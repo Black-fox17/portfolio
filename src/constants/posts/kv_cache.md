@@ -114,7 +114,7 @@ In worst case static allocation scenarios
 *   **Standard Cache**: ~2.1 GB per request (Reserves max_len)
 *   **Paged Attention**: ~40 MB per request (Allocates only used blocks)
 
-This efficiency allows systems like vLLM to serve **10–100x** more concurrent requests (continuous batching) compared to naive implementations.
+This efficiency allows systems like vLLM to serve **10x to 100x** more concurrent requests (continuous batching) compared to naive implementations.
 
 ## Conclusion
 

@@ -2,7 +2,7 @@
 
 ## Introduction: The Remote Sensing Annotation Bottleneck
 
-High-resolution remote sensing imagery acquired from airborne sensors and low-Earth-orbit satellites plays an indispensable role in contemporary spatial intelligence—driving urban growth monitoring, post-disaster structural triage, informal settlement mapping, and environmental degradation tracking. 
+High-resolution remote sensing imagery acquired from airborne sensors and low-Earth-orbit satellites plays an indispensable role in contemporary spatial intelligence, driving urban growth monitoring, post-disaster structural triage, informal settlement mapping, and environmental degradation tracking. 
 
 Yet, translating raw multispectral tiles into high-fidelity semantic land-cover maps remains bottlenecked by one stubborn operational reality: **the annotation barrier**.
 
@@ -14,7 +14,7 @@ In natural image benchmarks (e.g., Pascal VOC or MS COCO), objects typically exh
 
 Exhaustive, pixel-dense ground-truth annotation ($100\%$ spatial coverage) costs between **\$50 to \$150 per square kilometer** of imagery and demands dozens of human-hours per scene. 
 
-To overcome this bottleneck, **weakly-supervised semantic segmentation (WSSS)** has emerged as a compelling alternative. Among weak supervision paradigms—image-level tags, bounding boxes, scribbles, and point clicks—**point supervision** provides the optimal balance of annotation speed and spatial precision: an annotator simply places a single pixel point on an object of interest, reducing annotation time by over $95\%$.
+To overcome this bottleneck, **weakly-supervised semantic segmentation (WSSS)** has emerged as a compelling alternative. Among weak supervision paradigms (image-level tags, bounding boxes, scribbles, and point clicks), **point supervision** provides the optimal balance of annotation speed and spatial precision: an annotator simply places a single pixel point on an object of interest, reducing annotation time by over $95\%$.
 
 ```
 Annotation Paradigm Comparison:
@@ -235,7 +235,7 @@ Under pure Partial Cross-Entropy, the loss function penalizes errors *only* at t
 
 ### 2. Emergence of Geometric & Linear Features
 One of the most striking findings occurs in the **Water** and **Road** categories:
-* At $1\%$ label density, the network achieves **0.0000 IoU** on both water bodies and roads—completely subsuming them into the majority Background class.
+* At $1\%$ label density, the network achieves **0.0000 IoU** on both water bodies and roads, completely subsuming them into the majority Background class.
 * At $5\%$ label density, **Water IoU leaps to 0.2724** and **Road IoU emerges at 0.0700**.
 Because water bodies and road corridors exhibit distinct spectral signatures (infrared absorption in water, high specular linearity in roads), 5% spatial sampling crosses the critical percolation threshold required for the encoder's receptive field to bind contiguous linear features.
 

@@ -20,7 +20,7 @@ export const TheDeepEnd: React.FC = () => {
               The Deep End: First-Principles AI & Systems Research
             </h2>
             <p className="text-[15.5px] sm:text-base text-ink-muted leading-relaxed max-w-2xl mt-2">
-              To truly master a system, I build it from scratch without high-level abstractions and write down the math—covering tokenization, embeddings, positional encodings, attention, inference caches, and foundation vision architectures.
+              To truly understand how systems work, I implement them from scratch and explain the core mechanics, covering tokenization, neural network layers, attention mechanisms, and computer vision models.
             </p>
           </div>
           <Link

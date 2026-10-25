@@ -7,7 +7,7 @@ export const leadershipData: LeadershipItem[] = [
     role: 'Frontend Instructor & Mentor',
     organization: 'Larva Tech Academy',
     description:
-      'Instructed and mentored a cohort of 30+ aspiring engineers through modern frontend architecture, TypeScript, responsive UI systems, component design patterns, and production engineering practices.'
+      'Taught and mentored 30+ students in modern web development, TypeScript, clean UI design, and real-world coding practices.'
   },
   {
     metric: '200+',
@@ -15,7 +15,7 @@ export const leadershipData: LeadershipItem[] = [
     role: 'AI & Technical Mentor',
     organization: 'Skillsphere & Techqings',
     description:
-      'Guided over 200 aspiring engineers and students across machine learning fundamentals and project delivery—making ML accessible for everyone at Skillsphere, and empowering women in technology through Techqings.'
+      'Mentored over 200 students in machine learning and software development. I focused on making AI concepts simple to learn at Skillsphere, and helping women succeed in tech through Techqings.'
   },
   {
     metric: '2 Terms',
@@ -23,7 +23,7 @@ export const leadershipData: LeadershipItem[] = [
     role: 'Co-Lead',
     organization: 'RAIN-INN Robotics & AI Community (UI)',
     description:
-      'Organized technical workshops, cohort learning tracks, robotics initiatives, and student product showcases at the University of Ibadan.'
+      'Organized hands-on technical workshops, robotics sessions, and project showcases for university students.'
   },
   {
     metric: 'Keynote & Labs',
@@ -31,6 +31,6 @@ export const leadershipData: LeadershipItem[] = [
     role: 'Invited Speaker',
     organization: 'STUMPED AI Seminar & 2026 Become Valuable Conference',
     description:
-      'Delivered technical talks and practical AI workshop sessions empowering young technologists to build production-grade software.'
+      'Delivered practical tech talks and AI workshops to help students learn how to build and launch real software.'
   }
 ];

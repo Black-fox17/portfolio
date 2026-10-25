@@ -1,7 +1,7 @@
 export interface ProjectLink {
   label: string;
   url: string;
-  type: 'live' | 'github' | 'playstore' | 'case-study';
+  type: 'live' | 'github' | 'playstore' | 'appstore' | 'case-study' | 'article' | 'android';
 }
 
 export interface CaseStudy {

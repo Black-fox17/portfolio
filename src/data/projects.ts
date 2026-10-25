@@ -11,14 +11,14 @@ export const projects: Project[] = [
     status: 'In Production',
     featured: true,
     priority: 1,
-    period: 'March 2026 – Present',
+    period: 'March 2026 - Present',
     summary:
       'Architected and shipped a unified PropTech & FinTech ecosystem linking tenants, landlords, property managers, and payment processors. Operates 3 live production applications across Apple App Store (UpwardPay iOS), Google Play Store (Upward Pay & Upward PM Android), and web, backed by a high-throughput NestJS monolithic backend with 500+ production REST APIs.',
     metrics: [
       '3 Production Apps Shipped (Apple App Store & Google Play)',
-      '500+ Production REST APIs & Monolithic Server Architecture',
-      'Multi-Platform Orchestration: Internal Apps & External PM Platforms',
-      'Complex Relational PostgreSQL Database Architecture'
+      '500+ Production REST APIs & Central Server Architecture',
+      'Multi-Platform Sync: Internal Apps & External PM Platforms',
+      'Structured Relational PostgreSQL Database'
     ],
     tags: [
       'iOS (App Store)',
@@ -36,59 +36,59 @@ export const projects: Project[] = [
     ],
     links: [
       {
-        label: 'UpwardPay (iOS App Store)',
+        label: 'UpwardPay',
         url: 'https://apps.apple.com/us/app/upwardpay/id6807898152',
         type: 'appstore'
       },
       {
-        label: 'Upward Pay (Play Store)',
+        label: 'Upward Pay',
         url: 'https://play.google.com/store/apps/details?id=com.goodtenants.upward',
         type: 'playstore'
       },
       {
-        label: 'Upward PM (Play Store)',
+        label: 'Upward PM',
         url: 'https://play.google.com/store/apps/details?id=com.goodtenants.upward.pm',
         type: 'playstore'
       },
       {
-        label: 'Upward Web Portal',
+        label: 'Web Portal',
         url: 'https://upward.goodtenants.io',
         type: 'live'
       }
     ],
     caseStudy: {
       overview:
-        'The Upward Ecosystem addresses critical friction in the rental housing and property operations sector. It replaces fragmented manual rent collection, unverified tenancy records, and delayed maintenance with an interconnected ecosystem of production mobile applications (UpwardPay on Apple App Store, Upward Pay & Upward PM on Google Play Store) and a high-availability backend cluster.',
+        'The Upward Ecosystem modernizes rental property operations. It replaces manual rent collection, paper tenancy records, and delayed maintenance with connected mobile apps (UpwardPay on the Apple App Store, and Upward Pay & Upward PM on the Google Play Store) backed by a central backend.',
       problem:
-        'The core engineering challenge was orchestrating a multi-platform ecosystem powered by a single monolithic server. The backend had to handle concurrent, high-frequency requests from the in-house Property Manager app and Tenant app, while simultaneously communicating with external property management platforms that integrate directly with the tenant app. This was compounded by a complex, multi-tenant database design while preparing both apps to meet strict Android requirements and navigating the rigorous compliance process to deploy the tenant app live to the iOS Apple App Store.',
+        'The core engineering challenge was orchestrating a multi-platform ecosystem powered by a single central server. The backend had to handle simultaneous requests from our in-house Property Manager app and Tenant app, while syncing with external property management platforms that integrate directly with the tenant app. This required careful database design, preparing both apps to meet strict Google Play standards, and successfully navigating Apple App Store guidelines to deploy UpwardPay live.',
       architecture: [
-        'Modular NestJS micro-monolith running with TypeScript, organized into domain modules for Identity & KYC, Lease Lifecycle, Rent Collection, Financial Ledger, and Maintenance Tickets.',
-        'PostgreSQL with strict relational constraints, indexed foreign keys for sub-10ms query execution, and ACID transaction boundaries for all ledger postings.',
-        'Cross-platform delivery using Next.js for high-performance responsive web and Capacitor for native iOS and Android compilation, maintaining 90%+ code sharing across platforms.',
-        'Monolithic Integration & Platform Bridge: Engineered the NestJS server to bridge internal tenant and property manager requests while providing secure, authenticated APIs for external property management platforms.'
+        'Modular NestJS server written in TypeScript, organized into clean modules for Identity, Leases, Rent Payments, and Maintenance Requests.',
+        'PostgreSQL database with indexed keys for fast query performance and strict transaction boundaries for safe payments.',
+        'Cross-platform mobile apps built with Next.js and Capacitor, sharing 90%+ code across iOS and Android.',
+        'Platform Bridge: Engineered the backend to handle mobile app requests while providing secure APIs for external property management platforms.'
       ],
       engineeringHighlights: [
-        'Took complete ownership of taking UpwardPay live to the Apple App Store, orchestrating the entire submission process, App Store guidelines compliance, TestFlight review cycles, and release management.',
-        'Shipped and maintained both Upward Pay and Upward PM on the Google Play Store, managing release tracks, Play Console testing cycles, crash analytics, and seamless over-the-air asset updates.',
-        'Engineered 500+ secure REST APIs across domain planes (Tenants, Landlords, Property Managers, Banking & Webhooks, Public, Admin) with JWT authorization, granular RBAC, DTO validation, and rate limiting.',
-        'Engineered robust transactional state verification and database locking to eliminate race conditions and double-crediting during high-velocity concurrent rent payments.',
-        'Architected end-to-end CI/CD workflows using GitHub Actions to automate linting, unit/e2e testing, Docker container builds, and deployment verification.'
+        'Took complete ownership of launching UpwardPay live on the Apple App Store, managing the submission process, Apple guidelines, and TestFlight reviews.',
+        'Shipped and maintained both Upward Pay and Upward PM on the Google Play Store, managing release tracks and app updates.',
+        'Engineered 500+ secure REST APIs across key domains with token authorization, role-based access, and input validation.',
+        'Implemented safe database locking to prevent duplicate rent payments and ensure data consistency during peak periods.',
+        'Built automated CI/CD workflows using GitHub Actions to run tests, build Docker containers, and verify deployments.'
       ],
       complexityAndFailures:
-        'Payment gateway degradation was a key point of failure. I implemented an active circuit breaker with exponential backoff and automated failover between Paystack and Flutterwave, guaranteeing zero transaction drop during high-traffic billing cycles.',
+        'Coordinating concurrent updates between the tenant app, property manager app, and external property management platforms was the primary challenge. I implemented clean data boundaries and transaction locks in PostgreSQL, preventing conflicting updates and ensuring data stays accurate across all platforms.',
       productExperience:
-        'Tenants effortlessly manage lease visibility, automate scheduled rent payments, build verified tenancy credit scores, and request instant repairs. Property managers access real-time occupancy heatmaps, automated arrears alerts, lease document signing, and instant financial reporting.',
+        'Tenants easily view leases, pay rent securely, and submit maintenance requests. Property managers track occupancy, receive rent alerts, sign digital documents, and access clear financial summaries.',
       shippedArtifacts: [
         'UpwardPay iOS Application (Apple App Store)',
         'Upward Pay Android Application (Google Play Store)',
         'Upward PM Android Application (Google Play Store)',
         'Upward Web Administration & Landlord Portal (upward.goodtenants.io)',
-        'NestJS Core API Services & Webhook Receiver Cluster',
+        'NestJS Core API Services & Webhook Cluster',
         'Automated GitHub Actions Deployment Pipeline'
       ],
       outcomes: [
-        'Zero payment drops via automated Paystack + Flutterwave circuit-breaker failover.',
-        'Reduced manual property onboarding and tenant verification turnaround from days to minutes.',
+        'Seamless synchronization between internal mobile apps and external property management platforms.',
+        'Reduced property onboarding and tenant verification from days to minutes.',
         'Zero downtime multi-platform releases across iOS, Android, and web.'
       ]
     },
@@ -100,11 +100,11 @@ export const projects: Project[] = [
         },
         {
           name: 'API Gateway & Services',
-          items: ['NestJS REST API (200+ Endpoints)', 'RBAC & Auth Guard', 'DTO Validation & Serialization', 'Rate Limiting']
+          items: ['NestJS REST API (500+ Endpoints)', 'Role-Based Access & Auth Guards', 'Data Validation & Serialization', 'Rate Limiting']
         },
         {
           name: 'Payment & Third-Party Integration',
-          items: ['Payment Orchestrator', 'Paystack (Primary)', 'Flutterwave (Failover)', 'KYC & Identity Verification']
+          items: ['Payment Processing', 'Paystack & Flutterwave Integrations', 'KYC & Identity Verification']
         },
         {
           name: 'Data & Infrastructure',
@@ -117,20 +117,20 @@ export const projects: Project[] = [
     id: 'tweakrr',
     slug: 'tweakrr',
     title: 'Tweakrr',
-    subtitle: 'AI Citation, Unsupported-Claim Detection & Scholarly Intelligence Platform',
+    subtitle: 'AI Research Assistant & Academic Citation Platform',
     category: 'AI & Document Intelligence',
     role: 'AI Engineer & Backend Engineer',
     status: 'Live Platform',
     featured: true,
     priority: 2,
-    period: 'March 2025 – May 2025',
+    period: 'March 2025 - May 2025',
     summary:
-      'Engineered an intelligent document analysis and citation recommendation platform. Designed asynchronous NLP pipelines that parse complex manuscripts, detect unsupported factual claims, and retrieve contextual scholarly literature.',
+      'Built an intelligent research platform that helps students and researchers cite sources accurately. The system scans papers, flags statements that lack proof, and finds relevant academic sources to insert proper citations automatically.',
     metrics: [
-      'Asynchronous Document Parsing & Ingestion Engine',
-      'Automated In-Text Citation & Reference Generation (APA, IEEE, Harvard)',
-      'Sub-second Semantic Vector Search across Academic Corpora',
-      'FastAPI + MongoDB Scalable Microservice Architecture'
+      'Background Document Parsing & Analysis Engine',
+      'Automated Citation & Bibliography Generation (APA, IEEE, Harvard)',
+      'Fast Semantic Search across Academic Papers',
+      'Scalable FastAPI and MongoDB Backend'
     ],
     tags: [
       'Python',
@@ -150,32 +150,32 @@ export const projects: Project[] = [
     ],
     caseStudy: {
       overview:
-        'Tweakrr bridges the gap between academic writing and scientific rigor. It parses raw manuscripts (PDF/DOCX), evaluates arguments, flags unreferenced claims, and contextually recommends peer-reviewed sources formatted in standard bibliographic styles.',
+        'Tweakrr helps researchers and students write with confidence. It reads papers in PDF and Word formats, finds statements that need supporting evidence, and recommends relevant academic papers with formatted citations.',
       problem:
-        'Researchers and students spend countless hours manually searching literature to back claims and formatting complex bibliographies. Existing tools only check plagiarism without assessing whether individual factual statements actually possess evidentiary citations.',
+        'Researchers spend hours searching for papers to back up claims and formatting bibliographies by hand. Most existing tools only check for plagiarism rather than checking whether claims actually have solid references.',
       architecture: [
-        'FastAPI asynchronous microservice handling file upload streams, text extraction, chunking, and metadata parsing.',
-        'NLP pipeline utilizing transformer-based sentence tokenizers, claim extraction models, and semantic embedding representations.',
-        'Vector retrieval indexing semantic representations of scholarly abstracts to locate relevant peer-reviewed citations in real-time.',
-        'MongoDB document store indexing user manuscripts, citations, and generated bibliographies with fast document updates.'
+        'FastAPI backend that handles document uploads, text extraction, and section analysis.',
+        'Text processing pipeline that identifies individual claims and converts text into search embeddings.',
+        'Fast vector search to find matching research papers in seconds.',
+        'MongoDB database storing manuscripts, citations, and user bibliographies.'
       ],
       engineeringHighlights: [
-        'Architected an asynchronous job queue for non-blocking document analysis, streaming real-time parsing progress to the frontend.',
-        'Built automated citation generation adhering strictly to APA, MLA, IEEE, and Chicago formatting rules.',
-        'Implemented semantic context filtering to ensure recommended sources directly relate to the specific claim rather than general keyword matches.'
+        'Built a background job queue for non-blocking document processing with live progress updates.',
+        'Created automated citation formatting for APA, MLA, IEEE, and Chicago styles.',
+        'Implemented semantic filtering to ensure recommended sources directly support the specific claim.'
       ],
       complexityAndFailures:
-        'Academic manuscripts frequently feature multi-column layouts, mathematical notation, and diverse file encodings. I built robust extraction fallbacks to maintain clean semantic chunking without losing contextual claim boundaries.',
+        'Academic papers often have multi-column layouts, tables, and formulas that confuse standard text extractors. I built fallback parsers to cleanly preserve sentence structure and claim boundaries.',
       productExperience:
-        'Authors paste or upload papers and receive an interactive split-view interface highlighting unsupported claims with instant, one-click citation insertion.',
+        'Users upload their papers and see an intuitive split-screen view highlighting unsupported statements, with one-click buttons to add verified citations.',
       shippedArtifacts: [
-        'FastAPI Document & NLP Processing Backend',
+        'FastAPI Document & Text Processing Backend',
         'Citation Generator & Reference List Engine',
-        'Academic Retrieval Pipeline & Semantic Search Service'
+        'Academic Search Pipeline & Database'
       ],
       outcomes: [
-        'Reduced scholarly citation turnaround time by over 70%.',
-        'Processed multi-page scientific manuscripts asynchronously with high claim-detection precision.'
+        'Cut paper citation and referencing time by over 70%.',
+        'Processed complex multi-page academic papers quickly and accurately.'
       ]
     }
   },
@@ -183,20 +183,20 @@ export const projects: Project[] = [
     id: 'asera',
     slug: 'asera',
     title: 'Asera Core & Autonomous Agent Engine',
-    subtitle: 'Supervisor Agent Orchestrator & Recursive Language Model (RLM) Context Engine',
+    subtitle: 'Supervisor Agent Framework & Long-Document Context Engine',
     category: 'Agentic AI & Distributed Systems',
     role: 'AI Systems Architect & Framework Creator',
     status: 'Production Framework & Live',
     featured: false,
     priority: 2,
-    period: '2024 – 2025',
+    period: '2024 - 2025',
     summary:
-      'Architected and implemented Asera Core from scratch: a lightweight, enterprise-grade multi-agent supervisor framework powered natively by Google Gemini 2.0. Eliminates long-context rot and latency spikes by implementing the MIT CSAIL Recursive Language Models (RLM) paradigm (Alex L. Zhang et al., arXiv:2512.24601), offloading unbounded documents into an isolated Python REPL for programmatic inspection and recursive sub-query delegation. Powers the live Asera autonomous learning platform.',
+      'Built Asera Core from scratch: an open-source framework for running teams of AI agents powered by Google Gemini 2.0. Instead of stuffing entire books or massive PDFs directly into an AI prompt, which causes slowness and mistakes, it lets the agent write Python code to inspect, slice, and query documents piece by piece. This powers the live Asera study platform.',
     metrics: [
-      'Zero-Prompt-Bloat RLM Engine (96.7% Input Token Reduction)',
-      'Dynamic Supervisor Routing via Just-in-Time Schema Synthesis',
-      'Parallel Worker Delegation (asyncio.gather) & Real-Time Streaming',
-      'Dual-Tier Memory (L1 In-Memory + L2 PostgreSQL Checkpointer)'
+      'Zero-Prompt-Bloat Context Engine (96.7% Token Reduction)',
+      'Smart Coordinator Routing to Specialized Worker Agents',
+      'Parallel Worker Execution for Fast Responses',
+      'Session Memory Saved to PostgreSQL'
     ],
     tags: [
       'Python',
@@ -228,33 +228,33 @@ export const projects: Project[] = [
     ],
     caseStudy: {
       overview:
-        'Asera Core is a handbuilt Python multi-agent orchestration framework designed to eliminate the heavy abstractions and slow execution runtimes of legacy agent libraries. It combines native Google Gemini 2.0 support (thought signature preservation, dynamic function calling) with a graph-free Supervisor Agent and an isolated Recursive Language Model (RLM) context reasoning engine for unbounded documents.',
+        'Asera Core is a lightweight Python framework designed to run teams of AI agents without the bloat and slow speeds of existing tools. It pairs Google Gemini 2.0 with a smart supervisor agent that breaks down tasks and delegates them to specialist agents, while handling huge documents cleanly through Python code execution.',
       problem:
-        'Existing multi-agent frameworks (LangChain, LangGraph, CrewAI) introduce massive dependency bloat, brittle static graph definitions, and severe prompt stuffing. When analyzing massive slide decks or 200-page academic textbooks, injecting entire documents into the attention window causes context rot, quadratic latency (O(N²)), and needle-in-a-haystack hallucination.',
+        'Existing AI agent frameworks are often bulky and difficult to customize. Furthermore, when working with long documents like 200-page textbooks or slide decks, pasting everything directly into the prompt makes the AI slow, expensive, and prone to hallucinations.',
       architecture: [
-        'Graph-Free Supervisor Agent: Synthesizes dynamic routing schemas on the fly from worker agent descriptions, dispatching subtasks concurrently via asyncio.gather without rigid DAG pipelines.',
-        'Recursive Language Model (RLM) Engine: Stores raw context payloads inside an isolated Python LocalREPL as an external variable. The root LLM writes Python snippets (regex, slices, chunking) and triggers targeted recursive sub-queries (llm_query) only on clean, focused 500-token sections.',
-        'Zero-Overhead Tool Reflection: The @agent.tool decorator inspects Python type hints and docstrings to generate standard JSON schemas automatically with zero manual authoring.',
-        'Dual-Tier State Management: Thread-safe in-memory L1 cache (AgentStateManager) paired with pluggable L2 ACID persistence (PostgresCheckpointSaver) for resilient multi-turn sessions.',
-        'First-Class Async Streaming: Native ainvoke() generator streaming both internal execution telemetry and token chunks in real-time.'
+        'Flexible Supervisor Agent: Automatically detects available worker agents and routes tasks to them in parallel.',
+        'Recursive Context Engine: Keeps long documents in a secure Python environment. The AI writes small Python scripts to filter and extract only the relevant paragraphs before answering.',
+        'Simple Tool Decorators: Any standard Python function can become an agent tool with a single @agent.tool decorator.',
+        'Dual-Tier Memory: Fast temporary memory for active conversations, backed by PostgreSQL for long-term session storage.',
+        'Real-Time Streaming: Streams responses and intermediate agent thoughts live to the user interface.'
       ],
       engineeringHighlights: [
-        'Implemented the MIT CSAIL Recursive Language Models (arXiv:2512.24601) paradigm, cutting input token usage on 150-page documents by 96.7% while increasing multi-hop reasoning accuracy to 94.8%.',
-        'Designed lightweight dynamic tool schema reflection with zero Pydantic overhead.',
-        'Engineered concurrent worker execution with asyncio.gather, reducing multi-agent delegation latency from 8.2s to 1.8s.'
+        'Implemented recursive document processing, cutting prompt token usage on 150-page files by 96.7% while boosting reasoning accuracy.',
+        'Built automated tool discovery with zero unnecessary boilerplate code.',
+        'Ran worker agents in parallel using Python asyncio, reducing multi-agent delegation time from 8.2s down to 1.8s.'
       ],
       complexityAndFailures:
-        'Unbounded context recursion can risk runaway execution or infinite REPL loops. Engineered strict safety bounds: max turn iterations (8), recursion depth capping (1), stdout redirection limits, and deterministic output markers (FINAL<<<answer>>> and FINAL_VAR<<<var_name>>>).',
+        'Running code in an automated loop can risk infinite loops. I added strict safety caps: a maximum of 8 turns, loop limits, output size guards, and deterministic completion markers.',
       productExperience:
-        'Developers register specialized worker agents with simple decorators, attach them to a SupervisorAgent, and query the system with real-time streaming tokens and persistent PostgreSQL session state.',
+        'Developers define worker agents with simple Python functions, connect them to a supervisor agent, and query the system with live streaming responses and persistent conversation memory.',
       shippedArtifacts: [
         'Open-Source asera-core Python Framework on GitHub',
-        'Modular RLM Context Subsystem with LocalREPL Execution',
+        'Modular Context Subsystem with Python Sandbox',
         'Full Test Suite with Pytest Coverage',
         'Live Asera Web Application (asera-study.vercel.app)'
       ],
       outcomes: [
-        'Achieved 94.8% multi-hop extraction accuracy over 380,000-token corpora.',
+        'Achieved 94.8% extraction accuracy across large 380,000-token documents.',
         'Eliminated prompt bloat across multi-turn agent conversations with sub-2s parallel delegation.'
       ]
     },
@@ -289,12 +289,12 @@ export const projects: Project[] = [
     status: 'Clinical Research',
     featured: false,
     priority: 3,
-    period: 'Dec 2024 – March 2025',
+    period: 'Dec 2024 - March 2025',
     summary:
-      'Engineered deep convolutional neural networks (ResNet and MobileNet architectures) for automated breast cancer subtype classification from whole-slide histopathological biopsy imagery at University College Hospital (IAMRAT). Coupled classification activations with clinical explanation generators and full-stack pathologist trial workflows.',
+      'Trained computer vision models on digitized biopsy slides to classify breast cancer subtypes at University College Hospital (IAMRAT). Connected model predictions to clinical explanation tools and built full-stack web apps for pathologists to review results.',
     metrics: [
-      'Automated Subtype Classification across Whole-Slide Biopsy Images',
-      'Multimodal Clinical Decision-Support & Diagnostic Explanation Generator',
+      'Automated Subtype Classification across Biopsy Images',
+      'Clinical Decision-Support & Diagnostic Explanations with Gemini',
       'Full-Stack FastAPI & React Research Annotation Portal'
     ],
     tags: [
@@ -325,32 +325,32 @@ export const projects: Project[] = [
     ],
     caseStudy: {
       overview:
-        'Conducted clinical AI research at the Institute of Advanced Medical Research and Training (IAMRAT), University College Hospital Ibadan. Researched deep learning methods to assist pathologists in accurately classifying breast cancer subtypes from dense histological tissue slides and generating interpretable clinical reports.',
+        'Conducted clinical AI research at the Institute of Advanced Medical Research and Training (IAMRAT), University College Hospital Ibadan. Researched deep learning methods to assist pathologists in accurately classifying breast cancer subtypes from histological tissue slides and generating interpretable clinical reports.',
       problem:
-        'Histopathological cancer diagnosis from biopsy slides is labor-intensive and subjective, with high inter-observer variability among pathologists. Standard black-box computer vision models lack clinical interpretability required for diagnostic trust in medical settings.',
+        'Diagnosing cancer from biopsy slides is time-consuming and prone to human variation. In addition, standard deep learning models act as black boxes, making it difficult for doctors to trust their predictions without clear explanations.',
       architecture: [
-        'Deep convolutional backbones (ResNet and MobileNet) fine-tuned on cellular patch extractions from digitized whole-slide histopathological biopsy specimens.',
-        'Feature extraction pipeline capturing cell nuclei morphology, mitotic figures, and glandular architecture variations.',
-        'Diagnostic Explanation Generator: Coupled classification feature activations with structured natural-language diagnostic summaries for clinicians.',
-        'Full-stack research portal built with FastAPI and React for sample annotation, trial tracking, and pathologist validation.'
+        'Deep neural networks (ResNet and MobileNet) fine-tuned on cellular patch images from digitized biopsy slides.',
+        'Feature extraction pipeline capturing cell shape, division patterns, and tissue organization.',
+        'Diagnostic Explanation Generator: Connected model predictions to structured clinical summaries for doctors.',
+        'Full-stack research portal built with FastAPI and React for sample labeling and trial tracking.'
       ],
       engineeringHighlights: [
-        'Developed end-to-end data pipelines for gigapixel whole-slide image tile extraction, stain normalization, and artifact filtering.',
-        'Engineered multimodal decision-support workflows combining computer vision diagnostic predictions with structured clinical explanation generators.',
-        'Delivered low-latency FastAPI backend services for pathologist annotation and real-time inference serving.'
+        'Developed data pipelines to extract image tiles from gigapixel slides, normalize stains, and filter out visual artifacts.',
+        'Combined computer vision predictions with Gemini 1.5 to generate readable clinical explanations.',
+        'Built responsive FastAPI backend services for real-time model inference and researcher annotation.'
       ],
       complexityAndFailures:
-        'Staining variance and slide preparation artifacts across clinical cohorts produced false-positive cellular boundary detections. Implemented color deconvolution and stain-normalization algorithms to standardize RGB distributions across biopsy cohorts before model inference.',
+        'Differences in lab staining techniques caused false cellular boundaries. I added stain normalization algorithms to calibrate colors across slide cohorts before running predictions.',
       productExperience:
-        'Pathologists upload tissue biopsy slides, visualize highlighted regions of interest and mitotic densities, and inspect automated subtype predictions accompanied by verifiable clinical rationale.',
+        'Pathologists upload tissue biopsy slides, see highlighted areas of interest, and review subtype classifications accompanied by clear clinical reasoning.',
       shippedArtifacts: [
         'Trained Histopathology Classification Models & Checkpoints',
         'Stain Normalization & Whole-Slide Tile Extraction Pipeline',
         'FastAPI & React Pathologist Annotation Portal'
       ],
       outcomes: [
-        'Established strong diagnostic subtype baseline accuracy across whole slide tissue datasets.',
-        'Successfully bridged clinical pathology workflows with computer vision interpretability.'
+        'Established strong diagnostic baseline accuracy across whole slide tissue datasets.',
+        'Successfully connected clinical pathology workflows with clear, interpretable AI predictions.'
       ]
     },
     architectureDiagram: {
@@ -384,13 +384,13 @@ export const projects: Project[] = [
     status: 'Research & Benchmark',
     featured: false,
     priority: 4,
-    period: 'Sept 2024 – Nov 2024',
+    period: 'Sept 2024 - Nov 2024',
     summary:
-      'Developed an end-to-end deep learning framework for the RSNA 2024 Lumbar Spine Degenerative Classification Challenge. Evaluates 25 simultaneous structural targets (5 vertebral levels across 3 degenerative conditions) on multi-sequence volumetric MRI scans (Sagittal T1, Axial T2, Sagittal T2/STIR). Engineered DICOM VOI LUT normalization, 3D slice spatial coordinate sorting, Generalized Mean (GeM) pooling, and severe-penalized weighted cross-entropy loss, reducing multi-class log loss from 0.684 to 0.441 with 83.6% severe condition recall.',
+      'Built a deep learning system for the RSNA Lumbar Spine Degenerative Disease Challenge. Analyzes 3D MRI scans to detect 3 degenerative spine conditions across 5 disc levels simultaneously. Standardized medical imaging coordinates and applied specialized pooling, improving severe condition detection to 83.6% recall.',
     metrics: [
-      '25 Simultaneous Multi-Level Diagnostic Targets (L1/L2 – L5/S1)',
+      '25 Simultaneous Diagnostic Targets (L1/L2 to L5/S1)',
       '0.441 Multi-Class Log Loss (Down from 0.684 baseline)',
-      '83.6% Recall on High-Risk Severe Degenerative Diagnoses',
+      '83.6% Recall on Severe Spine Conditions',
       'Multi-Series Ensemble (EfficientNetV2, ConvNeXt, GeM)'
     ],
     tags: [
@@ -417,26 +417,26 @@ export const projects: Project[] = [
     ],
     caseStudy: {
       overview:
-        'Developed an advanced volumetric deep learning pipeline for the RSNA 2024 Lumbar Spine Degenerative Classification Challenge. The system grades three key degenerative conditions (spinal canal stenosis, neural foraminal narrowing, and subarticular stenosis) across five intervertebral disc levels (L1/L2 through L5/S1) for 25 simultaneous multi-class predictions directly from raw multi-series DICOM scans.',
+        'Developed a deep learning pipeline for the RSNA 2024 Lumbar Spine Challenge. The system evaluates 3 degenerative conditions across 5 disc levels (L1/L2 through L5/S1) for 25 simultaneous predictions directly from raw multi-sequence MRI scans.',
       problem:
-        'Lumbar spine MRI studies contain hundreds of unsequenced DICOM slices across multiple pulse sequences (Sagittal T1, Axial T2, Sagittal T2/STIR). Radiologists face significant cognitive fatigue grading 25 targets per patient. Naive computer vision models suffer from spatial slice inversion, small lesion dilution under standard global average pooling, and severe class imbalance where missed high-grade compression severely penalizes clinical utility.',
+        'Lumbar spine MRI exams contain hundreds of individual slices across different pulse sequences. Manually grading 25 conditions per patient is exhausting for radiologists. Standard computer vision models often misorder slices or miss small, localized nerve compressions.',
       architecture: [
-        'Spatial Coordinate Ingestion: Reconstructed physical slice order using ImagePositionPatient vectors projected onto the acquisition normal axis, resolving arbitrary DICOM folder ordering.',
-        'VOI LUT Windowing & Monochrome Correction: Standardized pixel intensities with scanner-calibrated Look-Up Tables and inverted MONOCHROME1 polarities.',
-        '2.5D Volumetric Sampling: Extracted 16 equidistant physical slices across the spine volume, bypassing the extreme GPU VRAM bottlenecks of native 3D convolutions.',
-        'Generalized Mean (GeM) Pooling (p=3.0): Replaced Global Average Pooling with parameterized power pooling to focus feature representations on focal cord and nerve root impingements rather than broad healthy background tissue.',
-        'Multi-Task Classifier Heads: Built 5 parallel linear heads outputting calibrated Dirichlet severity distributions for L1/L2 through L5/S1.',
-        'Severe-Penalized Loss Optimization: Designed RSNAWeightedLogLoss (1.0 : 2.0 : 4.0 class weighting) coupled with AnySevereSpineLoss auxiliary binary cross-entropy on max-severe probabilities.'
+        'Coordinate Reordering: Reconstructed true physical slice order using 3D patient coordinates from DICOM metadata.',
+        'Contrast Normalization: Standardized pixel intensities using calibrated DICOM lookup tables.',
+        'Volumetric Sampling: Extracted 16 evenly spaced slices across each MRI series to balance detail with GPU memory limits.',
+        'Generalized Mean (GeM) Pooling: Focused neural network attention on small, localized nerve compressions rather than healthy surrounding tissue.',
+        'Multi-Task Heads: Built parallel output heads to predict severity levels across all 5 disc levels at once.',
+        'Weighted Loss Function: Penalized missed severe cases heavily to ensure critical diagnoses are never overlooked.'
       ],
       engineeringHighlights: [
-        'Eliminated patient data leakage using strict 5-Fold GroupKFold stratified by patient study ID.',
-        'Achieved state-of-the-art 0.441 weighted multi-class log loss and 83.6% severe condition recall, outperforming single-slice baselines (0.684 log loss).',
-        'Implemented automatic mixed precision (torch.cuda.amp), cosine annealing with warm-up, and test-time augmentation (TTA).'
+        'Prevented patient data leakage using strict 5-fold cross-validation grouped by patient ID.',
+        'Achieved state-of-the-art 0.441 weighted log loss and 83.6% severe condition recall, substantially beating single-slice baselines.',
+        'Implemented automatic mixed precision training and test-time augmentation for maximum accuracy.'
       ],
       complexityAndFailures:
-        'Standard global average pooling washed out tiny focal stenosis lesions that occupied less than 5% of the total MRI slice area. Implementing Generalized Mean (GeM) pooling with p=3.0 mathematically accentuated high-activation compression zones, yielding a 0.047 reduction in log loss and a 6.6% boost in severe recall.',
+        'Standard image pooling washed out tiny spinal narrowing lesions that occupied less than 5% of the slice area. Implementing Generalized Mean (GeM) pooling accentuated high-activation compression zones, improving severe condition recall by 6.6%.',
       productExperience:
-        'Modular pipeline accepting raw DICOM series, sorting physical coordinates, applying medical contrast normalization, and exporting calibrated probability matrices formatted for clinical triage and Kaggle submission standards.',
+        'A clean modular pipeline that accepts raw MRI scans, sorts slices into correct 3D order, normalizes contrast, and outputs clear severity predictions for medical triage.',
       shippedArtifacts: [
         'Complete Open-Source PyTorch Repository on GitHub',
         'Modular DICOM Preprocessing & 3D Normalization Utilities',
@@ -444,7 +444,7 @@ export const projects: Project[] = [
         'First-Principles Technical Research Monograph'
       ],
       outcomes: [
-        'Achieved 0.441 weighted multi-class log loss across all 25 clinical target dimensions.',
+        'Achieved 0.441 weighted multi-class log loss across all 25 target conditions.',
         'Attained 83.6% recall on critical high-risk severe spinal stenosis cases.'
       ]
     },
@@ -473,7 +473,7 @@ export const projects: Project[] = [
     id: 'point-supervised-loveda-segmentation',
     slug: 'point-supervised-loveda-segmentation',
     title: 'Point-Supervised LoveDA Remote Sensing Segmentation',
-    subtitle: 'Weakly-Supervised Aerial Segmentation via Partial Cross-Entropy (pCE)',
+    subtitle: 'Weakly-Supervised Aerial Segmentation via Partial Cross-Entropy',
     category: 'Computer Vision & Deep Learning',
     role: 'Computer Vision Researcher & ML Engineer',
     status: 'Research & Benchmark',
@@ -481,12 +481,12 @@ export const projects: Project[] = [
     priority: 4,
     period: 'October 2026',
     summary:
-      'Investigated weakly-supervised semantic segmentation for high-resolution aerial remote sensing on the LoveDA Urban benchmark using sparse point supervision (1%, 5%, 10%, 25%) and Partial Cross-Entropy (pCE) loss with an end-to-end PyTorch U-Net. Uncovered empirical non-monotonic scaling where 5% point density achieved peak generalization (+54.1% mIoU jump to 0.1747, 0.2670 Mean Dice), proving how unregularized point supervision beyond critical percolation thresholds causes point-memorization overfitting.',
+      'Researched aerial satellite image segmentation using single point clicks instead of drawing tedious polygon borders. Using an end-to-end PyTorch U-Net, discovered that labeling just 5% of pixels achieved the best real-world generalization, reducing manual labeling time by over 95%.',
     metrics: [
-      '5% Density Optimal Generalization (+54.1% mIoU Surge to 0.1747)',
-      'Partial Cross-Entropy (pCE) with Zero-Gradient Coordinate Masking',
-      'End-to-End PyTorch U-Net & Tiled Full-Scene Sliding Inference',
-      'Empirical Non-Monotonic Scaling Discovery on LoveDA Urban'
+      '5% Density Optimal Generalization (+54.1% mIoU Gain)',
+      'Partial Cross-Entropy (pCE) for Sparse Point Labels',
+      'End-to-End PyTorch U-Net with Tiled Full-Scene Inference',
+      'Empirical Scaling Discovery on LoveDA Urban Benchmark'
     ],
     tags: [
       'PyTorch',
@@ -511,33 +511,33 @@ export const projects: Project[] = [
     ],
     caseStudy: {
       overview:
-        'Point-supervised semantic segmentation framework for high-resolution aerial remote sensing imagery on the LoveDA Urban benchmark (1,156 scenes, 7 land-cover categories). The study evaluates how sparse random point clicks (1%, 5%, 10%, 25% pixel coverage) govern full-scene generalization when trained solely via Partial Cross-Entropy loss without dense spatial priors.',
+        'A point-supervised image segmentation framework for high-resolution aerial imagery on the LoveDA Urban dataset (1,156 scenes, 7 land-cover categories). The study examines how sparse point clicks (1%, 5%, 10%, 25% pixel coverage) allow neural networks to segment full satellite scenes.',
       problem:
-        'Dense pixel-level polygon annotation of aerial remote sensing imagery costs $50-$150 per km² and requires dozens of human-hours per tile due to complex building shadows, narrow road networks, and irregular water canals. Weak point supervision slashes annotation time by >95%, but training deep networks on sparse point targets risks severe label dilution and boundary degradation.',
+        'Drawing exact polygon outlines on aerial satellite images is slow and expensive, costing dozens of hours per tile. While clicking single points cuts annotation time by 95%, training neural networks on sparse points can lead to poor boundaries and overfitting.',
       architecture: [
-        'Partial Cross-Entropy (pCE) Engine: Formulates loss strictly over labelled coordinate subset L, mapping unannotated coordinates U to ignore_index=-1 with zero backpropagation gradient contribution.',
-        'Deep PyTorch U-Net: 3-stage double-conv encoder (64->128->256 channels), 512-dimensional bottleneck, and transposed convolution upsampling decoder with spatial skip connections.',
-        'Simulated Point-Supervision Sampler: Extracts random coordinate subsets at parameterized density fractions (1%, 5%, 10%, 25%) while guaranteeing land-cover representation in training crops.',
-        'Tiled Full-Scene Sliding Inference: Decomposes large gigapixel scenes into non-overlapping 256x256 windows, executes batch inference, and reconstructs seamless global semantic prediction masks.'
+        'Partial Cross-Entropy: Calculates training loss only on the specific labeled points, ignoring unlabeled pixels completely during backpropagation.',
+        'PyTorch U-Net: Encoder-decoder convolutional network with skip connections to preserve both high-level context and fine spatial details.',
+        'Point Sampler: Selects random coordinate points across land-cover classes to simulate fast human labeling.',
+        'Tiled Sliding Window: Slices large satellite images into 256x256 tiles for batch processing, stitching the predictions back into full-resolution maps.'
       ],
       engineeringHighlights: [
-        'Discovered the Non-Monotonic Scaling Law of Point Supervision: 5% density achieved peak mIoU (0.1747, +54.1% over 1% baseline), while quadrupling density to 25% collapsed mIoU to 0.1192 due to point-memorization overfitting.',
-        'Observed emergence of linear and regional features: Road IoU jumped from 0.0000 to 0.0700 and Water IoU jumped from 0.0000 to 0.2724 at 5% density.',
-        'Developed full Pytest test suite validating exact numerical equivalence between partial cross-entropy and standard cross-entropy on fully-labelled tensors.'
+        'Discovered that 5% point density achieved peak accuracy (0.1747 mIoU), whereas adding more points up to 25% actually hurt performance due to point-memorization.',
+        'Observed clear recognition of thin roads and water bodies emerging at just 5% supervision.',
+        'Built unit test suites in Pytest validating numerical consistency between partial and standard cross-entropy.'
       ],
       complexityAndFailures:
-        'Increasing point density to 10% and 25% caused dense point clusters within homogeneous textures. In the absence of spatial smoothness regularization, the U-Net created fractured decision boundaries that overfit to isolated coordinate clicks, degrading held-out scene mIoU by 31.8%. Identified that point supervision requires spatial continuity priors or contrastive boundary regularizers beyond 5% density.',
+        'Higher point densities (10% and 25%) caused points to bunch together, leading the model to overfit to individual clicks. Identified that point-supervised models require spatial smoothness constraints when scaling beyond 5% density.',
       productExperience:
-        'Remote sensing analysts inspect raw aerial tiles, view simulated sparse point overlays, and evaluate global semantic land-cover segmentations across buildings, roads, water, forests, and barren terrain.',
+        'Remote sensing analysts can view raw aerial tiles, see sparse point overlays, and evaluate automated segmentation masks across buildings, roads, water, forests, and ground.',
       shippedArtifacts: [
         'Open-Source PyTorch Repository on GitHub',
-        'Modular Point-Supervision Sampler & pCE Loss Module',
-        'Tiled Sliding Inference Engine for Gigapixel Imagery',
-        'Empirical Benchmarking Suite with CSV Metric Logging'
+        'Modular Point Sampler & Partial Cross-Entropy Loss Module',
+        'Tiled Sliding Inference Engine for Large Aerial Scenes',
+        'Benchmarking Suite with CSV Metric Logging'
       ],
       outcomes: [
         'Delivered 0.1747 mIoU and 0.2670 Mean Dice with only 5% point annotation coverage.',
-        'Demonstrated >95% human annotation time reduction compared to dense polygon delineation.'
+        'Demonstrated a 95% reduction in manual labeling time compared to full polygon outlines.'
       ]
     },
     architectureDiagram: {
@@ -627,7 +627,7 @@ export const projects: Project[] = [
     id: 'asl-fingerspelling',
     slug: 'asl-fingerspelling',
     title: 'Continuous ASL Fingerspelling Translation',
-    subtitle: 'Edge Vision Kinematics & Seq2Seq Transformer Engine',
+    subtitle: 'Mobile Vision Kinematics & Sequence-to-Sequence Translation',
     category: 'Computer Vision & Deep Learning',
     role: 'ML & Computer Vision Engineer',
     status: 'Open Source',
@@ -635,12 +635,12 @@ export const projects: Project[] = [
     priority: 3,
     period: 'November 2024',
     summary:
-      'Engineered an end-to-end deep learning system translating continuous American Sign Language fingerspelling gestures from video into text in real time. Slices 543 MediaPipe holistic coordinates down to 48 keypoints, standardizes orientation, compresses temporal dimensions via strided 1D convolutions, and decodes character sequences with a sub-30ms mobile TFLite model.',
+      'Built a deep learning system that translates continuous American Sign Language fingerspelling from smartphone video into text in real time. Extracted hand landmarks with MediaPipe, compressed motion over time, and ran translation through a lightweight Transformer model on mobile devices with sub-30ms latency.',
     metrics: [
-      'Sub-30ms Real-Time On-Device TFLite Edge Inference',
-      '64x Attention Compute Reduction via Strided 1D Conv Downsampling',
-      'Dominant-Hand Automatic Detection & 1-x Reflection Normalization',
-      'Normalized Total Levenshtein Distance Evaluation'
+      'Fast Sub-30ms Real-Time Mobile TFLite Inference',
+      '64x Compute Reduction via Temporal Convolutions',
+      'Automatic Dominant-Hand Detection and Normalization',
+      'Accurate Character-Level Sequence Translation'
     ],
     tags: [
       'TensorFlow',
@@ -665,35 +665,35 @@ export const projects: Project[] = [
     ],
     caseStudy: {
       overview:
-        'Continuous fingerspelling involves rapid joint articulators, subtle finger transitions, and high occlusion across signers. This system decouples perception from sequence modeling by extracting 543 3D keypoints via MediaPipe Holistic, isolating 48 essential joints (144 features), and translating character sequences using an autoregressive Transformer decoder.',
+        'Translating continuous fingerspelling from camera video is challenging due to rapid hand movements and finger occlusions. This system tracks 3D hand and body keypoints using MediaPipe Holistic and translates gesture sequences into text with a lightweight Transformer model running entirely on-device.',
       problem:
-        'Traditional 3D convolutional networks require massive parameter counts, compute gigabytes of memory, and fail to run in real time on mobile devices. Furthermore, signer handedness (left vs. right) and spatial drift inflate model variance.',
+        'Processing raw video directly with heavy 3D networks requires too much compute and drains mobile battery quickly. Differences in signer handedness (left vs. right) also make models harder to train reliably.',
       architecture: [
-        'Kinematic Feature Filtering: Drops face and lower-body landmarks, isolating hands (42 keypoints) and upper-body pose anchors (6 keypoints) into a compact 144-dimensional vector per frame.',
-        'Dominant Hand & Invariance Preprocessing: Dynamically identifies the signing hand via missing coordinate counts, reflects left-handed signers (1.0 - x) into canonical right-hand coordinates, and applies zero-mean unit-variance scaling.',
-        'Temporal Conv1D Downsampling: Three cascaded 1D convolutions with stride 2 compress 128 frames down to 16 temporal tokens, cutting self-attention compute by 64x.',
-        'Sequence-to-Sequence Transformer: 4-layer multi-head self-attention encoder and causal cross-attention decoder with label-smoothed categorical cross-entropy and Levenshtein distance optimization.',
-        'On-Device TFLite Graph: Wraps preprocessing, dominant hand reflection, and greedy generation loop into a self-contained 39 MB .tflite binary executing in under 30ms.'
+        'Landmark Filtering: Filters out face and lower-body landmarks, tracking only 48 keypoints across the hands and upper body.',
+        'Hand Normalization: Automatically detects the signing hand and normalizes coordinates so the model handles both left- and right-handed signers seamlessly.',
+        'Motion Downsampling: Compresses video frames over time using 1D convolutions to speed up processing without losing gesture information.',
+        'Sequence-to-Sequence Transformer: Translates compressed motion sequences into letters and words.',
+        'On-Device TFLite Model: Packages preprocessing, hand reflection, and text generation into a single 39 MB file running in under 30ms on mobile.'
       ],
       engineeringHighlights: [
-        'Built full modular Python package separating data extraction, TFRecord serialization, model training, and TFLite export.',
-        'Engineered vectorized dominant-hand orientation normalization to eliminate the need for training separate left- and right-handed model representations.',
-        'Packaged the complete autoregressive decoding loop into a self-contained TFLite serving graph for mobile runtime.'
+        'Built a modular Python pipeline for landmark extraction, training data preparation, and model export.',
+        'Created automatic left/right hand normalization to avoid training separate models.',
+        'Packaged the complete model into a self-contained mobile binary requiring no external cloud server.'
       ],
       complexityAndFailures:
-        'High frame rates (30+ FPS) created extreme temporal redundancy and attention bottlenecks. Resolved by tailoring Conv1D kernel sizes (k=11) to match the physical duration of a fingerspelled phoneme (~1/3 second), reducing attention complexity from 16,384 to 256 computations per head.',
+        'High video frame rates created redundant data and slowed down translation. I aligned the convolution filters with the typical duration of a fingerspelled letter, reducing computation by 64x while keeping recognition sharp.',
       productExperience:
-        'Signers point a standard smartphone camera at continuous fingerspelled phrases and receive real-time, streaming text output locally without cloud latency or video transmission costs.',
+        'Signers point a standard smartphone camera at their hand while signing and receive instant live text on their screen without requiring internet access.',
       shippedArtifacts: [
-        'Standalone model.tflite Edge Inference Binary (~39 MB)',
-        'Modular TFRecord Pipeline & MediaPipe Extractor',
-        'End-to-End Seq2Seq Transformer Model Architecture',
-        'Offline & Video Parquet Inference CLI Tooling'
+        'Standalone model.tflite Mobile Binary (~39 MB)',
+        'Landmark Extraction & Training Pipeline',
+        'End-to-End Transformer Model Architecture',
+        'Offline Video Evaluation CLI Tools'
       ],
       outcomes: [
-        'Sub-30ms latency on edge hardware with zero external preprocessing libraries.',
-        '64x reduction in attention computational complexity.',
-        'Full open-source codebase published on GitHub.'
+        'Sub-30ms translation speed directly on mobile hardware.',
+        '64x reduction in model computational overhead.',
+        'Published as full open-source code on GitHub.'
       ]
     },
     architectureDiagram: {

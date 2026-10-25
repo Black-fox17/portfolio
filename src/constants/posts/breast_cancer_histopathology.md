@@ -4,7 +4,7 @@
 
 During my research tenure at the **Institute of Advanced Medical Research and Training (IAMRAT)** at the **University College Hospital (UCH), Ibadan**, I observed firsthand one of the steepest bottlenecks in modern clinical oncology: **histopathological diagnosis**.
 
-When a patient undergoes a tissue biopsy for suspected breast cancer, the excised tissue is stained with Hematoxylin and Eosin (H&E), sliced into micron-thin sections, and mounted onto glass slides. Pathologists must inspect these dense cellular landscapes under a microscope, hunting for subtle morphological aberrations—evaluating nuclear pleomorphism, mitotic figures, and architectural disruption across thousands of microscopic fields.
+When a patient undergoes a tissue biopsy for suspected breast cancer, the excised tissue is stained with Hematoxylin and Eosin (H&E), sliced into micron-thin sections, and mounted onto glass slides. Pathologists must inspect these dense cellular landscapes under a microscope, hunting for subtle morphological aberrations, evaluating nuclear pleomorphism, mitotic figures, and architectural disruption across thousands of microscopic fields.
 
 The diagnosis isn't simply a binary "cancer or not." Clinical treatment pathways depend on distinguishing exact subtypes:
 - **Invasive Ductal Carcinoma (IDC)** vs. **Invasive Lobular Carcinoma (ILC)**
@@ -15,7 +15,7 @@ Misclassifying a benign fibroadenoma as a malignant carcinoma can subject a pati
 
 Yet, pathologists face high cognitive fatigue, inter-observer variability, and severe specialist shortages across emerging healthcare systems.
 
-When we set out to build an AI decision-support system, we quickly learned that standard computer vision approaches—like fine-tuning a vanilla ResNet from scratch on small clinical datasets—fail in real clinical practice. This article breaks down how we solved this by leveraging **Pathology Foundation Models (`google/path-foundation`)**, training custom multi-class subtype classifiers, and coupling predictions with a **Multimodal Diagnostic Copilot** for interpretable clinical reporting.
+When we set out to build an AI decision-support system, we quickly learned that standard computer vision approaches (like fine-tuning a vanilla ResNet from scratch on small clinical datasets) fail in real clinical practice. This article breaks down how we solved this by leveraging **Pathology Foundation Models (`google/path-foundation`)**, training custom multi-class subtype classifiers, and coupling predictions with a **Multimodal Diagnostic Copilot** for interpretable clinical reporting.
 
 ---
 
@@ -58,7 +58,7 @@ To overcome these hurdles, we decoupled the diagnostic system into a three-stage
 
 ## Leveraging Google's Path Foundation Model
 
-Instead of training feature extractors from scratch on sparse institutional data, we adopted **`google/path-foundation`**—a state-of-the-art Pathology Foundation Model developed by Google Health and Google Research.
+Instead of training feature extractors from scratch on sparse institutional data, we adopted **`google/path-foundation`**, an advanced Pathology Foundation Model developed by Google Health and Google Research.
 
 `path-foundation` is a Vision Transformer trained via self-supervised learning on hundreds of thousands of gigapixel whole-slide pathology images spanning diverse human tissues, stain protocols, and international medical centers.
 

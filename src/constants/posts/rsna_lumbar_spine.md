@@ -6,7 +6,7 @@ Low back pain is the single leading cause of physical disability worldwide. When
 
 However, interpreting a complete lumbar spine MRI exam is one of the most cognitively demanding tasks in diagnostic radiology. A standard study comprises hundreds of DICOM slices acquired across multiple pulse sequences and spatial planes: **Sagittal T1**, **Sagittal T2 / STIR**, and **Axial T2**. 
 
-Radiologists must examine every intervertebral level—from $L_1/L_2$ down to $L_5/S_1$—and independently evaluate three distinct structural conditions:
+Radiologists must examine every intervertebral level (from $L_1/L_2$ down to $L_5/S_1$) and independently evaluate three distinct structural conditions:
 1. **Spinal Canal Stenosis**: Narrowing of the central vertebral canal compressing the thecal sac and cauda equina.
 2. **Left & Right Neural Foraminal Narrowing**: Constriction of the lateral exit canals through which exiting spinal nerve roots pass.
 3. **Left & Right Subarticular Stenosis**: Impingement of the lateral recess beneath the superior articular facet before the nerve enters the foramen.

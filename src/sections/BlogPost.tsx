@@ -58,7 +58,7 @@ export const BlogPost: React.FC = () => {
   return (
     <div className="min-h-screen bg-paper text-ink flex flex-col selection:bg-ink selection:text-paper">
       <Helmet>
-        <title>{post.title} — The Deep End | Abdulsalam Ayeleru</title>
+        <title>{post.title} | The Deep End | Abdulsalam Ayeleru</title>
         <meta name="description" content={post.excerpt} />
         <link rel="canonical" href={`https://ayeleru.space/blog/${post.slug}`} />
         <meta property="og:type" content="article" />

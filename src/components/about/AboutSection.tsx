@@ -5,17 +5,17 @@ const corePillars = [
   {
     number: '01',
     title: 'First Principles Over Hype',
-    body: 'I model domain constraints, latency budgets, and data invariants before picking tools—evaluating when a problem needs deep learning versus a deterministic algorithm.'
+    body: 'I evaluate speed requirements and system rules before choosing tools, always checking whether a problem truly needs machine learning or just clean, straightforward logic.'
   },
   {
     number: '02',
-    title: 'Monolithic Resilience & Data Integrity',
-    body: 'Managing 500+ APIs across multi-client apps demands rigorous architecture. I build with strict relational database invariants, clean domain isolation, and deterministic transaction boundaries.'
+    title: 'Solid Architecture & Reliable Data',
+    body: 'Managing 500+ APIs across mobile and web apps demands clear organization. I structure systems with organized code modules, clean database models, and safe payment transactions.'
   },
   {
     number: '03',
-    title: 'Zero-to-Store Ownership',
-    body: 'An algorithm only matters when users rely on it. I own the full vertical: mathematical research, distributed backends, Next.js web portals, and live Apple App Store & Google Play releases.'
+    title: 'From Code to App Store',
+    body: 'Software only matters when real people use it. I handle the entire process from core logic and backend APIs to web portals and live releases on the Apple App Store and Google Play.'
   }
 ];
 
@@ -38,32 +38,32 @@ export const AboutSection: React.FC = () => {
       {/* Main Narrative Story */}
       <div className="space-y-5 story-prose">
         <p>
-          My path into software engineering started with a refusal to treat machine learning as a black box. While researching medical computer vision at the{' '}
-          <strong>Institute of Advanced Medical Research and Training (UCH Ibadan)</strong>, I trained convolutional neural networks on histopathological biopsy slides to classify breast cancer subtypes. In parallel, I spent my nights implementing{' '}
-          <strong>Byte-Pair Encoding tokenizers, Skip-Gram embeddings, and autoregressive Transformers from scratch in PyTorch</strong>—because understanding what happens inside attention matrices and KV caches makes you fundamentally better at building with them.
+          My path into software engineering started with a desire to understand machine learning from the ground up, not as a black box. While researching medical imaging at the{' '}
+          <strong>Institute of Advanced Medical Research and Training (UCH Ibadan)</strong>, I trained computer vision models to identify breast cancer subtypes from biopsy slides. Alongside that, I spent my nights building foundational AI components from scratch in PyTorch, including{' '}
+          <strong>text tokenizers, word embeddings, and Transformer language models</strong>. Knowing how these models work internally makes building reliable applications with them second nature.
         </p>
 
         <p>
-          As I transitioned into building enterprise AI and document intelligence systems at{' '}
-          <strong>Codygo</strong> and <strong>Tweakrr</strong>, I learned what a resume bullet rarely captures: the hardest part of production AI isn’t the model—it’s the{' '}
-          <strong>systems engineering around it</strong>. Real reliability comes from asynchronous ingestion pipelines over AWS Lambda and SQS, sub-second vector retrieval, and strict schema validation that prevents hallucinations before they reach a user.
+          As I transitioned into building enterprise AI and document search systems at{' '}
+          <strong>Codygo</strong> and <strong>Tweakrr</strong>, I learned what a resume bullet rarely captures: the hardest part of production AI isn’t the model itself. It is the{' '}
+          <strong>software engineering surrounding it</strong>. True reliability comes from background processing pipelines, fast search indexing, and strict input checks that prevent faulty AI responses before they reach a user.
         </p>
 
         <p>
-          Today at <strong>GoodTenants</strong>, I bring that systems mindset to full-lifecycle product engineering as the lead architect behind the{' '}
-          <strong>Upward Ecosystem</strong>. I architected the core multi-platform engine: a high-throughput <strong>NestJS monolithic server managing over 500+ production REST APIs</strong>. The system orchestrates concurrent internal requests between the property manager app and tenant app while mediating bidirectional communication with external property management platforms, backed by a complex relational PostgreSQL database schema. I supervised client readiness to meet strict Google Play requirements for both apps while owning the complete submission lifecycle to deploy{' '}
-          <strong>UpwardPay live to the Apple App Store</strong>.
+          Today at <strong>GoodTenants</strong>, I apply that engineering approach as the lead backend and mobile engineer for the{' '}
+          <strong>Upward Ecosystem</strong>. I architected a unified server running over <strong>500+ production REST APIs</strong>. The system handles real-time requests from our property manager app and tenant app, while seamlessly syncing with external property management platforms through a structured PostgreSQL database. I also managed Google Play requirements for both apps and led the release process to launch{' '}
+          <strong>UpwardPay live on the Apple App Store</strong>.
         </p>
       </div>
 
-      {/* 3 Core Engineering Pillars — Clean Hairline Grid, No AI Icons */}
+      {/* 3 Core Engineering Pillars - Clean Hairline Grid, No AI Icons */}
       <div className="mt-10 pt-10 border-t border-border">
         <div className="flex items-center justify-between mb-5">
           <span className="text-xs font-mono uppercase tracking-widest text-ink-muted font-semibold flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-ink" />
             <span>Engineering Principles</span>
           </span>
-          <span className="text-xs font-mono text-ink-faint">01 — 03</span>
+          <span className="text-xs font-mono text-ink-faint">01 / 03</span>
         </div>
 
         <div className="grid sm:grid-cols-3 bg-paper-100/70 border border-border rounded-xl divide-y sm:divide-y-0 sm:divide-x divide-border overflow-hidden">
@@ -171,7 +171,7 @@ export const AboutSection: React.FC = () => {
             </span>
           </div>
           <h4 className="text-sm font-bold text-ink font-editorial pt-0.5">
-            B.Sc. Computer Science — University of Ibadan
+            B.Sc. Computer Science, University of Ibadan
           </h4>
           <p className="text-xs text-ink-muted">
             Expected 2027 · Systems, Algorithms & Machine Learning Research
