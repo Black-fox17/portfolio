@@ -2,6 +2,26 @@ import { ArticleItem, OpenSourceReproduction } from '../types/portfolio';
 
 export const publishedArticles: ArticleItem[] = [
   {
+    id: '9',
+    slug: 'rsna-lumbar-spine-mri-deep-learning',
+    title: 'Multi-Level Lumbar Spine Degenerative Disease Grading on Volumetric MRI',
+    date: '2024-10-18',
+    readTime: '9 min read',
+    category: 'Medical AI & Computer Vision',
+    excerpt:
+      'End-to-end deep learning framework for grading 25 multi-level spinal degeneration targets: spatial slice coordinate projection, uniform 2.5D volumetric sampling, Generalized Mean (GeM) pooling, and severe-penalized weighted log loss optimization.'
+  },
+  {
+    id: '8',
+    slug: 'histopathology-breast-cancer-path-foundation-llm',
+    title: 'Clinical Histopathology AI: From Pathology Foundation Models to Multimodal Diagnostic Copilots',
+    date: '2025-01-15',
+    readTime: '9 min read',
+    category: 'Medical AI & Clinical Decision Support',
+    excerpt:
+      'How we engineered an end-to-end breast cancer subtype classification and multimodal clinical copilot at IAMRAT (UCH Ibadan): leveraging Google Path Foundation models, focal loss optimization across 8 histological subtypes, and interpretable diagnostic reporting.'
+  },
+  {
     id: '7',
     slug: 'continuous-asl-fingerspelling-mediapipe-transformer',
     title: 'Continuous Sign Language Translation: From MediaPipe Kinematics to Edge Transformers',
@@ -64,6 +84,22 @@ export const publishedArticles: ArticleItem[] = [
 ];
 
 export const openSourceReproductions: OpenSourceReproduction[] = [
+  {
+    id: 'rsna-lumbar-spine-grading',
+    title: 'RSNA Lumbar Spine Degenerative Disease Classification',
+    description: 'Volumetric multi-level 25-target spine degeneration grading: DICOM VOI LUT normalization, GeM pooling backbones, and severe-weighted multi-class loss.',
+    category: 'Medical AI & Vision',
+    technologies: ['PyTorch', 'DICOM', 'GeM-Pooling', 'EfficientNetV2', 'FastAI'],
+    githubUrl: 'https://github.com/Black-fox17/rsna-lumbar-spine-classification-'
+  },
+  {
+    id: 'breast-cancer-histopathology-ai',
+    title: 'Breast Cancer Histopathology & Diagnostic Copilot',
+    description: 'Google Path-Foundation Vision Transformer embeddings, 8-class subtype classification, and multimodal Gemini diagnostic explanation generation.',
+    category: 'Medical AI & Vision',
+    technologies: ['Path-Foundation', 'TensorFlow', 'Gemini', 'FastAPI', 'Docker'],
+    githubUrl: 'https://github.com/Black-fox17/BreastCancer.git'
+  },
   {
     id: 'asl-fingerspelling-recognition',
     title: 'Continuous ASL Fingerspelling Engine',

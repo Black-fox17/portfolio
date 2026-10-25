@@ -96,18 +96,20 @@ export const experiences: ExperienceItem[] = [
     current: false,
     domain: 'Medical AI & Computer Vision Research',
     summary:
-      'Engineered deep convolutional neural networks for histopathological cancer image classification and built clinical decision-support tooling.',
+      'Engineered pathology foundation model pipelines and deep convolutional networks for breast cancer subtype classification and built multimodal clinical decision-support tooling.',
     highlights: [
-      'Developed deep convolutional architectures (ResNet/MobileNet) for automated histopathological breast cancer subtype classification, establishing baseline accuracy across whole slide image datasets.',
-      'Constructed multimodal decision-support workflows combining computer vision diagnostic predictions with structured clinical explanation generators.',
-      'Engineered full-stack FastAPI and React research portals for pathologist data collection, sample annotation, and trial workflow tracking.'
+      'Developed histopathological breast cancer subtype classification pipelines leveraging Google Path Foundation Vision Transformers and convolutional architectures, establishing strong accuracy across whole slide image biopsy datasets.',
+      'Constructed multimodal clinical decision-support workflows combining computer vision diagnostic predictions with Gemini 1.5 diagnostic explanation generators.',
+      'Engineered full-stack FastAPI and React research portals for pathologist data collection, sample annotation, and trial workflow tracking.',
+      'Open-sourced the end-to-end clinical pathology AI codebase at github.com/Black-fox17/BreastCancer.'
     ],
     technologies: [
+      'Path-Foundation',
       'PyTorch',
-      'Computer Vision',
-      'ResNet',
-      'MobileNet',
+      'TensorFlow',
+      'Gemini 1.5',
       'FastAPI',
+      'Docker',
       'React',
       'Medical Image Analysis'
     ]

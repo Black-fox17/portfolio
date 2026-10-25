@@ -85,6 +85,14 @@ body {
   .editorial-link {
     @apply inline-flex items-center gap-1.5 text-sm font-semibold text-ink hover:text-accent-cobalt transition-colors underline decoration-border-strong hover:decoration-accent-cobalt underline-offset-4;
   }
+
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* Reduced Motion */

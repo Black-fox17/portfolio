@@ -1,13 +1,20 @@
 import React, { useEffect } from 'react';
-import { X, ArrowUpRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, ArrowUpRight, X, ChevronRight } from 'lucide-react';
 import { Project } from '../../types/portfolio';
+import { projects } from '../../data/projects';
 
 interface CaseStudyModalProps {
   project: Project | null;
   onClose: () => void;
+  onSelectProject?: (project: Project) => void;
 }
 
-export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose }) => {
+export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
+  project,
+  onClose,
+  onSelectProject,
+}) => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -22,229 +29,385 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
     };
   }, [project, onClose]);
 
-  if (!project) return null;
+  const currentIndex = project
+    ? projects.findIndex((p) => p.id === project.id)
+    : -1;
+  const nextProject =
+    currentIndex !== -1 && currentIndex < projects.length - 1
+      ? projects[currentIndex + 1]
+      : projects[0];
 
   return (
-    <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 md:p-10 bg-ink/70 backdrop-blur-sm animate-in fade-in duration-200"
-      onClick={onClose}
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="case-study-title"
-    >
-      <div
-        className="bg-paper border-2 border-ink rounded-2xl w-full max-w-4xl max-h-[90vh] flex flex-col shadow-modal overflow-hidden animate-in zoom-in-95 duration-200"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Modal Header */}
-        <div className="p-6 sm:p-8 border-b border-border flex items-start justify-between gap-4 bg-white sticky top-0 z-10">
-          <div className="space-y-2">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="editorial-tag text-[11px] font-semibold text-ink">
-                {project.category}
-              </span>
-              <span className="text-xs font-mono text-ink-faint">·</span>
-              <span className="text-xs font-mono text-ink font-medium inline-flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent-emerald" />
-                <span>{project.status}</span>
-              </span>
-              <span className="text-xs font-mono text-ink-faint">·</span>
-              <span className="text-xs font-mono text-ink-faint">
-                {project.period}
-              </span>
-            </div>
-            <h2 id="case-study-title" className="text-2xl sm:text-3xl font-bold tracking-[-0.02em] text-ink font-editorial">
-              {project.title} — Architectural Case Study
-            </h2>
-            <p className="text-sm text-ink-muted">
-              Role: <span className="font-semibold text-ink">{project.role}</span>
-            </p>
-          </div>
-
-          <button
+    <AnimatePresence>
+      {project && (
+        <div className="fixed inset-0 z-50 flex justify-end">
+          {/* Smooth Dimmed Backdrop */}
+          <motion.div
+            key="backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.28, ease: 'easeInOut' }}
+            className="fixed inset-0 bg-ink/40 backdrop-blur-[2px]"
             onClick={onClose}
-            className="p-2 rounded-lg text-ink-muted hover:text-ink hover:bg-paper-100 transition-colors focus:outline-none cursor-pointer"
-            aria-label="Close Case Study"
+            aria-hidden="true"
+          />
+
+          {/* Smooth Spring-Loaded Slide-Over Panel */}
+          <motion.aside
+            key="case-study-drawer"
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{
+              type: 'spring',
+              damping: 30,
+              stiffness: 300,
+              mass: 0.85,
+            }}
+            className="relative w-full lg:w-[64%] xl:w-[60%] h-full bg-paper border-l-2 border-ink shadow-2xl flex flex-col z-50 overflow-hidden"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="case-study-title"
           >
-            <X className="w-5 h-5" />
-          </button>
-        </div>
+            {/* Sticky Top Navigation Bar */}
+            <header className="px-5 sm:px-8 py-4 border-b border-border bg-paper/95 backdrop-blur-md sticky top-0 z-20 flex items-center justify-between gap-4">
+              <button
+                type="button"
+                onClick={onClose}
+                className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-ink hover:text-accent-cobalt transition-colors cursor-pointer py-1"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>Back to Selected Work</span>
+              </button>
 
-        {/* Modal Content Body */}
-        <div className="p-6 sm:p-8 space-y-8 overflow-y-auto">
-          {/* Executive Overview */}
-          <div className="space-y-2.5">
-            <h3 className="text-xs font-mono uppercase tracking-widest text-ink-muted font-semibold flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent-cobalt" />
-              <span>01 / System Overview</span>
-            </h3>
-            <p className="text-[15.5px] sm:text-base text-ink leading-[1.75]">
-              {project.caseStudy.overview}
-            </p>
-          </div>
+              <div className="flex items-center gap-3">
+                <span className="text-[11px] font-mono text-ink-faint hidden sm:inline-block">
+                  Case Study 0{currentIndex + 1} / 0{projects.length}
+                </span>
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="p-1.5 rounded-lg bg-paper-100 hover:bg-paper-200 border border-border text-ink transition-colors cursor-pointer"
+                  aria-label="Close Case Study"
+                  title="Close (Esc)"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+            </header>
 
-          {/* Problem Statement */}
-          <div className="space-y-2.5 bg-white border border-border p-5 sm:p-6 rounded-xl shadow-subtle">
-            <h3 className="text-xs font-mono uppercase tracking-widest text-ink-muted font-semibold flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-ink" />
-              <span>02 / The Problem & Operational Friction</span>
-            </h3>
-            <p className="text-[15px] text-ink-light leading-[1.75]">
-              {project.caseStudy.problem}
-            </p>
-          </div>
+            {/* Content Container with Smooth Cross-Fade on Project Change */}
+            <motion.div
+              key={project.id}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.28, ease: 'easeOut' }}
+              className="flex-1 overflow-y-auto px-5 sm:px-8 lg:px-10 py-8 sm:py-10 space-y-12"
+            >
+              {/* 1. Monograph Hero Header */}
+              <div className="space-y-4 border-b border-border pb-8">
+                <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
+                  <span className="editorial-tag !py-0.5">
+                    {project.category}
+                  </span>
+                  <span className="text-border-strong">·</span>
+                  <span className="text-ink font-medium inline-flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent-emerald animate-pulse-subtle" />
+                    <span>{project.status}</span>
+                  </span>
+                  <span className="text-border-strong">·</span>
+                  <span className="text-ink-faint">{project.period}</span>
+                </div>
 
-          {/* System Architecture Diagram / Layer Breakdown */}
-          {project.architectureDiagram && (
-            <div className="space-y-3">
-              <h3 className="text-xs font-mono uppercase tracking-widest text-ink-muted font-semibold flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-accent-cobalt" />
-                <span>03 / System Topology & Boundaries</span>
-              </h3>
-              <div className="grid sm:grid-cols-2 gap-3.5">
-                {project.architectureDiagram.layers.map((layer, idx) => (
-                  <div key={idx} className="bg-white border border-border p-4 rounded-xl space-y-2 shadow-subtle">
-                    <span className="text-xs font-mono font-bold text-ink flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 rounded-full bg-accent-cobalt" />
-                      {layer.name}
+                <div className="space-y-2">
+                  <h1
+                    id="case-study-title"
+                    className="text-3xl sm:text-4xl lg:text-[2.6rem] font-bold tracking-[-0.03em] text-ink font-editorial leading-[1.08]"
+                  >
+                    {project.title}
+                  </h1>
+                  <p className="text-base sm:text-lg font-semibold text-accent-cobalt">
+                    {project.subtitle}
+                  </p>
+                </div>
+
+                <div className="flex flex-wrap items-center gap-x-6 gap-y-2 pt-1 text-xs font-mono text-ink-muted">
+                  <div>
+                    <span className="text-ink-faint">Role: </span>
+                    <span className="text-ink font-semibold">{project.role}</span>
+                  </div>
+                  <div>
+                    <span className="text-ink-faint">Execution: </span>
+                    <span className="text-ink font-semibold">End-to-End Delivery</span>
+                  </div>
+                </div>
+
+                {/* Live Releases & Repository Access Bar */}
+                {project.links && project.links.length > 0 && (
+                  <div className="pt-4 flex flex-wrap items-center gap-2">
+                    <span className="text-[11px] font-mono uppercase tracking-wider text-ink-faint font-semibold mr-1 block sm:inline">
+                      Releases:
                     </span>
-                    <ul className="space-y-1.5">
-                      {layer.items.map((item, i) => (
-                        <li key={i} className="text-xs text-ink-muted font-mono pl-3 border-l border-border-strong">
-                          {item}
+                    {project.links.map((link) => (
+                      <a
+                        key={link.label}
+                        href={link.url}
+                        target={link.url.startsWith('http') ? '_blank' : '_self'}
+                        rel={link.url.startsWith('http') ? 'noopener noreferrer' : ''}
+                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-ink text-paper-50 hover:bg-ink-light text-xs font-mono font-medium transition-colors shadow-subtle"
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent-emerald" />
+                        <span>{link.label}</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 text-white/70" />
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+
+              {/* 2. Executive Overview (Structured Callout Box) */}
+              <section className="space-y-3">
+                <div className="section-kicker">
+                  <span className="w-2 h-2 rounded-full bg-accent-cobalt" />
+                  <span>01 / System Overview & Scope</span>
+                </div>
+                <div className="bg-white border-2 border-ink rounded-xl p-6 sm:p-7 shadow-subtle space-y-3">
+                  <p className="text-base sm:text-[17px] text-ink leading-[1.75] font-normal">
+                    {project.caseStudy.overview}
+                  </p>
+                  <div className="pt-3 border-t border-border-subtle flex flex-wrap gap-2 text-xs font-mono text-ink-muted">
+                    <span className="font-semibold text-ink">Core Impact:</span>
+                    <span>{project.summary}</span>
+                  </div>
+                </div>
+              </section>
+
+              {/* 3. The Operational Challenge vs Solution (Visual Comparison Grid) */}
+              <section className="space-y-4">
+                <div className="section-kicker">
+                  <span className="w-2 h-2 rounded-full bg-ink" />
+                  <span>02 / Problem vs. Engineered Solution</span>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-4">
+                  {/* Problem Side */}
+                  <div className="bg-paper-100/90 border border-border rounded-xl p-5 sm:p-6 space-y-2.5">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-ink-muted" />
+                      <h3 className="text-xs font-mono uppercase tracking-wider text-ink-muted font-bold">
+                        The Failure Mode / Challenge
+                      </h3>
+                    </div>
+                    <p className="text-[14.5px] text-ink-light leading-[1.75]">
+                      {project.caseStudy.problem}
+                    </p>
+                  </div>
+
+                  {/* Solution Side */}
+                  <div className="bg-white border border-border-strong rounded-xl p-5 sm:p-6 space-y-2.5 shadow-subtle">
+                    <div className="flex items-center gap-2">
+                      <span className="w-2 h-2 rounded-full bg-accent-cobalt" />
+                      <h3 className="text-xs font-mono uppercase tracking-wider text-accent-cobalt font-bold">
+                        The Architectural Remedy
+                      </h3>
+                    </div>
+                    <p className="text-[14.5px] text-ink-light leading-[1.75]">
+                      {project.caseStudy.complexityAndFailures}
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              {/* 4. System Topology & Layer Breakdown (Architectural Diagram) */}
+              {project.architectureDiagram && (
+                <section className="space-y-4">
+                  <div className="section-kicker">
+                    <span className="w-2 h-2 rounded-full bg-accent-cobalt" />
+                    <span>03 / System Topology & Boundary Stack</span>
+                  </div>
+
+                  <div className="bg-white border border-border rounded-xl p-6 shadow-subtle space-y-4">
+                    <div className="grid sm:grid-cols-2 gap-4">
+                      {project.architectureDiagram.layers.map((layer, idx) => (
+                        <div
+                          key={layer.name}
+                          className="p-4 rounded-lg bg-paper/80 border border-border space-y-2.5"
+                        >
+                          <div className="flex items-center justify-between">
+                            <span className="text-xs font-mono font-bold text-ink flex items-center gap-2">
+                              <span className="w-1.5 h-1.5 rounded-full bg-accent-cobalt" />
+                              <span>{layer.name}</span>
+                            </span>
+                            <span className="text-[10px] font-mono text-ink-faint">
+                              Layer 0{idx + 1}
+                            </span>
+                          </div>
+                          <ul className="space-y-1.5">
+                            {layer.items.map((item) => (
+                              <li
+                                key={item}
+                                className="text-xs font-mono text-ink-muted pl-3 border-l-2 border-border-strong"
+                              >
+                                {item}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </section>
+              )}
+
+              {/* 5. Architectural Specifications (Clean Numbered Rows) */}
+              <section className="space-y-4">
+                <div className="section-kicker">
+                  <span className="w-2 h-2 rounded-full bg-ink" />
+                  <span>04 / Architectural Specifications</span>
+                </div>
+
+                <div className="bg-white border border-border rounded-xl divide-y divide-border overflow-hidden shadow-subtle">
+                  {project.caseStudy.architecture.map((arch, idx) => (
+                    <div key={idx} className="p-5 flex items-start gap-4">
+                      <span className="text-xs font-mono font-bold text-accent-cobalt mt-0.5">
+                        0{idx + 1}
+                      </span>
+                      <p className="text-[14.5px] text-ink-light leading-[1.75]">
+                        {arch}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* 6. Key Engineering Highlights (Numbered Spec Cards) */}
+              <section className="space-y-4">
+                <div className="section-kicker">
+                  <span className="w-2 h-2 rounded-full bg-accent-cobalt" />
+                  <span>05 / What I Personally Engineered</span>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-3.5">
+                  {project.caseStudy.engineeringHighlights.map((hl, idx) => (
+                    <div
+                      key={idx}
+                      className="bg-white border border-border rounded-xl p-5 flex flex-col justify-between space-y-3 shadow-subtle"
+                    >
+                      <div className="space-y-2">
+                        <span className="text-xs font-mono font-bold text-ink-faint">
+                          Spec 0{idx + 1}
+                        </span>
+                        <p className="text-[14px] text-ink-light leading-[1.7]">
+                          {hl}
+                        </p>
+                      </div>
+                      <div className="pt-2 border-t border-border-subtle flex items-center gap-1.5 text-[11px] font-mono text-accent-emerald">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent-emerald" />
+                        <span>Implemented & Verified</span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              {/* 7. Product & User Experience */}
+              <section className="space-y-3">
+                <div className="section-kicker">
+                  <span className="w-2 h-2 rounded-full bg-ink" />
+                  <span>06 / User Experience & Interfaces</span>
+                </div>
+                <div className="bg-paper-100/70 border border-border rounded-xl p-5 sm:p-6 text-[14.5px] text-ink-light leading-[1.75]">
+                  {project.caseStudy.productExperience}
+                </div>
+              </section>
+
+              {/* 8. Deliverables vs Measurable Outcomes (High-Contrast Scorecard) */}
+              <section className="space-y-4">
+                <div className="section-kicker">
+                  <span className="w-2 h-2 rounded-full bg-accent-cobalt" />
+                  <span>07 / Deliverables & Measured Impact</span>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="bg-white border border-border rounded-xl p-5 space-y-3 shadow-subtle">
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-ink block">
+                      Shipped Production Artifacts
+                    </span>
+                    <ul className="space-y-2">
+                      {project.caseStudy.shippedArtifacts.map((art) => (
+                        <li
+                          key={art}
+                          className="text-[13.5px] text-ink-light flex items-start gap-2.5"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-accent-emerald mt-2 shrink-0" />
+                          <span>{art}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
-                ))}
-              </div>
-            </div>
-          )}
 
-          {/* Architecture Details */}
-          <div className="space-y-3">
-            <h3 className="text-xs font-mono uppercase tracking-widest text-ink-muted font-semibold flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent-cobalt" />
-              <span>04 / Architectural Specifications</span>
-            </h3>
-            <ul className="space-y-2.5">
-              {project.caseStudy.architecture.map((arch, index) => (
-                <li key={index} className="text-[14.5px] sm:text-[15px] text-ink-light flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-ink mt-2.5 shrink-0" />
-                  <span className="leading-[1.75]">{arch}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Engineering Highlights */}
-          <div className="space-y-3">
-            <h3 className="text-xs font-mono uppercase tracking-widest text-ink-muted font-semibold flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent-cobalt" />
-              <span>05 / Key Engineering Contributions</span>
-            </h3>
-            <div className="space-y-2.5">
-              {project.caseStudy.engineeringHighlights.map((hl, index) => (
-                <div key={index} className="bg-white border border-border p-4 rounded-xl text-[14.5px] text-ink flex items-start gap-3 shadow-subtle">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent-cobalt mt-2.5 shrink-0" />
-                  <span className="leading-[1.7]">{hl}</span>
+                  <div className="bg-paper-100/60 border border-border rounded-xl p-5 space-y-3">
+                    <span className="text-xs font-mono font-bold uppercase tracking-wider text-ink block">
+                      Measurable Outcomes
+                    </span>
+                    <ul className="space-y-2">
+                      {project.caseStudy.outcomes.map((outcome) => (
+                        <li
+                          key={outcome}
+                          className="text-[13.5px] text-ink-light flex items-start gap-2.5"
+                        >
+                          <span className="w-1.5 h-1.5 rounded-full bg-accent-cobalt mt-2 shrink-0" />
+                          <span>{outcome}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
-              ))}
-            </div>
-          </div>
+              </section>
 
-          {/* Complexity & Failure Modes */}
-          <div className="space-y-2 border-l-2 border-ink pl-5 py-1">
-            <h3 className="text-xs font-mono uppercase tracking-widest text-ink font-bold">
-              06 / Failure Modes & Resilience Engineering
-            </h3>
-            <p className="text-[14.5px] sm:text-[15px] text-ink-light leading-[1.75]">
-              {project.caseStudy.complexityAndFailures}
-            </p>
-          </div>
-
-          {/* Product Experience */}
-          <div className="space-y-2">
-            <h3 className="text-xs font-mono uppercase tracking-widest text-ink-muted font-semibold">
-              07 / Product & User Experience
-            </h3>
-            <p className="text-[14.5px] sm:text-[15px] text-ink-light leading-[1.75]">
-              {project.caseStudy.productExperience}
-            </p>
-          </div>
-
-          {/* Shipped Deliverables & Outcomes Grid (Dots instead of Checkmarks) */}
-          <div className="grid sm:grid-cols-2 gap-4 pt-2">
-            <div className="bg-white border border-border p-5 rounded-xl space-y-2.5 shadow-subtle">
-              <span className="text-xs font-mono font-bold uppercase text-ink block">
-                Shipped Production Artifacts
-              </span>
-              <ul className="space-y-2">
-                {project.caseStudy.shippedArtifacts.map((art, idx) => (
-                  <li key={idx} className="text-[13.5px] text-ink-light flex items-start gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent-emerald mt-2 shrink-0" />
-                    <span>{art}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="bg-white border border-border p-5 rounded-xl space-y-2.5 shadow-subtle">
-              <span className="text-xs font-mono font-bold uppercase text-ink block">
-                Measurable Outcomes
-              </span>
-              <ul className="space-y-2">
-                {project.caseStudy.outcomes.map((outcome, idx) => (
-                  <li key={idx} className="text-[13.5px] text-ink-light flex items-start gap-2.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent-cobalt mt-2 shrink-0" />
-                    <span>{outcome}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {/* Tech Stack Chips */}
-          <div className="pt-2">
-            <span className="text-xs font-mono uppercase tracking-wider text-ink-faint font-semibold block mb-2.5">
-              Technologies & Infrastructure
-            </span>
-            <div className="flex flex-wrap gap-1.5">
-              {project.tags.map((tag) => (
-                <span key={tag} className="editorial-tag">
-                  {tag}
+              {/* 9. Technologies Used */}
+              <section className="space-y-3 pt-2">
+                <span className="text-xs font-mono uppercase tracking-widest text-ink-faint font-semibold block">
+                  Core Technologies & Libraries
                 </span>
-              ))}
-            </div>
-          </div>
-        </div>
+                <div className="flex flex-wrap gap-1.5">
+                  {project.tags.map((tag) => (
+                    <span key={tag} className="editorial-tag text-xs">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </section>
 
-        {/* Modal Footer */}
-        <div className="p-4 sm:p-6 border-t border-border bg-white flex flex-wrap items-center justify-between gap-3">
-          <div className="flex flex-wrap items-center gap-2">
-            {project.links.map((link) => (
-              <a
-                key={link.label}
-                href={link.url}
-                target={link.url.startsWith('http') ? '_blank' : '_self'}
-                rel={link.url.startsWith('http') ? 'noopener noreferrer' : ''}
-                className="editorial-btn-secondary !py-2 !px-3.5 !text-xs"
-              >
-                <span>{link.label}</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
-              </a>
-            ))}
-          </div>
+              {/* 10. Next Project Transition Footer */}
+              <footer className="pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="editorial-btn-secondary !py-2.5 !px-4 text-xs w-full sm:w-auto justify-center"
+                >
+                  <ArrowLeft className="w-3.5 h-3.5" />
+                  <span>Close Case Study</span>
+                </button>
 
-          <button
-            onClick={onClose}
-            className="editorial-btn-primary !py-2 !px-4 !text-xs ml-auto cursor-pointer"
-          >
-            Close Case Study
-          </button>
+                {nextProject && onSelectProject && (
+                  <button
+                    type="button"
+                    onClick={() => onSelectProject(nextProject)}
+                    className="editorial-btn-primary !py-2.5 !px-5 text-xs w-full sm:w-auto justify-center"
+                  >
+                    <span>Next Case Study: {nextProject.title}</span>
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </button>
+                )}
+              </footer>
+            </motion.div>
+          </motion.aside>
         </div>
-      </div>
-    </div>
+      )}
+    </AnimatePresence>
   );
 };
+
 export default CaseStudyModal;

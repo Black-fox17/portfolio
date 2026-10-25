@@ -87,23 +87,23 @@ export const SelectedWork: React.FC = () => {
             </div>
           </div>
 
-          {/* Unified Dark Carbon Telemetry Strip (High contrast, zero AI icons) */}
-          <div className="mt-6 bg-ink text-paper-50 rounded-xl grid grid-cols-2 sm:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/15 overflow-hidden">
-            <div className="p-4">
-              <div className="text-lg font-bold font-editorial text-white">3 Mobile Apps</div>
-              <div className="text-[11px] font-mono text-white/65 mt-1">iOS App Store & Google Play</div>
+          {/* Architectural Telemetry Strip (Light editorial aesthetic & clean non-wrapping hierarchy) */}
+          <div className="mt-6 bg-paper-100/60 border border-border rounded-xl grid grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-border overflow-hidden">
+            <div className="p-3.5 sm:p-4">
+              <div className="text-sm sm:text-[15px] font-bold font-editorial text-ink whitespace-nowrap">3 Mobile Apps</div>
+              <div className="text-[11px] font-mono text-ink-muted mt-1 leading-snug">iOS & Android Stores</div>
             </div>
-            <div className="p-4">
-              <div className="text-lg font-bold font-editorial text-white">200+ Endpoints</div>
-              <div className="text-[11px] font-mono text-white/65 mt-1">NestJS & PostgreSQL ACID</div>
+            <div className="p-3.5 sm:p-4">
+              <div className="text-sm sm:text-[15px] font-bold font-editorial text-ink whitespace-nowrap">Distributed Backend</div>
+              <div className="text-[11px] font-mono text-ink-muted mt-1 leading-snug">NestJS & ACID Ledgers</div>
             </div>
-            <div className="p-4">
-              <div className="text-lg font-bold font-editorial text-white">Auto-Failover</div>
-              <div className="text-[11px] font-mono text-white/65 mt-1">Paystack + Flutterwave Engine</div>
+            <div className="p-3.5 sm:p-4">
+              <div className="text-sm sm:text-[15px] font-bold font-editorial text-ink whitespace-nowrap">Auto-Failover</div>
+              <div className="text-[11px] font-mono text-ink-muted mt-1 leading-snug">Paystack + Flutterwave</div>
             </div>
-            <div className="p-4">
-              <div className="text-lg font-bold font-editorial text-white">Zero-Downtime</div>
-              <div className="text-[11px] font-mono text-white/65 mt-1">Docker & GitHub Actions CI/CD</div>
+            <div className="p-3.5 sm:p-4">
+              <div className="text-sm sm:text-[15px] font-bold font-editorial text-ink whitespace-nowrap">Zero Downtime</div>
+              <div className="text-[11px] font-mono text-ink-muted mt-1 leading-snug">Docker CI/CD Engine</div>
             </div>
           </div>
 
@@ -241,10 +241,11 @@ export const SelectedWork: React.FC = () => {
         </div>
       </div>
 
-      {/* Case Study Deep-Dive Modal */}
+      {/* Case Study Deep-Dive Slide-Over */}
       <CaseStudyModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
+        onSelectProject={(proj) => setSelectedProject(proj)}
       />
     </section>
   );

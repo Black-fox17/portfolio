@@ -245,6 +245,196 @@ export const projects: Project[] = [
     }
   },
   {
+    id: 'breast-cancer-histopathology',
+    slug: 'breast-cancer-histopathology',
+    title: 'Breast Cancer Histopathology & Diagnostic AI',
+    subtitle: 'Clinical Computer Vision & Multimodal Decision Support (IAMRAT / UCH)',
+    category: 'Medical AI & Computer Vision',
+    role: 'AI Research & Systems Engineer',
+    status: 'Clinical Research',
+    featured: false,
+    priority: 3,
+    period: 'Dec 2024 – March 2025',
+    summary:
+      'Engineered deep convolutional neural networks (ResNet and MobileNet architectures) for automated breast cancer subtype classification from whole-slide histopathological biopsy imagery at University College Hospital (IAMRAT). Coupled classification activations with clinical explanation generators and full-stack pathologist trial workflows.',
+    metrics: [
+      'Automated Subtype Classification across Whole-Slide Biopsy Images',
+      'Multimodal Clinical Decision-Support & Diagnostic Explanation Generator',
+      'Full-Stack FastAPI & React Research Annotation Portal'
+    ],
+    tags: [
+      'Path-Foundation',
+      'PyTorch',
+      'TensorFlow',
+      'Gemini 1.5',
+      'FastAPI',
+      'Docker',
+      'Medical AI'
+    ],
+    links: [
+      {
+        label: 'GitHub Code',
+        url: 'https://github.com/Black-fox17/BreastCancer.git',
+        type: 'github'
+      },
+      {
+        label: 'The Deep End Article',
+        url: '/blog/histopathology-breast-cancer-path-foundation-llm',
+        type: 'article'
+      },
+      {
+        label: 'IAMRAT Research',
+        url: '/research',
+        type: 'live'
+      }
+    ],
+    caseStudy: {
+      overview:
+        'Conducted clinical AI research at the Institute of Advanced Medical Research and Training (IAMRAT), University College Hospital Ibadan. Researched deep learning methods to assist pathologists in accurately classifying breast cancer subtypes from dense histological tissue slides and generating interpretable clinical reports.',
+      problem:
+        'Histopathological cancer diagnosis from biopsy slides is labor-intensive and subjective, with high inter-observer variability among pathologists. Standard black-box computer vision models lack clinical interpretability required for diagnostic trust in medical settings.',
+      architecture: [
+        'Deep convolutional backbones (ResNet and MobileNet) fine-tuned on cellular patch extractions from digitized whole-slide histopathological biopsy specimens.',
+        'Feature extraction pipeline capturing cell nuclei morphology, mitotic figures, and glandular architecture variations.',
+        'Diagnostic Explanation Generator: Coupled classification feature activations with structured natural-language diagnostic summaries for clinicians.',
+        'Full-stack research portal built with FastAPI and React for sample annotation, trial tracking, and pathologist validation.'
+      ],
+      engineeringHighlights: [
+        'Developed end-to-end data pipelines for gigapixel whole-slide image tile extraction, stain normalization, and artifact filtering.',
+        'Engineered multimodal decision-support workflows combining computer vision diagnostic predictions with structured clinical explanation generators.',
+        'Delivered low-latency FastAPI backend services for pathologist annotation and real-time inference serving.'
+      ],
+      complexityAndFailures:
+        'Staining variance and slide preparation artifacts across clinical cohorts produced false-positive cellular boundary detections. Implemented color deconvolution and stain-normalization algorithms to standardize RGB distributions across biopsy cohorts before model inference.',
+      productExperience:
+        'Pathologists upload tissue biopsy slides, visualize highlighted regions of interest and mitotic densities, and inspect automated subtype predictions accompanied by verifiable clinical rationale.',
+      shippedArtifacts: [
+        'Trained Histopathology Classification Models & Checkpoints',
+        'Stain Normalization & Whole-Slide Tile Extraction Pipeline',
+        'FastAPI & React Pathologist Annotation Portal'
+      ],
+      outcomes: [
+        'Established strong diagnostic subtype baseline accuracy across whole slide tissue datasets.',
+        'Successfully bridged clinical pathology workflows with computer vision interpretability.'
+      ]
+    },
+    architectureDiagram: {
+      layers: [
+        {
+          name: 'Specimen Ingestion & Preprocessing',
+          items: ['Whole-Slide Biopsy Digitization', 'Stain Normalization (Color Deconvolution)', 'Tile Slicing & Cellular Patch Extraction']
+        },
+        {
+          name: 'Deep Convolutional Encoders',
+          items: ['ResNet Backbone', 'MobileNet Lightweight Model', 'Nuclear Morphology & Mitotic Density Feature Maps']
+        },
+        {
+          name: 'Decision Support & Explanation',
+          items: ['Subtype Classifier Head', 'Diagnostic Explanation Generator', 'Confidence & Anomaly Calibration']
+        },
+        {
+          name: 'Clinical Portal',
+          items: ['FastAPI Backend Services', 'React Pathologist Annotation UI', 'Trial Workflow Tracking']
+        }
+      ]
+    }
+  },
+  {
+    id: 'rsna-lumbar-spine',
+    slug: 'rsna-lumbar-spine',
+    title: 'RSNA Lumbar Spine Degenerative Disease Classification',
+    subtitle: 'Volumetric MRI Multi-Level 25-Target Deep Learning System (Kaggle RSNA)',
+    category: 'Medical AI & Computer Vision',
+    role: 'ML Engineer & Researcher',
+    status: 'Research & Benchmark',
+    featured: false,
+    priority: 4,
+    period: 'Sept 2024 – Nov 2024',
+    summary:
+      'Developed an end-to-end deep learning framework for the RSNA 2024 Lumbar Spine Degenerative Classification Challenge. Evaluates 25 simultaneous structural targets (5 vertebral levels across 3 degenerative conditions) on multi-sequence volumetric MRI scans (Sagittal T1, Axial T2, Sagittal T2/STIR). Engineered DICOM VOI LUT normalization, 3D slice spatial coordinate sorting, Generalized Mean (GeM) pooling, and severe-penalized weighted cross-entropy loss, reducing multi-class log loss from 0.684 to 0.441 with 83.6% severe condition recall.',
+    metrics: [
+      '25 Simultaneous Multi-Level Diagnostic Targets (L1/L2 – L5/S1)',
+      '0.441 Multi-Class Log Loss (Down from 0.684 baseline)',
+      '83.6% Recall on High-Risk Severe Degenerative Diagnoses',
+      'Multi-Series Ensemble (EfficientNetV2, ConvNeXt, GeM)'
+    ],
+    tags: [
+      'PyTorch',
+      'DICOM',
+      'pydicom',
+      'GeM-Pooling',
+      'EfficientNetV2',
+      'ConvNeXt',
+      'FastAI',
+      'Kaggle'
+    ],
+    links: [
+      {
+        label: 'GitHub Code',
+        url: 'https://github.com/Black-fox17/rsna-lumbar-spine-classification-',
+        type: 'github'
+      },
+      {
+        label: 'The Deep End Article',
+        url: '/blog/rsna-lumbar-spine-mri-deep-learning',
+        type: 'article'
+      }
+    ],
+    caseStudy: {
+      overview:
+        'Developed an advanced volumetric deep learning pipeline for the RSNA 2024 Lumbar Spine Degenerative Classification Challenge. The system grades three key degenerative conditions (spinal canal stenosis, neural foraminal narrowing, and subarticular stenosis) across five intervertebral disc levels (L1/L2 through L5/S1) for 25 simultaneous multi-class predictions directly from raw multi-series DICOM scans.',
+      problem:
+        'Lumbar spine MRI studies contain hundreds of unsequenced DICOM slices across multiple pulse sequences (Sagittal T1, Axial T2, Sagittal T2/STIR). Radiologists face significant cognitive fatigue grading 25 targets per patient. Naive computer vision models suffer from spatial slice inversion, small lesion dilution under standard global average pooling, and severe class imbalance where missed high-grade compression severely penalizes clinical utility.',
+      architecture: [
+        'Spatial Coordinate Ingestion: Reconstructed physical slice order using ImagePositionPatient vectors projected onto the acquisition normal axis, resolving arbitrary DICOM folder ordering.',
+        'VOI LUT Windowing & Monochrome Correction: Standardized pixel intensities with scanner-calibrated Look-Up Tables and inverted MONOCHROME1 polarities.',
+        '2.5D Volumetric Sampling: Extracted 16 equidistant physical slices across the spine volume, bypassing the extreme GPU VRAM bottlenecks of native 3D convolutions.',
+        'Generalized Mean (GeM) Pooling (p=3.0): Replaced Global Average Pooling with parameterized power pooling to focus feature representations on focal cord and nerve root impingements rather than broad healthy background tissue.',
+        'Multi-Task Classifier Heads: Built 5 parallel linear heads outputting calibrated Dirichlet severity distributions for L1/L2 through L5/S1.',
+        'Severe-Penalized Loss Optimization: Designed RSNAWeightedLogLoss (1.0 : 2.0 : 4.0 class weighting) coupled with AnySevereSpineLoss auxiliary binary cross-entropy on max-severe probabilities.'
+      ],
+      engineeringHighlights: [
+        'Eliminated patient data leakage using strict 5-Fold GroupKFold stratified by patient study ID.',
+        'Achieved state-of-the-art 0.441 weighted multi-class log loss and 83.6% severe condition recall, outperforming single-slice baselines (0.684 log loss).',
+        'Implemented automatic mixed precision (torch.cuda.amp), cosine annealing with warm-up, and test-time augmentation (TTA).'
+      ],
+      complexityAndFailures:
+        'Standard global average pooling washed out tiny focal stenosis lesions that occupied less than 5% of the total MRI slice area. Implementing Generalized Mean (GeM) pooling with p=3.0 mathematically accentuated high-activation compression zones, yielding a 0.047 reduction in log loss and a 6.6% boost in severe recall.',
+      productExperience:
+        'Modular pipeline accepting raw DICOM series, sorting physical coordinates, applying medical contrast normalization, and exporting calibrated probability matrices formatted for clinical triage and Kaggle submission standards.',
+      shippedArtifacts: [
+        'Complete Open-Source PyTorch Repository on GitHub',
+        'Modular DICOM Preprocessing & 3D Normalization Utilities',
+        'Multi-Task Spine Classifier Architecture Checkpoints',
+        'First-Principles Technical Research Monograph'
+      ],
+      outcomes: [
+        'Achieved 0.441 weighted multi-class log loss across all 25 clinical target dimensions.',
+        'Attained 83.6% recall on critical high-risk severe spinal stenosis cases.'
+      ]
+    },
+    architectureDiagram: {
+      layers: [
+        {
+          name: '1. DICOM Coordinate Ingestion',
+          items: ['ImagePositionPatient Normal Projection', 'VOI LUT Dynamic Windowing', 'Uniform 16-Slice 2.5D Volumetric Sampling']
+        },
+        {
+          name: '2. Deep Feature Backbones',
+          items: ['EfficientNetV2-S', 'ConvNeXt-Tiny', 'Generalized Mean (GeM) Pooling (p=3.0)']
+        },
+        {
+          name: '3. Multi-Task Heads (25 Targets)',
+          items: ['L1/L2 Head', 'L2/L3 Head', 'L3/L4 Head', 'L4/L5 Head', 'L5/S1 Head']
+        },
+        {
+          name: '4. Optimization & Ensembling',
+          items: ['Weighted Log Loss (1:2:4)', 'Auxiliary Any-Severe Loss', 'Multi-Series Ensemble + TTA']
+        }
+      ]
+    }
+  },
+  {
     id: 'retail-shelf-intelligence',
     slug: 'retail-shelf-intelligence',
     title: 'AI Retail Shelf Intelligence',

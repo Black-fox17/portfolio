@@ -17,23 +17,23 @@ export const TheDeepEnd: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
           <div>
             <h2 className="text-2xl sm:text-4xl font-bold tracking-[-0.025em] text-ink font-editorial leading-[1.15]">
-              The Deep End: Notes on AI Machinery
+              The Deep End: First-Principles AI & Systems Research
             </h2>
             <p className="text-[15.5px] sm:text-base text-ink-muted leading-relaxed max-w-2xl mt-2">
-              To truly master a system, I build it from scratch without high-level abstractions and write down the math—covering tokenization, embeddings, positional encodings, attention, and inference caches.
+              To truly master a system, I build it from scratch without high-level abstractions and write down the math—covering tokenization, embeddings, positional encodings, attention, inference caches, and foundation vision architectures.
             </p>
           </div>
           <Link
             to="/blog"
             className="editorial-btn-secondary !py-2 !px-3.5 shrink-0 self-start sm:self-auto"
           >
-            <span>Open Full Publication</span>
+            <span>Open All Publications</span>
             <ArrowUpRight className="w-3.5 h-3.5" />
           </Link>
         </div>
       </div>
 
-      {/* Interactive Toggle: Essays vs. Paper Reproductions (Dots instead of Icons) */}
+      {/* Interactive Toggle: Papers vs. Code Reproductions (Dots instead of Icons) */}
       <div className="flex flex-wrap items-center gap-2 mb-6 p-1.5 rounded-lg bg-paper-100 border border-border w-fit">
         <button
           type="button"
@@ -49,7 +49,7 @@ export const TheDeepEnd: React.FC = () => {
               activeView === 'essays' ? 'bg-accent-emerald' : 'bg-ink-faint'
             }`}
           />
-          <span>Technical Essays ({publishedArticles.length})</span>
+          <span>Research Articles ({publishedArticles.length})</span>
         </button>
 
         <button
@@ -109,7 +109,7 @@ export const TheDeepEnd: React.FC = () => {
                     })}
                   </time>
                   <span className="text-ink group-hover:text-accent-cobalt font-semibold inline-flex items-center gap-1">
-                    <span>Read Essay</span>
+                    <span>Read Paper</span>
                     <ArrowUpRight className="w-3.5 h-3.5" />
                   </span>
                 </div>

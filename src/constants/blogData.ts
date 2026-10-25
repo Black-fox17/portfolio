@@ -80,4 +80,24 @@ export const blogPosts: BlogPost[] = [
     excerpt: "A first-principles deep dive into translating continuous ASL fingerspelling from raw video to text: landmark spatial normalization, temporal downsampling convolutions, transformer encoder-decoder attention, and TFLite quantization for sub-30ms edge inference.",
     file: () => import('./posts/asl_fingerspelling.md?raw')
   },
+  {
+    id: "8",
+    slug: "histopathology-breast-cancer-path-foundation-llm",
+    title: "Clinical Histopathology AI: From Pathology Foundation Models to Multimodal Diagnostic Copilots",
+    date: "2025-01-15",
+    readTime: "9 min read",
+    category: "Medical AI & Clinical Decision Support",
+    excerpt: "How we engineered an end-to-end breast cancer subtype classification and multimodal clinical copilot at IAMRAT (UCH Ibadan): leveraging Google Path Foundation models, focal loss optimization across 8 histological subtypes, and interpretable diagnostic reporting.",
+    file: () => import('./posts/breast_cancer_histopathology.md?raw')
+  },
+  {
+    id: "9",
+    slug: "rsna-lumbar-spine-mri-deep-learning",
+    title: "Multi-Level Lumbar Spine Degenerative Disease Grading on Volumetric MRI",
+    date: "2024-10-18",
+    readTime: "9 min read",
+    category: "Medical AI & Computer Vision",
+    excerpt: "End-to-end deep learning framework for grading 25 multi-level spinal degeneration targets: spatial slice coordinate projection, uniform 2.5D volumetric sampling, Generalized Mean (GeM) pooling, and severe-penalized weighted log loss optimization.",
+    file: () => import('./posts/rsna_lumbar_spine.md?raw')
+  },
 ];

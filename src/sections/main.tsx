@@ -189,56 +189,70 @@ export const Main: React.FC = () => {
       <div className="max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-12">
         <div className="lg:grid lg:grid-cols-12 lg:gap-10 xl:gap-14">
           {/* LEFT COLUMN: Sticky Profile, Identity & Story Navigation Rail */}
-          <aside className="lg:col-span-5 lg:sticky lg:top-0 lg:h-screen lg:py-12 xl:py-14 lg:flex lg:flex-col lg:justify-between pt-24 pb-10 border-b lg:border-b-0 border-border">
+          <aside className="lg:col-span-5 lg:sticky lg:top-0 lg:h-screen lg:overflow-y-auto lg:py-6 xl:py-10 lg:flex lg:flex-col lg:justify-between pt-24 pb-10 border-b lg:border-b-0 border-border scrollbar-none">
             {/* Top Identity Block */}
-            <div className="space-y-5">
+            <div className="space-y-3.5 xl:space-y-4">
               {/* Availability Pill */}
-              <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-md bg-paper-100 border border-border text-[11px] font-mono text-ink-light font-medium">
-                <span className="w-2 h-2 rounded-full bg-accent-emerald animate-pulse-subtle" />
-                <span>Available for Engineering Roles</span>
-                <span className="text-border-strong">·</span>
-                <span className="text-ink-muted">Lagos / Remote</span>
+              <div className="inline-flex flex-wrap sm:flex-nowrap items-center gap-2 sm:gap-2.5 px-3 py-1.5 rounded-md bg-paper-100 border border-border text-[11px] font-mono text-ink-light font-medium">
+                <span className="w-2 h-2 rounded-full bg-accent-emerald animate-pulse-subtle shrink-0" />
+                <span className="whitespace-nowrap">Available for Engineering Roles</span>
+                <span className="text-border-strong hidden sm:inline">·</span>
+                <span className="text-ink-muted whitespace-nowrap">Remote · Relocation Open</span>
               </div>
 
               {/* Name & Role */}
-              <div className="space-y-2">
-                <h1 className="text-4xl sm:text-5xl lg:text-[2.75rem] xl:text-[3.1rem] font-bold tracking-[-0.03em] text-ink font-editorial leading-[1.04]">
+              <div className="space-y-1.5">
+                <h1 className="text-3xl sm:text-4xl lg:text-[2.25rem] xl:text-[2.75rem] font-bold tracking-[-0.03em] text-ink font-editorial leading-[1.06]">
                   Abdulsalam Ayeleru
                 </h1>
-                <p className="text-sm sm:text-base font-mono uppercase tracking-wider font-semibold text-accent-cobalt">
+                <p className="text-xs sm:text-sm font-mono uppercase tracking-wider font-semibold text-accent-cobalt">
                   AI Systems & Full-Stack Product Engineer
                 </p>
               </div>
 
               {/* Concise Story Hook */}
-              <p className="text-[15px] sm:text-[15.5px] text-ink-muted leading-[1.7] max-w-md font-normal">
+              <p className="text-[14px] sm:text-[14.5px] text-ink-muted leading-[1.6] max-w-md font-normal">
                 I engineer production AI, resilient financial backends, and multi-platform software—from mathematical first principles to the Apple App Store and Google Play.
               </p>
 
-              {/* Unified Dark Carbon Telemetry Strip */}
-              <div className="bg-ink text-paper-50 rounded-xl grid grid-cols-3 divide-x divide-white/15 max-w-md overflow-hidden shadow-card">
-                <div className="p-3.5">
-                  <div className="text-xl font-bold font-editorial tracking-tight text-white leading-none">
-                    3 Apps
+              {/* Light Editorial Metrics Strip (Designer Recommendation: warm surface, fine borders, clean typography) */}
+              <div className="bg-paper-100/60 border border-border rounded-xl p-3.5 sm:p-4 w-full max-w-lg">
+                <span className="text-[10px] font-mono uppercase tracking-[0.18em] text-ink-muted/80 font-semibold block mb-2.5">
+                  Engineering at a Glance
+                </span>
+                <div className="grid grid-cols-3 divide-x divide-border">
+                  <div className="pr-2.5 sm:pr-3">
+                    <div className="text-2xl sm:text-[1.75rem] font-bold font-editorial tracking-tight text-ink leading-none">
+                      3
+                    </div>
+                    <div className="text-[11.5px] sm:text-xs font-semibold text-ink mt-1.5 leading-snug whitespace-nowrap">
+                      Apps shipped
+                    </div>
+                    <div className="text-[10px] sm:text-[11px] font-mono text-ink-muted mt-0.5 leading-snug whitespace-nowrap">
+                      iOS & Android
+                    </div>
                   </div>
-                  <div className="text-[10.5px] font-mono text-white/65 mt-1.5">
-                    iOS & Android Stores
+                  <div className="px-2.5 sm:px-3">
+                    <div className="text-2xl sm:text-[1.75rem] font-bold font-editorial tracking-tight text-ink leading-none">
+                      AI
+                    </div>
+                    <div className="text-[11.5px] sm:text-xs font-semibold text-ink mt-1.5 leading-snug whitespace-nowrap">
+                      In production
+                    </div>
+                    <div className="text-[10px] sm:text-[11px] font-mono text-ink-muted mt-0.5 leading-snug whitespace-nowrap">
+                      Vision & Edge
+                    </div>
                   </div>
-                </div>
-                <div className="p-3.5">
-                  <div className="text-xl font-bold font-editorial tracking-tight text-white leading-none">
-                    200+ APIs
-                  </div>
-                  <div className="text-[10.5px] font-mono text-white/65 mt-1.5">
-                    NestJS & FastAPI
-                  </div>
-                </div>
-                <div className="p-3.5">
-                  <div className="text-xl font-bold font-editorial tracking-tight text-white leading-none">
-                    6 Essays
-                  </div>
-                  <div className="text-[10.5px] font-mono text-white/65 mt-1.5">
-                    First-Principles ML
+                  <div className="pl-2.5 sm:pl-3">
+                    <div className="text-2xl sm:text-[1.75rem] font-bold font-editorial tracking-tight text-ink leading-none">
+                      8
+                    </div>
+                    <div className="text-[11.5px] sm:text-xs font-semibold text-ink mt-1.5 leading-snug whitespace-nowrap">
+                      Research articles
+                    </div>
+                    <div className="text-[10px] sm:text-[11px] font-mono text-ink-muted mt-0.5 leading-snug whitespace-nowrap">
+                      First-principles
+                    </div>
                   </div>
                 </div>
               </div>
@@ -246,10 +260,10 @@ export const Main: React.FC = () => {
 
             {/* Middle Block: Interactive Chapter Spy Navigation (Desktop) */}
             <nav
-              className="hidden lg:block my-6 space-y-1"
+              className="hidden lg:block my-3 xl:my-4 space-y-0.5"
               aria-label="Portfolio Story Chapters"
             >
-              <div className="text-[10.5px] font-mono uppercase tracking-[0.2em] text-ink-faint font-semibold mb-2.5">
+              <div className="text-[10px] font-mono uppercase tracking-[0.2em] text-ink-faint font-semibold mb-2">
                 Index
               </div>
               {chapters.map((chapter) => {
@@ -259,7 +273,7 @@ export const Main: React.FC = () => {
                     key={chapter.id}
                     href={`#${chapter.id}`}
                     onClick={scrollToChapter(chapter.id)}
-                    className={`group flex items-center gap-3 py-2 transition-all ${
+                    className={`group flex items-center gap-3 py-1.5 transition-all ${
                       isActive ? 'text-ink' : 'text-ink-faint hover:text-ink-light'
                     }`}
                   >
@@ -281,7 +295,7 @@ export const Main: React.FC = () => {
                       {chapter.label}
                     </span>
                     {isActive && (
-                      <span className="text-[11px] font-mono text-ink-faint hidden xl:inline-block ml-auto">
+                      <span className="text-[10.5px] font-mono text-ink-faint hidden 2xl:inline-block ml-auto whitespace-nowrap">
                         {chapter.subtitle}
                       </span>
                     )}
@@ -291,7 +305,7 @@ export const Main: React.FC = () => {
             </nav>
 
             {/* Bottom Coordinates & Direct Links */}
-            <div className="space-y-3 pt-6 lg:pt-0">
+            <div className="space-y-2.5 pt-4 lg:pt-0">
               {/* Primary Action Buttons */}
               <div className="flex flex-wrap items-center gap-2">
                 <a
