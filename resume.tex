@@ -1,0 +1,155 @@
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[margin=0.4in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\usepackage{hyperref}
+\usepackage{enumitem} 
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage[normalem]{ulem}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{ragged2e}
+
+\definecolor{accent}{HTML}{123E67}
+\definecolor{textblack}{HTML}{0D0D0D}
+\hypersetup{colorlinks=true,urlcolor=accent,linkcolor=accent}
+\let\oldhref\href
+\renewcommand{\href}[2]{\oldhref{#1}{\uline{#2}}}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\renewcommand{\arraystretch}{0.95}
+\setlist[itemize]{leftmargin=0.14in,itemsep=1pt,topsep=1.5pt,parsep=0pt,partopsep=0pt}
+
+\titleformat{\section}
+  {\small\bfseries\color{textblack}\uppercase}
+  {}
+  {0pt}
+  {}
+  [\vspace{1pt}\color{textblack}\titlerule]
+\titlespacing*{\section}{0pt}{4pt}{2.5pt}
+
+\newcommand{\resumeHeading}[4]{%
+  \vspace{1.5pt}%
+  \begin{tabularx}{\textwidth}{@{}>{\RaggedRight\arraybackslash}X r@{}}
+    \textbf{#1} & \textbf{#2} \\
+    \textit{#3} & \textit{#4} \\
+  \end{tabularx}\vspace{-4pt}
+}
+
+\newcommand{\projectHeading}[3]{%
+  \par\vspace{1.5pt}%
+  \textbf{#1} \textbar{} \textit{#2} \hfill \textbf{#3}\par\vspace{-2pt}
+}
+
+\newcommand{\resumeItem}[1]{\item #1}
+\newcommand{\skillCategory}[2]{\textbf{#1:} #2\par\vspace{1pt}}
+
+\begin{document}
+\fontsize{8.6pt}{10.2pt}\selectfont
+\color{textblack}
+
+\begin{center}
+  {\Large \bfseries Abdulsalam Oluwaseun Ayeleru}\\[2pt]
+  {\small \textbf{AI Systems Engineer \textbar{} Full-Stack Product Engineer \textbar{} Mobile \& Backend Architect}}\\[2.5pt]
+  \href{mailto:ayeleru1234@gmail.com}{ayeleru1234@gmail.com} \textbar{}
+  \href{https://ayeleru.space}{Portfolio (ayeleru.space)} \textbar{}
+  \href{https://github.com/Black-fox17}{GitHub (Black-fox17)} \textbar{}
+  \href{https://www.linkedin.com/in/abdulsalam-ayeleru-77489a270/}{LinkedIn} \textbar{}
+  \href{https://ayeleru.space/blog}{Technical Notes}
+\end{center}
+
+\vspace{-4pt}
+
+AI Systems and Product Engineer with deep experience architecting high-throughput backends, native mobile applications, and first-principles machine learning models. Built and deployed 3 production mobile apps across the Apple App Store and Google Play, managed 500+ production REST APIs, and authored research frameworks spanning multi-agent orchestration and computer vision.
+
+\section{Core Technical Skills}
+\skillCategory{Languages \& Backends}{Python, TypeScript, JavaScript, SQL, NestJS, FastAPI, Node.js, Next.js, REST APIs, Webhooks, GraphQL}
+\skillCategory{Databases \& Systems}{PostgreSQL (ACID transactions, relational indexing), MongoDB, DynamoDB, Docker, Linux, Git}
+\skillCategory{AI \& Computer Vision}{PyTorch, TensorFlow, Google Gemini 2.0, Vision Transformers (ViT), U-Net, CNNs, YOLO, MediaPipe, TFLite}
+\skillCategory{Cloud, Mobile \& Stores}{Apple App Store, Google Play Console, Capacitor, AWS (Lambda, SQS), GitHub Actions CI/CD}
+
+\section{Professional Experience}
+
+\resumeHeading
+{GoodTenants / Upward Ecosystem}
+{March 2026 -- Present}
+{Software Engineer \& Product Engineer}
+{Lagos, Nigeria (Hybrid)}
+\begin{itemize}
+\resumeItem{Took complete ownership of launching \textbf{UpwardPay live on the Apple App Store}, managing guidelines compliance, TestFlight review cycles, and release management; shipped and operated \textbf{Upward Pay} and \textbf{Upward PM} on Google Play Store.}
+\resumeItem{Architected a high-throughput \textbf{monolithic NestJS server managing 500+ production REST APIs}, serving concurrent real-time requests across the Tenant app and Property Manager app while syncing with external property management platforms.}
+\resumeItem{Designed a complex relational PostgreSQL database schema with indexed constraints and deterministic transaction boundaries to eliminate race conditions and double-crediting during high-velocity rent collections and payouts.}
+\resumeItem{Engineered full-stack features using Next.js and Capacitor, achieving 90\%+ code reuse across iOS, Android, and web with automated GitHub Actions CI/CD pipelines.}
+\end{itemize}
+
+\resumeHeading
+{Codygo}
+{May 2025 -- December 2025}
+{AI Full-Stack Engineer}
+{Remote}
+\begin{itemize}
+\resumeItem{Built enterprise AI search assistants and conversational RAG workflows with FastAPI, TypeScript, and MongoDB, delivering sub-second retrieval across complex business documents.}
+\resumeItem{Created automated data ingestion pipelines for websites, PDFs, Confluence, and Jira with incremental synchronization and vector indexing.}
+\resumeItem{Architected asynchronous background workers using AWS Lambda, Amazon SQS, and DynamoDB, containerizing microservices with Docker to process heavy AI workloads without blocking user requests.}
+\end{itemize}
+
+\resumeHeading
+{Tweakrr}
+{March 2025 -- May 2025}
+{AI Engineer \& Backend Engineer}
+{Remote}
+\begin{itemize}
+\resumeItem{Developed document analysis pipelines using Python, FastAPI, and MongoDB to parse academic manuscripts, extract factual claims, and flag unsupported statements against scholarly literature.}
+\resumeItem{Engineered automated citation generation adhering to APA, MLA, IEEE, and Harvard referencing styles, reducing manual citation turnaround time by over 70\%.}
+\end{itemize}
+
+\resumeHeading
+{Institute of Advanced Medical Research and Training (IAMRAT / UCH)}
+{December 2024 -- March 2025}
+{AI Research \& Systems Engineer}
+{University College Hospital, Ibadan}
+\begin{itemize}
+\resumeItem{Trained deep computer vision models with Google Path Foundation Vision Transformers and ResNet/MobileNet to classify breast cancer subtypes from whole-slide biopsy imagery.}
+\resumeItem{Constructed multimodal clinical decision-support workflows connecting vision predictions to Gemini diagnostic summaries; engineered full-stack FastAPI and React portals for pathologist trial annotation.}
+\end{itemize}
+
+\section{Selected Projects \& Research Frameworks}
+
+\projectHeading{Asera Core}{Open-Source Multi-Agent Supervisor \& Long-Context Engine}{Python, Gemini 2.0, RLM}
+\begin{itemize}
+\resumeItem{Architected a lightweight Python multi-agent supervisor framework implementing the MIT CSAIL Recursive Language Models (RLM) paradigm (arXiv:2512.24601), offloading unbounded documents to a sandboxed REPL to cut input tokens by 96.7\%.}
+\resumeItem{Built parallel worker execution using asyncio.gather, reducing multi-agent delegation latency from 8.2s to 1.8s.}
+\end{itemize}
+
+\projectHeading{LoveDA Remote Sensing Segmentation}{Weakly-Supervised Aerial Vision}{PyTorch, U-Net, pCE Loss}
+\begin{itemize}
+\resumeItem{Researched aerial semantic segmentation using sparse point clicks on the LoveDA Urban benchmark, discovering that 5\% point density achieves peak generalization (+54.1\% mIoU gain) while cutting manual polygon annotation time by over 95\%.}
+\end{itemize}
+
+\projectHeading{RSNA Lumbar Spine 3D MRI Grading}{Volumetric Deep Learning Benchmark}{PyTorch, DICOM, GeM Pooling}
+\begin{itemize}
+\resumeItem{Engineered a volumetric deep learning system grading 25 simultaneous structural targets across 5 disc levels from multi-sequence MRI scans, achieving 0.441 weighted log loss and 83.6\% recall on high-risk severe spinal conditions.}
+\end{itemize}
+
+\section{Leadership, Mentorship \& Education}
+
+\begin{itemize}
+\resumeItem{\textbf{Skillsphere \& Techqings AI Mentor:} Mentored 200+ students across machine learning fundamentals, making AI practical and accessible while empowering women breaking into technology.}
+\resumeItem{\textbf{Larva Tech Academy:} Instructed and mentored 30+ aspiring developers in modern web architecture, TypeScript, and clean UI engineering.}
+\resumeItem{\textbf{RAIN-INN Robotics \& AI Community Co-Lead (University of Ibadan):} Organized technical workshops and student AI/robotics cohorts.}
+\resumeItem{\textbf{Keynote Speaker:} Delivered practical software talks at the STUMPED AI Seminar and the 2026 Become Valuable Conference.}
+\end{itemize}
+
+\vspace{1.5pt}
+\textbf{University of Ibadan} \textbar{} Bachelor of Science in Computer Science, Nigeria \hfill \textbf{Expected 2027}\par
+\textbf{Certifications:} DeepLearning.AI Deep Learning Specialization \textbar{} Hugging Face Transformers
+
+\end{document}
