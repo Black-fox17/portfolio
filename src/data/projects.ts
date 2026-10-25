@@ -470,6 +470,98 @@ export const projects: Project[] = [
     }
   },
   {
+    id: 'point-supervised-loveda-segmentation',
+    slug: 'point-supervised-loveda-segmentation',
+    title: 'Point-Supervised LoveDA Remote Sensing Segmentation',
+    subtitle: 'Weakly-Supervised Aerial Segmentation via Partial Cross-Entropy (pCE)',
+    category: 'Computer Vision & Deep Learning',
+    role: 'Computer Vision Researcher & ML Engineer',
+    status: 'Research & Benchmark',
+    featured: false,
+    priority: 4,
+    period: 'October 2026',
+    summary:
+      'Investigated weakly-supervised semantic segmentation for high-resolution aerial remote sensing on the LoveDA Urban benchmark using sparse point supervision (1%, 5%, 10%, 25%) and Partial Cross-Entropy (pCE) loss with an end-to-end PyTorch U-Net. Uncovered empirical non-monotonic scaling where 5% point density achieved peak generalization (+54.1% mIoU jump to 0.1747, 0.2670 Mean Dice), proving how unregularized point supervision beyond critical percolation thresholds causes point-memorization overfitting.',
+    metrics: [
+      '5% Density Optimal Generalization (+54.1% mIoU Surge to 0.1747)',
+      'Partial Cross-Entropy (pCE) with Zero-Gradient Coordinate Masking',
+      'End-to-End PyTorch U-Net & Tiled Full-Scene Sliding Inference',
+      'Empirical Non-Monotonic Scaling Discovery on LoveDA Urban'
+    ],
+    tags: [
+      'PyTorch',
+      'U-Net',
+      'Remote Sensing',
+      'LoveDA',
+      'pCE Loss',
+      'Weak Supervision',
+      'GIS / Earth Observation'
+    ],
+    links: [
+      {
+        label: 'GitHub Code',
+        url: 'https://github.com/Black-fox17/point-supervised-loveda-segmentation',
+        type: 'github'
+      },
+      {
+        label: 'The Deep End Article',
+        url: '/blog/point-supervised-loveda-segmentation-pce',
+        type: 'article'
+      }
+    ],
+    caseStudy: {
+      overview:
+        'Point-supervised semantic segmentation framework for high-resolution aerial remote sensing imagery on the LoveDA Urban benchmark (1,156 scenes, 7 land-cover categories). The study evaluates how sparse random point clicks (1%, 5%, 10%, 25% pixel coverage) govern full-scene generalization when trained solely via Partial Cross-Entropy loss without dense spatial priors.',
+      problem:
+        'Dense pixel-level polygon annotation of aerial remote sensing imagery costs $50-$150 per km² and requires dozens of human-hours per tile due to complex building shadows, narrow road networks, and irregular water canals. Weak point supervision slashes annotation time by >95%, but training deep networks on sparse point targets risks severe label dilution and boundary degradation.',
+      architecture: [
+        'Partial Cross-Entropy (pCE) Engine: Formulates loss strictly over labelled coordinate subset L, mapping unannotated coordinates U to ignore_index=-1 with zero backpropagation gradient contribution.',
+        'Deep PyTorch U-Net: 3-stage double-conv encoder (64->128->256 channels), 512-dimensional bottleneck, and transposed convolution upsampling decoder with spatial skip connections.',
+        'Simulated Point-Supervision Sampler: Extracts random coordinate subsets at parameterized density fractions (1%, 5%, 10%, 25%) while guaranteeing land-cover representation in training crops.',
+        'Tiled Full-Scene Sliding Inference: Decomposes large gigapixel scenes into non-overlapping 256x256 windows, executes batch inference, and reconstructs seamless global semantic prediction masks.'
+      ],
+      engineeringHighlights: [
+        'Discovered the Non-Monotonic Scaling Law of Point Supervision: 5% density achieved peak mIoU (0.1747, +54.1% over 1% baseline), while quadrupling density to 25% collapsed mIoU to 0.1192 due to point-memorization overfitting.',
+        'Observed emergence of linear and regional features: Road IoU jumped from 0.0000 to 0.0700 and Water IoU jumped from 0.0000 to 0.2724 at 5% density.',
+        'Developed full Pytest test suite validating exact numerical equivalence between partial cross-entropy and standard cross-entropy on fully-labelled tensors.'
+      ],
+      complexityAndFailures:
+        'Increasing point density to 10% and 25% caused dense point clusters within homogeneous textures. In the absence of spatial smoothness regularization, the U-Net created fractured decision boundaries that overfit to isolated coordinate clicks, degrading held-out scene mIoU by 31.8%. Identified that point supervision requires spatial continuity priors or contrastive boundary regularizers beyond 5% density.',
+      productExperience:
+        'Remote sensing analysts inspect raw aerial tiles, view simulated sparse point overlays, and evaluate global semantic land-cover segmentations across buildings, roads, water, forests, and barren terrain.',
+      shippedArtifacts: [
+        'Open-Source PyTorch Repository on GitHub',
+        'Modular Point-Supervision Sampler & pCE Loss Module',
+        'Tiled Sliding Inference Engine for Gigapixel Imagery',
+        'Empirical Benchmarking Suite with CSV Metric Logging'
+      ],
+      outcomes: [
+        'Delivered 0.1747 mIoU and 0.2670 Mean Dice with only 5% point annotation coverage.',
+        'Demonstrated >95% human annotation time reduction compared to dense polygon delineation.'
+      ]
+    },
+    architectureDiagram: {
+      layers: [
+        {
+          name: '1. Tile Ingestion & Point Sampling',
+          items: ['LoveDA Urban Tile Loading', 'Random Point Sampler (1%, 5%, 10%, 25%)', 'ignore_index=-1 Zero-Gradient Mask']
+        },
+        {
+          name: '2. Deep U-Net Architecture',
+          items: ['DoubleConv Encoder (64-256)', '512-dim Bottleneck', 'Skip-Connected Transposed Conv Decoder']
+        },
+        {
+          name: '3. Loss & Optimization',
+          items: ['Partial Cross-Entropy (pCE)', 'Adam Optimizer (lr=1e-3)', 'Sparse-Coordinate Reduction']
+        },
+        {
+          name: '4. Tiled Sliding Inference',
+          items: ['Non-Overlapping 256x256 Tiling', 'Batch Inference', 'Stitched Full-Scene Semantic Map']
+        }
+      ]
+    }
+  },
+  {
     id: 'retail-shelf-intelligence',
     slug: 'retail-shelf-intelligence',
     title: 'AI Retail Shelf Intelligence',
