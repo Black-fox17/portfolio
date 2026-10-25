@@ -245,7 +245,7 @@ export const Main: React.FC = () => {
                   </div>
                   <div className="pl-2.5 sm:pl-3">
                     <div className="text-2xl sm:text-[1.75rem] font-bold font-editorial tracking-tight text-ink leading-none">
-                      8
+                      9
                     </div>
                     <div className="text-[11.5px] sm:text-xs font-semibold text-ink mt-1.5 leading-snug whitespace-nowrap">
                       Research articles

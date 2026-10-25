@@ -100,4 +100,14 @@ export const blogPosts: BlogPost[] = [
     excerpt: "End-to-end deep learning framework for grading 25 multi-level spinal degeneration targets: spatial slice coordinate projection, uniform 2.5D volumetric sampling, Generalized Mean (GeM) pooling, and severe-penalized weighted log loss optimization.",
     file: () => import('./posts/rsna_lumbar_spine.md?raw')
   },
+  {
+    id: "10",
+    slug: "recursive-language-models-agent-context-scaling",
+    title: "Beyond Context Windows: Engineering Autonomous Agent Systems with Recursive Language Models (RLMs)",
+    date: "2025-02-18",
+    readTime: "11 min read",
+    category: "Agentic AI & Systems Architecture",
+    excerpt: "Why 1M+ token prompt stuffing leads to context rot and latency spikes, how Recursive Language Models (RLMs) treat context as variable memory inside a Python REPL, and how we engineered the Asera Core supervisor orchestrator from scratch.",
+    file: () => import('./posts/recursive_language_models_agent_context.md?raw')
+  },
 ];

@@ -2,6 +2,16 @@ import { ArticleItem, OpenSourceReproduction } from '../types/portfolio';
 
 export const publishedArticles: ArticleItem[] = [
   {
+    id: '10',
+    slug: 'recursive-language-models-agent-context-scaling',
+    title: 'Beyond Context Windows: Engineering Autonomous Agent Systems with Recursive Language Models (RLMs)',
+    date: '2025-02-18',
+    readTime: '11 min read',
+    category: 'Agentic AI & Systems Architecture',
+    excerpt:
+      'Why 1M+ token prompt stuffing leads to context rot and latency spikes, how Recursive Language Models (RLMs) treat context as variable memory inside a Python REPL, and how we engineered the Asera Core supervisor orchestrator from scratch.'
+  },
+  {
     id: '9',
     slug: 'rsna-lumbar-spine-mri-deep-learning',
     title: 'Multi-Level Lumbar Spine Degenerative Disease Grading on Volumetric MRI',
@@ -84,6 +94,14 @@ export const publishedArticles: ArticleItem[] = [
 ];
 
 export const openSourceReproductions: OpenSourceReproduction[] = [
+  {
+    id: 'asera-core-supervisor-agent',
+    title: 'Asera Core: Supervisor Agent & RLM Context Engine',
+    description: 'Modular multi-agent orchestration framework: dynamic routing schema synthesis, parallel asyncio.gather worker fleets, and unbounded RLM context reasoning via isolated Python REPLs.',
+    category: 'Agentic AI & Distributed Systems',
+    technologies: ['Python', 'Gemini 2.0', 'RLM', 'AsyncIO', 'PostgreSQL', 'Docker'],
+    githubUrl: 'https://github.com/Black-fox17/asera-core'
+  },
   {
     id: 'rsna-lumbar-spine-grading',
     title: 'RSNA Lumbar Spine Degenerative Disease Classification',
