@@ -13,12 +13,12 @@ export const projects: Project[] = [
     priority: 1,
     period: 'March 2026 – Present',
     summary:
-      'Architected and shipped a unified PropTech & FinTech ecosystem linking tenants, landlords, property managers, insurance providers, and payment processors. Operates 3 live production applications across Apple App Store (UpwardPay iOS), Google Play Store (Upward Pay & Upward PM Android), and web, backed by a high-throughput NestJS backend with 200+ production REST endpoints.',
+      'Architected and shipped a unified PropTech & FinTech ecosystem linking tenants, landlords, property managers, and payment processors. Operates 3 live production applications across Apple App Store (UpwardPay iOS), Google Play Store (Upward Pay & Upward PM Android), and web, backed by a high-throughput NestJS monolithic backend with 500+ production REST APIs.',
     metrics: [
       '3 Production Apps Shipped (Apple App Store & Google Play)',
-      '200+ Production Endpoints & Multi-Domain Ledger Services',
-      'ACID Double-Entry Financial Ledger & Distributed Redis Locks',
-      'Unified iOS, Android, Web & Cloud Delivery'
+      '500+ Production REST APIs & Monolithic Server Architecture',
+      'Multi-Platform Orchestration: Internal Apps & External PM Platforms',
+      'Complex Relational PostgreSQL Database Architecture'
     ],
     tags: [
       'iOS (App Store)',
@@ -60,18 +60,18 @@ export const projects: Project[] = [
       overview:
         'The Upward Ecosystem addresses critical friction in the rental housing and property operations sector. It replaces fragmented manual rent collection, unverified tenancy records, and delayed maintenance with an interconnected ecosystem of production mobile applications (UpwardPay on Apple App Store, Upward Pay & Upward PM on Google Play Store) and a high-availability backend cluster.',
       problem:
-        'Rental transactions and property operations involve high-velocity multi-party financial flows across tenants, landlords, property managers, and maintenance vendors. Coordinating 3 mobile applications while maintaining absolute financial ledger balance without double-crediting or race conditions is a critical distributed systems challenge.',
+        'The core engineering challenge was orchestrating a multi-platform ecosystem powered by a single monolithic server. The backend had to handle concurrent, high-frequency requests from the in-house Property Manager app and Tenant app, while simultaneously communicating with external property management platforms that integrate directly with the tenant app. This was compounded by a complex, multi-tenant database design while preparing both apps to meet strict Android requirements and navigating the rigorous compliance process to deploy the tenant app live to the iOS Apple App Store.',
       architecture: [
         'Modular NestJS micro-monolith running with TypeScript, organized into domain modules for Identity & KYC, Lease Lifecycle, Rent Collection, Financial Ledger, and Maintenance Tickets.',
         'PostgreSQL with strict relational constraints, indexed foreign keys for sub-10ms query execution, and ACID transaction boundaries for all ledger postings.',
         'Cross-platform delivery using Next.js for high-performance responsive web and Capacitor for native iOS and Android compilation, maintaining 90%+ code sharing across platforms.',
-        'Double-Entry Accounting & Ledger Architecture: PostgreSQL transactional engine enforcing mathematical equilibrium (debits equal credits) for all rent charges, escrow deposits, and split payouts, protected by distributed Redis idempotency locks.'
+        'Monolithic Integration & Platform Bridge: Engineered the NestJS server to bridge internal tenant and property manager requests while providing secure, authenticated APIs for external property management platforms.'
       ],
       engineeringHighlights: [
         'Took complete ownership of taking UpwardPay live to the Apple App Store, orchestrating the entire submission process, App Store guidelines compliance, TestFlight review cycles, and release management.',
         'Shipped and maintained both Upward Pay and Upward PM on the Google Play Store, managing release tracks, Play Console testing cycles, crash analytics, and seamless over-the-air asset updates.',
-        'Engineered 200+ secure REST endpoints across 6 domain planes (Tenants, Landlords, Property Managers, Banking & Webhooks, Public, Admin) with JWT authorization, granular RBAC, DTO validation, and rate limiting.',
-        'Engineered payment webhook idempotency using Redis-backed locking and transaction state verification to eliminate double-crediting during network retries.',
+        'Engineered 500+ secure REST APIs across domain planes (Tenants, Landlords, Property Managers, Banking & Webhooks, Public, Admin) with JWT authorization, granular RBAC, DTO validation, and rate limiting.',
+        'Engineered robust transactional state verification and database locking to eliminate race conditions and double-crediting during high-velocity concurrent rent payments.',
         'Architected end-to-end CI/CD workflows using GitHub Actions to automate linting, unit/e2e testing, Docker container builds, and deployment verification.'
       ],
       complexityAndFailures:
@@ -108,7 +108,7 @@ export const projects: Project[] = [
         },
         {
           name: 'Data & Infrastructure',
-          items: ['PostgreSQL (ACID Ledger)', 'Redis (Idempotency Cache)', 'AWS Cloud', 'GitHub Actions CI/CD']
+          items: ['PostgreSQL Database', 'NestJS Monolith Engine', 'AWS Cloud', 'GitHub Actions CI/CD']
         }
       ]
     }

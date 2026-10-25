@@ -15,8 +15,8 @@ export const experiences: ExperienceItem[] = [
     highlights: [
       'Took complete ownership of launching UpwardPay on the Apple App Store, managing the full submission lifecycle, App Store guidelines review, TestFlight builds, and production release.',
       'Shipped and operated two production Android applications, Upward Pay and Upward PM, on the Google Play Store; supervised release tracks, Play Console rollouts, and crash monitoring.',
-      'Architected and maintained 200+ production REST endpoints across 6 domain planes for rent collection, automated lease agreements, document workflows, tenant verification, and property operations using NestJS, TypeScript, and PostgreSQL.',
-      'Engineered the multi-party financial engine and ACID double-entry ledger architecture in PostgreSQL backed by distributed Redis idempotency locks, guaranteeing zero double-crediting across concurrent rent collections, landlord disbursements, and maintenance escrows.',
+      'Architected and maintained 500+ production REST APIs across core domain planes for rent collection, automated lease agreements, document workflows, tenant verification, and property operations using NestJS, TypeScript, and PostgreSQL.',
+      'Architected a monolithic NestJS server handling concurrent internal requests from the PM app and Tenant app, while orchestrating real-time integrations with external property management platforms—backed by a complex, high-integrity PostgreSQL database schema.',
       'Owned architecture, UI/UX, frontend, backend, cloud infrastructure, and deployment strategy with Next.js, Capacitor, and GitHub Actions; directed interface systems and cross-platform optimization across iOS, Android, and web.'
     ],
     technologies: [

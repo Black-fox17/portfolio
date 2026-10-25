@@ -11,11 +11,11 @@ export const leadershipData: LeadershipItem[] = [
   },
   {
     metric: '200+',
-    label: 'AI Students Mentored',
-    role: 'AI Mentor',
-    organization: 'Skillsphere',
+    label: 'AI & Tech Learners Mentored',
+    role: 'AI & Technical Mentor',
+    organization: 'Skillsphere & Techqings',
     description:
-      'Guided over 200 aspiring engineers and students across machine learning fundamentals, project implementation, dataset curation, and AI career pathways.'
+      'Guided over 200 aspiring engineers and students across machine learning fundamentals and project delivery—making ML accessible for everyone at Skillsphere, and empowering women in technology through Techqings.'
   },
   {
     metric: '2 Terms',
@@ -24,14 +24,6 @@ export const leadershipData: LeadershipItem[] = [
     organization: 'RAIN-INN Robotics & AI Community (UI)',
     description:
       'Organized technical workshops, cohort learning tracks, robotics initiatives, and student product showcases at the University of Ibadan.'
-  },
-  {
-    metric: '300+',
-    label: 'Undergraduates Instructed',
-    role: 'Technical Instructor & Systems Mentor',
-    organization: 'Computer Science Dept, University of Ibadan',
-    description:
-      'Instructed undergraduate computer science cohorts in algorithm design, distributed computing fundamentals, and production software practices.'
   },
   {
     metric: 'Keynote & Labs',

@@ -9,8 +9,8 @@ const corePillars = [
   },
   {
     number: '02',
-    title: 'Ledger Integrity & Zero-Divergence',
-    body: 'Financial transactions cannot afford eventual consistency. I build with ACID double-entry ledger boundaries in PostgreSQL, distributed Redis idempotency locks, and strict reconciliation.'
+    title: 'Monolithic Resilience & Data Integrity',
+    body: 'Managing 500+ APIs across multi-client apps demands rigorous architecture. I build with strict relational database invariants, clean domain isolation, and deterministic transaction boundaries.'
   },
   {
     number: '03',
@@ -51,9 +51,8 @@ export const AboutSection: React.FC = () => {
 
         <p>
           Today at <strong>GoodTenants</strong>, I bring that systems mindset to full-lifecycle product engineering as the lead architect behind the{' '}
-          <strong>Upward Ecosystem</strong>. I engineered the core financial engine—enforcing an <strong>ACID-compliant double-entry ledger in PostgreSQL</strong> with distributed Redis idempotency locks, guaranteeing mathematical reconciliation and zero double-crediting across concurrent rent collections, landlord disbursements, and maintenance escrows. Alongside{' '}
-          <strong>200+ production NestJS endpoints</strong>, I took end-to-end ownership of the native release process to publish{' '}
-          <strong>UpwardPay live on the Apple App Store</strong>, while operating <strong>Upward Pay</strong> and <strong>Upward PM</strong> on the Google Play Store.
+          <strong>Upward Ecosystem</strong>. I architected the core multi-platform engine: a high-throughput <strong>NestJS monolithic server managing over 500+ production REST APIs</strong>. The system orchestrates concurrent internal requests between the property manager app and tenant app while mediating bidirectional communication with external property management platforms, backed by a complex relational PostgreSQL database schema. I supervised client readiness to meet strict Google Play requirements for both apps while owning the complete submission lifecycle to deploy{' '}
+          <strong>UpwardPay live to the Apple App Store</strong>.
         </p>
       </div>
 

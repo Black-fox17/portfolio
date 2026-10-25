@@ -70,7 +70,7 @@ export const SelectedWork: React.FC = () => {
                   </span>
                 </div>
                 <p className="text-[13.5px] text-ink-light leading-relaxed">
-                  Managing multi-party financial flows across tenants, landlords, and property managers while coordinating 3 native mobile apps and maintaining sub-10ms transactional state without race conditions or ledger divergence.
+                  Managing a multi-platform ecosystem powered by a monolithic server handling concurrent internal requests from the PM app and Tenant app, while simultaneously mediating real-time communication with external property management platforms—backed by a complex database schema.
                 </p>
               </div>
               <div className="p-4 rounded-xl bg-paper-100/70 border border-border space-y-1.5">
@@ -81,25 +81,21 @@ export const SelectedWork: React.FC = () => {
                   </span>
                 </div>
                 <p className="text-[13.5px] text-ink-light leading-relaxed">
-                  Engineered an ACID-compliant double-entry ledger in PostgreSQL backed by distributed Redis idempotency locks, unified by a 200+ endpoint NestJS micro-monolith powering native iOS (Apple App Store) and Android clients.
+                  Architected a high-throughput NestJS monolithic backend serving 500+ production REST APIs, designed a complex relational PostgreSQL database schema, and orchestrated client builds to satisfy strict Android specifications while taking full ownership of deploying UpwardPay to the Apple App Store.
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Architectural Telemetry Strip (Light editorial aesthetic & clean non-wrapping hierarchy) */}
-          <div className="mt-6 bg-paper-100/60 border border-border rounded-xl grid grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-border overflow-hidden">
+          {/* Architectural Telemetry Strip (Light editorial aesthetic & clean 3-column layout) */}
+          <div className="mt-6 bg-paper-100/60 border border-border rounded-xl grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border overflow-hidden">
             <div className="p-3.5 sm:p-4">
               <div className="text-sm sm:text-[15px] font-bold font-editorial text-ink whitespace-nowrap">3 Mobile Apps</div>
-              <div className="text-[11px] font-mono text-ink-muted mt-1 leading-snug">iOS & Android Stores</div>
+              <div className="text-[11px] font-mono text-ink-muted mt-1 leading-snug">iOS App Store & Google Play</div>
             </div>
             <div className="p-3.5 sm:p-4">
-              <div className="text-sm sm:text-[15px] font-bold font-editorial text-ink whitespace-nowrap">Distributed Core</div>
-              <div className="text-[11px] font-mono text-ink-muted mt-1 leading-snug">NestJS & 200+ REST APIs</div>
-            </div>
-            <div className="p-3.5 sm:p-4">
-              <div className="text-sm sm:text-[15px] font-bold font-editorial text-ink whitespace-nowrap">ACID Financial Ledger</div>
-              <div className="text-[11px] font-mono text-ink-muted mt-1 leading-snug">Double-Entry Engine</div>
+              <div className="text-sm sm:text-[15px] font-bold font-editorial text-ink whitespace-nowrap">Monolithic Core</div>
+              <div className="text-[11px] font-mono text-ink-muted mt-1 leading-snug">NestJS & 500+ REST APIs</div>
             </div>
             <div className="p-3.5 sm:p-4">
               <div className="text-sm sm:text-[15px] font-bold font-editorial text-ink whitespace-nowrap">Zero Downtime</div>

@@ -22,7 +22,7 @@ export const skillCategories: SkillCategory[] = [
       { name: 'Python', focus: 'FastAPI, asynchronous event loops, data processing' },
       { name: 'NestJS', focus: 'Modular architecture, dependency injection, guards/interceptors' },
       { name: 'PostgreSQL', focus: 'ACID transactions, relational indexing, query optimization' },
-      { name: 'Financial Ledgers & ACID Safety', focus: 'Double-entry accounting, distributed Redis idempotency locks, transaction boundaries' },
+      { name: 'Monolithic Backends & Data Integrity', focus: 'High-throughput 500+ APIs, complex PostgreSQL relational schemas, transaction boundaries' },
       { name: 'MongoDB', focus: 'Document stores, aggregations, schema validation' },
       { name: 'REST & Webhook APIs', focus: 'Idempotency, contract testing, OpenAPI schemas' }
     ]
