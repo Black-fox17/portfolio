@@ -2,16 +2,16 @@ import { SkillCategory } from '../types/portfolio';
 
 export const skillCategories: SkillCategory[] = [
   {
-    title: 'AI & Machine Learning',
-    description: 'First-principles model design, generative AI pipelines, retrieval architectures, and computer vision.',
+    title: 'AI & Advanced Computer Vision',
+    description: 'First-principles model design, semantic segmentation, deep convolutional backbones, medical vision, and agentic systems.',
     skills: [
-      { name: 'LLMs & Fine-Tuning', focus: 'Structured schema validation, eval harnesses, LoRA fine-tuning, deterministic tool-calling' },
-      { name: 'RAG & Vector Retrieval', focus: 'Hybrid search, reranking, contextual chunking, metadata filtering' },
-      { name: 'NLP & Transformers', focus: 'Self-attention, tokenization, positional encodings' },
-      { name: 'PyTorch', focus: 'Model training, custom layers, embeddings, inference' },
-      { name: 'AI Agents & Tool Use', focus: 'Multi-agent orchestration, state machines, memory' },
-      { name: 'Computer Vision', focus: 'YOLO, object detection, ResNet/MobileNet, OpenCV' },
-      { name: 'Inference Optimization', focus: 'KV caching, quantization, sliding window attention' }
+      { name: 'Semantic Segmentation & Weak Supervision', focus: 'PyTorch U-Net, Point Supervision, Partial Cross-Entropy (pCE), sliding tiled inference' },
+      { name: 'Deep CNNs & Modern Backbones', focus: 'ResNet, MobileNet, EfficientNetV2, ConvNeXt, Generalized Mean (GeM) pooling' },
+      { name: 'Medical Vision & Volumetric Imaging', focus: 'Google Path Foundation ViT, Whole-Slide Biopsies, DICOM 3D projection & VOI LUT windowing' },
+      { name: 'Edge Kinematics & Gesture Vision', focus: 'MediaPipe 543 holistic landmarks, 1D conv temporal downsampling, sub-30ms TFLite' },
+      { name: 'Object Detection & Spatial Intelligence', focus: 'Custom YOLO, OpenCV spatial heuristics, bounding box planogram auditing' },
+      { name: 'Agentic Systems & Recursive Context (RLM)', focus: 'Supervisor agents, dynamic routing schemas, isolated REPLs (MIT CSAIL RLM)' },
+      { name: 'Transformers & NLP From Scratch', focus: 'Self-attention, BPE tokenization, Skip-Gram, positional encodings, KV caching' }
     ]
   },
   {
@@ -22,9 +22,9 @@ export const skillCategories: SkillCategory[] = [
       { name: 'Python', focus: 'FastAPI, asynchronous event loops, data processing' },
       { name: 'NestJS', focus: 'Modular architecture, dependency injection, guards/interceptors' },
       { name: 'PostgreSQL', focus: 'ACID transactions, relational indexing, query optimization' },
+      { name: 'Financial Ledgers & ACID Safety', focus: 'Double-entry accounting, distributed Redis idempotency locks, transaction boundaries' },
       { name: 'MongoDB', focus: 'Document stores, aggregations, schema validation' },
-      { name: 'REST & Webhook APIs', focus: 'Idempotency, contract testing, OpenAPI schemas' },
-      { name: 'Payment Orchestration', focus: 'Paystack, Flutterwave, gateway failover, ledger safety' }
+      { name: 'REST & Webhook APIs', focus: 'Idempotency, contract testing, OpenAPI schemas' }
     ]
   },
   {

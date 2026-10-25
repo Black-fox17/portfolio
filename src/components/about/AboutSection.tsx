@@ -9,13 +9,13 @@ const corePillars = [
   },
   {
     number: '02',
-    title: 'Design for Failure & Ledger Safety',
-    body: 'Third-party outages and network retries are inevitable. I build with ACID transaction boundaries, Redis idempotency locks, and automatic multi-gateway circuit breakers.'
+    title: 'Ledger Integrity & Zero-Divergence',
+    body: 'Financial transactions cannot afford eventual consistency. I build with ACID double-entry ledger boundaries in PostgreSQL, distributed Redis idempotency locks, and strict reconciliation.'
   },
   {
     number: '03',
     title: 'Zero-to-Store Ownership',
-    body: 'An algorithm only matters when people can use it. I own the full vertical: database schemas, distributed backends, Next.js web portals, and Google Play Android releases.'
+    body: 'An algorithm only matters when users rely on it. I own the full vertical: mathematical research, distributed backends, Next.js web portals, and live Apple App Store & Google Play releases.'
   }
 ];
 
@@ -50,9 +50,9 @@ export const AboutSection: React.FC = () => {
         </p>
 
         <p>
-          Today at <strong>GoodTenants</strong>, I bring that systems mindset to full-lifecycle product engineering as the architect behind the{' '}
-          <strong>Upward Ecosystem</strong>. When payment gateway instability threatened rent collection across properties, I engineered a dual-gateway orchestration engine—routing primary traffic through Paystack with automated failover to Flutterwave and Redis-backed webhook idempotency. Alongside{' '}
-          <strong>200+ production NestJS endpoints</strong>, I took ownership of the entire iOS review and release lifecycle to publish{' '}
+          Today at <strong>GoodTenants</strong>, I bring that systems mindset to full-lifecycle product engineering as the lead architect behind the{' '}
+          <strong>Upward Ecosystem</strong>. I engineered the core financial engine—enforcing an <strong>ACID-compliant double-entry ledger in PostgreSQL</strong> with distributed Redis idempotency locks, guaranteeing mathematical reconciliation and zero double-crediting across concurrent rent collections, landlord disbursements, and maintenance escrows. Alongside{' '}
+          <strong>200+ production NestJS endpoints</strong>, I took end-to-end ownership of the native release process to publish{' '}
           <strong>UpwardPay live on the Apple App Store</strong>, while operating <strong>Upward Pay</strong> and <strong>Upward PM</strong> on the Google Play Store.
         </p>
       </div>

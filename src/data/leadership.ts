@@ -2,6 +2,14 @@ import { LeadershipItem } from '../types/portfolio';
 
 export const leadershipData: LeadershipItem[] = [
   {
+    metric: '30+',
+    label: 'Frontend Developers Mentored',
+    role: 'Frontend Instructor & Mentor',
+    organization: 'Larva Tech Academy',
+    description:
+      'Instructed and mentored a cohort of 30+ aspiring engineers through modern frontend architecture, TypeScript, responsive UI systems, component design patterns, and production engineering practices.'
+  },
+  {
     metric: '200+',
     label: 'AI Students Mentored',
     role: 'AI Mentor',

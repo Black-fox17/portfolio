@@ -70,7 +70,7 @@ export const SelectedWork: React.FC = () => {
                   </span>
                 </div>
                 <p className="text-[13.5px] text-ink-light leading-relaxed">
-                  Single payment gateway outages and network retries in emerging markets frequently stall rent collection and cause double-crediting across property ledgers.
+                  Managing multi-party financial flows across tenants, landlords, and property managers while coordinating 3 native mobile apps and maintaining sub-10ms transactional state without race conditions or ledger divergence.
                 </p>
               </div>
               <div className="p-4 rounded-xl bg-paper-100/70 border border-border space-y-1.5">
@@ -81,7 +81,7 @@ export const SelectedWork: React.FC = () => {
                   </span>
                 </div>
                 <p className="text-[13.5px] text-ink-light leading-relaxed">
-                  Engineered an active circuit breaker routing primary traffic to Paystack with automated failover to Flutterwave, backed by Redis idempotency locks and ACID PostgreSQL ledgers.
+                  Engineered an ACID-compliant double-entry ledger in PostgreSQL backed by distributed Redis idempotency locks, unified by a 200+ endpoint NestJS micro-monolith powering native iOS (Apple App Store) and Android clients.
                 </p>
               </div>
             </div>
@@ -94,12 +94,12 @@ export const SelectedWork: React.FC = () => {
               <div className="text-[11px] font-mono text-ink-muted mt-1 leading-snug">iOS & Android Stores</div>
             </div>
             <div className="p-3.5 sm:p-4">
-              <div className="text-sm sm:text-[15px] font-bold font-editorial text-ink whitespace-nowrap">Distributed Backend</div>
-              <div className="text-[11px] font-mono text-ink-muted mt-1 leading-snug">NestJS & ACID Ledgers</div>
+              <div className="text-sm sm:text-[15px] font-bold font-editorial text-ink whitespace-nowrap">Distributed Core</div>
+              <div className="text-[11px] font-mono text-ink-muted mt-1 leading-snug">NestJS & 200+ REST APIs</div>
             </div>
             <div className="p-3.5 sm:p-4">
-              <div className="text-sm sm:text-[15px] font-bold font-editorial text-ink whitespace-nowrap">Auto-Failover</div>
-              <div className="text-[11px] font-mono text-ink-muted mt-1 leading-snug">Paystack + Flutterwave</div>
+              <div className="text-sm sm:text-[15px] font-bold font-editorial text-ink whitespace-nowrap">ACID Financial Ledger</div>
+              <div className="text-[11px] font-mono text-ink-muted mt-1 leading-snug">Double-Entry Engine</div>
             </div>
             <div className="p-3.5 sm:p-4">
               <div className="text-sm sm:text-[15px] font-bold font-editorial text-ink whitespace-nowrap">Zero Downtime</div>
@@ -142,7 +142,7 @@ export const SelectedWork: React.FC = () => {
         <div className="flex items-center justify-between">
           <span className="text-xs font-mono uppercase tracking-widest text-ink-muted font-semibold flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-ink" />
-            <span>AI Platforms & Computer Vision Systems</span>
+            <span>Autonomous Agents, Advanced Computer Vision & Medical Systems</span>
           </span>
           <span className="text-xs font-mono text-ink-faint">Click any card for deep dive</span>
         </div>

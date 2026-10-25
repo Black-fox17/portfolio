@@ -151,30 +151,12 @@ export const ExperienceTimeline: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 bg-paper-100/80 border border-border rounded-xl divide-y sm:divide-y-0 sm:divide-x divide-border overflow-hidden">
-          {leadershipData.slice(0, 2).map((item) => (
-            <div key={item.organization} className="p-5 sm:p-6 space-y-2">
-              <div className="flex items-baseline gap-2.5">
-                <span className="text-2xl sm:text-3xl font-bold font-editorial tracking-tight text-ink">
-                  {item.metric}
-                </span>
-                <span className="text-xs font-mono uppercase tracking-wider text-accent-cobalt font-semibold">
-                  {item.label}
-                </span>
-              </div>
-              <div className="text-sm font-bold text-ink font-editorial">
-                {item.role} · <span className="font-normal text-ink-muted">{item.organization}</span>
-              </div>
-              <p className="text-[13.5px] text-ink-light leading-relaxed">
-                {item.description}
-              </p>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-3 grid sm:grid-cols-2 bg-paper-100/80 border border-border rounded-xl divide-y sm:divide-y-0 sm:divide-x divide-border overflow-hidden">
-          {leadershipData.slice(2, 4).map((item) => (
-            <div key={item.organization} className="p-5 sm:p-6 space-y-2">
+        <div className="grid sm:grid-cols-2 gap-3">
+          {leadershipData.map((item) => (
+            <div
+              key={item.organization}
+              className="p-5 sm:p-6 space-y-2 bg-paper-100/80 border border-border rounded-xl"
+            >
               <div className="flex items-baseline gap-2.5">
                 <span className="text-2xl sm:text-3xl font-bold font-editorial tracking-tight text-ink">
                   {item.metric}

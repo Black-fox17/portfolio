@@ -17,7 +17,7 @@ export const projects: Project[] = [
     metrics: [
       '3 Production Apps Shipped (Apple App Store & Google Play)',
       '200+ Production Endpoints & Multi-Domain Ledger Services',
-      'Paystack + Flutterwave Automated Multi-Gateway Failover',
+      'ACID Double-Entry Financial Ledger & Distributed Redis Locks',
       'Unified iOS, Android, Web & Cloud Delivery'
     ],
     tags: [
@@ -60,12 +60,12 @@ export const projects: Project[] = [
       overview:
         'The Upward Ecosystem addresses critical friction in the rental housing and property operations sector. It replaces fragmented manual rent collection, unverified tenancy records, and delayed maintenance with an interconnected ecosystem of production mobile applications (UpwardPay on Apple App Store, Upward Pay & Upward PM on Google Play Store) and a high-availability backend cluster.',
       problem:
-        'Rental transactions in emerging markets suffer from high payment failure rates, lack of verifiable credit profiling for tenants, and disconnected communication between landlords and property managers. A single payment gateway outage could halt cash flows and dispute resolution.',
+        'Rental transactions and property operations involve high-velocity multi-party financial flows across tenants, landlords, property managers, and maintenance vendors. Coordinating 3 mobile applications while maintaining absolute financial ledger balance without double-crediting or race conditions is a critical distributed systems challenge.',
       architecture: [
         'Modular NestJS micro-monolith running with TypeScript, organized into domain modules for Identity & KYC, Lease Lifecycle, Rent Collection, Financial Ledger, and Maintenance Tickets.',
         'PostgreSQL with strict relational constraints, indexed foreign keys for sub-10ms query execution, and ACID transaction boundaries for all ledger postings.',
         'Cross-platform delivery using Next.js for high-performance responsive web and Capacitor for native iOS and Android compilation, maintaining 90%+ code sharing across platforms.',
-        'Payment Orchestration Engine with intelligent routing: Paystack handles primary direct debit/virtual accounts with instant webhook reconciliation, and automated fallback to Flutterwave when latency exceeds thresholds or error rates rise.'
+        'Double-Entry Accounting & Ledger Architecture: PostgreSQL transactional engine enforcing mathematical equilibrium (debits equal credits) for all rent charges, escrow deposits, and split payouts, protected by distributed Redis idempotency locks.'
       ],
       engineeringHighlights: [
         'Took complete ownership of taking UpwardPay live to the Apple App Store, orchestrating the entire submission process, App Store guidelines compliance, TestFlight review cycles, and release management.',
