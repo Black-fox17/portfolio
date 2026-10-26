@@ -63,7 +63,7 @@ export const Projects: React.FC = () => {
             Projects.
           </h1>
           <p className="text-sm sm:text-base text-neutral-600 leading-relaxed">
-            Detailed architectures of systems I have taken to production—from cross-platform mobile apps to clinical computer vision pipelines.
+            Detailed architectures of systems I have taken to production, spanning cross-platform mobile apps, cloud backends, and clinical computer vision pipelines.
           </p>
         </header>
 

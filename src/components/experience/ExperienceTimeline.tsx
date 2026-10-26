@@ -12,7 +12,7 @@ const experienceRows: ExperienceRow[] = [
   {
     company: 'GoodTenants',
     role: 'Lead Backend & Mobile Engineer (Upward Ecosystem)',
-    period: '2026 – Present',
+    period: '2026 - Present',
   },
   {
     company: 'Codygo',
@@ -22,7 +22,7 @@ const experienceRows: ExperienceRow[] = [
   {
     company: 'Tweakrr',
     role: 'AI & Backend Engineer (Academic Citation Search)',
-    period: '2024 – 2025',
+    period: '2024 - 2025',
   },
   {
     company: 'IAMRAT / UCH',
