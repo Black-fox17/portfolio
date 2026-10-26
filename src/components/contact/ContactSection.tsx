@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
+import Toast, { ToastData } from '../common/Toast';
+import { PORTFOLIO_EMAIL } from '../../constants/contact';
 
 export const ContactSection: React.FC = () => {
-  const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [statusMessage, setStatusMessage] = useState<{ type: 'success' | 'info' | 'error'; text: string } | null>(null);
+  const [toast, setToast] = useState<ToastData | null>(null);
 
   const [form, setForm] = useState({
     name: '',
@@ -14,8 +15,12 @@ export const ContactSection: React.FC = () => {
   });
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('ayeleru1234@gmail.com');
+    navigator.clipboard.writeText(PORTFOLIO_EMAIL);
     setCopied(true);
+    setToast({
+      type: 'info',
+      message: `Copied ${PORTFOLIO_EMAIL} to clipboard.`
+    });
     setTimeout(() => setCopied(false), 2000);
   };
 
@@ -23,59 +28,34 @@ export const ContactSection: React.FC = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=ayeleru1234@gmail.com&su=${encodeURIComponent(
+  const emailSubject = encodeURIComponent(
     form.name ? `Engineering Inquiry from ${form.name}` : 'Engineering Opportunity / Inquiry'
-  )}&body=${encodeURIComponent(
-    form.message ? `${form.message}\n\nFrom: ${form.name} (${form.email})` : ''
-  )}`;
+  );
+  const emailBody = encodeURIComponent(
+    form.message
+      ? `${form.message}\n\n---\nSender: ${form.name || 'Anonymous'}\nEmail: ${form.email || 'Not provided'}`
+      : ''
+  );
 
-  const mailtoUrl = `mailto:ayeleru1234@gmail.com?subject=${encodeURIComponent(
-    form.name ? `Engineering Inquiry from ${form.name}` : 'Engineering Opportunity / Inquiry'
-  )}&body=${encodeURIComponent(
-    form.message ? `${form.message}\n\nFrom: ${form.name} (${form.email})` : ''
-  )}`;
+  const mailtoUrl = `mailto:${PORTFOLIO_EMAIL}?subject=${emailSubject}&body=${emailBody}`;
+  const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${PORTFOLIO_EMAIL}&su=${emailSubject}&body=${emailBody}`;
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-    setStatusMessage(null);
 
-    try {
-      const response = await fetch('https://formsubmit.co/ajax/ayeleru1234@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          message: form.message,
-          _subject: `Portfolio Message from ${form.name} (${form.email})`,
-          _template: 'table'
-        })
-      });
+    // Directly open default mail client with formatted draft
+    window.location.href = mailtoUrl;
 
-      const data = await response.json();
-
-      if (response.ok || data.success === 'true' || data.success === true) {
-        setLoading(false);
-        setStatusMessage({
-          type: 'success',
-          text: 'Message sent! It has been routed directly to ayeleru1234@gmail.com.'
-        });
-        setForm({ name: '', email: '', message: '' });
-      } else {
-        throw new Error('FormSubmit error');
+    setToast({
+      type: 'success',
+      message: 'Opening your default email app with draft pre-filled.',
+      action: {
+        label: 'Or open in Gmail Web',
+        onClick: () => {
+          window.open(gmailComposeUrl, '_blank');
+        }
       }
-    } catch {
-      setLoading(false);
-      window.location.href = mailtoUrl;
-      setStatusMessage({
-        type: 'info',
-        text: 'Opening your email client with your draft pre-filled to ayeleru1234@gmail.com.'
-      });
-    }
+    });
   };
 
   return (
@@ -160,20 +140,6 @@ export const ContactSection: React.FC = () => {
           </div>
         </div>
 
-        {statusMessage && (
-          <div
-            className={`p-3.5 rounded-lg text-xs font-medium ${
-              statusMessage.type === 'success'
-                ? 'bg-emerald-50 border border-emerald-200 text-emerald-800'
-                : statusMessage.type === 'info'
-                ? 'bg-blue-50 border border-blue-200 text-blue-800'
-                : 'bg-red-50 border border-red-200 text-red-800'
-            }`}
-          >
-            {statusMessage.text}
-          </div>
-        )}
-
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="space-y-1.5">
@@ -228,18 +194,20 @@ export const ContactSection: React.FC = () => {
           <div className="pt-1 flex flex-wrap items-center justify-between gap-3">
             <p className="text-xs font-mono text-ink-faint flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-neutral-700" />
-              <span>Typically responds within 24 hours.</span>
+              <span>Pre-fills directly into your email client.</span>
             </p>
             <button
               type="submit"
-              disabled={loading}
-              className="editorial-btn-primary !py-2.5 !px-5 disabled:opacity-50 cursor-pointer"
+              className="editorial-btn-primary !py-2.5 !px-5 cursor-pointer"
             >
-              <span>{loading ? 'Sending Message...' : 'Send Message →'}</span>
+              <span>Send Message →</span>
             </button>
           </div>
         </form>
       </div>
+
+      {/* Floating Toast Notification */}
+      <Toast toast={toast} onClose={() => setToast(null)} />
     </section>
   );
 };

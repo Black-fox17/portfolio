@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, ArrowUpRight, Copy, Check } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Navbar from '../components/layout/Navbar';
+import Toast, { ToastData } from '../components/common/Toast';
+import { PORTFOLIO_EMAIL } from '../constants/contact';
 
 export const Contact: React.FC = () => {
-  const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [statusMessage, setStatusMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+  const [toast, setToast] = useState<ToastData | null>(null);
 
   const [form, setForm] = useState({
     name: '',
@@ -17,8 +18,12 @@ export const Contact: React.FC = () => {
   });
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('ayeleru1234@gmail.com');
+    navigator.clipboard.writeText(PORTFOLIO_EMAIL);
     setCopied(true);
+    setToast({
+      type: 'info',
+      message: `Copied ${PORTFOLIO_EMAIL} to clipboard.`
+    });
     setTimeout(() => setCopied(false), 2000);
   };
 
@@ -26,51 +31,35 @@ export const Contact: React.FC = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    setStatusMessage(null);
-
-    try {
-      const response = await fetch('https://formsubmit.co/ajax/ayeleru1234@gmail.com', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
-        },
-        body: JSON.stringify({
-          name: form.name,
-          email: form.email,
-          message: form.message,
-          _subject: `Portfolio Message from ${form.name} (${form.email})`,
-        })
-      });
-
-      const data = await response.json();
-      if (response.ok || data.success === 'true' || data.success === true) {
-        setStatusMessage({
-          type: 'success',
-          text: 'Thank you! Your message was sent successfully. I will get back to you shortly.'
-        });
-        setForm({ name: '', email: '', message: '' });
-      } else {
-        throw new Error('Failed to send');
-      }
-    } catch {
-      setStatusMessage({
-        type: 'error',
-        text: 'Something went wrong sending the message. Please email me directly at ayeleru1234@gmail.com'
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=ayeleru1234@gmail.com&su=${encodeURIComponent(
+  const emailSubject = encodeURIComponent(
     form.name ? `Engineering Inquiry from ${form.name}` : 'Engineering Opportunity / Inquiry'
-  )}&body=${encodeURIComponent(
-    form.message ? `${form.message}\n\nFrom: ${form.name} (${form.email})` : ''
-  )}`;
+  );
+  const emailBody = encodeURIComponent(
+    form.message
+      ? `${form.message}\n\n---\nSender: ${form.name || 'Anonymous'}\nEmail: ${form.email || 'Not provided'}`
+      : ''
+  );
+
+  const mailtoUrl = `mailto:${PORTFOLIO_EMAIL}?subject=${emailSubject}&body=${emailBody}`;
+  const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${PORTFOLIO_EMAIL}&su=${emailSubject}&body=${emailBody}`;
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    // Directly open default mail client with formatted draft
+    window.location.href = mailtoUrl;
+
+    setToast({
+      type: 'success',
+      message: 'Opening your default email app with draft pre-filled.',
+      action: {
+        label: 'Or open in Gmail Web',
+        onClick: () => {
+          window.open(gmailComposeUrl, '_blank');
+        }
+      }
+    });
+  };
 
   return (
     <motion.div
@@ -164,7 +153,7 @@ export const Contact: React.FC = () => {
                 Send a Message
               </h2>
               <p className="text-xs text-neutral-500">
-                Directly sent to ayeleru1234@gmail.com
+                Direct draft to {PORTFOLIO_EMAIL}
               </p>
             </div>
             <a
@@ -173,22 +162,10 @@ export const Contact: React.FC = () => {
               rel="noopener noreferrer"
               className="text-xs text-neutral-500 hover:text-neutral-900 inline-flex items-center gap-1 underline decoration-neutral-300 underline-offset-4"
             >
-              <span>Compose in Gmail</span>
+              <span>Compose in Gmail Web</span>
               <ArrowUpRight className="w-3 h-3" />
             </a>
           </div>
-
-          {statusMessage && (
-            <div
-              className={`p-3 rounded text-xs leading-relaxed ${
-                statusMessage.type === 'success'
-                  ? 'bg-neutral-100 text-neutral-900'
-                  : 'bg-neutral-100 text-neutral-700'
-              }`}
-            >
-              {statusMessage.text}
-            </div>
-          )}
 
           <form onSubmit={handleSubmit} className="space-y-4 pt-1">
             <div className="grid sm:grid-cols-2 gap-4">
@@ -243,14 +220,13 @@ export const Contact: React.FC = () => {
 
             <div className="pt-1 flex items-center justify-between">
               <span className="text-xs text-neutral-400">
-                Typically responds within 24 hours.
+                Pre-fills directly into your email client.
               </span>
               <button
                 type="submit"
-                disabled={loading}
-                className="px-4 py-2 rounded-lg bg-neutral-900 text-white text-xs font-mono font-medium hover:bg-neutral-800 transition-colors disabled:opacity-50 cursor-pointer"
+                className="px-4 py-2 rounded-lg bg-neutral-900 text-white text-xs font-mono font-medium hover:bg-neutral-800 transition-colors cursor-pointer"
               >
-                {loading ? 'Sending...' : 'Send Message →'}
+                Send Message →
               </button>
             </div>
           </form>
@@ -264,6 +240,9 @@ export const Contact: React.FC = () => {
           </Link>
         </footer>
       </main>
+
+      {/* Floating Toast Notification */}
+      <Toast toast={toast} onClose={() => setToast(null)} />
     </motion.div>
   );
 };
