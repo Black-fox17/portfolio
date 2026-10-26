@@ -1,21 +1,18 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import { AnimatePresence } from 'framer-motion';
 import Main from './sections/main';
-import Research from './sections/Research';
+import Projects from './sections/Projects';
+import Contact from './sections/Contact';
+import ExperiencePage from './sections/ExperiencePage';
 import BlogList from './sections/BlogList';
 import BlogPost from './sections/BlogPost';
 import { trackPageView } from './constants/analytics';
 
-const ScrollToTop: React.FC = () => {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
-};
+if (typeof window !== 'undefined' && 'scrollRestoration' in window.history) {
+  window.history.scrollRestoration = 'manual';
+}
 
 const AnalyticsTracker: React.FC = () => {
   const { pathname } = useLocation();
@@ -27,20 +24,37 @@ const AnalyticsTracker: React.FC = () => {
   return null;
 };
 
+const AnimatedRoutes: React.FC = () => {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence
+      mode="wait"
+      initial={false}
+      onExitComplete={() => {
+        window.scrollTo(0, 0);
+      }}
+    >
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Main />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/experience" element={<ExperiencePage />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/blog" element={<BlogList />} />
+        <Route path="/blog/:slug" element={<BlogPost />} />
+        {/* Catch-all fallback */}
+        <Route path="*" element={<Main />} />
+      </Routes>
+    </AnimatePresence>
+  );
+};
+
 export const App: React.FC = () => {
   return (
     <HelmetProvider>
       <Router>
-        <ScrollToTop />
         <AnalyticsTracker />
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/research" element={<Research />} />
-          <Route path="/blog" element={<BlogList />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          {/* Catch-all fallback */}
-          <Route path="*" element={<Main />} />
-        </Routes>
+        <AnimatedRoutes />
       </Router>
     </HelmetProvider>
   );

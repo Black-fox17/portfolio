@@ -60,7 +60,7 @@ export const ProjectLinkBadge: React.FC<ProjectLinkBadgeProps> = ({
       return (
         <BookOpen
           className={`w-3.5 h-3.5 shrink-0 ${
-            variant === 'dark' ? 'text-paper-50' : 'text-accent-cobalt'
+            variant === 'dark' ? 'text-paper-50' : 'text-neutral-700'
           }`}
         />
       );
@@ -68,7 +68,7 @@ export const ProjectLinkBadge: React.FC<ProjectLinkBadgeProps> = ({
     return (
       <Globe
         className={`w-3.5 h-3.5 shrink-0 ${
-          variant === 'dark' ? 'text-paper-50' : 'text-accent-cobalt'
+          variant === 'dark' ? 'text-paper-50' : 'text-neutral-700'
         }`}
       />
     );

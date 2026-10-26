@@ -4,6 +4,10 @@
   font-size: 1.02rem;
   line-height: 1.8;
   color: #252830;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  max-width: 100%;
 }
 
 .markdown-editorial h1,
@@ -87,8 +91,7 @@
 .markdown-editorial table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1.5rem 0;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .markdown-editorial th,
@@ -96,6 +99,7 @@
   border: 1px solid #DFDFD7;
   padding: 0.65rem 0.9rem;
   text-align: left;
+  white-space: normal;
 }
 
 .markdown-editorial th {
@@ -114,9 +118,12 @@
   margin: 1.5rem 0 !important;
   overflow-x: auto;
   overflow-y: hidden;
+  max-width: 100%;
   padding: 0.75rem 0;
+  -webkit-overflow-scrolling: touch;
 }
 
 .katex {
   font-size: 1.05em !important;
+  max-width: 100%;
 }

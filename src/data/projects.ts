@@ -316,11 +316,6 @@ export const projects: Project[] = [
         label: 'The Deep End Article',
         url: '/blog/histopathology-breast-cancer-path-foundation-llm',
         type: 'article'
-      },
-      {
-        label: 'IAMRAT Research',
-        url: '/research',
-        type: 'live'
       }
     ],
     caseStudy: {

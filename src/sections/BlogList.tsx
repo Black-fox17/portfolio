@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { blogPosts } from '../constants/blogData';
 import Navbar from '../components/layout/Navbar';
-import Footer from '../components/layout/Footer';
 import { Helmet } from 'react-helmet-async';
-import { ArrowLeft, ArrowUpRight, Search, BookOpen, Clock, Calendar } from 'lucide-react';
+import { ArrowLeft, Search } from 'lucide-react';
 
 export const BlogList: React.FC = () => {
   const navigate = useNavigate();
@@ -22,143 +22,129 @@ export const BlogList: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen bg-paper text-ink flex flex-col selection:bg-ink selection:text-paper">
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -12 }}
+      transition={{ duration: 0.25, ease: 'easeOut' }}
+      className="min-h-screen bg-white text-neutral-900 selection:bg-neutral-900 selection:text-white flex flex-col"
+    >
       <Helmet>
-        <title>The Deep End | Technical Writing & AI Systems | Abdulsalam Ayeleru</title>
+        <title>The Deep End | Abdulsalam Ayeleru</title>
         <meta
           name="description"
-          content="In-depth technical notes on byte-pair encoding, transformers, skip-gram, positional encodings, and inference optimizations by Abdulsalam Oluwaseun Ayeleru."
-        />
-        <link rel="canonical" href="https://salam-portfolio-three.vercel.app/blog" />
-        <meta property="og:title" content="The Deep End | Technical Writing | Abdulsalam Ayeleru" />
-        <meta
-          property="og:description"
-          content="In-depth technical notes on AI systems, transformers, tokenization, and deep learning architectures."
+          content="In-depth technical notes on byte-pair encoding, transformers, positional encodings, and inference optimizations by Abdulsalam Oluwaseun Ayeleru."
         />
       </Helmet>
 
       <Navbar />
 
-      <main className="flex-1 pt-32 pb-20">
-        <div className="max-w-4xl mx-auto px-5 sm:px-8">
-          {/* Back to Home Link */}
-          <Link
-            to="/"
-            className="inline-flex items-center gap-1.5 text-xs font-mono text-ink-muted hover:text-ink transition-colors mb-8"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            <span>Back to Portfolio</span>
-          </Link>
+      <main className="flex-1 max-w-[680px] w-full mx-auto px-5 sm:px-6 pt-20 sm:pt-28 pb-20">
+        {/* Back Link */}
+        <Link
+          to="/"
+          className="inline-flex items-center gap-1.5 text-xs text-neutral-500 hover:text-neutral-900 transition-colors mb-10"
+        >
+          <ArrowLeft className="w-3.5 h-3.5" />
+          <span>Back to Home</span>
+        </Link>
 
-          {/* Publication Header */}
-          <div className="border-b border-border pb-10 mb-10 space-y-4">
-            <div className="section-heading">
-              <span className="w-2 h-2 rounded-full bg-ink" />
-              <span>Technical Publication</span>
-            </div>
-            <h1 className="text-3xl sm:text-5xl font-bold tracking-tight text-ink font-editorial">
-              The Deep End
-            </h1>
-            <p className="text-sm sm:text-base text-ink-muted max-w-2xl leading-relaxed">
-              Notes on artificial intelligence, distributed systems, and the mathematical machinery underneath modern software. Written from a first-principles engineering perspective by{' '}
-              <span className="text-ink font-medium">Abdulsalam Oluwaseun Ayeleru</span>.
-            </p>
+        {/* Publication Header */}
+        <header className="space-y-3 mb-10">
+          <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-neutral-900">
+            The Deep End.
+          </h1>
+          <p className="text-sm sm:text-base text-neutral-600 leading-relaxed">
+            Technical notes on artificial intelligence, systems architecture, and first-principles deep learning by Abdulsalam Oluwaseun Ayeleru.
+          </p>
+        </header>
+
+        {/* Search & Categories */}
+        <div className="space-y-4 mb-10">
+          <div className="relative">
+            <Search className="w-4 h-4 text-neutral-400 absolute left-3 top-1/2 -translate-y-1/2" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search articles..."
+              className="w-full pl-9 pr-4 py-2 rounded-md border border-neutral-200 bg-white text-sm text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:border-neutral-900 transition-colors"
+            />
           </div>
 
-          {/* Search & Filter Controls */}
-          <div className="mb-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
-            {/* Search Input */}
-            <div className="relative flex-1 max-w-md">
-              <Search className="w-4 h-4 text-ink-faint absolute left-3.5 top-1/2 -translate-y-1/2" />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search articles and topics..."
-                className="w-full pl-9 pr-4 py-2 rounded-lg border border-border bg-white text-xs text-ink placeholder:text-ink-faint focus:outline-none focus:border-ink transition-colors shadow-subtle"
-              />
-            </div>
-
-            {/* Category Filter Pills */}
-            <div className="flex flex-wrap items-center gap-1.5">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setSelectedCategory(cat)}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all ${
-                    selectedCategory === cat
-                      ? 'bg-ink text-paper font-semibold shadow-subtle'
-                      : 'bg-white border border-border text-ink-muted hover:bg-paper-100 hover:text-ink'
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
+          <div className="flex flex-wrap items-center gap-1.5">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-2.5 py-1 rounded text-xs transition-colors cursor-pointer ${
+                  selectedCategory === cat
+                    ? 'bg-neutral-900 text-white'
+                    : 'text-neutral-500 hover:text-neutral-900 hover:bg-neutral-100'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
           </div>
-
-          {/* Articles Feed */}
-          {filteredPosts.length === 0 ? (
-            <div className="bg-white border border-border rounded-xl p-12 text-center space-y-2">
-              <p className="text-sm font-semibold text-ink">No articles matched your criteria</p>
-              <p className="text-xs text-ink-muted">Try refining your search terms or category filters.</p>
-            </div>
-          ) : (
-            <div className="divide-y divide-border border-y border-border bg-white rounded-xl overflow-hidden shadow-subtle">
-              {filteredPosts.map((post) => (
-                <article
-                  key={post.id}
-                  onClick={() => navigate(`/blog/${post.slug}`)}
-                  className="p-6 sm:p-8 block hover:bg-paper-50 transition-colors cursor-pointer group"
-                >
-                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
-                    <div className="space-y-2.5 max-w-2xl">
-                      <div className="flex items-center gap-2 text-xs font-mono text-ink-faint">
-                        <span className="editorial-tag text-[10px] !py-0.5">
-                          {post.category}
-                        </span>
-                        <span>•</span>
-                        <span className="flex items-center gap-1">
-                          <Clock className="w-3 h-3" />
-                          <span>{post.readTime}</span>
-                        </span>
-                      </div>
-
-                      <h2 className="text-lg sm:text-xl font-bold text-ink font-editorial group-hover:text-accent-blue transition-colors">
-                        {post.title}
-                      </h2>
-
-                      <p className="text-xs sm:text-sm text-ink-muted leading-relaxed">
-                        {post.excerpt}
-                      </p>
-                    </div>
-
-                    <div className="text-xs font-mono text-ink-faint shrink-0 flex sm:flex-col items-center sm:items-end justify-between sm:justify-start gap-2">
-                      <time dateTime={post.date} className="flex items-center gap-1">
-                        <Calendar className="w-3 h-3 text-ink-faint" />
-                        <span>
-                          {new Date(post.date).toLocaleDateString('en-US', {
-                            year: 'numeric',
-                            month: 'short',
-                            day: 'numeric'
-                          })}
-                        </span>
-                      </time>
-                      <span className="text-ink group-hover:text-accent-blue font-medium flex items-center gap-1 text-xs">
-                        <span>Read article</span>
-                        <ArrowUpRight className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                      </span>
-                    </div>
-                  </div>
-                </article>
-              ))}
-            </div>
-          )}
         </div>
-      </main>
 
-      <Footer />
-    </div>
+        {/* Articles List */}
+        {filteredPosts.length === 0 ? (
+          <div className="py-12 text-center text-sm text-neutral-500">
+            No articles match your search.
+          </div>
+        ) : (
+          <div className="space-y-8 divide-y divide-neutral-100">
+            {filteredPosts.map((post, idx) => (
+              <article
+                key={post.id}
+                onClick={() => navigate(`/blog/${post.slug}`)}
+                className={`group cursor-pointer ${idx > 0 ? 'pt-8' : ''}`}
+              >
+                <div className="space-y-1.5">
+                  <div className="flex items-baseline justify-between gap-3">
+                    <h2 className="text-base font-medium text-neutral-900 group-hover:underline underline-offset-4 decoration-neutral-300">
+                      {post.title}
+                    </h2>
+                    <span className="text-xs text-neutral-400 font-mono shrink-0">
+                      {post.readTime}
+                    </span>
+                  </div>
+
+                  <p className="text-sm text-neutral-600 leading-relaxed">
+                    {post.excerpt}
+                  </p>
+
+                  <div className="flex items-center gap-3 text-xs text-neutral-400 font-mono pt-1">
+                    <span>{post.category}</span>
+                    <span>·</span>
+                    <time dateTime={post.date}>
+                      {new Date(post.date).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                      })}
+                    </time>
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
+
+        <footer className="pt-16 mt-16 border-t border-neutral-100 text-xs text-neutral-400 flex items-center justify-between">
+          <span>© {new Date().getFullYear()} Abdulsalam Oluwaseun Ayeleru</span>
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="hover:text-neutral-900 transition-colors"
+          >
+            Back to top ↑
+          </button>
+        </footer>
+      </main>
+    </motion.div>
   );
 };
 

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -9,81 +9,80 @@
 }
 
 html {
-  scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
 body {
-  background-color: #F5F5F2;
-  color: #0E1015;
+  background-color: #ffffff;
+  color: #171717;
   font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  overflow-x: hidden;
+  overflow-x: clip;
   margin: 0;
   padding: 0;
-  line-height: 1.65;
+  line-height: 1.7;
 }
 
 ::selection {
-  background-color: #0E1015;
-  color: #F5F5F2;
+  background-color: #171717;
+  color: #ffffff;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F5F5F2;
+  background: #ffffff;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #C4C4B8;
+  background: #e5e5e5;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #767B89;
+  background: #a3a3a3;
 }
 
 @layer utilities {
   .section-kicker {
-    @apply text-[11px] font-mono uppercase tracking-[0.18em] text-ink-muted font-semibold flex items-center gap-2.5;
+    @apply text-[11px] font-mono uppercase tracking-[0.16em] text-neutral-500 font-medium flex items-center gap-2;
   }
 
   .section-title {
-    @apply text-2xl sm:text-3xl font-bold tracking-[-0.025em] text-ink font-editorial leading-[1.15];
+    @apply text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 leading-[1.18];
   }
 
   .story-prose {
-    @apply text-[15.5px] sm:text-[16.5px] text-ink-light leading-[1.8] font-normal;
+    @apply text-[15px] sm:text-[16px] text-neutral-600 leading-[1.8] font-normal;
   }
 
   .story-prose strong {
-    @apply text-ink font-bold;
+    @apply text-neutral-900 font-semibold;
   }
 
   .editorial-card {
-    @apply bg-white border border-border rounded-xl transition-all duration-200 hover:border-ink/40 hover:shadow-elevated;
+    @apply bg-white border border-neutral-200/80 rounded-xl transition-all duration-200 hover:border-neutral-400 hover:shadow-sm;
   }
 
   .editorial-tag {
-    @apply inline-flex items-center text-[11px] font-mono px-2.5 py-1 rounded bg-paper-100 text-ink-light border border-border font-medium;
+    @apply inline-flex items-center text-[11px] font-mono px-2 py-0.5 rounded bg-neutral-100 text-neutral-700 border border-neutral-200/60 font-medium;
   }
 
   .editorial-btn-primary {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-ink text-paper-50 text-xs font-mono font-medium transition-all duration-150 hover:bg-ink-light active:scale-[0.99] shadow-subtle;
+    @apply inline-flex items-center justify-center gap-2 px-3.5 py-2 rounded-lg bg-neutral-900 text-white text-xs font-mono font-medium transition-all duration-150 hover:bg-neutral-800 active:scale-[0.99];
   }
 
   .editorial-btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg bg-white border border-border text-ink text-xs font-mono font-medium transition-all duration-150 hover:bg-paper-100 hover:border-border-strong active:scale-[0.99] shadow-subtle;
+    @apply inline-flex items-center justify-center gap-2 px-3.5 py-2 rounded-lg bg-white border border-neutral-200 text-neutral-800 text-xs font-mono font-medium transition-all duration-150 hover:bg-neutral-50 hover:border-neutral-300 active:scale-[0.99];
   }
 
   .editorial-link {
-    @apply inline-flex items-center gap-1.5 text-sm font-semibold text-ink hover:text-accent-cobalt transition-colors underline decoration-border-strong hover:decoration-accent-cobalt underline-offset-4;
+    @apply inline-flex items-center gap-1.5 text-sm font-medium text-neutral-900 hover:text-neutral-600 transition-colors underline decoration-neutral-300 hover:decoration-neutral-900 underline-offset-4;
   }
 
   .scrollbar-none {

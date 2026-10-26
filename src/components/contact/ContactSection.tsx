@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowUpRight } from 'lucide-react';
 
 export const ContactSection: React.FC = () => {
@@ -82,7 +83,7 @@ export const ContactSection: React.FC = () => {
       {/* Section Header */}
       <div className="space-y-3 mb-8">
         <div className="section-kicker">
-          <span className="w-2 h-2 rounded-full bg-accent-cobalt" />
+          <span className="w-2 h-2 rounded-full bg-neutral-900" />
           <span>05 / Initiate Contact</span>
         </div>
         <h2 className="text-2xl sm:text-4xl font-bold tracking-[-0.025em] text-ink font-editorial leading-[1.15]">
@@ -102,7 +103,7 @@ export const ContactSection: React.FC = () => {
         >
           <div className="space-y-0.5">
             <span className="text-[10.5px] font-mono text-white/65 uppercase tracking-wider flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent-emerald" />
+              <span className="w-1.5 h-1.5 rounded-full bg-neutral-300" />
               <span>Direct Email (Click to Copy)</span>
             </span>
             <span className="text-sm font-mono font-semibold text-white block">
@@ -119,41 +120,44 @@ export const ContactSection: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
           download="ayeleru_cv.pdf"
-          className="p-4 rounded-xl bg-paper-100 border border-border hover:border-ink/40 transition-all flex items-center justify-between group text-left"
+          className="p-4 rounded-xl bg-neutral-100 border border-neutral-200 hover:border-neutral-400 transition-all flex items-center justify-between group text-left"
         >
           <div className="space-y-0.5">
-            <span className="text-[10.5px] font-mono text-ink-muted uppercase tracking-wider flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-ink" />
+            <span className="text-[10.5px] font-mono text-neutral-500 uppercase tracking-wider flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-neutral-800" />
               <span>Single-Page Resume</span>
             </span>
-            <span className="text-sm font-bold text-ink font-editorial group-hover:text-accent-cobalt transition-colors block">
+            <span className="text-sm font-bold text-neutral-900 group-hover:text-neutral-600 transition-colors block">
               Download Full Curriculum Vitae (PDF)
             </span>
           </div>
-          <ArrowUpRight className="w-4 h-4 text-ink-faint group-hover:text-ink" />
+          <ArrowUpRight className="w-4 h-4 text-neutral-400 group-hover:text-neutral-900" />
         </a>
       </div>
 
       {/* Direct Message Form */}
-      <div className="bg-white border border-border p-6 sm:p-8 rounded-xl shadow-subtle space-y-5">
+      <div className="bg-white border border-neutral-200 p-6 sm:p-8 rounded-xl shadow-subtle space-y-5">
         <div className="flex flex-wrap items-center justify-between gap-2">
           <div>
-            <h3 className="text-lg font-bold text-ink font-editorial">
+            <h3 className="text-lg font-bold text-neutral-900">
               Send a Direct Message
             </h3>
-            <p className="text-xs text-ink-muted">
-              Routes directly to <strong className="text-ink font-mono">ayeleru1234@gmail.com</strong>
+            <p className="text-xs text-neutral-500">
+              Routes directly to <strong className="text-neutral-900 font-mono">ayeleru1234@gmail.com</strong>
             </p>
           </div>
-          <a
-            href={gmailComposeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-xs font-mono text-ink-muted hover:text-accent-cobalt inline-flex items-center gap-1 underline decoration-border-strong underline-offset-4"
-          >
-            <span>Or compose in Gmail</span>
-            <ArrowUpRight className="w-3 h-3" />
-          </a>
+          <div className="flex items-center gap-3">
+            <span className="text-neutral-300">·</span>
+            <a
+              href={gmailComposeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-mono text-neutral-500 hover:text-neutral-900 inline-flex items-center gap-1 underline decoration-neutral-300 underline-offset-4"
+            >
+              <span>Compose in Gmail</span>
+              <ArrowUpRight className="w-3 h-3" />
+            </a>
+          </div>
         </div>
 
         {statusMessage && (
@@ -223,7 +227,7 @@ export const ContactSection: React.FC = () => {
 
           <div className="pt-1 flex flex-wrap items-center justify-between gap-3">
             <p className="text-xs font-mono text-ink-faint flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent-emerald" />
+              <span className="w-1.5 h-1.5 rounded-full bg-neutral-700" />
               <span>Typically responds within 24 hours.</span>
             </p>
             <button
