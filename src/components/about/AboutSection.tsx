@@ -22,7 +22,7 @@ export const AboutSection: React.FC = () => {
         </p>
 
         <p>
-          Transitioning into engineering at <strong>Codygo</strong>, I built conversational AI assistants and asynchronous background data pipelines on AWS. It reinforced what truly matters in production AI: the model is only one piece, while real reliability comes from resilient backends, fast retrieval, and strict validation checks.
+          Transitioning into engineering at <strong>Codygo</strong>, I took full ownership of our serverless RAG synchronization engine (<code>sync-datasource</code>) and built the embeddable B2B AI copilot widget (<strong>Worknet</strong>). It reinforced what truly matters in production AI: the model is only one piece, while real reliability comes from resilient serverless pipelines, automated data ingestion past Lambda boundaries, and strict end-to-end data safety.
         </p>
 
         <p>

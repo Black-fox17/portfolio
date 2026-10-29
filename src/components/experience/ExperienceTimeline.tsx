@@ -15,8 +15,8 @@ const experienceRows: ExperienceRow[] = [
     period: '2026 - Present',
   },
   {
-    company: 'Codygo',
-    role: 'AI Full-Stack Engineer (AWS Data Pipelines & RAG)',
+    company: 'Codygo (Worknet)',
+    role: 'AI Full-Stack & Serverless Engineer (RAG Engine & Widgets)',
     period: '2025',
   },
   {

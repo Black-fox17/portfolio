@@ -35,31 +35,34 @@ export const experiences: ExperienceItem[] = [
   },
   {
     id: 'codygo',
-    company: 'Codygo',
-    role: 'AI Full-Stack Engineer',
+    company: 'Codygo (Worknet)',
+    role: 'AI Full-Stack & Serverless Engineer',
     location: 'Remote',
     type: 'Remote',
     period: 'May 2025 - December 2025',
     current: false,
-    domain: 'Enterprise AI & Distributed Systems',
+    domain: 'Enterprise B2B AI & Distributed Vector Pipelines',
     summary:
-      'Built enterprise AI search assistants and background data pipelines for fast business workflows.',
+      'Owned the core serverless RAG synchronization engine and B2B embeddable AI copilot widget, enabling enterprise clients to connect knowledge sources and embed contextual AI on their web apps.',
     highlights: [
-      'Developed conversational AI assistants with FastAPI, TypeScript, and MongoDB, enabling fast search and clear answers across internal company documents.',
-      'Created data pipelines to automatically import and update content from websites, PDFs, Notion, Confluence, and Jira for AI search.',
-      'Built background processing systems with AWS Lambda, Amazon SQS, and DynamoDB to handle heavy AI jobs smoothly without slowing down user requests.'
+      'Took full engineering ownership of sync-datasource, an event-driven RAG pipeline built with AWS SAM, Lambda, SQS, EventBridge, and DynamoDB, using cursor-based pagination to sync massive data sources past Lambda timeout limits.',
+      'Implemented document chunking, SHA-256 content deduplication, and automated Pinecone vector indexing to minimize embedding compute costs and eliminate redundant updates.',
+      'Built and maintained serverless cloud infrastructure with AWS SAM (sam-app), packaging shared domain models and AWS SDK clients into high-performance Lambda Layers.',
+      'Developed the Worknet B2B embeddable widget (embed.js & secure cross-origin iframe runtime) served dynamically via AWS Lambda Function URLs for one-line script integration on customer websites.',
+      'Built self-serve data source configuration screens and batch upload processors in the admin dashboard, allowing organizations to configure connectors and manage sync schedules.'
     ],
     technologies: [
-      'FastAPI',
-      'Python',
-      'TypeScript',
+      'AWS SAM',
       'AWS Lambda',
       'Amazon SQS',
+      'Amazon EventBridge',
       'DynamoDB',
-      'MongoDB',
-      'RAG / Vector DBs',
-      'Docker',
-      'GitHub Actions'
+      'Pinecone (Vector DB)',
+      'TypeScript',
+      'MongoDB Atlas',
+      'RAG Architecture',
+      'Embeddable Widgets / iFrames',
+      'Docker'
     ]
   },
   {
