@@ -139,7 +139,7 @@ export const Main: React.FC = () => {
   };
 
   const handleCopyEmail = () => {
-    navigator.clipboard.writeText('ayeleru1234@gmail.com');
+    navigator.clipboard.writeText('ayeleruseun@gmail.com');
     setCopiedEmail(true);
     setTimeout(() => setCopiedEmail(false), 2000);
   };
@@ -388,7 +388,7 @@ export const Main: React.FC = () => {
                     title="Click to copy email address"
                   >
                     <span className="w-1.5 h-1.5 rounded-full bg-neutral-900" />
-                    <span>ayeleru1234@gmail.com</span>
+                    <span>ayeleruseun@gmail.com</span>
                     <span className="text-[10px] px-1.5 py-0.5 rounded bg-white border border-neutral-200 text-neutral-500">
                       {copiedEmail ? 'Copied' : 'Copy'}
                     </span>
@@ -405,12 +405,12 @@ export const Main: React.FC = () => {
                   </a>
 
                   <a
-                    href="https://x.com/Ayeleru_Salam"
+                    href="https://x.com/ayeleruseun"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg bg-neutral-100 border border-neutral-200/80 hover:border-neutral-400 text-neutral-900 transition-colors"
                   >
-                    <span>Twitter</span>
+                    <span>X(Twitter)</span>
                     <ArrowUpRight className="w-3 h-3 opacity-60" />
                   </a>
 

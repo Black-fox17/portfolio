@@ -232,4 +232,4 @@ We will look at embeddings in the next blog post.
 **Thanks for reading!**
 
 If you have any questions or suggestions, you can reach out to me via email at  
-[Mail](mailto:ayeleru1234@gmail.com)
+[Mail](mailto:ayeleruseun@gmail.com)

@@ -106,7 +106,7 @@ export const Contact: React.FC = () => {
             onClick={handleCopyEmail}
             className="inline-flex items-center gap-2 text-neutral-900 font-medium hover:underline underline-offset-4 decoration-neutral-300 transition-colors cursor-pointer"
           >
-            <span>ayeleru1234@gmail.com</span>
+            <span>ayeleruseun@gmail.com</span>
             {copied ? (
               <span className="inline-flex items-center gap-1 text-xs text-neutral-500">
                 <Check className="w-3.5 h-3.5 text-neutral-700" />
@@ -118,12 +118,12 @@ export const Contact: React.FC = () => {
           </button>
           <span className="text-neutral-300">/</span>
           <a
-            href="https://x.com/Ayeleru_Salam"
+            href="https://x.com/ayeleruseun"
             target="_blank"
             rel="noopener noreferrer"
             className="text-neutral-500 hover:text-neutral-900 transition-colors"
           >
-            Twitter ↗
+            X(Twitter) ↗
           </a>
           <span className="text-neutral-300">/</span>
           <a

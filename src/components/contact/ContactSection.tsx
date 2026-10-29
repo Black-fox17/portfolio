@@ -87,7 +87,7 @@ export const ContactSection: React.FC = () => {
               <span>Direct Email (Click to Copy)</span>
             </span>
             <span className="text-sm font-mono font-semibold text-white block">
-              ayeleru1234@gmail.com
+              ayeleruseun@gmail.com
             </span>
           </div>
           <div className="px-2.5 py-1 rounded bg-white/10 border border-white/15 text-xs font-mono text-white">
@@ -123,7 +123,7 @@ export const ContactSection: React.FC = () => {
               Send a Direct Message
             </h3>
             <p className="text-xs text-neutral-500">
-              Routes directly to <strong className="text-neutral-900 font-mono">ayeleru1234@gmail.com</strong>
+              Routes directly to <strong className="text-neutral-900 font-mono">ayeleruseun@gmail.com</strong>
             </p>
           </div>
           <div className="flex items-center gap-3">

@@ -126,4 +126,4 @@ You can find a the code used for demonstration here [here](https://github.com/Bl
 **Thanks for reading!**
 
 If you have any questions or suggestions, you can reach out to me via email at  
-[Mail](mailto:ayeleru1234@gmail.com)
+[Mail](mailto:ayeleruseun@gmail.com)
