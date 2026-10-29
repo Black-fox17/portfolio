@@ -345,7 +345,7 @@ export const Main: React.FC = () => {
                 </div>
 
                 <p className="text-base sm:text-[17px] text-neutral-600 leading-relaxed max-w-md font-normal">
-                  I build practical AI systems, dependable backends, and mobile apps, taking products from initial design all the way to the Apple App Store and Google Play.
+                  I build practical AI systems, dependable backends, and mobile apps, taking products from design all the way to production servers, web apps, the Apple App Store, and Google Play.
                 </p>
 
                 {/* Primary Action Buttons */}

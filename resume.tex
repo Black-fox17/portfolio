@@ -72,9 +72,9 @@ AI Systems and Product Engineer with deep experience architecting high-throughpu
 
 \section{Core Technical Skills}
 \skillCategory{Languages \& Backends}{Python, TypeScript, JavaScript, SQL, NestJS, FastAPI, Node.js, Next.js, REST APIs, Webhooks, GraphQL}
-\skillCategory{Databases \& Systems}{PostgreSQL (ACID transactions, relational indexing), MongoDB, DynamoDB, Docker, Linux, Git}
-\skillCategory{AI \& Computer Vision}{PyTorch, TensorFlow, Google Gemini 2.0, Vision Transformers (ViT), U-Net, CNNs, YOLO, MediaPipe, TFLite}
-\skillCategory{Cloud, Mobile \& Stores}{Apple App Store, Google Play Console, Capacitor, AWS (Lambda, SQS), GitHub Actions CI/CD}
+\skillCategory{Databases \& Systems}{PostgreSQL (ACID transactions, relational indexing), MongoDB, DynamoDB, Pinecone, Docker, Linux, Git}
+\skillCategory{AI \& Computer Vision}{PyTorch, TensorFlow, LLMs (Claude, OpenAI, DeepSeek, Gemini), Vision Transformers (ViT), U-Net, CNNs, YOLO, MediaPipe, TFLite}
+\skillCategory{Cloud, Mobile \& Stores}{Apple App Store, Google Play Console, Capacitor, AWS (Lambda, SQS, SAM, EventBridge), GitHub Actions CI/CD}
 
 \section{Professional Experience}
 
@@ -91,14 +91,15 @@ AI Systems and Product Engineer with deep experience architecting high-throughpu
 \end{itemize}
 
 \resumeHeading
-{Codygo}
+{Codygo (Worknet)}
 {May 2025 -- December 2025}
-{AI Full-Stack Engineer}
+{AI Full-Stack \& Serverless Engineer}
 {Remote}
 \begin{itemize}
-\resumeItem{Built enterprise AI search assistants and conversational RAG workflows with FastAPI, TypeScript, and MongoDB, delivering sub-second retrieval across complex business documents.}
-\resumeItem{Created automated data ingestion pipelines for websites, PDFs, Confluence, and Jira with incremental synchronization and vector indexing.}
-\resumeItem{Architected asynchronous background workers using AWS Lambda, Amazon SQS, and DynamoDB, containerizing microservices with Docker to process heavy AI workloads without blocking user requests.}
+\resumeItem{Took complete engineering ownership of \textbf{sync-datasource}, an event-driven RAG synchronization pipeline on \textbf{AWS SAM, Lambda, SQS, EventBridge, and DynamoDB}, engineering cursor-based pagination across message queues to sync massive datasets beyond Lambda execution limits.}
+\resumeItem{Implemented multi-format document chunking, \textbf{SHA-256 content deduplication}, and automated \textbf{Pinecone vector indexing}, eliminating redundant embedding calls and reducing vector storage overhead.}
+\resumeItem{Engineered the \textbf{Worknet B2B embeddable AI Copilot widget} (\texttt{embed.js} and sandboxed cross-origin iframe runtime) served dynamically via AWS Lambda Function URLs with custom authentication and real-time proactive notification triggers.}
+\resumeItem{Built self-serve data source configuration screens and batch processing microservices in the admin console, enabling enterprise clients to connect knowledge sources (GitHub, Notion, files) and schedule automated cron sync cadences.}
 \end{itemize}
 
 \resumeHeading
@@ -118,12 +119,12 @@ AI Systems and Product Engineer with deep experience architecting high-throughpu
 {University College Hospital, Ibadan}
 \begin{itemize}
 \resumeItem{Trained deep computer vision models with Google Path Foundation Vision Transformers and ResNet/MobileNet to classify breast cancer subtypes from whole-slide biopsy imagery.}
-\resumeItem{Constructed multimodal clinical decision-support workflows connecting vision predictions to Gemini diagnostic summaries; engineered full-stack FastAPI and React portals for pathologist trial annotation.}
+\resumeItem{Constructed multimodal clinical decision-support workflows connecting vision predictions to LLM diagnostic summaries; engineered full-stack FastAPI and React portals for pathologist trial annotation.}
 \end{itemize}
 
 \section{Selected Projects \& Research Frameworks}
 
-\projectHeading{Asera Core}{Open-Source Multi-Agent Supervisor \& Long-Context Engine}{Python, Gemini 2.0, RLM}
+\projectHeading{Asera Core}{Open-Source Multi-Agent Supervisor \& Long-Context Engine}{Python, Frontier LLMs, RLM}
 \begin{itemize}
 \resumeItem{Architected a lightweight Python multi-agent supervisor framework implementing the MIT CSAIL Recursive Language Models (RLM) paradigm (arXiv:2512.24601), offloading unbounded documents to a sandboxed REPL to cut input tokens by 96.7\%.}
 \resumeItem{Built parallel worker execution using asyncio.gather, reducing multi-agent delegation latency from 8.2s to 1.8s.}

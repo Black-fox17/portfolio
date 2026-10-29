@@ -119,7 +119,7 @@ The engine executes a bounded turn loop. The root model outputs code snippets, v
 
 ```python
 class RLMContext:
-    def __init__(self, api_key: str, model="gemini-2.0-flash", max_iterations=8):
+    def __init__(self, api_key: str, model="claude-3-7-sonnet" # or "gpt-4o", "deepseek-chat", "gemini", max_iterations=8):
         self.client = genai.Client(api_key=api_key)
         self.model = model
         self.max_iterations = max_iterations
@@ -176,7 +176,7 @@ In `asera-core`, I engineered the `SupervisorAgent` from the ground up without g
 ```
                               ┌────────────────────────┐
                               │    SupervisorAgent     │
-                              │ (Gemini 2.0 Thinking)  │
+                              │ (Frontier LLM Reasoning)  │
                               └───────────┬────────────┘
                                           │
                    ┌──────────────────────┴──────────────────────┐
@@ -227,7 +227,7 @@ When worker agents are added to the `SupervisorAgent`, the supervisor generates 
 
 ```python
 class SupervisorAgent:
-    def __init__(self, model="gemini-2.0-flash", enable_rlm=True):
+    def __init__(self, model="claude-3-7-sonnet" # or "gpt-4o", "deepseek-chat", "gemini", enable_rlm=True):
         self.agents: Dict[str, Agent] = {}
         self.rlm = RLMContext() if enable_rlm else None
 
@@ -277,9 +277,9 @@ To evaluate the efficiency of the RLM engine compared to traditional 1M-token pr
 
 | Strategy | Token Cost (Input) | Time-to-First-Token (TTFT) | Total Execution Time | Multi-Hop Accuracy |
 | :--- | :---: | :---: | :---: | :---: |
-| **Vanilla Prompt Stuffing (Gemini 1.5 Pro)** | 382,400 tokens | 14.8 seconds | 22.4 seconds | 74.2% |
+| **Vanilla Prompt Stuffing (2M Long-Context LLM)** | 382,400 tokens | 14.8 seconds | 22.4 seconds | 74.2% |
 | **Traditional Chunked RAG (Top-10 K)** | 18,200 tokens | 2.1 seconds | 6.8 seconds | 68.5% (Missed cross-page links) |
-| **Asera Core (RLM Engine + Gemini 2.0)** | **12,450 tokens** | **1.2 seconds** | **4.9 seconds** | **94.8%** |
+| **Asera Core (RLM Engine + Frontier LLM)** | **12,450 tokens** | **1.2 seconds** | **4.9 seconds** | **94.8%** |
 
 ### Why RLM Outperformed:
 * **Token Reduction**: By having the model programmatically filter sections via Python regex and slices before invoking LLM calls, input token consumption was slashed by **96.7%**.

@@ -191,7 +191,7 @@ export const projects: Project[] = [
     priority: 2,
     period: '2024 - 2025',
     summary:
-      'Built Asera Core from scratch: an open-source framework for running teams of AI agents powered by Google Gemini 2.0. Instead of stuffing entire books or massive PDFs directly into an AI prompt, which causes slowness and mistakes, it lets the agent write Python code to inspect, slice, and query documents piece by piece. This powers the live Asera study platform.',
+      'Built Asera Core from scratch: an open-source framework for running teams of AI agents orchestrated across frontier LLMs (Claude, OpenAI, DeepSeek, Gemini). Instead of stuffing entire books or massive PDFs directly into an AI prompt, which causes slowness and mistakes, it lets the agent write Python code to inspect, slice, and query documents piece by piece. This powers the live Asera study platform.',
     metrics: [
       'Zero-Prompt-Bloat Context Engine (96.7% Token Reduction)',
       'Smart Coordinator Routing to Specialized Worker Agents',
@@ -200,7 +200,7 @@ export const projects: Project[] = [
     ],
     tags: [
       'Python',
-      'Gemini 2.0',
+      'Frontier LLMs',
       'RLM',
       'Supervisor Agent',
       'AsyncIO',
@@ -228,7 +228,7 @@ export const projects: Project[] = [
     ],
     caseStudy: {
       overview:
-        'Asera Core is a lightweight Python framework designed to run teams of AI agents without the bloat and slow speeds of existing tools. It pairs Google Gemini 2.0 with a smart supervisor agent that breaks down tasks and delegates them to specialist agents, while handling huge documents cleanly through Python code execution.',
+        'Asera Core is a lightweight Python framework designed to run teams of AI agents without the bloat and slow speeds of existing tools. It pairs frontier LLMs (Claude, OpenAI, DeepSeek, Gemini) with a model-agnostic supervisor agent that breaks down tasks and delegates them to specialist agents, while handling huge documents cleanly through Python code execution.',
       problem:
         'Existing AI agent frameworks are often bulky and difficult to customize. Furthermore, when working with long documents like 200-page textbooks or slide decks, pasting everything directly into the prompt makes the AI slow, expensive, and prone to hallucinations.',
       architecture: [
@@ -266,7 +266,7 @@ export const projects: Project[] = [
         },
         {
           name: '2. Supervisor & Reasoning Engine',
-          items: ['Dynamic Schema Synthesizer', 'Gemini 2.0 Flash / Pro Encoders', 'Recursive llm_query Sub-Dispatcher']
+          items: ['Dynamic Schema Synthesizer', 'Frontier LLM Encoders (Claude, GPT-4o, DeepSeek, Gemini)', 'Recursive llm_query Sub-Dispatcher']
         },
         {
           name: '3. Worker Agent Fleet (Parallel)',
@@ -294,14 +294,14 @@ export const projects: Project[] = [
       'Trained computer vision models on digitized biopsy slides to classify breast cancer subtypes at University College Hospital (IAMRAT). Connected model predictions to clinical explanation tools and built full-stack web apps for pathologists to review results.',
     metrics: [
       'Automated Subtype Classification across Biopsy Images',
-      'Clinical Decision-Support & Diagnostic Explanations with Gemini',
+      'Clinical Decision-Support & Diagnostic Explanations with Multimodal LLMs',
       'Full-Stack FastAPI & React Research Annotation Portal'
     ],
     tags: [
       'Path-Foundation',
       'PyTorch',
       'TensorFlow',
-      'Gemini 1.5',
+      'Multimodal LLMs',
       'FastAPI',
       'Docker',
       'Medical AI'
@@ -331,7 +331,7 @@ export const projects: Project[] = [
       ],
       engineeringHighlights: [
         'Developed data pipelines to extract image tiles from gigapixel slides, normalize stains, and filter out visual artifacts.',
-        'Combined computer vision predictions with Gemini 1.5 to generate readable clinical explanations.',
+        'Combined computer vision predictions with multimodal LLMs to generate structured, readable clinical diagnostic explanations.',
         'Built responsive FastAPI backend services for real-time model inference and researcher annotation.'
       ],
       complexityAndFailures:

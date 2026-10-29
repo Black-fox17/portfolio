@@ -146,7 +146,7 @@ One major limitation of Word2Vec is that it treats every word as a unique atomic
 ### Transformers & LLMs: Contextual Embeddings
 Word2Vec produces **static embeddings**: the word "bank" has the same vector in "river bank" and "bank deposit."
 
-Modern LLMs (like BERT, GPT, and modern Gemini) use the **Transformer** architecture to create **contextualized embeddings**. 
+Modern LLMs (like GPT-4o, Claude 3.7, DeepSeek, and Gemini) use the **Transformer** architecture to create **contextualized embeddings**. 
 - **Mechanism**: They use **Self-Attention** to look at the entire sentence at once, calculating how much every word relates to every other word in the sequence.
 - **Benefit**: The vector for "bank" changes dynamically based on the surrounding context. "Bank" in a financial context looks different from "Bank" in a geographic context. This dynamic nature is why modern LLMs can understand nuance, sarcasm, and complex instructions in a way that static word vectors never could.
 

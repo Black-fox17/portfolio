@@ -55,7 +55,7 @@ export const myProjects = [
     title: 'SalamStudy',
     desc: 'SalamStudy is an intelligent web application designed to transform educational slides into quiz questions, aiding students in efficient learning and preparation. Users can upload PDF slides, specify the discipline (course), and select the desired number of questions through a sleek, user-friendly interface.',
     subdesc:
-      'Built with React.js and TypeScript on the frontend, SalamStudy features a responsive and intuitive UI. The backend, powered by FastAPI, leverages Gemini AI to analyze slide content and generate high-quality quiz questions based on the selected course and the number of questions specified. At the end of each session, users receive detailed results and corrections for their attempted quizzes, making it a powerful tool for self-assessment and learning.',
+      'Built with React.js and TypeScript on the frontend, SalamStudy features a responsive and intuitive UI. The backend, powered by FastAPI, leverages frontier LLMs (OpenAI, Claude, Gemini) to analyze slide content and generate high-quality quiz questions based on the selected course and the number of questions specified. At the end of each session, users receive detailed results and corrections for their attempted quizzes, making it a powerful tool for self-assessment and learning.',
     href: 'https://salam-study.vercel.app/',
     texture: '/textures/project/SalamStudy.mp4',
     logo: "/assets/logo/student.svg",
@@ -84,7 +84,7 @@ export const myProjects = [
       },
       {
         id: 4,
-        name: 'Gemini AI',
+        name: 'Frontier LLMs',
         path: '/assets/logo/langchain.svg',
       },
       {
@@ -97,7 +97,7 @@ export const myProjects = [
   {
     "title": "SalamAnalyzer",
     "desc": "SalamAnalyzer is an advanced web application that processes audio recordings and PDF slide documents to generate concise summaries. Additionally, users can engage in interactive conversations with the document, making it a powerful tool for understanding and analyzing content efficiently.",
-    "subdesc": "Built with React.js and TypeScript on the frontend, SalamAnalyzer features an intuitive UI designed for seamless user experience. The backend, powered by FastAPI, integrates Gemini AI for accurate text extraction and summarization. Users can upload audio or PDF files and receive structured summaries along with a chat interface to further explore the document’s content.",
+    "subdesc": "Built with React.js and TypeScript on the frontend, SalamAnalyzer features an intuitive UI designed for seamless user experience. The backend, powered by FastAPI, integrates frontier LLMs for accurate text extraction, Q&A, and summarization. Users can upload audio or PDF files and receive structured summaries along with a chat interface to further explore the document’s content.",
     "href": "https://salam-summary-two.vercel.app/",
     "texture": "/textures/project/salamanalayzer.mp4",
     "logo": "/assets/logo/brain.svg",
@@ -126,7 +126,7 @@ export const myProjects = [
       },
       {
         "id": 4,
-        "name": "Gemini AI",
+        "name": "Frontier LLMs",
         "path": "/assets/logo/langchain.svg"
       }
     ]

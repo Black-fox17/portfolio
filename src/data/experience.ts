@@ -30,7 +30,8 @@ export const experiences: ExperienceItem[] = [
       'Paystack',
       'Flutterwave',
       'GitHub Actions',
-      'Docker'
+      'Docker',
+      "Firebase"
     ]
   },
   {
@@ -102,7 +103,7 @@ export const experiences: ExperienceItem[] = [
       'Trained computer vision models to classify breast cancer subtypes from biopsy slides and built clinical support tools to explain results to doctors.',
     highlights: [
       'Trained AI models using Google Path Foundation and deep neural networks to accurately identify breast cancer subtypes from high-resolution biopsy images.',
-      'Combined image classification models with Gemini 1.5 to generate clear diagnostic summaries and explanations for pathologists.',
+      'Combined image classification models with multimodal LLMs to generate clear diagnostic summaries and structured explanations for pathologists.',
       'Built full-stack web applications with FastAPI and React for researchers to upload slides, label samples, and track clinical workflows.',
       'Open-sourced the complete clinical pathology AI codebase on GitHub.'
     ],
@@ -110,7 +111,7 @@ export const experiences: ExperienceItem[] = [
       'Path-Foundation',
       'PyTorch',
       'TensorFlow',
-      'Gemini 1.5',
+      'Multimodal LLMs',
       'FastAPI',
       'Docker',
       'React',

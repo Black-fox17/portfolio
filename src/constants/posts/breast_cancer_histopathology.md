@@ -48,7 +48,7 @@ To overcome these hurdles, we decoupled the diagnostic system into a three-stage
          │ Softmax Probabilities
          ▼
      [ Multimodal Clinical Copilot ]
-         (Gemini 1.5 Diagnostic Reasoning Engine)
+         (Multimodal LLM Diagnostic Reasoning Engine)
                     │
                     ▼
   [ Interpretable Report: Subtype + Confidence + Cellular Rationale ]

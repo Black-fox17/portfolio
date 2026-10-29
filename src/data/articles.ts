@@ -117,7 +117,7 @@ export const openSourceReproductions: OpenSourceReproduction[] = [
     title: 'Asera Core: Supervisor Agent & RLM Context Engine',
     description: 'Lightweight multi-agent framework: routes tasks to worker agents in parallel and analyzes long documents through clean Python code execution.',
     category: 'Agentic AI & Distributed Systems',
-    technologies: ['Python', 'Gemini 2.0', 'RLM', 'AsyncIO', 'PostgreSQL', 'Docker'],
+    technologies: ['Python', 'Frontier LLMs', 'RLM', 'AsyncIO', 'PostgreSQL', 'Docker'],
     githubUrl: 'https://github.com/Black-fox17/asera-core'
   },
   {
@@ -133,7 +133,7 @@ export const openSourceReproductions: OpenSourceReproduction[] = [
     title: 'Breast Cancer Histopathology & Diagnostic Copilot',
     description: 'Analyzes breast cancer biopsy slides with vision models and generates clear diagnostic summaries for pathologists.',
     category: 'Medical AI & Vision',
-    technologies: ['Path-Foundation', 'TensorFlow', 'Gemini', 'FastAPI', 'Docker'],
+    technologies: ['Path-Foundation', 'TensorFlow', 'Multimodal LLMs', 'FastAPI', 'Docker'],
     githubUrl: 'https://github.com/Black-fox17/BreastCancer.git'
   },
   {
