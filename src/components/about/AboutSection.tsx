@@ -7,7 +7,7 @@ export const AboutSection: React.FC = () => {
       <div className="space-y-2">
         <div className="section-kicker">
           <span className="w-1.5 h-1.5 rounded-full bg-neutral-900" />
-          <span>01 / The Story &amp; Craft</span>
+          <span>The Story &amp; Craft</span>
         </div>
         <h2 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 leading-[1.25]">
           How I think, build, and ship software.

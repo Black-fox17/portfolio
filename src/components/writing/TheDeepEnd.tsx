@@ -12,7 +12,7 @@ export const TheDeepEnd: React.FC = () => {
       <div className="space-y-1.5">
         <div className="section-kicker">
           <span className="w-1.5 h-1.5 rounded-full bg-neutral-900" />
-          <span>04 / First Principles &amp; Writing</span>
+          <span>First Principles &amp; Writing</span>
         </div>
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900">
           The Deep End

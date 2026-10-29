@@ -38,7 +38,7 @@ export const ExperienceTimeline: React.FC = () => {
       <div className="space-y-1">
         <div className="section-kicker">
           <span className="w-1.5 h-1.5 rounded-full bg-neutral-900" />
-          <span>03 / Career Progression</span>
+          <span>Career Progression</span>
         </div>
         <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-neutral-900">
           Experience

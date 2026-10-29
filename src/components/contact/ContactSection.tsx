@@ -64,7 +64,7 @@ export const ContactSection: React.FC = () => {
       <div className="space-y-3 mb-8">
         <div className="section-kicker">
           <span className="w-2 h-2 rounded-full bg-neutral-900" />
-          <span>05 / Initiate Contact</span>
+          <span>Initiate Contact</span>
         </div>
         <h2 className="text-2xl sm:text-4xl font-bold tracking-[-0.025em] text-ink font-editorial leading-[1.15]">
           Let’s Discuss Systems, Products, or Engineering Roles
