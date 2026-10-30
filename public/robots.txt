@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://salam-portfolio-three.vercel.app/sitemap.xml
+Sitemap: https://ayeleru.space/sitemap.xml

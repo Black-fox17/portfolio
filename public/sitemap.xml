@@ -1,33 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Core Pages -->
   <url>
-    <loc>https://salam-portfolio-three.vercel.app/</loc>
-    <changefreq>monthly</changefreq>
+    <loc>https://ayeleru.space/</loc>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://salam-portfolio-three.vercel.app/blog</loc>
+    <loc>https://ayeleru.space/blog</loc>
     <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://ayeleru.space/projects</loc>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://salam-portfolio-three.vercel.app/blog/1</loc>
+    <loc>https://ayeleru.space/experience</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ayeleru.space/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <!-- Technical Articles / The Deep End -->
   <url>
-    <loc>https://salam-portfolio-three.vercel.app/blog/2</loc>
+    <loc>https://ayeleru.space/blog/point-supervised-loveda-segmentation-pce</loc>
+    <lastmod>2026-10-10</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://salam-portfolio-three.vercel.app/blog/3</loc>
+    <loc>https://ayeleru.space/blog/the-illusion-of-replacement-product-engineers-ai-era</loc>
+    <lastmod>2026-09-19</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://salam-portfolio-three.vercel.app/blog/4</loc>
+    <loc>https://ayeleru.space/blog/kv-cache-sliding-window-attention</loc>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ayeleru.space/blog/understanding-transformer-architecture</loc>
+    <lastmod>2026-01-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ayeleru.space/blog/visualizing-positional-encodings</loc>
+    <lastmod>2026-01-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ayeleru.space/blog/implementing-skip-gram</loc>
+    <lastmod>2026-01-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ayeleru.space/blog/tokenization-and-encoding-bpe</loc>
+    <lastmod>2025-12-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ayeleru.space/blog/recursive-language-models-agent-context-scaling</loc>
+    <lastmod>2025-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ayeleru.space/blog/histopathology-breast-cancer-path-foundation-llm</loc>
+    <lastmod>2025-01-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ayeleru.space/blog/continuous-asl-fingerspelling-mediapipe-transformer</loc>
+    <lastmod>2024-11-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ayeleru.space/blog/rsna-lumbar-spine-mri-deep-learning</loc>
+    <lastmod>2024-10-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

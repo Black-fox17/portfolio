@@ -33,8 +33,21 @@ export const BlogList: React.FC = () => {
         <title>The Deep End | Abdulsalam Ayeleru</title>
         <meta
           name="description"
-          content="In-depth technical notes on byte-pair encoding, transformers, positional encodings, and inference optimizations by Abdulsalam Oluwaseun Ayeleru."
+          content="In-depth technical publications on byte-pair encoding, transformers, positional encodings, LoveDA segmentation, RLMs, and ML systems by Abdulsalam Ayeleru."
         />
+        <link rel="canonical" href="https://ayeleru.space/blog" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ayeleru.space/blog" />
+        <meta property="og:title" content="The Deep End | Abdulsalam Ayeleru" />
+        <meta property="og:description" content="In-depth technical publications on deep learning, transformers, and AI systems engineering." />
+        <meta property="og:image" content="https://ayeleru.space/assets/preview.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@ayeleruseun" />
+        <meta name="twitter:creator" content="@ayeleruseun" />
+        <meta name="twitter:url" content="https://ayeleru.space/blog" />
+        <meta name="twitter:title" content="The Deep End | Abdulsalam Ayeleru" />
+        <meta name="twitter:description" content="In-depth technical publications on deep learning, transformers, and AI systems engineering." />
+        <meta name="twitter:image" content="https://ayeleru.space/assets/preview.png" />
       </Helmet>
 
       <Navbar />

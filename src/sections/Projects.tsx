@@ -41,8 +41,18 @@ export const Projects: React.FC = () => {
         <title>Projects &amp; Systems | Abdulsalam Ayeleru</title>
         <meta
           name="description"
-          content="Production software systems, 3 shipped mobile applications, and clinical computer vision architectures by Abdulsalam Oluwaseun Ayeleru."
+          content="Production software systems, 3 shipped mobile applications, and clinical computer vision architectures by Abdulsalam Ayeleru."
         />
+        <link rel="canonical" href="https://ayeleru.space/projects" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ayeleru.space/projects" />
+        <meta property="og:title" content="Projects &amp; Systems | Abdulsalam Ayeleru" />
+        <meta property="og:description" content="Production software systems, shipped mobile applications, and clinical computer vision architectures." />
+        <meta property="og:image" content="https://ayeleru.space/assets/preview.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@ayeleruseun" />
+        <meta name="twitter:creator" content="@ayeleruseun" />
+        <meta name="twitter:url" content="https://ayeleru.space/projects" />
       </Helmet>
 
       <Navbar />

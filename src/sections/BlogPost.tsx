@@ -68,9 +68,67 @@ export const BlogPost: React.FC = () => {
         <title>{post.title} | The Deep End | Abdulsalam Ayeleru</title>
         <meta name="description" content={post.excerpt} />
         <link rel="canonical" href={`https://ayeleru.space/blog/${post.slug}`} />
+        
+        {/* OpenGraph */}
         <meta property="og:type" content="article" />
+        <meta property="og:url" content={`https://ayeleru.space/blog/${post.slug}`} />
+        <meta property="og:site_name" content="The Deep End — Abdulsalam Ayeleru" />
         <meta property="og:title" content={`${post.title} | Abdulsalam Ayeleru`} />
         <meta property="og:description" content={post.excerpt} />
+        <meta property="og:image" content="https://ayeleru.space/assets/preview.png" />
+        <meta property="article:published_time" content={post.date} />
+        <meta property="article:author" content="Abdulsalam Oluwaseun Ayeleru" />
+        <meta property="article:section" content={post.category} />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@ayeleruseun" />
+        <meta name="twitter:creator" content="@ayeleruseun" />
+        <meta name="twitter:url" content={`https://ayeleru.space/blog/${post.slug}`} />
+        <meta name="twitter:title" content={`${post.title} | Abdulsalam Ayeleru`} />
+        <meta name="twitter:description" content={post.excerpt} />
+        <meta name="twitter:image" content="https://ayeleru.space/assets/preview.png" />
+
+        {/* Schema.org TechArticle Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "TechArticle",
+            "headline": post.title,
+            "description": post.excerpt,
+            "image": "https://ayeleru.space/assets/preview.png",
+            "datePublished": post.date,
+            "dateModified": post.date,
+            "author": {
+              "@type": "Person",
+              "name": "Abdulsalam Oluwaseun Ayeleru",
+              "alternateName": "Ayeleru",
+              "url": "https://ayeleru.space/",
+              "sameAs": [
+                "https://www.linkedin.com/in/abdulsalam-ayeleru-77489a270/",
+                "https://github.com/Black-fox17",
+                "https://x.com/ayeleruseun"
+              ]
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "Abdulsalam Ayeleru",
+              "url": "https://ayeleru.space/"
+            },
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": `https://ayeleru.space/blog/${post.slug}`
+            },
+            "keywords": [
+              post.category,
+              "Ayeleru",
+              "Abdulsalam Ayeleru",
+              "AI Systems Engineer",
+              "Machine Learning",
+              "PyTorch"
+            ]
+          })}
+        </script>
       </Helmet>
 
       <Navbar />

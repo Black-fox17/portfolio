@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet-async';
 import {
   ArrowUpRight,
   ArrowDown,
@@ -161,6 +162,24 @@ export const Main: React.FC = () => {
       transition={{ duration: 0.25, ease: 'easeOut' }}
       className="min-h-screen bg-white text-neutral-900 selection:bg-neutral-900 selection:text-white"
     >
+      <Helmet>
+        <title>Abdulsalam Ayeleru — AI Systems Engineer &amp; Full-Stack Software Engineer</title>
+        <meta
+          name="description"
+          content="Abdulsalam Ayeleru is an AI Systems and Full-Stack Software Engineer building production AI, distributed backends, and SaaS products. Creator of Upward Ecosystem and The Deep End publications."
+        />
+        <link rel="canonical" href="https://ayeleru.space/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ayeleru.space/" />
+        <meta property="og:title" content="Abdulsalam Ayeleru — AI Systems Engineer &amp; Full-Stack Software Engineer" />
+        <meta property="og:description" content="AI Systems and Full-Stack Software Engineer building production AI, distributed backends, and SaaS products." />
+        <meta property="og:image" content="https://ayeleru.space/assets/preview.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@ayeleruseun" />
+        <meta name="twitter:creator" content="@ayeleruseun" />
+        <meta name="twitter:url" content="https://ayeleru.space/" />
+      </Helmet>
+
       {/* Mobile / Tablet Top Navigation Header (< lg) */}
       <header className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-b border-neutral-100">
         <div className="px-5 sm:px-8 h-14 flex items-center justify-between gap-3">

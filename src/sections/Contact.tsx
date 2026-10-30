@@ -73,8 +73,18 @@ export const Contact: React.FC = () => {
         <title>Contact | Abdulsalam Ayeleru</title>
         <meta
           name="description"
-          content="Get in touch with Abdulsalam Oluwaseun Ayeleru for software engineering roles, distributed systems, and AI architecture."
+          content="Get in touch with Abdulsalam Ayeleru for AI systems engineering, distributed backends, and full-stack software architecture."
         />
+        <link rel="canonical" href="https://ayeleru.space/contact" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ayeleru.space/contact" />
+        <meta property="og:title" content="Contact | Abdulsalam Ayeleru" />
+        <meta property="og:description" content="Get in touch with Abdulsalam Ayeleru for AI systems engineering, distributed backends, and full-stack software architecture." />
+        <meta property="og:image" content="https://ayeleru.space/assets/preview.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@ayeleruseun" />
+        <meta name="twitter:creator" content="@ayeleruseun" />
+        <meta name="twitter:url" content="https://ayeleru.space/contact" />
       </Helmet>
 
       <Navbar />

@@ -20,8 +20,18 @@ export const ExperiencePage: React.FC = () => {
         <title>Experience &amp; Leadership | Abdulsalam Ayeleru</title>
         <meta
           name="description"
-          content="Professional career history, production milestones at GoodTenants, Codygo, and UCH Ibadan, and community leadership by Abdulsalam Oluwaseun Ayeleru."
+          content="Professional career history, production milestones at GoodTenants, Codygo, and UCH Ibadan, and engineering leadership by Abdulsalam Ayeleru."
         />
+        <link rel="canonical" href="https://ayeleru.space/experience" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://ayeleru.space/experience" />
+        <meta property="og:title" content="Experience &amp; Leadership | Abdulsalam Ayeleru" />
+        <meta property="og:description" content="Professional career history, production milestones, and engineering leadership by Abdulsalam Ayeleru." />
+        <meta property="og:image" content="https://ayeleru.space/assets/preview.png" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@ayeleruseun" />
+        <meta name="twitter:creator" content="@ayeleruseun" />
+        <meta name="twitter:url" content="https://ayeleru.space/experience" />
       </Helmet>
 
       <Navbar />
