@@ -18,7 +18,7 @@ const AnalyticsTracker: React.FC = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    trackPageView();
+    trackPageView(pathname);
   }, [pathname]);
 
   return null;
