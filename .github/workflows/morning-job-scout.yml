@@ -1,0 +1,38 @@
+name: Morning Job Scout
+
+on:
+  schedule:
+    # Runs daily at 07:00 UTC (08:00 AM West Africa Time / Nigeria)
+    - cron: '0 7 * * *'
+  workflow_dispatch: # Allows manual run button on GitHub anytime
+
+permissions:
+  contents: write
+
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run Morning Job Scout
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          node scripts/job_scout.mjs
+
+      - name: Commit seen jobs cache
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add scripts/seen_jobs.json
+          git commit -m "chore: update seen jobs cache [skip ci]" || echo "No new jobs to commit"
+          git push || echo "No changes to push"
