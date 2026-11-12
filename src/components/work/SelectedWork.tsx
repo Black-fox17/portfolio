@@ -16,6 +16,11 @@ const featuredRows: ProjectRow[] = [
     category: 'Flagship Platform',
   },
   {
+    title: 'Transformer from Scratch',
+    description: 'Autoregressive generative LLM, custom BPE tokenizer & KV-cache.',
+    category: 'Generative AI',
+  },
+  {
     title: 'Breast Cancer AI',
     description: 'Clinical deep learning for biopsy cancer subtyping with UCH.',
     category: 'Medical Vision',

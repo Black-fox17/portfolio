@@ -20,9 +20,9 @@ export interface Project {
   slug: string;
   title: string;
   subtitle: string;
-  category: 'PropTech / FinTech' | 'AI & Document Intelligence' | 'Agentic AI / EdTech' | 'Computer Vision / Edge ML';
+  category: string;
   role: string;
-  status: 'In Production' | 'Live Platform' | 'Research Prototype';
+  status: string;
   featured: boolean;
   priority: number;
   period: string;

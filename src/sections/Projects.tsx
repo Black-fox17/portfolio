@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import { ArrowLeft, ArrowUpRight } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -7,11 +7,12 @@ import Navbar from '../components/layout/Navbar';
 import { projects } from '../data/projects';
 import { ProjectLinkBadge } from '../components/common/ProjectLinkBadge';
 
-// Prioritize computer vision projects after Upward Ecosystem
+// Prioritize computer vision and deep learning projects after Upward Ecosystem
 const projectOrder = [
   'upward-ecosystem',
   'breast-cancer-histopathology',
   'rsna-lumbar-spine',
+  'transformer-from-scratch',
   'point-supervised-loveda-segmentation',
   'retail-shelf-intelligence',
   'asl-fingerspelling',
@@ -26,6 +27,7 @@ const sortedProjects = [...projects].sort((a, b) => {
 });
 
 export const Projects: React.FC = () => {
+  const navigate = useNavigate();
   const flagshipProject = sortedProjects[0];
   const otherProjects = sortedProjects.slice(1);
 
@@ -130,65 +132,129 @@ export const Projects: React.FC = () => {
               Computer Vision &amp; Applied AI Systems
             </h2>
             <p className="text-xs text-neutral-500">
-              Medical imaging, 3D volumetric diagnostics, satellite segmentation, and autonomous agents.
+              Generative language models, medical imaging, 3D volumetric diagnostics, satellite segmentation, and autonomous agents.
             </p>
           </div>
 
           <div className="space-y-5">
-            {otherProjects.map((project) => (
-              <article
-                key={project.id}
-                className="bg-white border border-neutral-200/80 rounded-xl p-5 sm:p-6 space-y-3.5 hover:border-neutral-300 transition-colors"
-              >
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <div>
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-400 block mb-0.5">
-                      {project.category}
+            {otherProjects.map((project) => {
+              const articleLink = project.links?.find(
+                (l) => l.type === 'article' || l.label.toLowerCase().includes('deep end') || l.label.toLowerCase().includes('article')
+              );
+              const primaryLink = articleLink || (project.links && project.links[0]);
+              const targetUrl = primaryLink?.url;
+
+              const handleCardClick = () => {
+                if (!targetUrl) return;
+                const selection = window.getSelection();
+                if (selection && selection.toString().trim().length > 0) return;
+                if (targetUrl.startsWith('/')) {
+                  navigate(targetUrl);
+                } else {
+                  window.open(targetUrl, '_blank', 'noopener,noreferrer');
+                }
+              };
+
+              return (
+                <article
+                  key={project.id}
+                  onClick={handleCardClick}
+                  onKeyDown={(e) => {
+                    if ((e.key === 'Enter' || e.key === ' ') && targetUrl) {
+                      e.preventDefault();
+                      handleCardClick();
+                    }
+                  }}
+                  tabIndex={targetUrl ? 0 : undefined}
+                  role={targetUrl ? 'link' : undefined}
+                  aria-label={targetUrl ? (articleLink ? `Read article: ${project.title}` : `View project: ${project.title}`) : undefined}
+                  className={`bg-white border border-neutral-200/80 rounded-xl p-5 sm:p-6 space-y-3.5 transition-all duration-200 outline-none ${
+                    targetUrl
+                      ? 'cursor-pointer group hover:border-neutral-400/90 hover:shadow-sm focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:border-neutral-900'
+                      : 'hover:border-neutral-300'
+                  }`}
+                >
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <div className="flex-1 pr-2">
+                      <span className="text-[11px] font-mono uppercase tracking-wider text-neutral-400 block mb-0.5">
+                        {project.category}
+                      </span>
+                      <h3 className="text-lg font-bold tracking-tight text-neutral-900 group-hover:text-black transition-colors inline-flex items-center gap-1.5 flex-wrap">
+                        <span className="group-hover:underline underline-offset-4 decoration-neutral-300">
+                          {project.title}
+                        </span>
+                        {targetUrl && (
+                          <ArrowUpRight className="w-4 h-4 text-neutral-400 opacity-60 group-hover:opacity-100 group-hover:text-neutral-900 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all shrink-0" />
+                        )}
+                      </h3>
+                    </div>
+                    <span className="text-xs font-mono text-neutral-400 shrink-0">
+                      {project.period}
                     </span>
-                    <h3 className="text-lg font-bold tracking-tight text-neutral-900">
-                      {project.title}
-                    </h3>
                   </div>
-                  <span className="text-xs font-mono text-neutral-400">
-                    {project.period}
-                  </span>
-                </div>
 
-                <p className="text-sm text-neutral-600 leading-relaxed">
-                  {project.summary}
-                </p>
+                  <p className="text-sm text-neutral-600 leading-relaxed">
+                    {project.summary}
+                  </p>
 
-                {/* Links */}
-                {project.links && project.links.length > 0 && (
-                  <div className="flex flex-wrap items-center gap-2 pt-1">
-                    {project.links.map((link) => (
-                      <a
-                        key={link.label}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1 text-xs font-mono text-neutral-700 hover:text-neutral-900 bg-neutral-100 hover:bg-neutral-200/70 px-2.5 py-1 rounded transition-colors"
+                  {/* Links */}
+                  {project.links && project.links.length > 0 && (
+                    <div className="flex flex-wrap items-center gap-2 pt-1">
+                      {project.links.map((link) => {
+                        const isInternal = link.url.startsWith('/');
+                        const isArticle = link.type === 'article' || link.label.toLowerCase().includes('deep end');
+
+                        const badgeClass = `inline-flex items-center gap-1 text-xs font-mono px-2.5 py-1 rounded transition-colors ${
+                          isArticle
+                            ? 'text-neutral-800 bg-neutral-100 group-hover:bg-neutral-900 group-hover:text-white'
+                            : 'text-neutral-700 hover:text-neutral-900 bg-neutral-100 hover:bg-neutral-200/70'
+                        }`;
+
+                        if (isInternal) {
+                          return (
+                            <Link
+                              key={link.label}
+                              to={link.url}
+                              onClick={(e) => e.stopPropagation()}
+                              className={badgeClass}
+                            >
+                              <span>{link.label}</span>
+                              <ArrowUpRight className="w-3 h-3 opacity-60" />
+                            </Link>
+                          );
+                        }
+
+                        return (
+                          <a
+                            key={link.label}
+                            href={link.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(e) => e.stopPropagation()}
+                            className={badgeClass}
+                          >
+                            <span>{link.label}</span>
+                            <ArrowUpRight className="w-3 h-3 opacity-60" />
+                          </a>
+                        );
+                      })}
+                    </div>
+                  )}
+
+                  {/* Tech tags */}
+                  <div className="pt-2 border-t border-neutral-100 flex flex-wrap gap-1.5">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-[10.5px] font-mono text-neutral-400"
                       >
-                        <span>{link.label}</span>
-                        <ArrowUpRight className="w-3 h-3 opacity-60" />
-                      </a>
+                        {tag} ·
+                      </span>
                     ))}
                   </div>
-                )}
-
-                {/* Tech tags */}
-                <div className="pt-2 border-t border-neutral-100 flex flex-wrap gap-1.5">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-[10.5px] font-mono text-neutral-400"
-                    >
-                      {tag} ·
-                    </span>
-                  ))}
-                </div>
-              </article>
-            ))}
+                </article>
+              );
+            })}
           </div>
         </section>
 

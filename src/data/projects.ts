@@ -465,6 +465,104 @@ export const projects: Project[] = [
     }
   },
   {
+    id: 'transformer-from-scratch',
+    slug: 'transformer-from-scratch',
+    title: 'Autoregressive Transformer & Generative LLM from Scratch',
+    subtitle: 'End-to-End Decoder-Only Transformer, BPE Tokenizer & KV-Cache Inference Engine',
+    category: 'Deep Learning & Language Models',
+    role: 'Deep Learning Researcher & Systems Engineer',
+    status: 'Open Source Framework',
+    featured: true,
+    priority: 3,
+    period: 'Dec 2025 - Feb 2026',
+    summary:
+      'Engineered an end-to-end autoregressive Transformer language model and generative LLM architecture from first principles in pure PyTorch without high-level library abstractions. Built a zero-dependency Byte Pair Encoding (BPE) subword tokenizer, learned embeddings via Skip-Gram with negative sampling, absolute sinusoidal and Rotary Positional Embeddings (RoPE), multi-head causal self-attention, and inference acceleration via KV caching and sliding window attention.',
+    metrics: [
+      'Custom BPE Tokenizer & Subword Vocabulary Engine',
+      'Multi-Head Causal Self-Attention with Scaled Dot-Product',
+      'Rotary (RoPE) & Sinusoidal Positional Embeddings',
+      'O(1) Autoregressive Generation via KV-Cache Optimization'
+    ],
+    tags: [
+      'PyTorch',
+      'Transformers',
+      'LLMs',
+      'Byte Pair Encoding',
+      'Self-Attention',
+      'KV-Cache',
+      'RoPE',
+      'CUDA',
+      'Python'
+    ],
+    links: [
+      {
+        label: 'GitHub Code',
+        url: 'https://github.com/Black-fox17/llm_scratch',
+        type: 'github'
+      },
+      {
+        label: 'The Deep End Article',
+        url: '/blog/understanding-transformer-architecture',
+        type: 'article'
+      }
+    ],
+    caseStudy: {
+      overview:
+        'A first-principles deep learning system implementing the complete generative language model pipeline from raw tensor algebra up. Rather than relying on Hugging Face transformers or PyTorch nn.Transformer wrappers, every component—from subword tokenization and rotary positional frequencies to causal triangular masking and inference-time KV caching—was engineered and profiled from scratch.',
+      problem:
+        'High-level machine learning libraries abstract away the core mechanics of generative models: how subword merge tables prevent vocabulary explosion, how permutation invariance is broken by positional embeddings, how causal attention prevents information leakage across sequence steps, and why standard autoregressive generation suffers from quadratic O(N²) recomputation bottlenecks without caching.',
+      architecture: [
+        'Byte Pair Encoding (BPE): Custom subword tokenizer building iterative merge tables from raw UTF-8 byte sequences, handling unseen text with zero out-of-vocabulary artifacts.',
+        'Dual Positional Embedding Subsystem: Implemented both absolute sinusoidal encodings and relative Rotary Positional Embeddings (RoPE) by rotating query/key vectors in complex conjugate space.',
+        'Causal Multi-Head Attention: Engineered query, key, value projections with scaled dot-product attention (QK^T / sqrt(d_k)) and upper-triangular negative infinity masking to enforce strict autoregressive causality.',
+        'Pre-LayerNorm & Feed-Forward Blocks: Pre-normalization residual connections and two-layer MLP expansions with GELU non-linearities.',
+        'Inference-Time KV Cache & Sliding Window Attention: Cached past key-value states across attention layers to transform generation step complexity from O(N²) down to O(1) time complexity.'
+      ],
+      engineeringHighlights: [
+        'Built a zero-dependency BytePairEncoder with serialization for vocabulary files and merge tables.',
+        'Authored Skip-Gram with Negative Sampling (Word2Vec) in PyTorch to train dense word embeddings from raw corpus co-occurrences.',
+        'Implemented Rotary Positional Embeddings (RoPE) using complex number polar representation and verified relative token distance decay.',
+        'Engineered a dynamic KV Cache tensor ring buffer, validating exact logit equivalence with standard full-context recomputation while achieving massive generation latency speedups.'
+      ],
+      complexityAndFailures:
+        'Without positional encodings, self-attention is mathematically permutation invariant; character-level models could grasp character co-occurrence but failed at sentence ordering. Comparing sinusoidal frequencies against RoPE demonstrated how rotary embeddings naturally encode relative distances without deteriorating at extended sequence lengths.',
+      productExperience:
+        'A modular, highly educational PyTorch repository enabling developers and researchers to trace every step of generative language modeling: training a custom tokenizer, inspecting attention heatmaps, training autoregressive decoders, and benchmark-testing KV caching speedups.',
+      shippedArtifacts: [
+        'Open-Source llm_scratch PyTorch Repository on GitHub',
+        'Zero-Dependency BPE Tokenizer Module (tokenizer.py)',
+        'Skip-Gram Negative Sampling & Positional Embedding Suites',
+        'Causal Autoregressive GPT Decoder Model (GPT.py)',
+        'KV Cache & Sliding Window Profiling Suite',
+        '5-Part Comprehensive Technical Monograph Series on The Deep End'
+      ],
+      outcomes: [
+        'Engineered a complete, functioning GPT-style generative language model pipeline from scratch in PyTorch.',
+        'Published an exhaustive 5-part engineering breakdown detailing every foundational layer of modern generative AI.'
+      ]
+    },
+    architectureDiagram: {
+      layers: [
+        {
+          name: '1. Ingestion & Tokenization',
+          items: ['Raw UTF-8 Byte Stream', 'BPE Frequency Counting & Merge Tables', 'Subword Vocabulary Mapping']
+        },
+        {
+          name: '2. Embedding & Geometry',
+          items: ['Dense Token Embeddings', 'Sinusoidal Positional Encoding', 'Rotary Positional Embeddings (RoPE)']
+        },
+        {
+          name: '3. Transformer Core',
+          items: ['Multi-Head Causal Self-Attention (Masked QK^T)', 'Pre-LayerNorm Residual Highways', 'GELU Feed-Forward Networks']
+        },
+        {
+          name: '4. Generation & Inference',
+          items: ['Autoregressive Logit Sampling', 'KV Cache Ring Buffering', 'Sliding Window Attention Windowing']
+        }
+      ]
+    }
+  },
+  {
     id: 'point-supervised-loveda-segmentation',
     slug: 'point-supervised-loveda-segmentation',
     title: 'Point-Supervised LoveDA Remote Sensing Segmentation',

@@ -10,22 +10,47 @@ import { blogPosts } from '../constants/blogData';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import { Helmet } from 'react-helmet-async';
-import { ArrowLeft, Clock, Calendar, Share2, Check, BookOpen } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Clock, Share2, Check } from 'lucide-react';
+import ArticleSchematic, { getSeriesBadge } from '../components/writing/ArticleSchematic';
 import './BlogStyles.css';
 
 export const BlogPost: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const [content, setContent] = useState('');
   const [copied, setCopied] = useState(false);
+  const [readProgress, setReadProgress] = useState(0);
   const navigate = useNavigate();
 
-  const post = blogPosts.find((p) => p.slug === slug || p.id === slug);
+  const postIndex = blogPosts.findIndex((p) => p.slug === slug || p.id === slug);
+  const post = postIndex !== -1 ? blogPosts[postIndex] : undefined;
+  const prevPost = postIndex > 0 ? blogPosts[postIndex - 1] : null;
+  const nextPost = postIndex !== -1 && postIndex < blogPosts.length - 1 ? blogPosts[postIndex + 1] : null;
+  const seriesBadge = post ? getSeriesBadge(post.slug) : null;
 
   useEffect(() => {
     if (post) {
-      post.file().then((res) => setContent(res.default));
+      post.file().then((res) => {
+        // Strip leading markdown H1 title since the page header already renders the article title
+        const cleaned = res.default.replace(/^\s*#\s+[^\r\n]+[\r\n]*/, '');
+        setContent(cleaned);
+      });
     }
   }, [post]);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (docHeight <= 0) {
+        setReadProgress(0);
+      } else {
+        setReadProgress(Math.min(100, Math.max(0, (scrollTop / docHeight) * 100)));
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [content]);
 
   const handleShare = () => {
     if (navigator.share) {
@@ -131,6 +156,14 @@ export const BlogPost: React.FC = () => {
         </script>
       </Helmet>
 
+      {/* Top Reading Progress Hairline */}
+      <div className="fixed top-0 left-0 right-0 z-50 h-0.5 bg-neutral-100 pointer-events-none">
+        <div
+          className="h-full bg-neutral-900 transition-[width] duration-150 ease-out"
+          style={{ width: `${readProgress}%` }}
+        />
+      </div>
+
       <Navbar />
 
       <main className="flex-1 pt-20 sm:pt-28 pb-24 w-full max-w-full overflow-x-hidden">
@@ -145,7 +178,7 @@ export const BlogPost: React.FC = () => {
           </Link>
 
           {/* Article Header */}
-          <header className="border-b border-neutral-100 pb-8 mb-10 space-y-4">
+          <header className="border-b border-neutral-100 pb-8 mb-8 space-y-4">
             <div className="flex flex-wrap items-center gap-2 text-xs text-neutral-500 font-mono">
               <span>{post.category}</span>
               <span>•</span>
@@ -153,6 +186,17 @@ export const BlogPost: React.FC = () => {
                 <Clock className="w-3.5 h-3.5" />
                 <span>{post.readTime}</span>
               </span>
+              {seriesBadge && (
+                <>
+                  <span>•</span>
+                  <Link
+                    to="/projects"
+                    className="px-2 py-0.5 rounded bg-neutral-900 text-white text-[10.5px] font-mono hover:bg-neutral-700 transition-colors"
+                  >
+                    {seriesBadge} ↗
+                  </Link>
+                </>
+              )}
             </div>
 
             <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-neutral-900 leading-tight">
@@ -183,6 +227,9 @@ export const BlogPost: React.FC = () => {
               </button>
             </div>
           </header>
+
+          {/* Bespoke Architectural Schematic Figure */}
+          <ArticleSchematic slug={post.slug} variant="banner" />
 
           {/* Article Markdown Body */}
           <div className="markdown-editorial font-sans text-ink-light leading-relaxed max-w-full min-w-0">
@@ -247,19 +294,62 @@ export const BlogPost: React.FC = () => {
             </ReactMarkdown>
           </div>
 
+          {/* Previous / Next Monograph Switcher */}
+          {(prevPost || nextPost) && (
+            <nav
+              aria-label="Adjacent publications"
+              className="mt-14 pt-8 border-t border-neutral-100 grid grid-cols-1 sm:grid-cols-2 gap-4"
+            >
+              {prevPost ? (
+                <Link
+                  to={`/blog/${prevPost.slug}`}
+                  className="group p-4 rounded-xl border border-neutral-200/80 hover:border-neutral-400 transition-all flex flex-col justify-between space-y-2"
+                >
+                  <span className="inline-flex items-center gap-1 text-[11px] font-mono uppercase tracking-wider text-neutral-400">
+                    <ArrowLeft className="w-3 h-3 transition-transform group-hover:-translate-x-0.5" />
+                    <span>Previous Monograph</span>
+                  </span>
+                  <span className="text-sm font-semibold text-neutral-900 group-hover:underline underline-offset-4 decoration-neutral-300 line-clamp-2">
+                    {prevPost.title}
+                  </span>
+                </Link>
+              ) : (
+                <div className="hidden sm:block" />
+              )}
+
+              {nextPost ? (
+                <Link
+                  to={`/blog/${nextPost.slug}`}
+                  className="group p-4 rounded-xl border border-neutral-200/80 hover:border-neutral-400 transition-all flex flex-col justify-between space-y-2 sm:text-right sm:items-end"
+                >
+                  <span className="inline-flex items-center gap-1 text-[11px] font-mono uppercase tracking-wider text-neutral-400">
+                    <span>Next Monograph</span>
+                    <ArrowRight className="w-3 h-3 transition-transform group-hover:translate-x-0.5" />
+                  </span>
+                  <span className="text-sm font-semibold text-neutral-900 group-hover:underline underline-offset-4 decoration-neutral-300 line-clamp-2">
+                    {nextPost.title}
+                  </span>
+                </Link>
+              ) : (
+                <div className="hidden sm:block" />
+              )}
+            </nav>
+          )}
+
           {/* Article Footer Navigation */}
-          <div className="mt-16 pt-8 border-t border-border flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="mt-8 pt-6 border-t border-neutral-100 flex flex-col sm:flex-row items-center justify-between gap-4">
             <Link to="/blog" className="editorial-btn-secondary text-xs">
               <ArrowLeft className="w-3.5 h-3.5" />
-              <span>Explore More Publications</span>
+              <span>Explore All Publications</span>
             </Link>
             <a
               href="https://github.com/Black-fox17"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xs font-mono text-ink-muted hover:text-ink transition-colors"
+              className="inline-flex items-center gap-1 text-xs font-mono text-ink-muted hover:text-ink transition-colors"
             >
-              Find me on GitHub →
+              <span>Inspect Repositories on GitHub</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
             </a>
           </div>
         </article>
