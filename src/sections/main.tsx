@@ -147,9 +147,6 @@ export const Main: React.FC = () => {
 
   const currentChapterObj = chapters.find((c) => c.id === activeChapter) || chapters[0];
 
-  // Horizontal translation percentage of the 5/12-width sticky visual container:
-  // At scrollShift = 0 (Hero): sits on the Right side (x = 134% of its own width)
-  // At scrollShift = 1 (Chapters): docks into the Left Column (x = 0%)
   const translateXPercent = (1 - scrollShift) * 134;
   const scaleValue = 1 + (1 - scrollShift) * 0.04;
   const dockedUiOpacity = Math.max(0, Math.min(1, (scrollShift - 0.55) / 0.45));
@@ -253,7 +250,7 @@ export const Main: React.FC = () => {
                 onClick={() => setMobileMenuOpen(false)}
                 className="editorial-btn-secondary flex-1 !py-2 !text-xs justify-center"
               >
-                <span>The Deep End</span>
+                <span>My Blog</span>
                 <ArrowUpRight className="w-3.5 h-3.5 opacity-60" />
               </Link>
             </div>
@@ -344,12 +341,7 @@ export const Main: React.FC = () => {
           </div>
         </div>
 
-        {/* PAGE FLOW CONTENT (Pulled up by -100vh on lg+ to align with the sticky layer) */}
         <div className="lg:-mt-[100vh] relative z-10">
-          {/* =================================================================
-              SECTION 0: SPLIT HERO STAGE
-              Left: Signature Identity & Copy | Right: Particle Stage (at scroll=0)
-             ================================================================= */}
           <section className="pt-20 pb-12 sm:pt-24 sm:pb-16 lg:py-0 lg:min-h-screen flex items-center border-b border-neutral-100">
             <div className="w-full lg:grid lg:grid-cols-12 lg:gap-10 xl:gap-14 items-center">
               {/* Left Column: Exact Signature Identity & Bio */}
@@ -393,7 +385,7 @@ export const Main: React.FC = () => {
                     to="/blog"
                     className="editorial-btn-secondary !py-2.5 !px-4"
                   >
-                    <span>The Deep End</span>
+                    <span>My Blog</span>
                     <ArrowUpRight className="w-3.5 h-3.5 text-neutral-400" />
                   </Link>
                 </div>
