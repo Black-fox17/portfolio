@@ -247,7 +247,25 @@ export const BlogPost: React.FC = () => {
                   );
                 },
                 pre({ children }: any) {
-                  return <div className="w-full max-w-full my-6">{children}</div>;
+                  const codeElement = React.isValidElement(children)
+                    ? (children as React.ReactElement<any>)
+                    : null;
+                  const className = codeElement?.props?.className || '';
+                  const match = /language-(\w+)/.exec(className);
+                  const codeContent = codeElement?.props?.children ?? children;
+
+                  return (
+                    <div className="w-full max-w-full min-w-0 my-6 rounded-xl overflow-hidden border border-neutral-200 bg-neutral-900 text-neutral-100 shadow-sm">
+                      {match && (
+                        <div className="px-4 py-1.5 bg-neutral-800 border-b border-neutral-700/60 text-[11px] font-mono text-neutral-400 uppercase tracking-wider flex justify-between items-center">
+                          <span>{match[1]}</span>
+                        </div>
+                      )}
+                      <pre className="p-4 overflow-x-auto text-xs font-mono leading-relaxed max-w-full scrollbar-none">
+                        <code className={className}>{codeContent}</code>
+                      </pre>
+                    </div>
+                  );
                 },
                 img({ src, alt }) {
                   if (!src) return null;
@@ -267,23 +285,12 @@ export const BlogPost: React.FC = () => {
                     </figure>
                   );
                 },
-                code({ inline, className, children, ...props }: any) {
-                  const match = /language-(\w+)/.exec(className || '');
-                  return !inline ? (
-                    <div className="w-full max-w-full min-w-0 rounded-xl overflow-hidden border border-neutral-200 bg-neutral-900 text-neutral-100 shadow-sm">
-                      {match && (
-                        <div className="px-4 py-1.5 bg-neutral-800 border-b border-neutral-700/60 text-[11px] font-mono text-neutral-400 uppercase tracking-wider flex justify-between items-center">
-                          <span>{match[1]}</span>
-                        </div>
-                      )}
-                      <pre className="p-4 overflow-x-auto text-xs font-mono leading-relaxed max-w-full scrollbar-none">
-                        <code className={className} {...props}>
-                          {children}
-                        </code>
-                      </pre>
-                    </div>
-                  ) : (
-                    <code className="px-1.5 py-0.5 rounded bg-neutral-100 border border-neutral-200 text-[12px] font-mono text-neutral-900 font-medium break-words" {...props}>
+                code({ node: _node, className, children, ...props }: any) {
+                  return (
+                    <code
+                      className={`px-1.5 py-0.5 rounded bg-neutral-100 border border-neutral-200 text-[0.85em] font-mono text-neutral-900 font-medium break-words ${className || ''}`.trim()}
+                      {...props}
+                    >
                       {children}
                     </code>
                   );

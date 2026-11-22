@@ -14,6 +14,7 @@ const projectOrder = [
   'rsna-lumbar-spine',
   'transformer-from-scratch',
   'point-supervised-loveda-segmentation',
+  'solar-filament-instance-segmentation',
   'retail-shelf-intelligence',
   'asl-fingerspelling',
   'tweakrr',

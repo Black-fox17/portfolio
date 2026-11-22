@@ -12,7 +12,7 @@ interface ProjectRow {
 const featuredRows: ProjectRow[] = [
   {
     title: 'Upward Ecosystem',
-    description: 'Multi-platform PropTech operating system (iOS, Android & Web).',
+    description: 'Built 3 live iOS, Android & web apps and their backend.',
     category: 'Flagship Platform',
   },
   {
@@ -36,9 +36,9 @@ const featuredRows: ProjectRow[] = [
     category: 'Aerial Vision',
   },
   {
-    title: 'Tweakrr',
-    description: 'Academic literature assistant with hybrid vector search.',
-    category: 'AI Assistant',
+    title: 'Solar Filament AI',
+    description: 'Instance segmentation of solar filaments in H-alpha.',
+    category: 'Computer Vision',
   },
   {
     title: 'Asera Core',

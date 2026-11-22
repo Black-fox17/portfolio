@@ -12,6 +12,10 @@ interface SchematicMeta {
 }
 
 const schematicMetaBySlug: Record<string, SchematicMeta> = {
+  'solar-filament-instance-segmentation-mask-rcnn': {
+    label: 'Tiled Full-Disk H-Alpha Instance Segmentation',
+    caption: '16 overlapping 768×768 patches over a 2048×2048 solar disk with Union-Find duplicate merging.'
+  },
   'point-supervised-loveda-segmentation-pce': {
     label: 'Sparse Point Supervision & Tiled Inference',
     caption: '5% sparse point clicks over 256×256 satellite tiles versus dense polygon masks.'
@@ -81,6 +85,28 @@ export const ArticleSchematic: React.FC<ArticleSchematicProps> = ({
 
   const renderGraphic = () => {
     switch (slug) {
+      case 'solar-filament-instance-segmentation-mask-rcnn':
+        return (
+          <svg viewBox="0 0 240 130" className="w-full h-full" fill="none">
+            <pattern id="grid-solar" width="24" height="24" patternUnits="userSpaceOnUse">
+              <path d="M 24 0 L 0 0 0 24" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-neutral-200" />
+            </pattern>
+            <rect width="240" height="130" fill="url(#grid-solar)" />
+            {/* Full-disk Sun */}
+            <circle cx="120" cy="65" r="46" className="fill-neutral-100 stroke-neutral-400" strokeWidth="1.2" />
+            {/* Curved dark solar filaments */}
+            <path d="M 90 48 Q 106 38, 122 47" className="stroke-neutral-900" strokeWidth="2.4" strokeLinecap="round" />
+            <path d="M 108 68 Q 126 60, 146 72" className="stroke-neutral-900" strokeWidth="2.6" strokeLinecap="round" />
+            <path d="M 88 80 Q 102 89, 118 84" className="stroke-neutral-800" strokeWidth="2" strokeLinecap="round" />
+            <path d="M 134 44 Q 145 48, 152 57" className="stroke-neutral-700" strokeWidth="1.8" strokeLinecap="round" />
+            {/* Overlapping 768x768 patch window */}
+            <rect x="74" y="20" width="54" height="54" rx="3" className="stroke-neutral-500" strokeWidth="0.9" strokeDasharray="3 2" />
+            <rect x="108" y="42" width="54" height="54" rx="3" className="stroke-neutral-900 fill-white/25" strokeWidth="1.3" />
+            <text x="113" y="53" className="fill-neutral-600 text-[6.5px] font-mono">768×768 PATCH</text>
+            <text x="14" y="120" className="fill-neutral-500 text-[6.5px] font-mono">2048×2048 H-ALPHA · 16 TILES</text>
+          </svg>
+        );
+
       case 'point-supervised-loveda-segmentation-pce':
         return (
           <svg viewBox="0 0 240 130" className="w-full h-full" fill="none">

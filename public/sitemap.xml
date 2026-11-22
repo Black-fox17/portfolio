@@ -29,6 +29,12 @@
 
   <!-- Technical Articles / The Deep End -->
   <url>
+    <loc>https://ayeleru.space/blog/solar-filament-instance-segmentation-mask-rcnn</loc>
+    <lastmod>2026-11-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://ayeleru.space/blog/point-supervised-loveda-segmentation-pce</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>monthly</changefreq>

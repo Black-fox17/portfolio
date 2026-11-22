@@ -11,6 +11,16 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "12",
+    slug: "solar-filament-instance-segmentation-mask-rcnn",
+    title: "Segmenting Solar Filaments in H-Alpha Images: What Actually Happened When We Built the Pipeline",
+    date: "2026-11-22",
+    readTime: "10 min read",
+    category: "Computer Vision & Medical AI",
+    excerpt: "An honest walkthrough of the Solar Filament Segmentation Challenge 2026: multi-annotator data leakage (1,154 COCO records vs. 707 physical images), 24.3% bounding-box occupancy, rejected strict patch filtering, FP16-to-FP32 Mask R-CNN stabilization, and Union-Find tiled reconstruction.",
+    file: () => import('./posts/solar_filament_instance_segmentation.md?raw')
+  },
+  {
     id: "11",
     slug: "point-supervised-loveda-segmentation-pce",
     title: "Point-Supervised Remote Sensing Segmentation: Empirical Scaling & Partial Cross-Entropy Dynamics on LoveDA",

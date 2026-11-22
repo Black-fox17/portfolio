@@ -2,6 +2,16 @@ import { ArticleItem, OpenSourceReproduction } from '../types/portfolio';
 
 export const publishedArticles: ArticleItem[] = [
   {
+    id: '12',
+    slug: 'solar-filament-instance-segmentation-mask-rcnn',
+    title: 'Segmenting Solar Filaments in H-Alpha Images: What Actually Happened When We Built the Pipeline',
+    date: '2026-11-22',
+    readTime: '10 min read',
+    category: 'Computer Vision & Medical AI',
+    excerpt:
+      'An honest walkthrough of the Solar Filament Segmentation Challenge 2026: multi-annotator data leakage (1,154 COCO records vs. 707 physical images), 24.3% bounding-box occupancy, rejected strict patch filtering, FP16-to-FP32 Mask R-CNN stabilization, and Union-Find tiled reconstruction.'
+  },
+  {
     id: '11',
     slug: 'point-supervised-loveda-segmentation-pce',
     title: 'Point-Supervised Remote Sensing Segmentation: Empirical Scaling & Partial Cross-Entropy Dynamics on LoveDA',
@@ -104,6 +114,14 @@ export const publishedArticles: ArticleItem[] = [
 ];
 
 export const openSourceReproductions: OpenSourceReproduction[] = [
+  {
+    id: 'solar-filament-instance-segmentation',
+    title: 'Solar Filament Instance Segmentation (MAGFiLO 1.0)',
+    description: 'Tiled grayscale Mask R-CNN ResNet-50 FPN pipeline for full-disk H-alpha solar images with leakage-free multi-annotator splitting, FP32 stability guards, and exclusive COCO RLE reconstruction.',
+    category: 'Computer Vision & Deep Learning',
+    technologies: ['PyTorch', 'Mask R-CNN', 'COCO RLE', 'Union-Find', 'MAGFiLO 1.0'],
+    githubUrl: 'https://github.com/Black-fox17/solar-filament-instance-segmentation'
+  },
   {
     id: 'point-supervised-loveda-segmentation',
     title: 'Point-Supervised LoveDA Semantic Segmentation',

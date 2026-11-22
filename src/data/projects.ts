@@ -809,5 +809,100 @@ export const projects: Project[] = [
         }
       ]
     }
+  },
+  {
+    id: 'solar-filament-instance-segmentation',
+    slug: 'solar-filament-instance-segmentation',
+    title: 'Solar Filament Instance Segmentation',
+    subtitle: 'Tiled Grayscale Mask R-CNN & Exclusive COCO RLE Reconstruction on Full-Disk H-Alpha Imagery',
+    category: 'Computer Vision & Deep Learning',
+    role: 'ML & Computer Vision Engineer',
+    status: 'Open Source',
+    featured: true,
+    priority: 2,
+    period: 'November 2026',
+    summary:
+      'Engineered an end-to-end instance segmentation pipeline for the Solar Filament Segmentation Challenge 2026 (MAGFiLO 1.0). Audited 1,154 multi-annotator COCO records across 707 physical 2048×2048 GONG H-alpha solar images to eliminate data leakage, adapted COCO-pretrained Mask R-CNN ResNet-50 FPN to single-channel grayscale with FP32 numerical stability guards, and reconstructed 1,689 non-overlapping full-resolution COCO RLE masks across 180 test images.',
+    metrics: [
+      '0 Filename Leakage (707 Physical Images / 1,154 Multi-Annotator Records)',
+      '96.89% Full-Instance Containment via 16 Overlapping 768×768 Patches',
+      '0 Skipped Batches in Pure FP32 Training (0.41655 Best Val Loss)',
+      '1,689 Exclusive COCO RLE Test Masks Verified with 0 Pixel Overlaps'
+    ],
+    tags: [
+      'PyTorch',
+      'Torchvision',
+      'Mask R-CNN',
+      'ResNet-50 FPN',
+      'COCO RLE',
+      'Union-Find',
+      'Computer Vision',
+      'Python',
+      'Pytest'
+    ],
+    links: [
+      {
+        label: 'GitHub Repository',
+        url: 'https://github.com/Black-fox17/solar-filament-instance-segmentation',
+        type: 'github'
+      },
+      {
+        label: 'The Deep End Article',
+        url: '/blog/solar-filament-instance-segmentation-mask-rcnn',
+        type: 'article'
+      }
+    ],
+    caseStudy: {
+      overview:
+        'Full-disk H-alpha solar images (2048×2048) contain thin, curved plasma filaments that occupy a median of only 1,228 pixels (0.029% of the image) and fill just 24.3% of their axis-aligned bounding boxes. This project builds a reproducible, modular research codebase for detecting and segmenting individual filaments at native resolution with zero pixel overlap.',
+      problem:
+        'Three hidden failure modes broke standard object-detection workflows: (1) 296 of 707 physical images carried 2–3 conflicting annotator passes (pairwise union IoUs as low as 0.36–0.48), causing silent train/val leakage under naive COCO ID splits; (2) downsampling 2048×2048 frames destroyed thin filaments, while strictly dropping boundary-crossing patches discarded 50.36% of all instances; and (3) FP16 mixed-precision training produced non-finite gradients in Mask R-CNN.',
+      architecture: [
+        'Leakage-Free Dataset & Patching: Splits strictly on unique physical filenames (600 train / 107 val), slices 2048×2048 images into 16 overlapping 768×768 patches (overlap 192, stride 576), clips masks with tight box recomputation, and samples one annotator record per physical image per epoch with an LRU cache.',
+        'Grayscale Mask R-CNN (ResNet-50 FPN): Converts the 3-channel COCO stem conv1 to 1-channel grayscale by averaging pretrained RGB weights, swaps box and mask heads for 2 classes (background + filament), and applies dataset-derived grayscale normalization (mean 0.326, std 0.217).',
+        'FP32 Training Engine: Runs AdamW (lr=1e-4) with CosineAnnealingLR, gradient clipping (max_norm=1.0), explicit finite-loss and finite-gradient batch guards, and BatchNorm-frozen validation loss computation.',
+        'Full-Resolution Tiled Reconstruction & Validation: Projects filtered patch masks back to 2048×2048, merges overlapping patch duplicates via Union-Find (bbox IoU >= 0.30 or containment >= 0.50), enforces confidence-ordered pixel exclusivity, encodes Fortran-contiguous COCO RLE, and decodes every row to verify zero pixel overlap.'
+      ],
+      engineeringHighlights: [
+        'Refactored the 55-cell exploratory Colab notebook into a clean installable Python package (src/solar_filament/) with YAML config management, unified CLI, and 26 passing synthetic unit tests.',
+        'Caught and eliminated multi-annotator physical image leakage and audited intra-record mask overlaps across all 8,199 ground-truth polygons.',
+        'Preserved scientific integrity by documenting rejected experiments (strict boundary patch filtering), FP16 instability, Epoch 1 validation-loss overfitting, and bounding-box merging limitations.'
+      ],
+      complexityAndFailures:
+        'Strict boundary-crossing patch filtering looked clean on paper but left 50.36% of filament instances uncovered when audited. FP16 autocast passed single-batch smoke tests but produced non-finite gradients during full training, requiring a switch to pure FP32. Finally, training without augmentation overfit validation loss after Epoch 1 (0.41655 -> 0.46518), highlighting data augmentation, full-resolution mask AP evaluation, and pixel-mask IoU merging as clear next steps.',
+      productExperience:
+        'Researchers and engineers can audit the dataset, train models, run tiled full-disk inference, and strictly validate competition RLE submissions via a single YAML configuration and CLI entry points without relying on hidden notebook state.',
+      shippedArtifacts: [
+        'Modular solar_filament Python Package & CLI (audit, train, predict, validate-submission)',
+        'Original Exploratory Notebook & Clean Reproducible Pipeline Notebook',
+        'Synthetic Pytest Suite Covering Patching, Dataset, Postprocessing, and RLE Validation',
+        'Research Documentation (Dataset Analysis, Methodology, Experiments & Limitations)'
+      ],
+      outcomes: [
+        'Eliminated multi-annotator train/val leakage across 707 physical solar images.',
+        'Achieved stable 0-skipped-batch FP32 training on A100 (~4.2 GB peak VRAM, 26.6 patches/sec).',
+        'Generated 1,689 verified, zero-overlap COCO RLE instance masks across 179/180 test images.'
+      ]
+    },
+    architectureDiagram: {
+      layers: [
+        {
+          name: 'Data Audit & Patch Tiling',
+          items: ['2048×2048 GONG H-Alpha Grayscale', 'Physical-Filename Split (600/107)', '16 Overlapping 768×768 Patches', 'Epoch-Level Single-Annotator Sampling']
+        },
+        {
+          name: 'Grayscale Detection Backbone',
+          items: ['Mask R-CNN ResNet-50 FPN (COCO Init)', '1-Channel Mean-Initialized Conv1', '2-Class Box & Mask Heads', 'Grayscale Norm (mean=0.326, std=0.217)']
+        },
+        {
+          name: 'FP32 Training & Stability',
+          items: ['AdamW + CosineAnnealingLR', 'Grad Clip (1.0) & Non-Finite Guards', 'BatchNorm-Frozen Validation Loss', 'Early Stopping & Checkpointing']
+        },
+        {
+          name: 'Reconstruction & Submission',
+          items: ['Union-Find Duplicate Merging', 'Confidence-Ordered Exclusive Masks', 'Fortran-Contiguous COCO RLE', 'Full Decode & Zero-Overlap Validator']
+        }
+      ]
+    }
   }
 ];
