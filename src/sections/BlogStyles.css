@@ -52,6 +52,20 @@
   color: #0E1015;
 }
 
+.markdown-editorial a {
+  color: #0E1015;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: #A3A3A3;
+  text-underline-offset: 3px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+
+.markdown-editorial a:hover {
+  color: #000000;
+  text-decoration-color: #0E1015;
+}
+
 .markdown-editorial ul {
   list-style-type: disc;
   padding-left: 1.5rem;

@@ -16,14 +16,19 @@ const featuredRows: ProjectRow[] = [
     category: 'Flagship Platform',
   },
   {
+    title: 'RunVault',
+    description: 'Zero-dependency ML tracking & checkpoint recovery.',
+    category: 'ML Infrastructure',
+  },
+  {
+    title: 'Asera Core',
+    description: 'Autonomous agent supervisor with recursive context memory.',
+    category: 'Agent Engine',
+  },
+  {
     title: 'Transformer from Scratch',
     description: 'Autoregressive generative LLM, custom BPE tokenizer & KV-cache.',
     category: 'Generative AI',
-  },
-  {
-    title: 'Breast Cancer AI',
-    description: 'Clinical deep learning for biopsy cancer subtyping with UCH.',
-    category: 'Medical Vision',
   },
   {
     title: 'RSNA Lumbar Spine',
@@ -41,9 +46,9 @@ const featuredRows: ProjectRow[] = [
     category: 'Computer Vision',
   },
   {
-    title: 'Asera Core',
-    description: 'Autonomous agent supervisor with recursive context memory.',
-    category: 'Agent Engine',
+    title: 'Breast Cancer AI',
+    description: 'Clinical deep learning for biopsy cancer subtyping with UCH.',
+    category: 'Medical Vision',
   },
 ];
 

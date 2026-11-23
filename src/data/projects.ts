@@ -114,6 +114,109 @@ export const projects: Project[] = [
     }
   },
   {
+    id: 'runvault',
+    slug: 'runvault',
+    title: 'RunVault (runvault-ai)',
+    subtitle: 'Zero-Dependency ML Experiment Tracking & Checkpoint Durability Engine',
+    category: 'ML Systems & Infrastructure',
+    role: 'Creator & Systems Architect',
+    status: 'Published SDK on PyPI',
+    featured: true,
+    priority: 1,
+    period: '2026',
+    summary:
+      'Engineered an offline-first, zero-dependency Python ML infrastructure platform and PyTorch checkpoint recovery engine. Built on a library-first architecture with stdlib SQLite metadata and direct-to-storage data streaming (Local & Google Drive), eliminating bloated server daemons. Features POSIX atomic publication, ACID synchronous durability, and snapshot-based atomic rollback for PyTorch training recovery.',
+    metrics: [
+      '155 Deterministic Tests (100% Pass Rate)',
+      '0 Mandatory Dependencies (Stdlib Core)',
+      'Published on PyPI (pip install runvault-ai)',
+      'Direct-to-Storage Cloud Streaming (Google Drive & Colab)',
+      'Strict Pyright Typing (0 Errors Across Modules)'
+    ],
+    tags: [
+      'Python',
+      'PyTorch',
+      'SQLite',
+      'Distributed Systems',
+      'Operating Systems (POSIX / Win32)',
+      'ACID Durability',
+      'Google Drive API',
+      'PyPI Package',
+      'GitHub Actions (OIDC)'
+    ],
+    links: [
+      {
+        label: 'PyPI Package (runvault-ai)',
+        url: 'https://pypi.org/project/runvault-ai/',
+        type: 'live'
+      },
+      {
+        label: 'GitHub Repository',
+        url: 'https://github.com/Black-fox17/run-vault',
+        type: 'github'
+      },
+      {
+        label: 'Engineering Deep Dive',
+        url: '/blog/engineering-runvault-zero-dependency-ml-checkpoint-recovery',
+        type: 'article'
+      }
+    ],
+    caseStudy: {
+      overview:
+        'RunVault is a lightweight, reproducible machine learning experiment management and checkpoint durability platform. Designed for real ML workloads and ephemeral training environments (such as Google Colab or spot instances), it decouples metadata tracking from large binary checkpoints, allowing models to stream directly to storage while guaranteeing byte-for-byte recovery upon preemption or corruption.',
+      problem:
+        'Existing ML experiment tools (W&B, MLflow) suffer from severe architectural bloat: they force developers to manage heavy background server daemons, introduce dozens of transitive dependencies that conflict with PyTorch, or route heavy multi-gigabyte checkpoints through an API server bottleneck. When ephemeral instances disconnect or write buffers crash mid-checkpoint, partial files corrupt training state with no recovery.',
+      architecture: [
+        'Library-First Core: Operates completely offline without requiring daemons, background processes, or external servers. Core package relies strictly on Python standard library.',
+        'Direct-to-Storage Data Plane: Checkpoint binaries stream directly between client runtimes and storage providers (Local Filesystem or Google Drive), never bottlenecking through metadata APIs.',
+        'POSIX Atomic Publication: Checkpoints are staged in isolated tempfiles, synchronized to disk with os.fdatasync and directory os.fsync, and published via atomic hard links (os.link).',
+        'ACID Durability Engine: SQLite metadata commits enforce PRAGMA synchronous = FULL inside transaction boundaries before restoring NORMAL, isolating concurrent runs.',
+        'PyTorch Recovery Atomicity: Snapshots live model, optimizer, scheduler, scaler, and RNG states before mutation; triggers an atomic rollback if any component fails during loading.'
+      ],
+      engineeringHighlights: [
+        'Built a complete storage provider abstraction supporting zero-copy bounded-memory streaming (O(chunk_size)) for Google Drive and local storage.',
+        'Engineered upload idempotency and lost-response recovery for Google Drive resumable media uploads, preventing duplicate checkpoints upon Colab disconnection.',
+        'Enforced safe unpickling (weights_only=True) by default, serializing NumPy RNG state tuples into primitive Python integers to prevent arbitrary code execution.',
+        'Maintained 100% strict-mode typing in Pyright (0 errors) and 155 deterministic pytest verification suites.'
+      ],
+      complexityAndFailures:
+        'During training recovery, PyTorch component loading is naturally non-atomic: if model.load_state_dict() succeeds but the optimizer state fails due to parameter group mismatches, the model is left partially mutated in memory. I implemented a pre-mutation snapshot and rollback protocol that deep-copies parameter buffers on-device and cleanly restores state on any failure.',
+      productExperience:
+        'ML engineers add a two-line context manager to their PyTorch loop: manager.step_end(step) logs metrics and persists checkpoints, while restore_torch_checkpoint() automatically verifies SHA-256 hashes and transparently falls back to the newest valid older checkpoint if corruption occurs.',
+      shippedArtifacts: [
+        'Published runvault-ai Python Distribution Package on PyPI',
+        'Open-Source Repository with 155 Passing Tests on GitHub',
+        'Google Drive & Google Colab Remote Storage Provider',
+        'Interactive Quickstart Notebook with Live CIFAR Training'
+      ],
+      outcomes: [
+        'Achieved sub-millisecond import time with zero third-party core dependencies.',
+        'Guaranteed zero checkpoint corruption through atomic hard-links and SQLite FULL synchronous commits.',
+        'Automated seamless Colab training recovery streaming directly to personal Google Drive folders.'
+      ]
+    },
+    architectureDiagram: {
+      layers: [
+        {
+          name: 'Client ML Framework & Runtime',
+          items: ['PyTorch Training Loop', 'TorchCheckpointManager', 'RNG State Preserver (Python/NumPy/CUDA)']
+        },
+        {
+          name: 'Core SDK Orchestration (Zero-Dependency)',
+          items: ['RunVault ActiveRun API', 'POSIX Atomic Publication Engine', 'Safe Deserialization (weights_only=True)']
+        },
+        {
+          name: 'Durability & Metadata Layer',
+          items: ['ACID SQLite Engine', 'PRAGMA synchronous = FULL', 'Automatic Hash & Corruption Fallback']
+        },
+        {
+          name: 'Pluggable Storage Data Plane',
+          items: ['Local Filesystem Storage (Atomic Hard-Links)', 'Google Drive Provider (Chunked Media Streaming)', 'Lost-Response Idempotency']
+        }
+      ]
+    }
+  },
+  {
     id: 'tweakrr',
     slug: 'tweakrr',
     title: 'Tweakrr',
@@ -187,7 +290,7 @@ export const projects: Project[] = [
     category: 'Agentic AI & Distributed Systems',
     role: 'AI Systems Architect & Framework Creator',
     status: 'Production Framework & Live',
-    featured: false,
+    featured: true,
     priority: 2,
     period: '2024 - 2025',
     summary:

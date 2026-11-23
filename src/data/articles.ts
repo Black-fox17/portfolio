@@ -2,6 +2,16 @@ import { ArticleItem, OpenSourceReproduction } from '../types/portfolio';
 
 export const publishedArticles: ArticleItem[] = [
   {
+    id: '13',
+    slug: 'engineering-runvault-zero-dependency-ml-checkpoint-recovery',
+    title: "Why Most ML Training Recovery Is Broken: Building RunVault's Zero-Dependency Checkpoint Durability Engine",
+    date: '2026-11-23',
+    readTime: '11 min read',
+    category: 'ML Infrastructure & Systems',
+    excerpt:
+      'An engineering deep dive into building RunVault: why standard ML experiment tools break during preemption, eliminating server binaries with direct-to-storage streaming, SQLite synchronous durability ordering, atomic POSIX hard-links, and snapshot rollback for PyTorch state recovery.'
+  },
+  {
     id: '12',
     slug: 'solar-filament-instance-segmentation-mask-rcnn',
     title: 'Segmenting Solar Filaments in H-Alpha Images: What Actually Happened When We Built the Pipeline',

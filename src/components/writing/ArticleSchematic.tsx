@@ -12,6 +12,10 @@ interface SchematicMeta {
 }
 
 const schematicMetaBySlug: Record<string, SchematicMeta> = {
+  'engineering-runvault-zero-dependency-ml-checkpoint-recovery': {
+    label: 'Direct-to-Storage Durability & Atomic State Rollback',
+    caption: 'Atomic staging hard-links, SQLite PRAGMA durability, and snapshot rollback for live PyTorch training.'
+  },
   'solar-filament-instance-segmentation-mask-rcnn': {
     label: 'Tiled Full-Disk H-Alpha Instance Segmentation',
     caption: '16 overlapping 768×768 patches over a 2048×2048 solar disk with Union-Find duplicate merging.'

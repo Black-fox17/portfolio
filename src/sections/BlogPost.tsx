@@ -285,6 +285,20 @@ export const BlogPost: React.FC = () => {
                     </figure>
                   );
                 },
+                a({ href, children, ...props }: any) {
+                  const isExternal = typeof href === 'string' && /^https?:\/\//.test(href);
+                  return (
+                    <a
+                      href={href}
+                      {...(isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                      className="font-medium text-neutral-900 underline decoration-neutral-400 underline-offset-[3px] hover:decoration-neutral-900 hover:text-black transition-colors"
+                      {...props}
+                    >
+                      {children}
+                      {isExternal && <ArrowUpRight className="inline w-3.5 h-3.5 ml-0.5 -mt-0.5 text-neutral-400" />}
+                    </a>
+                  );
+                },
                 code({ node: _node, className, children, ...props }: any) {
                   return (
                     <code

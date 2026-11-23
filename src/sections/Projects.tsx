@@ -7,18 +7,19 @@ import Navbar from '../components/layout/Navbar';
 import { projects } from '../data/projects';
 import { ProjectLinkBadge } from '../components/common/ProjectLinkBadge';
 
-// Prioritize computer vision and deep learning projects after Upward Ecosystem
+// Prioritize flagship platform, ML infrastructure, and agent systems after Upward Ecosystem
 const projectOrder = [
   'upward-ecosystem',
-  'breast-cancer-histopathology',
+  'runvault',
+  'asera',
   'rsna-lumbar-spine',
   'transformer-from-scratch',
   'point-supervised-loveda-segmentation',
   'solar-filament-instance-segmentation',
+  'breast-cancer-histopathology',
   'retail-shelf-intelligence',
   'asl-fingerspelling',
   'tweakrr',
-  'asera',
 ];
 
 const sortedProjects = [...projects].sort((a, b) => {
